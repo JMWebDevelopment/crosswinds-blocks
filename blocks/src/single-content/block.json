@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/single-content",
+	"version": "1.0.0",
+	"title": "Single Content",
+	"category": "crosswinds-blocks",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"__experimentalLayout": true
+	},
+	"attributes": {
+		"postId": {
+			"type": "number",
+			"default": 0
+		},
+		"postType": {
+			"type": "string",
+			"default": "post"
+		},
+		"postTypeTitle": {
+			"type": "string",
+			"default": "Post"
+		},
+		"queryId": {
+			"type": "number",
+			"default": 100
+		},
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"namespace": {
+			"type": "string"
+		}
+	},
+	"providesContext": {
+		"postId": "postId",
+		"postType": "postType",
+		"queryId": "queryId"
+	},
+	"textdomain": "featured-content-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
