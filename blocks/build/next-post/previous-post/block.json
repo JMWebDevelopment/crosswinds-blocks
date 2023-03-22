@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "portafoglio/portafoglio-previous-post",
+  "version": "1.0",
+  "title": "Portafoglio Previous Post",
+  "category": "portafoglio",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "supports": {
+    "html": false,
+    "__experimentalLayout": true
+  },
+  "attributes": {
+    "postId": {
+      "type": "number",
+      "default": 1
+    },
+    "postType": {
+      "type": "string",
+      "default": "post"
+    },
+    "queryId": {
+      "type": "number",
+      "default": 100
+    },
+    "tagName": {
+      "type": "string",
+      "default": "div"
+    },
+    "namespace": {
+      "type": "string"
+    }
+  },
+  "providesContext": {
+    "postId": "postId",
+    "postType": "postType",
+    "queryId": "queryId"
+  },
+  "textdomain": "portafoglio-previous-post",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
