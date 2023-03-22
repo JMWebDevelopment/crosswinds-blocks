@@ -116,6 +116,7 @@ class Crosswinds_Blocks {
 	private function define_setup_hooks() {
 		$plugin_setup = new Crosswinds_Blocks_Setup( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'init', $plugin_setup, 'create_custom_post_types' );
+		$this->loader->add_action( 'init', $plugin_setup, 'create_custom_taxonomies' );
 	}
 
 	/**
