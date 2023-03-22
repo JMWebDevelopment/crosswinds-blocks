@@ -1,0 +1,19 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-crosswinds-blocks-skills-slider {
+
+	.slider-container {
+		width: 100%;
+		height: 5px;
+		background-color: var(--wp--preset--color--primary);
+
+		.slider {
+			height: 5px;
+			background-color: var(--wp--preset--color--tertiary);
+		}
+	}
+}

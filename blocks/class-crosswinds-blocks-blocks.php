@@ -49,7 +49,7 @@ class Crosswinds_Blocks_Blocks {
 	 * @since 1.0.0
 	 */
 	public function blocks_init() {
-		register_block_type( __DIR__ . '/build/starter-block/' );
+		register_block_type( __DIR__ . '/build/skills-slider/' );
 	}
 
 	/**
