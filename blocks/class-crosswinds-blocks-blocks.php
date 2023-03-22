@@ -73,6 +73,13 @@ class Crosswinds_Blocks_Blocks {
 				'render_callback' => array( $this, 'previous_post_block_render_callback' ),
 			)
 		);
+
+		register_block_type(
+			__DIR__ . '/build/related-posts/',
+			array(
+				'render_callback' => array( $this, 'related_posts_block_render_callback' ),
+			)
+		);
 	}
 
 	/**
@@ -112,6 +119,12 @@ class Crosswinds_Blocks_Blocks {
 	public function previous_post_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/previous-post/template.php';
+		return ob_get_clean();
+	}
+
+	public function related_posts_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/related-posts/template.php';
 		return ob_get_clean();
 	}
 

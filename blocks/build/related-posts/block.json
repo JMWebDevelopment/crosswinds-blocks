@@ -1,24 +1,26 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "portafoglio/portafoglio-previous-post",
-  "version": "1.0",
-  "title": "Portafoglio Previous Post",
-  "category": "portafoglio",
-  "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "name": "crosswinds-blocks/related-posts",
+  "version": "1.0.0",
+  "title": "Related Posts",
+  "category": "crosswinds-blocks",
   "supports": {
     "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
     "__experimentalLayout": true
   },
   "attributes": {
-    "postId": {
+    "numColumns": {
       "type": "number",
       "default": 1
     },
-    "postType": {
-      "type": "string",
-      "default": "post"
+    "numPosts": {
+      "type": "number",
+      "default": 3
     },
     "queryId": {
       "type": "number",
@@ -37,7 +39,7 @@
     "postType": "postType",
     "queryId": "queryId"
   },
-  "textdomain": "portafoglio-previous-post",
+  "textdomain": "featured-content-block",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"

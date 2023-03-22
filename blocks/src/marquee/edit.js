@@ -9,7 +9,7 @@ import classnames from 'classnames';
 import { __ } from '@wordpress/i18n';
 import {
 	RangeControl,
-	PanelBody
+	PanelBody,
 } from '@wordpress/components';
 import {
 	useBlockProps,

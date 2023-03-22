@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/related-posts",
+	"version": "1.0.0",
+	"title": "Related Posts",
+	"category": "crosswinds-blocks",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"__experimentalLayout": true
+	},
+	"attributes": {
+		"numColumns": {
+			"type": "number",
+			"default": 1
+		},
+		"numPosts": {
+			"type": "number",
+			"default": 3
+		},
+		"queryId": {
+			"type": "number",
+			"default": 100
+		},
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		},
+		"namespace": {
+			"type": "string"
+		}
+	},
+	"providesContext": {
+		"postId": "postId",
+		"postType": "postType",
+		"queryId": "queryId"
+	},
+	"textdomain": "featured-content-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

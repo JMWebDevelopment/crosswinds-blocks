@@ -1,0 +1,25 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-crosswinds-blocks-related-posts {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	column-gap: 30px;
+	row-gap: 30px;
+
+	&.columns-2 {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	&.columns-3 {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	&.columns-4 {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}
