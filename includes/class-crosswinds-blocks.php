@@ -128,6 +128,7 @@ class Crosswinds_Blocks {
 		$admin = new Crosswinds_Blocks_Admin( $this->get_version() );
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'enqueue_block_editor_assets', $admin, 'block_enqueue_scripts' );
 	}
 
 	/**
@@ -148,7 +149,6 @@ class Crosswinds_Blocks {
 		$blocks = new Crosswinds_Blocks_Blocks( $this->get_version() );
 		$this->loader->add_action( 'init', $blocks, 'blocks_init' );
 		$this->loader->add_action( 'block_categories_all', $blocks, 'blocks_categories', 10, 2 );
-		$this->loader->add_action( 'enqueue_block_editor_assets', $blocks, 'block_enqueue_scripts' );
 	}
 
 	/**

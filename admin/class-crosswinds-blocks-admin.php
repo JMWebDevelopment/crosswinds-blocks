@@ -58,4 +58,48 @@ class Crosswinds_Blocks_Admin {
 	 */
 	public function enqueue_scripts() { }
 
+	public function get_post_types_list() {
+		$post_types_args  = array(
+			'public'             => true,
+			'show_in_rest'       => true,
+		);
+		$post_types       = get_post_types( $post_types_args, 'objects' );
+		$post_types_array = array();
+
+		if ( $post_types ) {
+			foreach ( $post_types as $post_type ) {
+				if ( 'post' === $post_type->name || 'attachment' === $post_type->name ) {
+					continue;
+				}
+				$post_type_array = array(
+					'slug'  => $post_type->name,
+					'title' => $post_type->labels->singular_name,
+				);
+				array_push( $post_types_array, $post_type_array );
+			}
+		}
+
+		return $post_types_array;
+	}
+
+	public function block_enqueue_scripts() {
+
+		wp_enqueue_script(
+			'single-content-post-type-variations',
+			plugins_url( 'js/post-types-variations.min.js',  __FILE__ ),
+			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+			'1.0.0',
+			true
+		);
+
+		wp_localize_script(
+			'single-content-post-type-variations',
+			'singleContent',
+			array(
+				'postTypes' => $this->get_post_types_list(),
+			)
+		);
+
+	}
+
 }

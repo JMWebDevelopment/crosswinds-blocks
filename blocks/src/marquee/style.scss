@@ -1,0 +1,45 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-crosswinds-blocks-marquee {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #000;
+	color: #fff;
+	padding: 10px;
+	overflow: hidden;
+
+	p {
+		-moz-transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+}
+
+@-moz-keyframes crosswinds-marquee {
+	from { -moz-transform: translateX(100%); }
+	to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes crosswinds-marquee {
+	from { -webkit-transform: translateX(100%); }
+	to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes crosswinds-marquee {
+	from {
+		-moz-transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+	}
+	to {
+		-moz-transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		transform: translateX(-100%);
+	}
+}

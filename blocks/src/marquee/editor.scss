@@ -1,0 +1,19 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-crosswinds-blocks-marquee {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #000;
+	color: #fff;
+	padding: 10px;
+
+	p {
+		-moz-transform: translateX(0);
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+}
