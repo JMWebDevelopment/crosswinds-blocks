@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "browserSync": {
+      "live": true,
+      "proxyURL": "jacobmartella.dev.cc",
+      "bypassPort": "3000",
+      "https": false
+    },
+    "styles": {
+      "stage": 3,
+      "autoprefixer": {
+        "grid": true
+      },
+      "importFrom": [
+        "_custom-media.css"
+      ],
+      "features": {
+        "custom-media-queries": true,
+        "custom-properties": true,
+        "nesting-rules": true
+      }
+    },
+    "debug": {
+      "styles": false,
+      "scripts": false,
+      "phpcs": true
+    }
+  },
+  "export": {
+    "compress": true,
+    "generatePotFile": true,
+    "filesToCopy": [
+      "LICENSE",
+      "readme.txt",
+      "screenshot.png"
+    ]
+  }
+}

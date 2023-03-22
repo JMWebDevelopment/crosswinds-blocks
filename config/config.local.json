@@ -1,0 +1,7 @@
+{
+  "browserSync": {
+    "live": true,
+    "proxyURL": "jacobmartella.dev.cc",
+    "bypassPort": "3000"
+  }
+}
