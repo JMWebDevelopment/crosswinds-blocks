@@ -64,7 +64,7 @@ class Crosswinds_Blocks {
 	 */
 	public function __construct() {
 
-		$this->plugin_slug = 'crosswinds-blocks';
+		$this->plugin_name = 'crosswinds-blocks';
 		$this->version     = '0.0.1';
 
 		$this->load_dependencies();
@@ -115,6 +115,7 @@ class Crosswinds_Blocks {
 	 */
 	private function define_setup_hooks() {
 		$plugin_setup = new Crosswinds_Blocks_Setup( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_action( 'init', $plugin_setup, 'create_custom_post_types' );
 	}
 
 	/**

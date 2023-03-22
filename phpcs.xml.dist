@@ -57,7 +57,7 @@
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="starter-plugin"/>
+			<property name="text_domain" type="array" value="crosswinds-blocks"/>
 		</properties>
 	</rule>
 
@@ -86,6 +86,8 @@
 			<property name="ignoreNewlines" value="false"/>
 		</properties>
 	</rule>
+
+	<ini name="error_reporting" value="E_ALL &#38; ~E_DEPRECATED" />
 
 	<!--
 	#############################################################################
