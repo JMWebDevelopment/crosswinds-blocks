@@ -37,7 +37,8 @@ export function adminScriptsAfterReplacementStream() {
 	return pipeline.obj([
 		gulpPlugins.babel({
 			presets: [
-				'@babel/preset-env'
+				'@babel/preset-env',
+				'@babel/preset-react'
 			],
 			ignore: ['what-input.js']
 		}),

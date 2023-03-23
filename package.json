@@ -105,5 +105,9 @@
     "test-gulp": "jest gulp/tests",
     "lint": "eslint assets/js/src/",
     "lint-gulp": "eslint gulp/"
+  },
+  "dependencies": {
+    "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/preset-react": "^7.18.6"
   }
 }
