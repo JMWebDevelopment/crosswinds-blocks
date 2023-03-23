@@ -118,7 +118,7 @@ function Edit(_ref2) {
       blocks: getBlocks(clientId)
     };
   }, [clientId]);
-  const blockContexts = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => posts?.map(post => ({
+  let blockContexts = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => posts?.map(post => ({
     postType: post.type,
     postId: post.id
   })), [posts]);
@@ -133,14 +133,32 @@ function Edit(_ref2) {
   if (!posts.length) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", blockProps, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('No results found.'));
   }
-  const {
-    invalidateResolution
-  } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useDispatch)('core/data');
+  function getPosts() {
+    const updatedPosts = [];
+    const newPosts = wp.data.select('core').getEntityRecords('postType', 'post', {
+      per_page: numPosts
+    });
+    if (null === newPosts) {
+      return;
+    }
+    newPosts.forEach(post => {
+      updatedPosts.push({
+        postType: post.type,
+        postId: post.id
+      });
+    });
+    return updatedPosts;
+  }
+  let relatedPosts;
   function updateNumPosts(value) {
     setAttributes({
       numPosts: value
     });
+    blockContexts = getPosts();
+    console.log(blockContexts);
+    relatedPosts = getRelatedPosts();
   }
+  console.log(blockContexts);
   const inspectorControls = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Related Posts Settings', 'crosswinds-blocks')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
@@ -168,20 +186,24 @@ function Edit(_ref2) {
     allowReset: true,
     resetFallbackValue: 1
   })))));
+  function getRelatedPosts() {
+    return blockContexts && blockContexts.map(blockContext => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.BlockContextProvider, {
+      key: blockContext.postId,
+      value: blockContext
+    }, blockContext.postId === (activeBlockContextId || blockContexts[0]?.postId) ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(PostTemplateInnerBlocks, null) : null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MemoizedPostTemplateBlockPreview, {
+      blocks: blocks,
+      blockContextId: blockContext.postId,
+      setActiveBlockContextId: setActiveBlockContextId,
+      isHidden: blockContext.postId === (activeBlockContextId || blockContexts[0]?.postId)
+    })));
+  }
+  relatedPosts = getRelatedPosts();
 
   // To avoid flicker when switching active block contexts, a preview is rendered
   // for each block context, but the preview for the active block context is hidden.
   // This ensures that when it is displayed again, the cached rendering of the
   // block preview is used, instead of having to re-render the preview from scratch.
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", blockProps, blockContexts && blockContexts.map(blockContext => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_5__.BlockContextProvider, {
-    key: blockContext.postId,
-    value: blockContext
-  }, blockContext.postId === (activeBlockContextId || blockContexts[0]?.postId) ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(PostTemplateInnerBlocks, null) : null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(MemoizedPostTemplateBlockPreview, {
-    blocks: blocks,
-    blockContextId: blockContext.postId,
-    setActiveBlockContextId: setActiveBlockContextId,
-    isHidden: blockContext.postId === (activeBlockContextId || blockContexts[0]?.postId)
-  })))));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", blockProps, relatedPosts));
 }
 
 /***/ }),

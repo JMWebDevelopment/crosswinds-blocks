@@ -105,7 +105,7 @@ export default function Edit( {
 			clientId,
 		]
 	);
-	const blockContexts = useMemo(
+	let blockContexts = useMemo(
 		() =>
 			posts?.map( ( post ) => ( {
 				postType: post.type,
@@ -129,11 +129,31 @@ export default function Edit( {
 		return <p { ...blockProps }> { __( 'No results found.' ) }</p>;
 	}
 
-	const { invalidateResolution } = useDispatch( 'core/data' );
+	function getPosts() {
+		const updatedPosts = [];
+		const newPosts = wp.data.select( 'core' ).getEntityRecords( 'postType', 'post', { per_page: numPosts } );
+		if ( null === newPosts ) {
+			return;
+		}
+		newPosts.forEach( ( post ) => {
+			updatedPosts.push( {
+				postType: post.type,
+				postId: post.id,
+			} );
+		} );
+		return updatedPosts;
+	}
+
+	let relatedPosts;
 
 	function updateNumPosts( value ) {
 		setAttributes( { numPosts: value } );
+		blockContexts = getPosts();
+		console.log(blockContexts);
+		relatedPosts = getRelatedPosts();
 	}
+
+	console.log(blockContexts);
 
 	const inspectorControls = (
 		<>
@@ -173,6 +193,36 @@ export default function Edit( {
 		</>
 	);
 
+	function getRelatedPosts() {
+		return (
+			blockContexts &&
+				blockContexts.map( ( blockContext ) => (
+					<BlockContextProvider
+						key={ blockContext.postId }
+						value={ blockContext }
+					>
+						{ blockContext.postId ===
+						( activeBlockContextId ||
+							blockContexts[ 0 ]?.postId ) ? (
+							<PostTemplateInnerBlocks />
+						) : null }
+						<MemoizedPostTemplateBlockPreview
+							blocks={ blocks }
+							blockContextId={ blockContext.postId }
+							setActiveBlockContextId={ setActiveBlockContextId }
+							isHidden={
+								blockContext.postId ===
+								( activeBlockContextId ||
+									blockContexts[ 0 ]?.postId )
+							}
+						/>
+					</BlockContextProvider>
+				) )
+		);
+	}
+
+	relatedPosts = getRelatedPosts();
+
 	// To avoid flicker when switching active block contexts, a preview is rendered
 	// for each block context, but the preview for the active block context is hidden.
 	// This ensures that when it is displayed again, the cached rendering of the
@@ -181,29 +231,7 @@ export default function Edit( {
 		<>
 			{ inspectorControls }
 			<div { ...blockProps }>
-				{ blockContexts &&
-					blockContexts.map( ( blockContext ) => (
-						<BlockContextProvider
-							key={ blockContext.postId }
-							value={ blockContext }
-						>
-							{ blockContext.postId ===
-							( activeBlockContextId ||
-								blockContexts[ 0 ]?.postId ) ? (
-								<PostTemplateInnerBlocks />
-							) : null }
-							<MemoizedPostTemplateBlockPreview
-								blocks={ blocks }
-								blockContextId={ blockContext.postId }
-								setActiveBlockContextId={ setActiveBlockContextId }
-								isHidden={
-									blockContext.postId ===
-									( activeBlockContextId ||
-										blockContexts[ 0 ]?.postId )
-								}
-							/>
-						</BlockContextProvider>
-					) ) }
+				{ relatedPosts }
 			</div>
 		</>
 	);
