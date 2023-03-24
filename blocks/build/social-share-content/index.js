@@ -533,6 +533,7 @@ function Edit(props) {
     iconStyle,
     iconsDirection,
     iconsStretch,
+    iconsBorderRadius,
     iconBackgroundColorValue,
     iconHoverBackgroundColorValue,
     iconHoverColorValue,
@@ -563,7 +564,7 @@ function Edit(props) {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Email', 'crosswinds-blocks')
   }];
   const iconsStylesArray = [{
-    value: 'show-icon-label',
+    value: 'show-label-icon',
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Icons and Labels', 'crosswinds-blocks')
   }, {
     value: 'show-icon',
@@ -641,6 +642,17 @@ function Edit(props) {
     onChange: style => setAttributes({
       iconsStretch: style
     })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Icon Border Radius', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      iconsBorderRadius: value
+    }),
+    value: iconsBorderRadius || '',
+    min: 0,
+    max: 50,
+    initialPosition: 0,
+    allowReset: true,
+    resetFallbackValue: 0
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.__experimentalPanelColorGradientSettings, {
     className: "outermost-crosswinds-blocks__color-settings",
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Icon Color', 'crosswinds-blocks'),
@@ -696,43 +708,54 @@ function Edit(props) {
     }],
     __experimentalHasMultipleOrigins: true
   }))));
+  const iconStyles = {
+    background: gradientValue,
+    backgroundColor: iconBackgroundColorValue,
+    color: iconColorValue
+  };
+  const iconSpanStyles = {
+    borderRadius: iconsBorderRadius + 'px'
+  };
+  const iconClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()('social-icon', {
+    'has-icon-color': iconColor.color || iconColorValue,
+    [`has-${iconBackgroundColor.slug}-background-color`]: iconBackgroundColor.slug
+  });
   const socialIconsDisplay = socialSites.map(site => {
     if (socialIcons.includes(site.site)) {
       if ('show-label-icon' === iconStyle) {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-          className: 'social-icon'
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon, {
+          className: iconClasses,
+          style: iconStyles
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          className: site.site,
+          style: iconSpanStyles
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon, {
           icon: site.icon
         }), " ", site.label));
       } else if ('show-icon' === iconStyle) {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-          className: 'social-icon'
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon, {
+          className: iconClasses,
+          style: iconStyles
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          className: site.site,
+          style: iconSpanStyles
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__.FontAwesomeIcon, {
           icon: site.icon
         })));
       } else {
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-          className: 'social-icon'
-        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, site.label));
+          className: iconClasses,
+          style: iconStyles
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+          className: site.site,
+          style: iconSpanStyles
+        }, site.label));
       }
     }
   });
-
-  /*const sliderBackgroundStyles = {
-  	background: gradientValue,
-  	backgroundColor: sliderBackgroundColorValue,
-  };
-  	const sliderClasses = classnames( 'slider', {
-  	'has-slider-color':
-  		sliderColor.color ||
-  		sliderColorValue,
-  	[ `has-${ sliderColor.slug }-background-color` ]: sliderColor.slug,
-  } );
-  	const sliderStyles = {
-  	backgroundColor: sliderColorValue,
-  };*/
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)(), socialIconsDisplay));
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
+    className: iconsDirection + '-icons ' + iconsStretch + '-icons'
+  }), socialIconsDisplay));
 }
 const sliderColorAttributes = {
   iconColor: 'icon-color',
@@ -10107,7 +10130,7 @@ var icons = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/social-share-content","version":"1.0","title":"Social Share Content","category":"crosswinds-blocks","description":"Add a click to share section for your content.","attributes":{"socialIcons":{"type":"array","default":[]},"iconStyle":{"type":"string","default":"show-label-icon"},"iconsDirection":{"type":"string","default":"vertical"},"iconsStretch":{"type":"string","default":"full"},"iconBackgroundColor":{"type":"string"},"iconHoverBackgroundColor":{"type":"string"},"iconHoverColor":{"type":"string"},"iconColor":{"type":"string"},"iconBackgroundColorValue":{"type":"string"},"iconHoverBackgroundColorValue":{"type":"string"},"iconHoverColorValue":{"type":"string"},"iconColorValue":{"type":"string"},"gradient":{"type":"string"},"customGradient":{"type":"string"}},"supports":{"html":false},"textdomain":"portafoglio-skills-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/social-share-content","version":"1.0","title":"Social Share Content","category":"crosswinds-blocks","description":"Add a click to share section for your content.","attributes":{"socialIcons":{"type":"array","default":[]},"iconStyle":{"type":"string","default":"show-label-icon"},"iconsDirection":{"type":"string","default":"vertical"},"iconsStretch":{"type":"string","default":"full"},"iconsBorderRadius":{"type":"number","default":0},"iconBackgroundColor":{"type":"string"},"iconHoverBackgroundColor":{"type":"string"},"iconHoverColor":{"type":"string"},"iconColor":{"type":"string"},"iconBackgroundColorValue":{"type":"string"},"iconHoverBackgroundColorValue":{"type":"string"},"iconHoverColorValue":{"type":"string"},"iconColorValue":{"type":"string"},"gradient":{"type":"string"},"customGradient":{"type":"string"}},"supports":{"html":false},"textdomain":"portafoglio-skills-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

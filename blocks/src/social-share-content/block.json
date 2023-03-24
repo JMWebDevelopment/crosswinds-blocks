@@ -23,6 +23,10 @@
 			"type": "string",
 			"default": "full"
 		},
+		"iconsBorderRadius": {
+			"type": "number",
+			"default": 0
+		},
 		"iconBackgroundColor": {
 			"type": "string"
 		},

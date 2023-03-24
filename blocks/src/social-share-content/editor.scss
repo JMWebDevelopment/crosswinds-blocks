@@ -4,16 +4,95 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-crosswinds-blocks-skills-slider {
+.wp-block-crosswinds-blocks-social-share-content {
 
-	.slider-container {
-		width: 100%;
-		height: 5px;
-		background-color: var(--wp--preset--color--primary);
+	.social-icon {
+		display: inline-block;
+		margin-right: 5px;
 
-		.slider {
-			height: 5px;
-			background-color: var(--wp--preset--color--tertiary);
+		&:last-child {
+			margin-right: 0;
+		}
+
+		& span {
+			font-size: 16px;
+			padding: 5px;
+			display: inline-block;
+
+			&.facebook {
+				color: #fff;
+				background-color: #3b5998;
+			}
+
+			&.twitter {
+				color: #fff;
+				background-color: #1da1f2;
+			}
+
+			&.mastodon {
+				color: #fff;
+				background-color: #6364ff;
+			}
+
+			&.reddit {
+				color: #fff;
+				background-color: #FF4500;
+			}
+
+			&.pinterest {
+				color: #fff;
+				background-color: #bd081c;
+			}
+
+			&.email {
+				color: #000;
+				background-color: #5ee2ff;
+			}
+
+			&:hover,
+			&:focus {
+				filter: brightness(120%);
+			}
+		}
+	}
+
+	&.full-width-icons {
+		display: flex;
+
+		& .social-icon {
+			text-align: center;
+			flex-grow: 1;
+
+			& span {
+				display: block;
+			}
+		}
+	}
+
+	&.auto-width-icons {
+
+		& .social-icon {
+
+			& span {
+				padding: 5px 8px;
+			}
+		}
+	}
+
+	&.vertical-icons {
+
+		.social-icon {
+			display: block;
+			margin-bottom: 5px;
+			margin-right: 0;
+
+			& span {
+				width: 100%;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 	}
 }

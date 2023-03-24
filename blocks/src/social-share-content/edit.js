@@ -60,6 +60,7 @@ export function Edit( props ) {
 		iconStyle,
 		iconsDirection,
 		iconsStretch,
+		iconsBorderRadius,
 		iconBackgroundColorValue,
 		iconHoverBackgroundColorValue,
 		iconHoverColorValue,
@@ -96,7 +97,7 @@ export function Edit( props ) {
 
 	const iconsStylesArray = [
 		{
-			value: 'show-icon-label',
+			value: 'show-label-icon',
 			label: __( 'Show Icons and Labels', 'crosswinds-blocks' ),
 		},
 		{
@@ -198,6 +199,18 @@ export function Edit( props ) {
 							iconsStretch: style,
 						} ) }
 					/>
+					<RangeControl
+						label={ __( 'Icon Border Radius', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { iconsBorderRadius: value } )
+						}
+						value={ iconsBorderRadius || '' }
+						min={ 0 }
+						max={ 50 }
+						initialPosition={ 0 }
+						allowReset={ true }
+						resetFallbackValue={ 0 }
+					/>
 				</PanelBody>
 				<div>
 					<PanelColorGradientSettings
@@ -273,50 +286,51 @@ export function Edit( props ) {
 		</>
 	);
 
+	const iconStyles = {
+		background: gradientValue,
+		backgroundColor: iconBackgroundColorValue,
+		color: iconColorValue,
+	};
+
+	const iconSpanStyles = {
+		borderRadius: iconsBorderRadius + 'px',
+	};
+
+	const iconClasses = classnames( 'social-icon', {
+		'has-icon-color':
+			iconColor.color ||
+			iconColorValue,
+		[ `has-${ iconBackgroundColor.slug }-background-color` ]: iconBackgroundColor.slug,
+	} );
+
 	const socialIconsDisplay = socialSites.map( ( site ) => {
 		if ( socialIcons.includes( site.site ) ) {
 			if ( 'show-label-icon' === iconStyle ) {
 				return (
-					<div className={ 'social-icon' }>
-						<span><FontAwesomeIcon icon={ site.icon } /> { site.label }</span>
+					<div className={ iconClasses } style={ iconStyles }>
+						<span className={ site.site } style={ iconSpanStyles }><FontAwesomeIcon icon={ site.icon } /> { site.label }</span>
 					</div>
 				);
 			} else if ( 'show-icon' === iconStyle ) {
 				return (
-					<div className={ 'social-icon' }>
-						<span><FontAwesomeIcon icon={ site.icon } /></span>
+					<div className={ iconClasses } style={ iconStyles }>
+						<span className={ site.site } style={ iconSpanStyles }><FontAwesomeIcon icon={ site.icon } /></span>
 					</div>
 				);
 			} else {
 				return (
-					<div className={ 'social-icon' }>
-						<span>{ site.label }</span>
+					<div className={ iconClasses } style={ iconStyles }>
+						<span className={ site.site } style={ iconSpanStyles }>{ site.label }</span>
 					</div>
 				);
 			}
 		}
 	} );
 
-	/*const sliderBackgroundStyles = {
-		background: gradientValue,
-		backgroundColor: sliderBackgroundColorValue,
-	};
-
-	const sliderClasses = classnames( 'slider', {
-		'has-slider-color':
-			sliderColor.color ||
-			sliderColorValue,
-		[ `has-${ sliderColor.slug }-background-color` ]: sliderColor.slug,
-	} );
-
-	const sliderStyles = {
-		backgroundColor: sliderColorValue,
-	};*/
-
 	return (
 		<>
 			{ inspectorControls }
-			<div { ...useBlockProps() }>
+			<div { ...useBlockProps( { className: iconsDirection + '-icons ' + iconsStretch + '-icons' } ) }>
 				{ socialIconsDisplay }
 			</div>
 		</>
