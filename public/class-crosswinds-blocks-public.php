@@ -43,4 +43,8 @@ class Crosswinds_Blocks_Public {
 		$this->version = $version;
 	}
 
+	public function enqueue_styles() {
+		wp_enqueue_style( 'crosswinds-blocks-font-awesome', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css', [], $this->version, 'all' );
+	}
+
 }

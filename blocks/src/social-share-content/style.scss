@@ -20,6 +20,12 @@
 			padding: 5px;
 			display: inline-block;
 			text-decoration: none;
+			transition: all 300ms linear;
+
+			& .far,
+			& .fab {
+				margin-right: 5px;
+			}
 
 			&.facebook {
 				color: #fff;

@@ -708,18 +708,14 @@ function Edit(props) {
     }],
     __experimentalHasMultipleOrigins: true
   }))));
-  const iconStyles = {
+  const iconStyles = {};
+  const iconSpanStyles = {
     background: gradientValue,
     backgroundColor: iconBackgroundColorValue,
-    color: iconColorValue
-  };
-  const iconSpanStyles = {
+    color: iconColorValue,
     borderRadius: iconsBorderRadius + 'px'
   };
-  const iconClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()('social-icon', {
-    'has-icon-color': iconColor.color || iconColorValue,
-    [`has-${iconBackgroundColor.slug}-background-color`]: iconBackgroundColor.slug
-  });
+  const iconClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()('social-icon');
   const socialIconsDisplay = socialSites.map(site => {
     if (socialIcons.includes(site.site)) {
       if ('show-label-icon' === iconStyle) {
@@ -845,13 +841,15 @@ __webpack_require__.r(__webpack_exports__);
   icon: {
     src: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      viewBox: "0 0 448 512"
+      viewBox: "0 0 576 512"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
       fill: "#1b1930",
-      d: "M384 112C384 138.5 362.5 160 336 160H48C21.49 160 0 138.5 0 112V80C0 53.49 21.49 32 48 32H336C362.5 32 384 53.49 384 80V112zM256 432C256 458.5 234.5 480 208 480H48C21.49 480 0 458.5 0 432V400C0 373.5 21.49 352 48 352H208C234.5 352 256 373.5 256 400V432z"
+      class: "fa-primary",
+      d: "M243 34.8c-11.5 5.1-19 16.6-19 29.2v64H176C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96h32v64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
       fill: "#3e7ea8",
-      d: "M48 320C21.49 320 0 298.5 0 272V240C0 213.5 21.49 192 48 192H400C426.5 192 448 213.5 448 240V272C448 298.5 426.5 320 400 320H48z"
+      class: "fa-secondary",
+      d: "M371 34.8c-11.5 5.1-19 16.6-19 29.2v43.3l85.4 76.9c6.7 6.1 10.6 14.7 10.6 23.8s-3.8 17.7-10.6 23.8L352 308.7V352c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z"
     }))
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"]

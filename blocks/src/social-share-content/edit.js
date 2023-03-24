@@ -287,21 +287,17 @@ export function Edit( props ) {
 	);
 
 	const iconStyles = {
-		background: gradientValue,
-		backgroundColor: iconBackgroundColorValue,
-		color: iconColorValue,
+
 	};
 
 	const iconSpanStyles = {
+		background: gradientValue,
+		backgroundColor: iconBackgroundColorValue,
+		color: iconColorValue,
 		borderRadius: iconsBorderRadius + 'px',
 	};
 
-	const iconClasses = classnames( 'social-icon', {
-		'has-icon-color':
-			iconColor.color ||
-			iconColorValue,
-		[ `has-${ iconBackgroundColor.slug }-background-color` ]: iconBackgroundColor.slug,
-	} );
+	const iconClasses = classnames( 'social-icon' );
 
 	const socialIconsDisplay = socialSites.map( ( site ) => {
 		if ( socialIcons.includes( site.site ) ) {

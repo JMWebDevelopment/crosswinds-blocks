@@ -19,6 +19,10 @@
   padding: 5px;
   display: inline-block;
   text-decoration: none;
+  transition: all 300ms linear;
+}
+.wp-block-crosswinds-blocks-social-share-content .social-icon a .far, .wp-block-crosswinds-blocks-social-share-content .social-icon a .fab {
+  margin-right: 5px;
 }
 .wp-block-crosswinds-blocks-social-share-content .social-icon a.facebook {
   color: #fff;
