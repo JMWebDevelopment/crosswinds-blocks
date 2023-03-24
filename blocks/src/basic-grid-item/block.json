@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/basic-grid-item",
+	"version": "1.0",
+	"title": "Basic Grid Item",
+	"category": "crosswinds-blocks",
+	"description": "Add a simple grid with a custom number of columns.",
+	"parent": [
+		"crosswinds-blocks/basic-grid"
+	],
+	"attributes": {
+		"numDesktopColumns": {
+			"type": "number",
+			"default": 4
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"__experimentalLayout": true
+	},
+	"textdomain": "portafoglio-skills-slider",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

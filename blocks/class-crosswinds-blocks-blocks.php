@@ -87,6 +87,9 @@ class Crosswinds_Blocks_Blocks {
 				'render_callback' => array( $this, 'social_share_content_block_render_callback' ),
 			)
 		);
+
+		register_block_type( __DIR__ . '/build/basic-grid/' );
+		register_block_type( __DIR__ . '/build/basic-grid-item/' );
 	}
 
 	/**

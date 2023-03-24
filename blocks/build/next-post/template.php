@@ -8,8 +8,6 @@
  *
  * @package Portafoglio
  */
-
- print_r( get_the_ID() );
 $next_post = get_next_post( get_the_ID() );
 
 if ( $next_post ) {
