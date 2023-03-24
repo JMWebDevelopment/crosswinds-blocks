@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/social-share-content",
+	"version": "1.0",
+	"title": "Social Share Content",
+	"category": "crosswinds-blocks",
+	"description": "Add a click to share section for your content.",
+	"attributes": {
+		"socialIcons": {
+			"type": "array",
+			"default": []
+		},
+		"iconStyle": {
+			"type": "string",
+			"default": "show-label-icon"
+		},
+		"iconsDirection": {
+			"type": "string",
+			"default": "vertical"
+		},
+		"iconsStretch": {
+			"type": "string",
+			"default": "full"
+		},
+		"iconBackgroundColor": {
+			"type": "string"
+		},
+		"iconHoverBackgroundColor": {
+			"type": "string"
+		},
+		"iconHoverColor": {
+			"type": "string"
+		},
+		"iconColor": {
+			"type": "string"
+		},
+		"iconBackgroundColorValue": {
+			"type": "string"
+		},
+		"iconHoverBackgroundColorValue": {
+			"type": "string"
+		},
+		"iconHoverColorValue": {
+			"type": "string"
+		},
+		"iconColorValue": {
+			"type": "string"
+		},
+		"gradient": {
+			"type": "string"
+		},
+		"customGradient": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "portafoglio-skills-slider",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
