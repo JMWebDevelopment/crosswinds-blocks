@@ -1,1 +1,85 @@
-.wp-block-portafoglio-portafoglio-previous-post{display:flex;flex-direction:column;flex-grow:1}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay{overflow:hidden;position:relative}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower{-webkit-margin-before:0;align-items:center;background:var(--wp--preset--color--black);color:var(--wp--preset--color--white);display:flex;flex-direction:column;height:0;justify-content:center;left:0;margin-block-start:0;opacity:0;padding:15px;position:absolute;top:100%;transition:all .2s linear;width:100%}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower a{color:var(--wp--preset--color--white);text-decoration:none}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower a:focus,.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower a:hover{color:var(--wp--preset--color--tertiary)}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay:focus .blog-item-lower,.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay:focus-within .blog-item-lower,.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay:hover .blog-item-lower{height:100%;opacity:.85;top:0}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column{display:flex;flex-direction:column;flex-grow:1;position:relative}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .post-image{position:relative}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .post-image .wp-block-post-date{-webkit-margin-before:0;left:0;margin-block-start:0;position:absolute;top:0;width:auto}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner{display:flex;flex-direction:column;flex-grow:1;width:100%}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner .wp-block-post-terms{margin-bottom:10px}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner .wp-block-post-terms a{text-decoration:none}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner .wp-block-read-more{margin-top:auto}.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column.is-style-small-borders{position:relative}
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/previous-post/style.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-portafoglio-portafoglio-previous-post {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower {
+  position: absolute;
+  height: 0;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background: var(--wp--preset--color--black);
+  opacity: 0;
+  color: var(--wp--preset--color--white);
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  transition: all 200ms linear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower a {
+  text-decoration: none;
+  color: var(--wp--preset--color--white);
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower a:hover, .wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay .blog-item-lower a:focus {
+  color: var(--wp--preset--color--tertiary);
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay:hover .blog-item-lower, .wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay:focus .blog-item-lower, .wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-overlay:focus-within .blog-item-lower {
+  top: 0;
+  height: 100%;
+  opacity: 0.85;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .post-image {
+  position: relative;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .post-image .wp-block-post-date {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner .wp-block-post-terms {
+  margin-bottom: 10px;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner .wp-block-post-terms a {
+  text-decoration: none;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column .blog-item-inner .wp-block-read-more {
+  margin-top: auto;
+}
+.wp-block-portafoglio-portafoglio-previous-post .navigation-post.post-column.is-style-small-borders {
+  position: relative;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

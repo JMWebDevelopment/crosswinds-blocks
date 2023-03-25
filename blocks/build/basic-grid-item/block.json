@@ -10,9 +10,9 @@
     "crosswinds-blocks/basic-grid"
   ],
   "attributes": {
-    "numDesktopColumns": {
-      "type": "number",
-      "default": 4
+    "innerLayout": {
+      "type": "string",
+      "default": "normal"
     }
   },
   "supports": {
