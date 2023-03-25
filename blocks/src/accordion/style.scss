@@ -1,0 +1,51 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-crosswinds-blocks-basic-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+
+	&.basic-grid-has-2-mobile-columns {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media only screen and (min-width: 650px) {
+
+	.wp-block-crosswinds-blocks-basic-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		&.basic-grid-has-2-tablet-columns {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&.basic-grid-has-3-tablet-columns {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+
+	.wp-block-crosswinds-blocks-basic-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+
+		&.basic-grid-has-2-desktop-columns {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&.basic-grid-has-3-desktop-columns {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		&.basic-grid-has-4-desktop-columns {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+	}
+}
