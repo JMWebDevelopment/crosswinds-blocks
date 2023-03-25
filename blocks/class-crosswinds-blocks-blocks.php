@@ -90,6 +90,11 @@ class Crosswinds_Blocks_Blocks {
 
 		register_block_type( __DIR__ . '/build/basic-grid/' );
 		register_block_type( __DIR__ . '/build/basic-grid-item/' );
+
+		register_block_type( __DIR__ . '/build/accordions/' );
+		register_block_type( __DIR__ . '/build/accordion/' );
+		register_block_type( __DIR__ . '/build/accordion-title/' );
+		register_block_type( __DIR__ . '/build/accordion-body/' );
 	}
 
 	/**

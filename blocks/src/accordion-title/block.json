@@ -1,27 +1,27 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "crosswinds-blocks/accordion",
+	"name": "crosswinds-blocks/accordion-title",
 	"version": "1.0",
-	"title": "Accordion Panel",
+	"title": "Accordion Title",
 	"category": "crosswinds-blocks",
-	"description": "Add an accordion panel to your accordion.",
+	"description": "Add an accordion title section to your content.",
 	"attributes": {
-		"panelId": {
+		"accordionPanelId": {
 			"type": "string",
 			"default": ""
 		},
-		"panelIcon": {
+		"accordionPanelIcon": {
 			"type": "string",
-			"default": "plus-minus"
+			"default": ""
 		}
 	},
-	"providesContext": {
-		"panelId": "panelId",
-		"panelIcon": "panelIcon"
-	},
 	"parent": [
-		"crosswinds-blocks/accordions"
+		"crosswinds-blocks/accordion"
+	],
+	"usesContext": [
+		"panelId",
+		"panelIcon"
 	],
 	"supports": {
 		"align": [ "wide", "full" ],

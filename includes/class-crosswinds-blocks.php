@@ -139,6 +139,7 @@ class Crosswinds_Blocks {
 	private function define_public_hooks() {
 		$public = new Crosswinds_Blocks_Public( $this->get_version() );
 		$this->loader->add_action( 'wp_enqueue_scripts', $public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $public, 'enqueue_scripts' );
 	}
 
 	/**

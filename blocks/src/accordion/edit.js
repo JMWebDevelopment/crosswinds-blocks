@@ -1,25 +1,18 @@
 /**
- * External dependencies
- */
-import classnames from 'classnames';
-
-/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import {
-	RangeControl,
-	PanelBody
-} from '@wordpress/components';
-import {
+	useInnerBlocksProps,
 	useBlockProps,
 	InspectorControls,
-	ContrastChecker,
-	withColors,
-	__experimentalPanelColorGradientSettings as PanelColorGradientSettings, // eslint-disable-line
-	__experimentalUseGradient as useGradient, // eslint-disable-line
-	useInnerBlocksProps,
 } from '@wordpress/block-editor';
+
+import {
+	PanelBody,
+	TextControl,
+	SelectControl,
+} from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -28,103 +21,63 @@ import './editor.scss';
 
 export function Edit( props ) {
 	const {
-		attributes,
 		setAttributes,
+		attributes,
 	} = props;
 
 	const {
-		numDesktopColumns,
-		numTabletColumns,
-		numMobileColumns,
-		gridGap,
+		panelId,
+		panelIcon,
 	} = attributes;
 
-	const gridClasses = classnames(
-		`basic-grid-has-${ numDesktopColumns }-desktop-columns`,
-		`basic-grid-has-${ numTabletColumns }-tablet-columns`,
-		`basic-grid-has-${ numMobileColumns }-mobile-columns`,
-	);
-
-	const gridStyle = {
-		gridColumnGap: gridGap + 'px',
-		gridRowGap: gridGap + 'px',
-	};
-
-	const blockProps = useBlockProps(
+	const panelIcons = [
 		{
-			className: gridClasses,
-			style: gridStyle,
-		}
-	);
+			value: 'plus-minus',
+			label: __( 'Plus/Minus', 'crosswinds-blocks' ),
+		},
+		{
+			value: 'arrows',
+			label: __( 'Arrows', 'crosswinds-blocks' ),
+		},
+	];
+
+
+	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
-		allowedBlocks: [ 'crosswinds-blocks/basic-grid-item' ],
+		allowedBlocks: [
+			'crosswinds-blocks/accordion-title',
+			'crosswinds-blocks/accordion-body',
+		],
+		template: [
+			[ 'crosswinds-blocks/accordion-title', {} ],
+			[ 'crosswinds-blocks/accordion-body', {} ],
+		],
 	} );
+
+	function updatePanelId( value ) {
+		value = value.replace( /\s+/g, '-' ).toLowerCase();
+		setAttributes( { panelId: value } );
+	}
 
 	const inspectorControls = (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Basic Grid Settings', 'crosswinds-blocks' ) }>
-					<div className="basic-grid-settings__width">
-						<RangeControl
-							label={ __( 'Desktop Columns', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { numDesktopColumns: value } )
-							}
-							value={ numDesktopColumns || '' }
-							min={ 1 }
-							max={ 4 }
-							initialPosition={ 4 }
-							allowReset={ true }
-							resetFallbackValue={ 4 }
-						/>
-					</div>
+				<PanelBody title={ __( 'Accordion Settings', 'crosswinds-blocks' ) }>
+					<TextControl
+						label={ __( 'Panel Id', 'crosswinds-blocks' ) }
+						value={ panelId }
+						onChange={ ( value ) => updatePanelId( value ) }
+					/>
 
-					<div className="basic-grid-settings__height">
-						<RangeControl
-							label={ __( 'Tablet Columns', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { numTabletColumns: value } )
-							}
-							value={ numTabletColumns || '' }
-							min={ 1 }
-							max={ 3 }
-							initialPosition={ 2 }
-							allowReset={ true }
-							resetFallbackValue={ 2 }
-						/>
-					</div>
-
-					<div className="basic-grid-settings__width">
-						<RangeControl
-							label={ __( 'Mobile Columns', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { numMobileColumns: value } )
-							}
-							value={ numMobileColumns || '' }
-							min={ 1 }
-							max={ 2 }
-							initialPosition={ 1 }
-							allowReset={ true }
-							resetFallbackValue={ 1 }
-						/>
-					</div>
-
-					<div className="basic-grid-settings__height">
-						<RangeControl
-							label={ __( 'Grid Gap', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { gridGap: value } )
-							}
-							value={ gridGap || '' }
-							min={ 0 }
-							max={ 100 }
-							initialPosition={ 30 }
-							allowReset={ true }
-							resetFallbackValue={ 30 }
-						/>
-					</div>
+					<SelectControl
+						label={ __( 'Icons', 'crosswinds-blocks' ) }
+						value={ panelIcon }
+						options={ panelIcons }
+						onChange={ ( icon ) => setAttributes( {
+							panelIcon: icon,
+						} ) }
+					/>
 				</PanelBody>
-
 			</InspectorControls>
 		</>
 	);
