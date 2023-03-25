@@ -56,9 +56,9 @@ export function Edit( props ) {
 	const inspectorControls = (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Social Share Content Settings', 'crosswinds-blocks' ) }>
+				<PanelBody title={ __( 'Grid Item Settings', 'crosswinds-blocks' ) }>
 					<SelectControl
-						label={ __( 'Icon Styles', 'crosswinds-blocks' ) }
+						label={ __( 'Inner Layout', 'crosswinds-blocks' ) }
 						value={ innerLayout }
 						options={ innerLayoutOptions }
 						onChange={ ( style ) => setAttributes( {

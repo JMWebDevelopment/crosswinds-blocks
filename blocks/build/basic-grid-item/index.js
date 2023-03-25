@@ -66,9 +66,9 @@ function Edit(props) {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Last Item at Bottom', 'crosswinds-blocks')
   }];
   const inspectorControls = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Social Share Content Settings', 'crosswinds-blocks')
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Item Settings', 'crosswinds-blocks')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Icon Styles', 'crosswinds-blocks'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Inner Layout', 'crosswinds-blocks'),
     value: innerLayout,
     options: innerLayoutOptions,
     onChange: style => setAttributes({
@@ -147,10 +147,12 @@ __webpack_require__.r(__webpack_exports__);
       viewBox: "0 0 448 512"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
       fill: "#1b1930",
-      d: "M384 112C384 138.5 362.5 160 336 160H48C21.49 160 0 138.5 0 112V80C0 53.49 21.49 32 48 32H336C362.5 32 384 53.49 384 80V112zM256 432C256 458.5 234.5 480 208 480H48C21.49 480 0 458.5 0 432V400C0 373.5 21.49 352 48 352H208C234.5 352 256 373.5 256 400V432z"
+      class: "fa-primary",
+      d: "M48 104C48 90.75 58.75 80 72 80C85.25 80 96 90.75 96 104C96 117.3 85.25 128 72 128C58.75 128 48 117.3 48 104zM352 104C352 90.75 362.7 80 376 80C389.3 80 400 90.75 400 104C400 117.3 389.3 128 376 128C362.7 128 352 117.3 352 104zM96 408C96 421.3 85.25 432 72 432C58.75 432 48 421.3 48 408C48 394.7 58.75 384 72 384C85.25 384 96 394.7 96 408zM352 408C352 394.7 362.7 384 376 384C389.3 384 400 394.7 400 408C400 421.3 389.3 432 376 432C362.7 432 352 421.3 352 408z"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
       fill: "#3e7ea8",
-      d: "M48 320C21.49 320 0 298.5 0 272V240C0 213.5 21.49 192 48 192H400C426.5 192 448 213.5 448 240V272C448 298.5 426.5 320 400 320H48z"
+      class: "fa-secondary",
+      d: "M0 96C0 60.65 28.65 32 64 32H384C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96zM72 80C58.75 80 48 90.75 48 104C48 117.3 58.75 128 72 128C85.25 128 96 117.3 96 104C96 90.75 85.25 80 72 80zM376 128C389.3 128 400 117.3 400 104C400 90.75 389.3 80 376 80C362.7 80 352 90.75 352 104C352 117.3 362.7 128 376 128zM72 384C58.75 384 48 394.7 48 408C48 421.3 58.75 432 72 432C85.25 432 96 421.3 96 408C96 394.7 85.25 384 72 384zM376 432C389.3 432 400 421.3 400 408C400 394.7 389.3 384 376 384C362.7 384 352 394.7 352 408C352 421.3 362.7 432 376 432z"
     }))
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_3__["default"],
