@@ -12,6 +12,20 @@
           margin-block-start: 0 !important;
   -webkit-margin-after: 0 !important;
           margin-block-end: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-crosswinds-blocks-basic-grid-item.equal-layout {
+  justify-content: space-between;
+}
+.wp-block-crosswinds-blocks-basic-grid-item.center-layout {
+  justify-content: center;
+}
+.wp-block-crosswinds-blocks-basic-grid-item.bottom-layout {
+  justify-content: flex-end;
+}
+.wp-block-crosswinds-blocks-basic-grid-item.last-bottom-layout *:last-child {
+  margin-top: auto;
 }
 
 /*# sourceMappingURL=style-index.css.map*/
