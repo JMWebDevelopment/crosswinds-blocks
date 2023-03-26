@@ -95,6 +95,9 @@ class Crosswinds_Blocks_Blocks {
 		register_block_type( __DIR__ . '/build/accordion/' );
 		register_block_type( __DIR__ . '/build/accordion-title/' );
 		register_block_type( __DIR__ . '/build/accordion-body/' );
+
+		register_block_type( __DIR__ . '/build/tabs/' );
+		register_block_type( __DIR__ . '/build/tab-section/' );
 	}
 
 	/**

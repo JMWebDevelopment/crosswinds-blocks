@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "crosswinds-blocks/tab-section",
+  "version": "1.0",
+  "title": "Tab Section",
+  "category": "crosswinds-blocks",
+  "description": "Add a section with tabs.",
+  "attributes": {
+    "tabId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "crosswinds-blocks/tabs"
+  ],
+  "textdomain": "crosswinds-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

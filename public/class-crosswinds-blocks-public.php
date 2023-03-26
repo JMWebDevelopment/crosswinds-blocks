@@ -44,11 +44,12 @@ class Crosswinds_Blocks_Public {
 	}
 
 	public function enqueue_styles() {
-		wp_enqueue_style( 'crosswinds-blocks-font-awesome', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css', [], $this->version, 'all' );
+		wp_enqueue_style( 'crosswinds-blocks-font-awesome', plugin_dir_url( __FILE__ ) . 'css/font-awesome.min.css', array(), $this->version, 'all' );
 	}
 
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'crosswinds-blocks-accordions', plugin_dir_url( __FILE__ ) . 'js/accordions.min.js', [], $this->version, true );
+		wp_enqueue_script( 'crosswinds-blocks-accordions', plugin_dir_url( __FILE__ ) . 'js/accordions.min.js', array(), $this->version, true );
+		wp_enqueue_script( 'crosswinds-blocks-tabs', plugin_dir_url( __FILE__ ) . 'js/tabs.min.js', array(), $this->version, true );
 	}
 
 }
