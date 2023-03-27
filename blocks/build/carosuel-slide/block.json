@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "crosswinds-blocks/custom-slider-slide",
+  "version": "1.0",
+  "title": "Slide",
+  "category": "crosswinds-blocks",
+  "description": "Add a slide panel to a slider.",
+  "attributes": {
+    "panelLayout": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "crosswinds-blocks/custom-slider"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "crosswinds-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
