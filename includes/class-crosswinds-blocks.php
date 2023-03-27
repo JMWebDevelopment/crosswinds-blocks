@@ -151,6 +151,8 @@ class Crosswinds_Blocks {
 		$blocks = new Crosswinds_Blocks_Blocks( $this->get_version() );
 		$this->loader->add_action( 'init', $blocks, 'blocks_init' );
 		$this->loader->add_action( 'block_categories_all', $blocks, 'blocks_categories', 10, 2 );
+		$this->loader->add_action( 'enqueue_block_editor_assets', $blocks, 'custom_attributes_editor_scripts' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $blocks, 'custom_attributes_scripts' );
 	}
 
 	/**

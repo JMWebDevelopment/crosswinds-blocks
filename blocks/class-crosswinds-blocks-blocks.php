@@ -178,4 +178,19 @@ class Crosswinds_Blocks_Blocks {
 		return ob_get_clean();
 	}
 
+	public function custom_attributes_editor_scripts() {
+		wp_register_script(
+			'crosswinds-blocks-custom-attributes',
+			plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.js',
+			[ 'wp-blocks', 'wp-dom', 'wp-dom-ready', 'wp-edit-post' ],
+			filemtime( plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.js' )
+		);
+		wp_enqueue_script( 'crosswinds-blocks-custom-attributes' );
+
+		wp_enqueue_style( 'crosswinds-blocks-custom-attributes-styling', plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.css', array(), $this->version, 'all' );
+	}
+
+	public function custom_attributes_scripts() {
+		wp_enqueue_style( 'crosswinds-blocks-custom-attributes-styling', plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.css', array(), $this->version, 'all' );
+	}
 }
