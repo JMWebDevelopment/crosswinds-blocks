@@ -1,0 +1,49 @@
+.wp-block-group {
+
+	&.cb-fill-height-parent {
+		flex-grow: 1;
+	}
+
+	&.equal-layout {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		> * {
+			width: 100%;
+		}
+	}
+
+	&.center-layout {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		> * {
+			width: 100%;
+		}
+	}
+
+	&.bottom-layout {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		> * {
+			width: 100%;
+		}
+	}
+
+	&.last-bottom-layout {
+		display: flex;
+		flex-direction: column;
+
+		> * {
+			width: 100%;
+		}
+
+		& *:last-child {
+			margin-top: auto;
+		}
+	}
+}

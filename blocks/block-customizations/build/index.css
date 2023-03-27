@@ -1,0 +1,42 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/groupInnerLayout.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-group.cb-fill-height-parent {
+  flex-grow: 1;
+}
+.wp-block-group.equal-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wp-block-group.equal-layout > * {
+  width: 100%;
+}
+.wp-block-group.center-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wp-block-group.center-layout > * {
+  width: 100%;
+}
+.wp-block-group.bottom-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.wp-block-group.bottom-layout > * {
+  width: 100%;
+}
+.wp-block-group.last-bottom-layout {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-group.last-bottom-layout > * {
+  width: 100%;
+}
+.wp-block-group.last-bottom-layout *:last-child {
+  margin-top: auto;
+}
+
+/*# sourceMappingURL=index.css.map*/
