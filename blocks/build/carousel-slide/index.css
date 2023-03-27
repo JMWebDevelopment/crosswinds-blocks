@@ -6,6 +6,9 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-crosswinds-blocks-carousel-slide {
+  position: relative;
+}
 .wp-block-crosswinds-blocks-carousel-slide .wp-block-group-placeholder__variations {
   list-style: none;
   display: flex;
@@ -48,6 +51,23 @@
 .wp-block-crosswinds-blocks-carousel-slide .is-small .wp-block-group-placeholder__variations > li,
 .wp-block-crosswinds-blocks-carousel-slide .is-medium .wp-block-group-placeholder__variations > li {
   margin: 12px;
+}
+.wp-block-crosswinds-blocks-carousel-slide img {
+  visibility: hidden;
+}
+.wp-block-crosswinds-blocks-carousel-slide.cover-center .block-editor-inner-blocks, .wp-block-crosswinds-blocks-carousel-slide.cover-left .block-editor-inner-blocks, .wp-block-crosswinds-blocks-carousel-slide.cover-right .block-editor-inner-blocks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+.wp-block-crosswinds-blocks-carousel-slide.cover-center .block-editor-inner-blocks .block-editor-block-list__layout, .wp-block-crosswinds-blocks-carousel-slide.cover-left .block-editor-inner-blocks .block-editor-block-list__layout, .wp-block-crosswinds-blocks-carousel-slide.cover-right .block-editor-inner-blocks .block-editor-block-list__layout {
+  height: 100%;
+}
+.wp-block-crosswinds-blocks-carousel-slide.cover-center .block-editor-inner-blocks .block-editor-block-list__layout .carousel-slide-cover, .wp-block-crosswinds-blocks-carousel-slide.cover-left .block-editor-inner-blocks .block-editor-block-list__layout .carousel-slide-cover, .wp-block-crosswinds-blocks-carousel-slide.cover-right .block-editor-inner-blocks .block-editor-block-list__layout .carousel-slide-cover {
+  height: 100%;
 }
 
 /*# sourceMappingURL=index.css.map*/

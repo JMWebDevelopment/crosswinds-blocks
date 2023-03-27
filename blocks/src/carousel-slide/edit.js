@@ -7,12 +7,17 @@ import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
 	InnerBlocks,
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
 } from '@wordpress/block-editor';
 import {
 	Path,
 	SVG,
 	Button,
-	Placeholder
+	Placeholder,
+	ResponsiveWrapper,
+	PanelBody,
 } from '@wordpress/components';
 
 /**
@@ -39,7 +44,27 @@ export default function Edit( props ) {
 
 	const {
 		panelLayout,
+		mediaId,
+		mediaUrl,
 	} = attributes;
+
+	const removeMedia = () => {
+		setAttributes( {
+			mediaId: 0,
+			mediaUrl: '',
+		} );
+	};
+
+ 	const onSelectMedia = ( media ) => {
+		setAttributes( {
+			mediaId: media.id,
+			mediaUrl: media.url,
+		} );
+	};
+
+	const blockStyle = {
+		backgroundImage: mediaUrl !== '' ? 'url("' + mediaUrl + '")' : 'none',
+	};
 
 	const panelLayoutOptions = [
 		{
@@ -63,6 +88,59 @@ export default function Edit( props ) {
 			label: __( 'Image with Right-Side Panel', 'crosswinds' ),
 		},
 	];
+
+	const inspectorControls = (
+		<InspectorControls>
+			<PanelBody
+				title={__('Select block background image', 'crosswinds-blocks')}
+				initialOpen={ true }
+			>
+				<div className="editor-post-featured-image">
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ onSelectMedia }
+							value={ mediaId }
+							allowedTypes={ [ 'image' ] }
+							render={ ( { open } ) => (
+								<Button
+									className={ mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview' }
+									onClick={ open }
+								>
+									{ attributes.mediaId == 0 && __( 'Choose an image', 'crosswinds-blocks' ) }
+									{ props.media != undefined &&
+										<ResponsiveWrapper
+											naturalWidth={ props.media.media_details.width }
+											naturalHeight={ props.media.media_details.height }
+										>
+											<img src={ props.media.source_url } />
+										</ResponsiveWrapper>
+									}
+								</Button>
+							)}
+						/>
+					</MediaUploadCheck>
+					{ attributes.mediaId != 0 &&
+						<MediaUploadCheck>
+							<MediaUpload
+								title={ __( 'Replace image', 'crosswinds-blocks' ) }
+								value={ mediaId }
+								onSelect={ onSelectMedia }
+								allowedTypes={ [ 'image' ] }
+								render={ ( { open } ) => (
+									<Button onClick={ open } isDefault isLarge>{ __( 'Replace image', 'crosswinds-blocks' ) }</Button>
+								) }
+							/>
+						</MediaUploadCheck>
+					}
+					{ attributes.mediaId != 0 &&
+						<MediaUploadCheck>
+							<Button onClick={ removeMedia } isLink isDestructive>{ __( 'Remove image', 'crosswinds-blocks' ) }</Button>
+						</MediaUploadCheck>
+					}
+				</div>
+			</PanelBody>
+		</InspectorControls>
+	);
 
 	const panelPlaceHolder = (
 		<Placeholder
@@ -169,55 +247,75 @@ export default function Edit( props ) {
 	);
 
 	let panelInnerLayout;
+	let panelInnerContent;
 
 	if ( 'cover-center' === panelLayout ) {
 		panelInnerLayout = [
-			[ 'core/cover', {}, [
-				[ 'core/group', {}, [
-					[ 'core/heading', { placeholder: __( 'Add a Heading Here', 'crosswinds-blocks' ), textAlign: 'center' } ],
-					[ 'core/paragraph', { placeholder: __( 'Add a Paragraph', 'crosswinds-blocks' ), align: 'center' } ],
-				] ],
+			[ 'core/group', { className: 'carousel-slide-cover' }, [
+				[ 'core/heading', { placeholder: __( 'Add a Heading Here', 'crosswinds-blocks' ), textAlign: 'center' } ],
+				[ 'core/paragraph', { placeholder: __( 'Add a Paragraph', 'crosswinds-blocks' ), align: 'center' } ],
 			] ],
 		];
+
+		panelInnerContent = (
+			<div style={ blockStyle }>
+				<img src={ mediaUrl } />
+				<InnerBlocks
+					template={ panelInnerLayout }
+				/>
+			</div>
+		);
 	} else if ( 'cover-left' === panelLayout ) {
 		panelInnerLayout = [
-			[ 'core/cover', {}, [
-				[ 'core/columns', { columns: 2 }, [
-					[ 'core/column', { width: '33.3%' }, [
-						[ 'core/heading', { placeholder: __( 'Add a Heading Here', 'crosswinds-blocks' ), textAlign: 'left' } ],
-						[ 'core/paragraph', { placeholder: __( 'Add a Paragraph', 'crosswinds-blocks' ), align: 'left' } ],
-					] ],
-				] ],
+			[ 'core/group', { className: 'carousel-slide-cover' }, [
+				[ 'core/heading', { placeholder: __( 'Add a Heading Here', 'crosswinds-blocks' ), textAlign: 'left' } ],
+				[ 'core/paragraph', { placeholder: __( 'Add a Paragraph', 'crosswinds-blocks' ), align: 'left' } ],
 			] ],
 		];
+
+		panelInnerContent = (
+			<div style={ blockStyle }>
+				<img src={ mediaUrl } />
+				<InnerBlocks
+					template={ panelInnerLayout }
+				/>
+			</div>
+		);
 	} else if ( 'cover-right' === panelLayout ) {
 		panelInnerLayout = [
-			[ 'core/cover', {}, [
-				[ 'core/columns', { columns: 2 }, [
-					[ 'core/column', { width: '66.7%' } ],
-					[ 'core/column', { width: '33.3%' }, [
-						[ 'core/heading', { placeholder: __( 'Add a Heading Here', 'crosswinds-blocks' ), textAlign: 'left' } ],
-						[ 'core/paragraph', { placeholder: __( 'Add a Paragraph', 'crosswinds-blocks' ), align: 'left' } ],
-					] ],
-				] ],
+			[ 'core/group', { className: 'carousel-slide-cover' }, [
+				[ 'core/heading', { placeholder: __( 'Add a Heading Here', 'crosswinds-blocks' ), textAlign: 'right' } ],
+				[ 'core/paragraph', { placeholder: __( 'Add a Paragraph', 'crosswinds-blocks' ), align: 'right' } ],
 			] ],
 		];
+
+		panelInnerContent = (
+			<div style={ blockStyle }>
+				<img src={ mediaUrl } />
+				<InnerBlocks
+					template={ panelInnerLayout }
+				/>
+			</div>
+		);
 	}
 
 	let panelInner;
 	if ( '' === panelLayout ) {
 		panelInner = panelPlaceHolder;
 	} else {
-		panelInner = (
-			<InnerBlocks
-				template={ panelInnerLayout }
-			/>
-		);
+		panelInner = panelInnerContent;
 	}
 
 	return (
-		<div { ...useBlockProps() }>
-			{ panelInner }
-		</div>
+		<>
+			{ inspectorControls }
+			<div { ...useBlockProps(
+				{
+					className: panelLayout,
+				}
+			) }>
+				{ panelInner }
+			</div>
+		</>
 	);
 }

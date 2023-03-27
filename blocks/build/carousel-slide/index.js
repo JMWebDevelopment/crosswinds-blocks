@@ -53,8 +53,25 @@ function Edit(props) {
     setAttributes
   } = props;
   const {
-    panelLayout
+    panelLayout,
+    mediaId,
+    mediaUrl
   } = attributes;
+  const removeMedia = () => {
+    setAttributes({
+      mediaId: 0,
+      mediaUrl: ''
+    });
+  };
+  const onSelectMedia = media => {
+    setAttributes({
+      mediaId: media.id,
+      mediaUrl: media.url
+    });
+  };
+  const blockStyle = {
+    backgroundImage: mediaUrl !== '' ? 'url("' + mediaUrl + '")' : 'none'
+  };
   const panelLayoutOptions = [{
     value: 'cover-center',
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Cover with Centered Content', 'crosswinds')
@@ -71,6 +88,49 @@ function Edit(props) {
     value: 'panel-right',
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image with Right-Side Panel', 'crosswinds')
   }];
+  const inspectorControls = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select block background image', 'crosswinds-blocks'),
+    initialOpen: true
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "editor-post-featured-image"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    onSelect: onSelectMedia,
+    value: mediaId,
+    allowedTypes: ['image'],
+    render: _ref => {
+      let {
+        open
+      } = _ref;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        className: mediaId == 0 ? 'editor-post-featured-image__toggle' : 'editor-post-featured-image__preview',
+        onClick: open
+      }, attributes.mediaId == 0 && (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose an image', 'crosswinds-blocks'), props.media != undefined && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ResponsiveWrapper, {
+        naturalWidth: props.media.media_details.width,
+        naturalHeight: props.media.media_details.height
+      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+        src: props.media.source_url
+      })));
+    }
+  })), attributes.mediaId != 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Replace image', 'crosswinds-blocks'),
+    value: mediaId,
+    onSelect: onSelectMedia,
+    allowedTypes: ['image'],
+    render: _ref2 => {
+      let {
+        open
+      } = _ref2;
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+        onClick: open,
+        isDefault: true,
+        isLarge: true
+      }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Replace image', 'crosswinds-blocks'));
+    }
+  })), attributes.mediaId != 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: removeMedia,
+    isLink: true,
+    isDestructive: true
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove image', 'crosswinds-blocks'))))));
   const panelPlaceHolder = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Placeholder, {
     instructions: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select a layout for the slide:')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
@@ -154,50 +214,68 @@ function Edit(props) {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Image with Right-Side Panel', 'crosswinds-blocks')
   }))));
   let panelInnerLayout;
+  let panelInnerContent;
   if ('cover-center' === panelLayout) {
-    panelInnerLayout = [['core/cover', {}, [['core/group', {}, [['core/heading', {
+    panelInnerLayout = [['core/group', {
+      className: 'carousel-slide-cover'
+    }, [['core/heading', {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add a Heading Here', 'crosswinds-blocks'),
       textAlign: 'center'
     }], ['core/paragraph', {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add a Paragraph', 'crosswinds-blocks'),
       align: 'center'
-    }]]]]]];
+    }]]]];
+    panelInnerContent = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: blockStyle
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: mediaUrl
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+      template: panelInnerLayout
+    }));
   } else if ('cover-left' === panelLayout) {
-    panelInnerLayout = [['core/cover', {}, [['core/columns', {
-      columns: 2
-    }, [['core/column', {
-      width: '33.3%'
+    panelInnerLayout = [['core/group', {
+      className: 'carousel-slide-cover'
     }, [['core/heading', {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add a Heading Here', 'crosswinds-blocks'),
       textAlign: 'left'
     }], ['core/paragraph', {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add a Paragraph', 'crosswinds-blocks'),
       align: 'left'
-    }]]]]]]]];
+    }]]]];
+    panelInnerContent = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: blockStyle
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: mediaUrl
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+      template: panelInnerLayout
+    }));
   } else if ('cover-right' === panelLayout) {
-    panelInnerLayout = [['core/cover', {}, [['core/columns', {
-      columns: 2
-    }, [['core/column', {
-      width: '66.7%'
-    }], ['core/column', {
-      width: '33.3%'
+    panelInnerLayout = [['core/group', {
+      className: 'carousel-slide-cover'
     }, [['core/heading', {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add a Heading Here', 'crosswinds-blocks'),
-      textAlign: 'left'
+      textAlign: 'right'
     }], ['core/paragraph', {
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add a Paragraph', 'crosswinds-blocks'),
-      align: 'left'
-    }]]]]]]]];
+      align: 'right'
+    }]]]];
+    panelInnerContent = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      style: blockStyle
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: mediaUrl
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+      template: panelInnerLayout
+    }));
   }
   let panelInner;
   if ('' === panelLayout) {
     panelInner = panelPlaceHolder;
   } else {
-    panelInner = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
-      template: panelInnerLayout
-    });
+    panelInner = panelInnerContent;
   }
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), panelInner);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    className: panelLayout
+  }), panelInner));
 }
 
 /***/ }),
@@ -264,7 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */   "default": () => (/* binding */ Save)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -272,24 +350,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 
 /**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ * WordPress dependencies
  */
 
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
- *
- * @return {WPElement} Element to render.
- */
-function save() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), 'Starter Block – hello from the saved content!');
+function Save() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null);
 }
 
 /***/ }),
@@ -374,7 +439,7 @@ module.exports = window["wp"]["i18n"];
   \***************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/carousel-slide","version":"1.0","title":"Carousel Slide","category":"crosswinds-blocks","description":"Add a slide panel to a carousel.","attributes":{"panelLayout":{"type":"string","default":""}},"parent":["crosswinds-blocks/carousel"],"supports":{"html":false},"textdomain":"crosswinds-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/carousel-slide","version":"1.0","title":"Carousel Slide","category":"crosswinds-blocks","description":"Add a slide panel to a carousel.","attributes":{"panelLayout":{"type":"string","default":""},"mediaId":{"type":"number","default":0},"mediaUrl":{"type":"string","default":""}},"parent":["crosswinds-blocks/carousel"],"supports":{"html":false},"textdomain":"crosswinds-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -10,6 +10,14 @@
 		"panelLayout": {
 			"type": "string",
 			"default": ""
+		},
+		"mediaId": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"parent": [

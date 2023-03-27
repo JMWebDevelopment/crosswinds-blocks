@@ -5,6 +5,7 @@
  */
 
 .wp-block-crosswinds-blocks-carousel-slide {
+	position: relative;
 
 	.wp-block-group-placeholder__variations {
 		list-style: none;
@@ -49,6 +50,32 @@
 	.is-medium {
 		.wp-block-group-placeholder__variations > li {
 			margin: 12px;
+		}
+	}
+
+	img {
+		visibility: hidden;
+	}
+
+	&.cover-center,
+	&.cover-left,
+	&.cover-right {
+
+		.block-editor-inner-blocks {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+
+			.block-editor-block-list__layout {
+				height: 100%;
+
+				.carousel-slide-cover {
+					height: 100%;
+				}
+			}
 		}
 	}
 }
