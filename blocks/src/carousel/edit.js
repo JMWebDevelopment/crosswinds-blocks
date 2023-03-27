@@ -12,6 +12,7 @@ import {
 	withColors,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings, // eslint-disable-line
 	__experimentalUseGradient as useGradient, // eslint-disable-line
+	InnerBlocks,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -45,7 +46,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( props ) {
+export function Edit( props ) {
 	const {
 		setAttributes,
 		attributes,
@@ -58,6 +59,8 @@ export default function Edit( props ) {
 		arrowsHoverColor,
 		arrowsHoverBackgroundColor,
 	} = props;
+
+	console.log( props );
 
 	const {
 		arrowsLocation,
@@ -115,7 +118,7 @@ export default function Edit( props ) {
 				<PanelBody title={ __( 'Arrow Settings', 'crosswinds-blocks' ) }>
 					<PanelColorGradientSettings
 						className="outermost-crosswinds-blocks__color-settings"
-						title={ __( 'Icon Color', 'crosswinds-blocks' ) }
+						title={ __( 'Arrows Color', 'crosswinds-blocks' ) }
 						initialOpen={ true }
 						enableAlpha={ true }
 						settings={ [
@@ -147,7 +150,7 @@ export default function Edit( props ) {
 					</PanelColorGradientSettings>
 					<PanelColorGradientSettings
 						className="outermost-crosswinds-blocks__color-settings"
-						title={ __( 'Icon Background Color', 'crosswinds-blocks' ) }
+						title={ __( 'Arrows Background Color', 'crosswinds-blocks' ) }
 						initialOpen={ true }
 						enableAlpha={ true }
 						settings={ [
@@ -207,7 +210,14 @@ export default function Edit( props ) {
 						<FontAwesomeIcon icon={ faAngleRight } />
 					</div>
 				</div>
-				<div className="slides"></div>
+				<div className="slides">
+					<InnerBlocks
+						allowedBlocks={ [ 'crosswinds-blocks/carousel-slide', 'core/paragraph' ] }
+						template={ [
+							[ 'crosswinds-blocks/carousel-slide', {} ],
+						] }
+					/>
+				</div>
 			</>
 		);
 	}
@@ -221,3 +231,12 @@ export default function Edit( props ) {
 		</>
 	);
 }
+
+const arrowsColorAttributes = {
+	arrowsColor: 'arrows-color',
+	arrowsBackgroundColor: 'arrows-background-color',
+	arrowsHoverColor: 'arrows-hovercolor',
+	arrowsHoverBackgroundColor: 'arrows-hover-background-color',
+};
+
+export default withColors( arrowsColorAttributes )( Edit );

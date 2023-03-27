@@ -150,7 +150,7 @@ export function Edit( props ) {
 	const inspectorControls = (
 		<>
 			<InspectorControls>
-				<PanelBody title={ __( 'Basic Grid Settings', 'crosswinds-blocks' ) }>
+				<PanelBody title={ __( 'Tabs Settings', 'crosswinds-blocks' ) }>
 					{ tabsFields }
 					<Button
 						onClick={ handleAddLocation.bind( this ) }

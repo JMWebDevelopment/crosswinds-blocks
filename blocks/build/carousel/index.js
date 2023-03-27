@@ -469,7 +469,8 @@ var convertCurry = convert.bind(null, (react__WEBPACK_IMPORTED_MODULE_1___defaul
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */   "Edit": () => (/* binding */ Edit),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
@@ -530,6 +531,7 @@ function Edit(props) {
     arrowsHoverColor,
     arrowsHoverBackgroundColor
   } = props;
+  console.log(props);
   const {
     arrowsLocation,
     showDots,
@@ -573,7 +575,7 @@ function Edit(props) {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrow Settings', 'crosswinds-blocks')
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalPanelColorGradientSettings, {
     className: "outermost-crosswinds-blocks__color-settings",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon Color', 'crosswinds-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrows Color', 'crosswinds-blocks'),
     initialOpen: true,
     enableAlpha: true,
     settings: [{
@@ -598,7 +600,7 @@ function Edit(props) {
     __experimentalHasMultipleOrigins: true
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.__experimentalPanelColorGradientSettings, {
     className: "outermost-crosswinds-blocks__color-settings",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon Background Color', 'crosswinds-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Arrows Background Color', 'crosswinds-blocks'),
     initialOpen: true,
     enableAlpha: true,
     settings: [{
@@ -648,10 +650,20 @@ function Edit(props) {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faAngleRight
     }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "slides"
-    }));
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+      allowedBlocks: ['crosswinds-blocks/carousel-slide', 'core/paragraph'],
+      template: [['crosswinds-blocks/carousel-slide', {}]]
+    })));
   }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), slideInner));
 }
+const arrowsColorAttributes = {
+  arrowsColor: 'arrows-color',
+  arrowsBackgroundColor: 'arrows-background-color',
+  arrowsHoverColor: 'arrows-hovercolor',
+  arrowsHoverBackgroundColor: 'arrows-hover-background-color'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.withColors)(arrowsColorAttributes)(Edit));
 
 /***/ }),
 

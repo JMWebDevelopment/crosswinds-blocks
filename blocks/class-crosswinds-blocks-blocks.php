@@ -98,6 +98,20 @@ class Crosswinds_Blocks_Blocks {
 
 		register_block_type( __DIR__ . '/build/tabs/' );
 		register_block_type( __DIR__ . '/build/tab-section/' );
+
+		register_block_type(
+			__DIR__ . '/build/carousel/',
+			array(
+				'render_callback' => array( $this, 'carousel_block_render_callback' ),
+			)
+		);
+
+		register_block_type(
+			__DIR__ . '/build/carousel-slide/',
+			array(
+				'render_callback' => array( $this, 'carousel_slide_block_render_callback' ),
+			)
+		);
 	}
 
 	/**
@@ -149,6 +163,18 @@ class Crosswinds_Blocks_Blocks {
 	public function social_share_content_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/social-share-content/template.php';
+		return ob_get_clean();
+	}
+
+	public function carousel_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/carousel/template.php';
+		return ob_get_clean();
+	}
+
+	public function carousel_slide_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/carousel-slide/template.php';
 		return ob_get_clean();
 	}
 

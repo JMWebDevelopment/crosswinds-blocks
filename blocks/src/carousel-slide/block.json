@@ -1,11 +1,11 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "crosswinds-blocks/custom-slider-slide",
+	"name": "crosswinds-blocks/carousel-slide",
 	"version": "1.0",
-	"title": "Slide",
+	"title": "Carousel Slide",
 	"category": "crosswinds-blocks",
-	"description": "Add a slide panel to a slider.",
+	"description": "Add a slide panel to a carousel.",
 	"attributes": {
 		"panelLayout": {
 			"type": "string",
@@ -13,7 +13,7 @@
 		}
 	},
 	"parent": [
-		"crosswinds-blocks/custom-slider"
+		"crosswinds-blocks/carousel"
 	],
 	"supports": {
 		"html": false
