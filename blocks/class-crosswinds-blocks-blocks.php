@@ -99,7 +99,7 @@ class Crosswinds_Blocks_Blocks {
 		register_block_type( __DIR__ . '/build/tabs/' );
 		register_block_type( __DIR__ . '/build/tab-section/' );
 
-		register_block_type(
+		/* register_block_type(
 			__DIR__ . '/build/carousel/',
 			array(
 				'render_callback' => array( $this, 'carousel_block_render_callback' ),
@@ -111,7 +111,7 @@ class Crosswinds_Blocks_Blocks {
 			array(
 				'render_callback' => array( $this, 'carousel_slide_block_render_callback' ),
 			)
-		);
+		);*/
 	}
 
 	/**
