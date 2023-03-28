@@ -1,0 +1,174 @@
+@import "_custom-properties";
+
+.crosswinds_page_crosswinds-blocks {
+	background-color: var(--color-cb-white);
+
+	& #wpcontent {
+		padding: 0;
+
+		& #wpbody {
+
+			& #wpbody-content {
+				min-height: calc(100vh - 32px);
+				padding: 0;
+			}
+		}
+	}
+
+	& p {
+		font-family: Figtree, sans-serif;
+	}
+
+	& h2 {
+		font-family: Figtree, sans-serif;
+		font-size: 38px;
+		line-height: 1.2;
+	}
+
+	& h3 {
+		margin-top: 0;
+		font-family: Figtree, sans-serif;
+		font-size: 24px;
+	}
+
+	& h4 {
+		margin-top: 0;
+		font-family: Figtree, sans-serif;
+		font-size: 20px;
+	}
+
+	& p,
+	& label {
+		font-family: Figtree, sans-serif;
+		font-size: 16px;
+	}
+
+	& .button,
+	&.wp-core-ui .button-primary {
+		border: 1px solid var(--color-cb-primary);
+		border-radius: 0;
+		background-color: var(--color-cb-primary);
+		color: #efefef;
+		cursor: pointer;
+		font-size: 18px;
+		font-weight: 600;
+		padding: 10px 25px;
+		text-decoration: none;
+		white-space: normal;
+		width: auto;
+		line-height: 1;
+		font-family: Figtree, sans-serif;
+		transition: all linear 300ms;
+
+		&:hover,
+		&:focus {
+			background-color: #efefef;
+			border: 1px solid var(--color-cb-primary);
+			color: var(--color-cb-primary);
+			text-decoration: none;
+		}
+	}
+
+	& .options-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		min-height: calc(100vh - 32px);
+
+		& .tabs-section {
+			flex-basis: 100%;
+			padding: 0 0 2rem;
+			background-color: var(--color-cb-tertiary);
+			box-shadow: inset -7px 0 9px -7px rgba(0, 0, 0, 0.4);
+
+			& .title-area {
+				padding: 2rem 2rem 0;
+
+				& img {
+					max-width: 100%;
+					margin-bottom: 1rem;
+				}
+
+				& h2 {
+					text-align: center;
+					margin: 0 0 2rem;
+				}
+			}
+
+			& .tabs {
+
+				& .tab {
+					overflow: hidden;
+					margin-bottom: 1rem;
+
+					& p {
+						margin: 0;
+					}
+
+					& a {
+						display: block;
+						padding: 5px 2rem;
+						text-decoration: none;
+						color: var(--color-cb-primary);
+						border-right: 5px solid transparent;
+						transition: all 300ms linear;
+
+						&:hover {
+							font-weight: 600;
+							border-right: 5px solid var(--color-cb-secondary);
+						}
+					}
+
+					&.active-tab {
+
+						& a {
+							font-size: 700;
+							border-right: 5px solid var(--color-cb-secondary);
+						}
+					}
+				}
+			}
+		}
+
+		& .main-area {
+			flex-basis: 100%;
+
+			& .settings-wrapper {
+				background-color: var(--color-theme-options-white);
+				border-radius: 12px;
+				border: 1px solid var(--color-theme-options-tertiary);
+				padding: 1rem;
+				box-shadow: 0 2px 20px 0 var(--color-cb-primary);
+
+				& .import-options {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+
+	& .settings-section {
+		margin-bottom: 3rem;
+	}
+}
+
+@media (--medium-up) {
+
+	.crosswinds_page_crosswinds-blocks {
+
+		& .options-wrap {
+	
+			& .tabs-section {
+				max-width: 350px;
+				box-sizing: border-box;
+			}
+	
+			& .main-area {
+				flex-basis: 75%;
+				padding: 0 1rem 1rem;
+				flex-grow: 1;
+				box-sizing: border-box;
+			}
+		}
+	}
+}

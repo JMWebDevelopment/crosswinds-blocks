@@ -1,0 +1,31 @@
+/**
+ * Custom Media Queries
+ * Works like Custom Properties, except for media queries.
+ *
+ * @link: https://drafts.csswg.org/mediaqueries-5/#custom-mq
+ **/
+
+@custom-media --narrow-menu-query screen and (max-width: 37.5em);
+@custom-media --wide-menu-query screen and (min-width: 37.5em);
+@custom-media --content-query screen and (min-width: 48em);
+@custom-media --sidebar-query screen and (min-width: 60em);
+
+@custom-media --small-down screen and (max-width: 39.9375em);
+@custom-media --small-only screen and (max-width: 39.9375em);
+@custom-media --small-up screen and (min-width: 0);
+
+@custom-media --medium-down screen and (max-width: 63.9375em);
+@custom-media --medium-only screen and (min-width: 40em) and (max-width: 63.9375em);
+@custom-media --medium-up screen and (min-width: 40em);
+
+@custom-media --large-down screen and (max-width: 74.9375em);
+@custom-media --large-only screen and (min-width: 64em) and (max-width: 74.9375em);
+@custom-media --large-up screen and (min-width: 64em);
+
+@custom-media --xlarge-down screen and (max-width: 99.9375em);
+@custom-media --xlarge-only screen and (min-width: 75em) and (max-width: 99.9375em);
+@custom-media --xlarge-up screen and (min-width: 75em);
+
+@custom-media --xxlarge-down screen and (max-width: 129.9375em);
+@custom-media --xxlarge-only screen and (min-width: 100em) and (max-width: 129.9375em);
+@custom-media --xxlarge-up screen and (min-width: 100em);

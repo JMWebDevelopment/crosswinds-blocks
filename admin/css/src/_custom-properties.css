@@ -1,0 +1,23 @@
+:root {
+	--color-cb-primary: #1b1930;
+	--color-cb-secondary: #3e7ea8;
+	--color-cb-tertiary: #d6e4f0;
+	--color-cb-white: #fff;
+	--color-cb-black: #000;
+}
+
+/* figtree-regular - latin */
+@font-face {
+	font-family: 'Figtree';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../webfonts/figtree-variable.woff2');
+}
+
+/* figtree-700 - latin */
+@font-face {
+	font-family: 'Figtree';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../webfonts/figtree-variable.woff2');
+}
