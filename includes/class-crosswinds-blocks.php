@@ -73,6 +73,7 @@ class Crosswinds_Blocks {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 		$this->define_blocks_hooks();
+		$this->define_pattern_hooks();
 
 	}
 
@@ -88,6 +89,7 @@ class Crosswinds_Blocks {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-crosswinds-blocks-admin.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-crosswinds-blocks-public.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'blocks/class-crosswinds-blocks-blocks.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'patterns/class-crosswinds-blocks-patterns.php';
 
 		require_once plugin_dir_path( __FILE__ ) . 'class-crosswinds-blocks-loader.php';
 		$this->loader = new Crosswinds_Blocks_Loader();
@@ -153,6 +155,17 @@ class Crosswinds_Blocks {
 		$this->loader->add_action( 'block_categories_all', $blocks, 'blocks_categories', 10, 2 );
 		$this->loader->add_action( 'enqueue_block_editor_assets', $blocks, 'custom_attributes_editor_scripts' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $blocks, 'custom_attributes_scripts' );
+	}
+
+	/**
+	 * Runs all of the pattern hooks for the plugin.
+	 *
+	 * @since 1.0.0
+	 */
+	private function define_pattern_hooks() {
+		$patterns = new Crosswinds_Blocks_Patterns( $this->get_version() );
+		$this->loader->add_action( 'init', $patterns, 'register_block_pattern_categories' );
+		$this->loader->add_action( 'init', $patterns, 'register_block_patterns' );
 	}
 
 	/**
