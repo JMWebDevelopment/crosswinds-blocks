@@ -54,7 +54,18 @@ class Crosswinds_Blocks_Patterns {
 
 	public function register_block_patterns() {
 		$block_patterns = array(
+			'accordions/accordion-with-border-and-title-background',
+			'accordions/basic-accordion',
+			'featured-content/featured-content-column-pattern',
+			'featured-content/featured-content-block-row-photo-left',
+			'featured-content/featured-content-block-row-photo-right',
+			'post-navigation/post-navigation-section',
+			'related-posts/related-posts-section',
+			'single-posts/single-post-horizontal',
+			'single-posts/single-post-vertical',
 			'skills-sliders/skill-slider',
+			'skills-sliders/skills-slider-group',
+			'skills-sliders/skills-slider-section',
 		);
 
 		foreach ( $block_patterns as $block_pattern ) {
