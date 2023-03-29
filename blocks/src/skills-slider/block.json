@@ -5,7 +5,7 @@
 	"version": "1.0",
 	"title": "Skills Slider",
 	"category": "crosswinds-blocks",
-	"description": "A skills slider to show how much you know about something.",
+	"description": "Add a skills slider to show how much you know about something.",
 	"attributes": {
 		"sliderWidth": {
 			"type": "number",

@@ -121,8 +121,8 @@ class Crosswinds_Blocks_Admin {
 
 		if ( 'Crosswinds Framework' !== $current_theme_name ) {
 			add_menu_page(
-				esc_html__( 'Crosswinds Framework & Block Settings', 'jm-web-development' ),
-				esc_html__( 'Crosswinds', 'jm-web-development' ),
+				esc_html__( 'Crosswinds Framework & Block Settings', 'crosswinds-blocks' ),
+				esc_html__( 'Crosswinds', 'crosswinds-blocks' ),
 				'manage_options',
 				'crosswinds-framework-block-options',
 				array( $this, 'create_main_admin_page' ),
@@ -133,8 +133,8 @@ class Crosswinds_Blocks_Admin {
 
 		add_submenu_page( 
 			'crosswinds-framework-block-options',
-			esc_html__( 'Crosswinds Blocks Options', 'crosswinds-block' ),
-			esc_html__( 'Blocks', 'crosswinds-block' ),
+			esc_html__( 'Crosswinds Blocks Options', 'crosswinds-blocks' ),
+			esc_html__( 'Blocks', 'crosswinds-blocks' ),
 			'manage_options',
 			'crosswinds-blocks',
 			array( $this, 'create_blocks_plugin_page' )
@@ -151,44 +151,43 @@ class Crosswinds_Blocks_Admin {
 			<div class="tabs-section">
 				<div class="title-area">
 					<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . 'images/portafoglio-logo-no-background.png' ); ?>" alt="Crosswinds Blocks Logo" />
-					<h2><?php esc_html_e( 'Crosswinds Blocks Options', 'jm-web-development' ); ?></h2>
+					<h2><?php esc_html_e( 'Crosswinds Blocks Options', 'crosswinds-blocks' ); ?></h2>
 				</div>
 
 				<div class="tabs">
-					<div class="tab <?php echo $this->is_active_tab( 'blocks' ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=blocks' ) ); ?>"><?php esc_html_e( 'Blocks', 'jm-web-development' ); ?></a></p>
+					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'blocks' ) ); ?>">
+						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=blocks' ) ); ?>"><?php esc_html_e( 'Blocks', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
-					<div class="tab <?php echo $this->is_active_tab( 'custom-post-types' ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-post-types' ) ); ?>"><?php esc_html_e( 'Custom Post Types', 'jm-web-development' ); ?></a></p>
+					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'custom-post-types' ) ); ?>">
+						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-post-types' ) ); ?>"><?php esc_html_e( 'Custom Post Types', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
-					<div class="tab <?php echo $this->is_active_tab( 'custom-taxonomies' ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-taxonomies' ) ); ?>"><?php esc_html_e( 'Custom Taxonomies', 'jm-web-development' ); ?></a></p>
+					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'custom-taxonomies' ) ); ?>">
+						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-taxonomies' ) ); ?>"><?php esc_html_e( 'Custom Taxonomies', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
-					<div class="tab <?php echo $this->is_active_tab( 'design' ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=design' ) ); ?>"><?php esc_html_e( 'Design', 'jm-web-development' ); ?></a></p>
+					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'design' ) ); ?>">
+						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=design' ) ); ?>"><?php esc_html_e( 'Design', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
-					<div class="tab <?php echo $this->is_active_tab( 'support' ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=support' ) ); ?>"><?php esc_html_e( 'Support', 'jm-web-development' ); ?></a></p>
+					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'support' ) ); ?>">
+						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=support' ) ); ?>"><?php esc_html_e( 'Support', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="main-area">
 				<?php
-				/*
-				if ( isset( $_GET['tab'] ) && 'convert' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/convert.php';
-				} elseif ( isset( $_GET['tab'] ) && 'license' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/license.php';
-				} elseif ( isset( $_GET['tab'] ) && 'import' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/import.php';
+				if ( isset( $_GET['tab'] ) && 'blocks' === $_GET['tab'] ) {
+					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/block-settings.php';
+				} elseif ( isset( $_GET['tab'] ) && 'custom-post-types' === $_GET['tab'] ) {
+					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/cpt-settings.php';
+				} elseif ( isset( $_GET['tab'] ) && 'custom-taxonomies' === $_GET['tab'] ) {
+					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/custom-taxonomies-settings.php';
 				} else {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/support.php';
-				}*/
+					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/block-settings.php';
+				}
 				?>
 			</div>
 		</div>
@@ -199,7 +198,7 @@ class Crosswinds_Blocks_Admin {
 		if ( $_GET['tab'] === $tab ) {
 			return 'active-tab';
 		} elseif ( ! isset( $_GET['tab'] ) && 'blocks' === $tab ) {
-			return true;
+			return 'active-tab';
 		} else {
 			return;
 		}

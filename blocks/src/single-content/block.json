@@ -4,6 +4,7 @@
 	"name": "crosswinds-blocks/single-content",
 	"version": "1.0.0",
 	"title": "Single Content",
+	"description": "Add in a section to highlight a single post, page or other custom post type.",
 	"category": "crosswinds-blocks",
 	"supports": {
 		"html": false,

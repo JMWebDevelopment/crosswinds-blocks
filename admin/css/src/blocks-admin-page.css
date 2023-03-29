@@ -122,7 +122,7 @@
 					&.active-tab {
 
 						& a {
-							font-size: 700;
+							font-weight: 600;
 							border-right: 5px solid var(--color-cb-secondary);
 						}
 					}
@@ -133,15 +133,152 @@
 		& .main-area {
 			flex-basis: 100%;
 
-			& .settings-wrapper {
-				background-color: var(--color-theme-options-white);
-				border-radius: 12px;
-				border: 1px solid var(--color-theme-options-tertiary);
-				padding: 1rem;
-				box-shadow: 0 2px 20px 0 var(--color-cb-primary);
+			& .options-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 30px;
 
-				& .import-options {
-					margin-bottom: 1rem;
+				& .options-grid-item {
+					padding: 1rem;
+					border-radius: 12px;
+					background-color: #efefef;
+					text-align: center;
+					border: 1px solid var(--color-cb-primary);
+
+					&:nth-child(even) {
+						border-color: var(--color-cb-secondary);
+					}
+
+					& .block-icon {
+
+						& svg {
+							height: 75px;
+							width: auto;
+						}
+					}
+
+					& .block-title {
+						font-size: 24px;
+						color: var(--color-cb-primary);
+						font-weight: 600;
+					}
+
+					& .Toggle {
+						display: inline-flex;
+						align-items: center;
+						flex-wrap: wrap;
+						position: relative;
+						gap: 1ch;
+
+						& .Toggle__input {
+							position: absolute;
+							opacity: 0;
+							width: 100%;
+							height: 100%;
+							z-index: 1;
+						}
+
+						& .Toggle__display {
+							--offset: 0.25em;
+							--diameter: 1.8em;
+						  
+							display: inline-flex;
+							align-items: center;
+							justify-content: space-around;
+						  
+							width: calc(var(--diameter) * 2 + var(--offset) * 2);
+							height: calc(var(--diameter) + var(--offset) * 2);
+							box-sizing: content-box;
+						  
+							border: 0.1em solid rgb(0 0 0 / 0.2);
+						  
+							position: relative;
+							border-radius: 100vw;
+							background-color: #fbe4e2;
+						  
+							transition: 250ms;
+							cursor: pointer;
+
+							&::before {
+								content: '';
+							  
+								width: var(--diameter);
+								height: var(--diameter);
+								border-radius: 50%;
+							  
+								box-sizing: border-box;
+								border: 0.1em solid rgb(0 0 0 / 0.2);
+							  
+								position: absolute;
+								z-index: 2;
+								top: 50%;
+								left: var(--offset);
+								transform: translate(0, -50%);
+							  
+								background-color: #fff;
+								transition: inherit;
+							}
+						}
+					}
+
+					& .Toggle:focus .Toggle__display,
+					& .Toggle__input:focus + .Toggle__display {
+						outline: 1px dotted #212121;
+						outline: 1px auto -webkit-focus-ring-color;
+						outline-offset: 2px;
+					}
+
+					& .Toggle:focus,
+					& .Toggle:focus:not(:focus-visible) .Toggle__display,
+					& .Toggle__input:focus:not(:focus-visible) + .Toggle__display {
+						outline: 0;
+					}
+
+					& .Toggle[aria-pressed="true"] .Toggle__display,
+					& .Toggle__input:checked + .Toggle__display {
+						background-color: #e3f5eb;
+					}
+
+					& .Toggle[aria-pressed="true"] .Toggle__display::before,
+					& .Toggle__input:checked + .Toggle__display::before {
+						transform: translate(100%, -50%);
+					}
+
+					& .Toggle[disabled] .Toggle__display,
+					& .Toggle__input:disabled + .Toggle__display {
+						opacity: 0.6;
+						filter: grayscale(40%);
+						cursor: not-allowed;
+					}
+
+					& [dir="rtl"] .Toggle__display::before {
+						left: auto;
+						right: var(--offset);
+					}
+
+					& [dir="rtl"] .Toggle[aria-pressed="true"] + .Toggle__display::before,
+					& [dir="rtl"] .Toggle__input:checked + .Toggle__display::before {
+						transform: translate(-100%, -50%);
+					}
+
+					& .Toggle__icon {
+						display: inline-block;
+						width: 1em;
+						height: 1em;
+						color: inherit;
+						fill: currentcolor;
+						vertical-align: middle;
+						overflow: hidden;
+					}
+
+					& .Toggle__icon--cross {
+						color: #e74c3c;
+						font-size: 85%;
+					}
+
+					& .Toggle__icon--checkmark {
+						color: #1fb978;
+					}
 				}
 			}
 		}
@@ -165,9 +302,29 @@
 	
 			& .main-area {
 				flex-basis: 75%;
-				padding: 0 1rem 1rem;
+				padding: 0 3rem 3rem;
 				flex-grow: 1;
 				box-sizing: border-box;
+
+				& .options-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+		}
+	}
+}
+
+@media (--large-up) {
+
+	.crosswinds_page_crosswinds-blocks {
+
+		& .options-wrap {
+	
+			& .main-area {
+
+				& .options-grid {
+					grid-template-columns: 1fr 1fr 1fr;
+				}
 			}
 		}
 	}

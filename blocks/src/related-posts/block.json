@@ -4,6 +4,7 @@
 	"name": "crosswinds-blocks/related-posts",
 	"version": "1.0.0",
 	"title": "Related Posts",
+	"description": "Create a section to show related posts for continued reading.",
 	"category": "crosswinds-blocks",
 	"supports": {
 		"html": false,
