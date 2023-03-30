@@ -103,6 +103,12 @@ if ( get_option( 'crosswinds-blocks-tabs-block' ) ) {
 			} else {
 				$checked = '';
 			}
+
+			if ( apply_filters( 'crosswinds_blocks_enable_' . $cpt['slug'] . '_cpt', false ) ) {
+				$disabled = 'disabled="disabled"';
+			} else {
+				$disabled = '';
+			}
 			?>
 			<div class="options-grid-item">
 				<div class="block-icon">
@@ -112,7 +118,7 @@ if ( get_option( 'crosswinds-blocks-tabs-block' ) ) {
 				<p class="block-description"><?php echo wp_kses_post( $cpt['description'] ); ?></p>
 
 				<label class="Toggle" for="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt">
-					<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" id="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1" />
+					<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" id="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1"  <?php echo wp_kses_post( $disabled ); ?> />
 
 					<span class="Toggle__display" hidden>
 						<svg
