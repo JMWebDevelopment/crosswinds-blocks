@@ -59,6 +59,7 @@
 		line-height: 1;
 		font-family: Figtree, sans-serif;
 		transition: all linear 300ms;
+		border-radius: 5px;
 
 		&:hover,
 		&:focus {
@@ -133,10 +134,18 @@
 		& .main-area {
 			flex-basis: 100%;
 
+			& .support-section {
+				padding: 1rem;
+					border-radius: 12px;
+					background-color: #efefef;
+					border: 1px solid var(--color-cb-primary);
+			}
+
 			& .options-grid {
 				display: grid;
 				grid-template-columns: 1fr;
 				gap: 30px;
+				margin-bottom: 2rem;
 
 				& .options-grid-item {
 					padding: 1rem;
@@ -278,6 +287,14 @@
 
 					& .Toggle__icon--checkmark {
 						color: #1fb978;
+					}
+
+					& .text-field-container {
+						margin-bottom: 1rem;
+
+						&:last-child {
+							margin-bottom: 0;
+						}
 					}
 				}
 			}

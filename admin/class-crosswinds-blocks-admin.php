@@ -185,6 +185,10 @@ class Crosswinds_Blocks_Admin {
 					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/cpt-settings.php';
 				} elseif ( isset( $_GET['tab'] ) && 'custom-taxonomies' === $_GET['tab'] ) {
 					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/custom-taxonomies-settings.php';
+				} elseif ( isset( $_GET['tab'] ) && 'design' === $_GET['tab'] ) {
+					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/design-settings.php';
+				} elseif ( isset( $_GET['tab'] ) && 'support' === $_GET['tab'] ) {
+					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/support-settings.php';
 				} else {
 					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/block-settings.php';
 				}
@@ -211,7 +215,7 @@ class Crosswinds_Blocks_Admin {
 			return false;
 		}
 
-		if ( null === $page && ( ( 'admin.php' === $pagenow )  && ( 'crosswinds-blocks' === $_GET['page'] || 'crosswinds-framework-block-options' === $_GET['page'] ) ) ) {
+		if ( null === $page && ( ( 'admin.php' === $pagenow ) && ( 'crosswinds-blocks' === $_GET['page'] || 'crosswinds-framework-block-options' === $_GET['page'] ) ) ) {
 			return true;
 		}
 
@@ -220,6 +224,24 @@ class Crosswinds_Blocks_Admin {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Registers the Sports Bench options.
+	 *
+	 * @since 2.0.0
+	 */
+	public function register_plugin_options() {
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-blocks', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-cpt', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-category-taxonomy', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-tag-taxonomy', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-mobile-breakpoint', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-tablet-breakpoint', array( $this, 'sanitize_int' ) );
+	}
+
+	public function sanitize_int( $input ) {
+		return absint( $input );
 	}
 
 }

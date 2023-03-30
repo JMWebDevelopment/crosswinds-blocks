@@ -26,6 +26,11 @@ $custom_taxonomies = array(
 	<div class="options-grid">
 		<?php
 		foreach ( $custom_taxonomies as $custom_taxonomy ) {
+			if ( get_option( 'crosswinds-blocks-' . $custom_taxonomy['slug'] . '-custom-taxonomy' ) ) {
+				$checked = checked( get_option( 'crosswinds-blocks-' . $custom_taxonomy['slug'] . '-custom-taxonomy' ), 1, false );
+			} else {
+				$checked = '';
+			}
 			?>
 			<div class="options-grid-item">
 				<div class="block-icon">
@@ -34,8 +39,8 @@ $custom_taxonomies = array(
 				<p class="block-title"><?php echo wp_kses_post( $custom_taxonomy['name'] ); ?></p>
 				<p class="block-description"><?php echo wp_kses_post( $custom_taxonomy['description'] ); ?></p>
 
-				<label class="Toggle" for="toggle">
-					<input type="checkbox" name="toggle" id="enable-<?php echo esc_attr( $custom_taxonomy['slug'] ); ?>" class="Toggle__input" />
+				<label class="Toggle" for="enable-<?php echo esc_attr( $custom_taxonomy['slug'] ); ?>-custom-taxonomy">
+				<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $custom_taxonomy['slug'] ); ?>-custom-taxonomy" id="enable-<?php echo esc_attr( $custom_taxonomy['slug'] ); ?>-custom-taxonomy" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1" />
 
 					<span class="Toggle__display" hidden>
 						<svg

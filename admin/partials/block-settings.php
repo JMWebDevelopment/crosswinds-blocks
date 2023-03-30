@@ -120,4 +120,7 @@ $blocks = array(
 		}
 		?>
 	</div>
+
+	<input type="hidden" name="action" value="update" />
+	<input type="submit" value="<?php esc_html_e( 'Save', 'crosswinds-blocks' ); ?>" id="submit" class="button-primary" name="submit">
 </form>

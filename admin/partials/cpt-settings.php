@@ -20,6 +20,11 @@ $cpts = array(
 	<div class="options-grid">
 		<?php
 		foreach ( $cpts as $cpt ) {
+			if ( get_option( 'crosswinds-blocks-' . $cpt['slug'] . '-cpt' ) ) {
+				$checked = checked( get_option( 'crosswinds-blocks-' . $cpt['slug'] . '-cpt' ), 1, false );
+			} else {
+				$checked = '';
+			}
 			?>
 			<div class="options-grid-item">
 				<div class="block-icon">
@@ -28,8 +33,8 @@ $cpts = array(
 				<p class="block-title"><?php echo wp_kses_post( $cpt['name'] ); ?></p>
 				<p class="block-description"><?php echo wp_kses_post( $cpt['description'] ); ?></p>
 
-				<label class="Toggle" for="toggle">
-					<input type="checkbox" name="toggle" id="enable-<?php echo esc_attr( $cpt['slug'] ); ?>" class="Toggle__input" />
+				<label class="Toggle" for="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt">
+					<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" id="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1" />
 
 					<span class="Toggle__display" hidden>
 						<svg
@@ -72,4 +77,7 @@ $cpts = array(
 		}
 		?>
 	</div>
+
+	<input type="hidden" name="action" value="update" />
+	<input type="submit" value="<?php esc_html_e( 'Save', 'crosswinds-blocks' ); ?>" id="submit" class="button-primary" name="submit">
 </form>
