@@ -55,6 +55,36 @@ $blocks = array(
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M512 192v240c0 26.5-21.5 48-48 48h-416C21.5 480 0 458.5 0 432V192H512z"/><path fill="#3e7ea8" class="fa-secondary" d="M512 144V192H0V80C0 53.5 21.5 32 48 32h160l64 64h192C490.5 96 512 117.5 512 144z"/></svg>',
 	),
 );
+
+if ( get_option( 'crosswinds-blocks-mobile-breakpoint' ) ) {
+	$mobile_breakpoint = get_option( 'crosswinds-blocks-mobile-breakpoint' );
+} else {
+	$mobile_breakpoint = '650';
+}
+
+if ( get_option( 'crosswinds-blocks-tablet-breakpoint' ) ) {
+	$tablet_breakpoint = get_option( 'crosswinds-blocks-tablet-breakpoint' );
+} else {
+	$tablet_breakpoint = '1000';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-cpt' ) ) {
+	$portfolio_cpt = get_option( 'crosswinds-blocks-portfolio-cpt' );
+} else {
+	$portfolio_cpt = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-category-taxonomy' ) ) {
+	$portfolio_category_taxonomy = get_option( 'crosswinds-blocks-portfolio-category-taxonomy' );
+} else {
+	$portfolio_category_taxonomy = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-tag-taxonomy' ) ) {
+	$portfolio_tag_taxonomy = get_option( 'crosswinds-blocks-portfolio-tag-taxonomy' );
+} else {
+	$portfolio_tag_taxonomy = '';
+}
 ?>
 
 <h2><?php esc_html_e( 'Block Settings', 'crosswinds-blocks' ); ?></h2>
@@ -68,6 +98,11 @@ $blocks = array(
 	<div class="options-grid">
 		<?php
 		foreach ( $blocks as $block ) {
+			if ( get_option( 'crosswinds-blocks-' . $block['slug'] . '-block' ) ) {
+				$checked = checked( get_option( 'crosswinds-blocks-' . $block['slug'] . '-block' ), 1, false );
+			} else {
+				$checked = '';
+			}
 			?>
 			<div class="options-grid-item">
 				<div class="block-icon">
@@ -76,8 +111,8 @@ $blocks = array(
 				<p class="block-title"><?php echo wp_kses_post( $block['name'] ); ?></p>
 				<p class="block-description"><?php echo wp_kses_post( $block['description'] ); ?></p>
 
-				<label class="Toggle" for="toggle">
-					<input type="checkbox" name="toggle" id="enable-<?php echo esc_attr( $block['slug'] ); ?>" class="Toggle__input" />
+				<label class="Toggle" for="enable-<?php echo esc_attr( $block['slug'] ); ?>-block">
+					<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $block['slug'] ); ?>-block" id="enable-<?php echo esc_attr( $block['slug'] ); ?>-block" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1" />
 
 					<span class="Toggle__display" hidden>
 						<svg
@@ -121,6 +156,11 @@ $blocks = array(
 		?>
 	</div>
 
+	<input type="hidden" name="crosswinds-blocks-portfolio-cpt" value="<?php echo esc_attr( $portfolio_cpt ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-tablet-breakpoint" value="<?php echo esc_attr( $mobile_breakpoint ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-mobile-breakpoint" value="<?php echo esc_attr( $tablet_breakpoint ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-category-taxonomy" value="<?php echo esc_attr( $portfolio_category_taxonomy ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-tag-taxonomy" value="<?php echo esc_attr( $portfolio_tag_taxonomy ); ?>" />
 	<input type="hidden" name="action" value="update" />
 	<input type="submit" value="<?php esc_html_e( 'Save', 'crosswinds-blocks' ); ?>" id="submit" class="button-primary" name="submit">
 </form>

@@ -232,7 +232,15 @@ class Crosswinds_Blocks_Admin {
 	 * @since 2.0.0
 	 */
 	public function register_plugin_options() {
-		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-blocks', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-accordions-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-basic-grid-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-marquee-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-post-navigation-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-related-posts-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-single-content-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-skills-slider-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-social-share-content-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-tabs-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-cpt', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-category-taxonomy', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-tag-taxonomy', array( $this, 'sanitize_int' ) );

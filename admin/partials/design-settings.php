@@ -10,6 +10,79 @@ if ( get_option( 'crosswinds-blocks-tablet-breakpoint' ) ) {
 } else {
 	$tablet_breakpoint = '1000';
 }
+
+if ( get_option( 'crosswinds-blocks-portfolio-cpt' ) ) {
+	$portfolio_cpt = get_option( 'crosswinds-blocks-portfolio-cpt' );
+} else {
+	$portfolio_cpt = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-category-taxonomy' ) ) {
+	$portfolio_category_taxonomy = get_option( 'crosswinds-blocks-portfolio-category-taxonomy' );
+} else {
+	$portfolio_category_taxonomy = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-tag-taxonomy' ) ) {
+	$portfolio_tag_taxonomy = get_option( 'crosswinds-blocks-portfolio-tag-taxonomy' );
+} else {
+	$portfolio_tag_taxonomy = '';
+}
+
+if ( get_option( 'crosswinds-blocks-accordions-block' ) ) {
+	$accordions = get_option( 'crosswinds-blocks-accordions-block' );
+} else {
+	$accordions = '';
+}
+
+if ( get_option( 'crosswinds-blocks-basic-grid-block' ) ) {
+	$basic_grid = get_option( 'crosswinds-blocks-basic-grid-block' );
+} else {
+	$basic_grid = '';
+}
+
+if ( get_option( 'crosswinds-blocks-marquee-block' ) ) {
+	$marquee = get_option( 'crosswinds-blocks-marquee-block' );
+} else {
+	$marquee = '';
+}
+
+if ( get_option( 'crosswinds-blocks-post-navigation-block' ) ) {
+	$post_navigation = get_option( 'crosswinds-blocks-post-navigation-block' );
+} else {
+	$post_navigation = '';
+}
+
+if ( get_option( 'crosswinds-blocks-related-posts-block' ) ) {
+	$related_posts = get_option( 'crosswinds-blocks-related-posts-block' );
+} else {
+	$related_posts = '';
+}
+
+if ( get_option( 'crosswinds-blocks-single-content-block' ) ) {
+	$single_content = get_option( 'crosswinds-blocks-single-content-block' );
+} else {
+	$single_content = '';
+}
+
+if ( get_option( 'crosswinds-blocks-skills-slider-block' ) ) {
+	$skills_slider = get_option( 'crosswinds-blocks-skills-slider-block' );
+} else {
+	$skills_slider = '';
+}
+
+if ( get_option( 'crosswinds-blocks-social-share-content-block' ) ) {
+	$social_share_content = get_option( 'crosswinds-blocks-social-share-content-block' );
+} else {
+	$social_share_content = '';
+}
+
+if ( get_option( 'crosswinds-blocks-tabs-block' ) ) {
+	$tabs = get_option( 'crosswinds-blocks-tabs-block' );
+} else {
+	$tabs = '';
+}
+
 ?>
 
 <h2><?php esc_html_e( 'Design Settings', 'crosswinds-blocks' ); ?></h2>
@@ -41,6 +114,18 @@ if ( get_option( 'crosswinds-blocks-tablet-breakpoint' ) ) {
 		</div>
 	</div>
 
+	<input type="hidden" name="crosswinds-blocks-portfolio-cpt" value="<?php echo esc_attr( $portfolio_cpt ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-category-taxonomy" value="<?php echo esc_attr( $portfolio_category_taxonomy ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-tag-taxonomy" value="<?php echo esc_attr( $portfolio_tag_taxonomy ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-accordions-block" value="<?php echo esc_attr( $accordions ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-basic-grid-block" value="<?php echo esc_attr( $basic_grid ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-marquee-block" value="<?php echo esc_attr( $marquee ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-post-navigation-block" value="<?php echo esc_attr( $post_navigation ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-related-posts-block" value="<?php echo esc_attr( $related_posts ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-single-content-block" value="<?php echo esc_attr( $single_content ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-skills-slider-block" value="<?php echo esc_attr( $skills_slider ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-social-share-content-block" value="<?php echo esc_attr( $social_share_content ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-tabs-block" value="<?php echo esc_attr( $tabs ); ?>" />
 	<input type="hidden" name="action" value="update" />
 	<input type="submit" value="<?php esc_html_e( 'Save', 'crosswinds-blocks' ); ?>" id="submit" class="button-primary" name="submit">
 </form>
