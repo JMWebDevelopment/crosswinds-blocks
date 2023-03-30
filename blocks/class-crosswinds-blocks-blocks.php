@@ -49,55 +49,76 @@ class Crosswinds_Blocks_Blocks {
 	 * @since 1.0.0
 	 */
 	public function blocks_init() {
-		register_block_type( __DIR__ . '/build/skills-slider/' );
 
-		register_block_type(
-			__DIR__ . '/build/single-content/',
-			array(
-				'render_callback' => array( $this, 'single_content_block_render_callback' ),
-			)
-		);
+		if ( get_option( 'crosswinds-blocks-accordions-block' ) || apply_filters( 'crosswinds_blocks_enable_accordions_block', false ) ) {
+			register_block_type( __DIR__ . '/build/accordions/' );
+			register_block_type( __DIR__ . '/build/accordion/' );
+			register_block_type( __DIR__ . '/build/accordion-title/' );
+			register_block_type( __DIR__ . '/build/accordion-body/' );
+		}
 
-		register_block_type( __DIR__ . '/build/marquee/' );
+		if ( get_option( 'crosswinds-blocks-basic-grid-block' ) || apply_filters( 'crosswinds_blocks_enable_basic-grid_block', false ) ) {
+			register_block_type( __DIR__ . '/build/basic-grid/' );
+			register_block_type( __DIR__ . '/build/basic-grid-item/' );
+		}
 
-		register_block_type(
-			__DIR__ . '/build/next-post/',
-			array(
-				'render_callback' => array( $this, 'next_post_block_render_callback' ),
-			)
-		);
+		if ( get_option( 'crosswinds-blocks-marquee-block' ) || apply_filters( 'crosswinds_blocks_enable_marquee_block', false ) ) {
+			register_block_type( __DIR__ . '/build/marquee/' );
+		}
 
-		register_block_type(
-			__DIR__ . '/build/previous-post/',
-			array(
-				'render_callback' => array( $this, 'previous_post_block_render_callback' ),
-			)
-		);
+		if ( get_option( 'crosswinds-blocks-next-post-block' ) || apply_filters( 'crosswinds_blocks_enable_next-post_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/next-post/',
+				array(
+					'render_callback' => array( $this, 'next_post_block_render_callback' ),
+				)
+			);
+		}
 
-		register_block_type(
-			__DIR__ . '/build/related-posts/',
-			array(
-				'render_callback' => array( $this, 'related_posts_block_render_callback' ),
-			)
-		);
+		if ( get_option( 'crosswinds-blocks-previous-post-block' ) || apply_filters( 'crosswinds_blocks_enable_previous-post_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/previous-post/',
+				array(
+					'render_callback' => array( $this, 'previous_post_block_render_callback' ),
+				)
+			);
+		}
 
-		register_block_type(
-			__DIR__ . '/build/social-share-content/',
-			array(
-				'render_callback' => array( $this, 'social_share_content_block_render_callback' ),
-			)
-		);
+		if ( get_option( 'crosswinds-blocks-related-posts-block' ) || apply_filters( 'crosswinds_blocks_enable_related-posts_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/related-posts/',
+				array(
+					'render_callback' => array( $this, 'related_posts_block_render_callback' ),
+				)
+			);
+		}
 
-		register_block_type( __DIR__ . '/build/basic-grid/' );
-		register_block_type( __DIR__ . '/build/basic-grid-item/' );
+		if ( get_option( 'crosswinds-blocks-single-content-block' ) || apply_filters( 'crosswinds_blocks_enable_single-content_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/single-content/',
+				array(
+					'render_callback' => array( $this, 'single_content_block_render_callback' ),
+				)
+			);
+		}
 
-		register_block_type( __DIR__ . '/build/accordions/' );
-		register_block_type( __DIR__ . '/build/accordion/' );
-		register_block_type( __DIR__ . '/build/accordion-title/' );
-		register_block_type( __DIR__ . '/build/accordion-body/' );
+		if ( get_option( 'crosswinds-blocks-skills-slider-block' ) || apply_filters( 'crosswinds_blocks_enable_skills-slider_block', false ) ) {
+			register_block_type( __DIR__ . '/build/skills-slider/' );
+		}
 
-		register_block_type( __DIR__ . '/build/tabs/' );
-		register_block_type( __DIR__ . '/build/tab-section/' );
+		if ( get_option( 'crosswinds-blocks-social-share-content-block' ) || apply_filters( 'crosswinds_blocks_enable_social-share-content_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/social-share-content/',
+				array(
+					'render_callback' => array( $this, 'social_share_content_block_render_callback' ),
+				)
+			);
+		}
+
+		if ( get_option( 'crosswinds-blocks-tabs-block' ) || apply_filters( 'crosswinds_blocks_enable_tabs_block', false ) ) {
+			register_block_type( __DIR__ . '/build/tabs/' );
+			register_block_type( __DIR__ . '/build/tab-section/' );
+		}
 
 		/* register_block_type(
 			__DIR__ . '/build/carousel/',
