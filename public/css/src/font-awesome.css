@@ -67,3 +67,19 @@
 .fa-envelope::before {
     content: "\f0e0";
 }
+
+.fa-arrow-right:before {
+    content: "\f061";
+}
+
+.fa-chevron-double-right:before {
+    content: "\f101";
+}
+
+.fa-chevron-right:before {
+    content: "\f054";
+}
+
+.fa-long-arrow-right::before {
+    content: "\f30b";
+}

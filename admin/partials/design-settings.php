@@ -41,6 +41,12 @@ if ( get_option( 'crosswinds-blocks-basic-grid-block' ) ) {
 	$basic_grid = '';
 }
 
+if ( get_option( 'crosswinds-blocks-breadcrumbs-block' ) ) {
+	$breadcrumbs = get_option( 'crosswinds-blocks-breadcrumbs-block' );
+} else {
+	$breadcrumbs = '';
+}
+
 if ( get_option( 'crosswinds-blocks-copyright-block' ) ) {
 	$copyright = get_option( 'crosswinds-blocks-copyright-block' );
 } else {
@@ -125,6 +131,7 @@ if ( get_option( 'crosswinds-blocks-tabs-block' ) ) {
 	<input type="hidden" name="crosswinds-blocks-portfolio-tag-taxonomy" value="<?php echo esc_attr( $portfolio_tag_taxonomy ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-accordions-block" value="<?php echo esc_attr( $accordions ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-basic-grid-block" value="<?php echo esc_attr( $basic_grid ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-breadcrumbs-block" value="<?php echo esc_attr( $breadcrumbs ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-copyright-block" value="<?php echo esc_attr( $copyright ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-marquee-block" value="<?php echo esc_attr( $marquee ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-post-navigation-block" value="<?php echo esc_attr( $post_navigation ); ?>" />
