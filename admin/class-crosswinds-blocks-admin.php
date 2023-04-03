@@ -233,6 +233,7 @@ class Crosswinds_Blocks_Admin {
 	 */
 	public function register_plugin_options() {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-accordions-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-breadcrumbs-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-basic-grid-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-copyright-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-marquee-block', array( $this, 'sanitize_int' ) );

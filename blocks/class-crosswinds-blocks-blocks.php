@@ -62,6 +62,15 @@ class Crosswinds_Blocks_Blocks {
 			register_block_type( __DIR__ . '/build/basic-grid-item/' );
 		}
 
+		if ( get_option( 'crosswinds-blocks-breadcrumbs-block' ) || apply_filters( 'crosswinds_blocks_enable_breadcrumbs_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/breadcrumbs/',
+				array(
+					'render_callback' => array( $this, 'breadcrumbs_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-copyright-block' ) || apply_filters( 'crosswinds_blocks_enable_copyright_block', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/copyright/',
@@ -199,6 +208,12 @@ class Crosswinds_Blocks_Blocks {
 	public function copyright_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/copyright/template.php';
+		return ob_get_clean();
+	}
+
+	public function breadcrumbs_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/breadcrumbs/template.php';
 		return ob_get_clean();
 	}
 
