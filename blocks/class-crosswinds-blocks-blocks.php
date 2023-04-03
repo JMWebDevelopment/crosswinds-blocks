@@ -62,6 +62,15 @@ class Crosswinds_Blocks_Blocks {
 			register_block_type( __DIR__ . '/build/basic-grid-item/' );
 		}
 
+		if ( get_option( 'crosswinds-blocks-copyright-block' ) || apply_filters( 'crosswinds_blocks_enable_copyright_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/copyright/',
+				array(
+					'render_callback' => array( $this, 'copyright_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-marquee-block' ) || apply_filters( 'crosswinds_blocks_enable_marquee_block', false ) ) {
 			register_block_type( __DIR__ . '/build/marquee/' );
 		}
@@ -184,6 +193,12 @@ class Crosswinds_Blocks_Blocks {
 	public function social_share_content_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/social-share-content/template.php';
+		return ob_get_clean();
+	}
+
+	public function copyright_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/copyright/template.php';
 		return ob_get_clean();
 	}
 
