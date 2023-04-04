@@ -7,6 +7,10 @@
   "category": "crosswinds-blocks",
   "description": "Display a breadcrumbs section to help a user know where they are on your site.",
   "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
     "html": false,
     "ariaLabel": true,
     "__experimentalLayout": true,

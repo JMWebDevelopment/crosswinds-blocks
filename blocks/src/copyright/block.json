@@ -7,6 +7,7 @@
 	"category": "crosswinds-blocks",
 	"description": "Display the copyright that will always be updated.",
 	"supports": {
+		"align": [ "wide", "full" ],
 		"html": false,
 		"ariaLabel": true,
 		"__experimentalLayout": true,
