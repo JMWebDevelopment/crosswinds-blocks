@@ -177,6 +177,183 @@ wp.hooks.addFilter('blocks.getSaveContent.extraProps', 'crosswinds-blocks/save-g
 
 /***/ }),
 
+/***/ "./src/attributes/postBlockInnerLayout.js":
+/*!************************************************!*\
+  !*** ./src/attributes/postBlockInnerLayout.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "../node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "../node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _styles_groupInnerLayout_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/groupInnerLayout.scss */ "./src/styles/groupInnerLayout.scss");
+
+
+/* Add custom attribute to image block, in Sidebar */
+const {
+  __
+} = wp.i18n;
+
+// Enable custom attributes on Image block
+const enableSidebarSelectOnBlocks = ['core/query'];
+const {
+  createHigherOrderComponent
+} = wp.compose;
+const {
+  Fragment
+} = wp.element;
+const {
+  InspectorControls
+} = wp.blockEditor;
+const {
+  PanelBody,
+  SelectControl,
+  ToggleControl
+} = wp.components;
+
+
+
+/**
+ * Declare our custom attribute
+ */
+const setGroupInnerLayoutAttribute = (settings, name) => {
+  // Do nothing if it's another block than our defined ones.
+  if (!enableSidebarSelectOnBlocks.includes(name)) {
+    return settings;
+  }
+  return Object.assign({}, settings, {
+    attributes: Object.assign({}, settings.attributes, {
+      cbUseFlex: {
+        type: 'string',
+        default: false
+      },
+      cbInnerLayout: {
+        type: 'string'
+      },
+      cbFillHeight: {
+        type: 'string',
+        default: false
+      }
+    })
+  });
+};
+wp.hooks.addFilter('blocks.registerBlockType', 'crosswinds-blocks/set-group-inner-layout-attribute', setGroupInnerLayoutAttribute);
+
+/**
+ * Add Custom Select to Image Sidebar
+ */
+const withGroupInnerLayout = createHigherOrderComponent(BlockEdit => {
+  return props => {
+    // If current block is not allowed
+    if (!enableSidebarSelectOnBlocks.includes(props.name)) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(BlockEdit, props);
+    }
+    const {
+      attributes,
+      setAttributes
+    } = props;
+    const {
+      cbInnerLayout,
+      cbUseFlex,
+      cbFillHeight
+    } = attributes;
+    console.log(attributes);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(BlockEdit, props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(PanelBody, {
+      title: __('Group Spacing', 'crosswinds-blocks')
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(ToggleControl, {
+      label: __('Use Flexbox on Group?', 'crosswinds-blocks'),
+      checked: cbUseFlex,
+      onChange: () => setAttributes({
+        cbUseFlex: !cbUseFlex
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(ToggleControl, {
+      label: __('Have Group Fill Height of Parent Block?', 'crosswinds-blocks'),
+      checked: cbFillHeight,
+      onChange: () => setAttributes({
+        cbFillHeight: !cbFillHeight
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(SelectControl, {
+      label: __('Inner Spacing', 'crosswinds-blocks'),
+      value: cbInnerLayout,
+      options: [{
+        value: 'normal',
+        label: __('Normal Spacing', 'crosswinds-blocks')
+      }, {
+        value: 'equal',
+        label: __('Equal Spacing', 'crosswinds-blocks')
+      }, {
+        value: 'center',
+        label: __('Center Align', 'crosswinds-blocks')
+      }, {
+        value: 'bottom',
+        label: __('All Bottom', 'crosswinds-blocks')
+      }, {
+        value: 'last-bottom',
+        label: __('Last Item at Bottom', 'crosswinds-blocks')
+      }],
+      onChange: value => {
+        setAttributes({
+          cbInnerLayout: value
+        });
+      }
+    }))));
+  };
+}, 'withGroupInnerLayout');
+wp.hooks.addFilter('editor.BlockEdit', 'crosswinds-blocks/with-group-inner-layout', withGroupInnerLayout);
+
+/**
+ * Add custom class to block in Edit
+ */
+const withGroupInnerLayoutProp = createHigherOrderComponent(BlockListBlock => {
+  return props => {
+    // If current block is not allowed
+    if (!enableSidebarSelectOnBlocks.includes(props.name)) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(BlockListBlock, props);
+    }
+    const {
+      attributes
+    } = props;
+    const {
+      cbInnerLayout,
+      cbUseFlex,
+      cbFillHeight
+    } = attributes;
+    if (cbInnerLayout && cbUseFlex && cbFillHeight) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(BlockListBlock, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+        className: cbInnerLayout + '-layout cb-fill-height-parent'
+      }));
+    } else {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(BlockListBlock, props);
+    }
+  };
+}, 'withGroupInnerLayoutProp');
+wp.hooks.addFilter('editor.BlockListBlock', 'crosswinds-blocks/with-group-inner-layout-prop', withGroupInnerLayoutProp);
+
+/**
+ * Save our custom attribute
+ */
+const saveGroupInnerLayoutAttribute = (extraProps, blockType, attributes) => {
+  // Do nothing if it's another block than our defined ones.
+  if (enableSidebarSelectOnBlocks.includes(blockType.name)) {
+    const {
+      cbInnerLayout,
+      cbUseFlex,
+      cbFillHeight
+    } = attributes;
+    if (cbInnerLayout && cbUseFlex && cbFillHeight) {
+      extraProps.className = classnames__WEBPACK_IMPORTED_MODULE_2___default()(extraProps.className, cbInnerLayout + '-layout cb-fill-height-parent');
+    }
+  }
+  return extraProps;
+};
+wp.hooks.addFilter('blocks.getSaveContent.extraProps', 'crosswinds-blocks/save-group-inner-layout-attribute', saveGroupInnerLayoutAttribute);
+
+/***/ }),
+
 /***/ "../node_modules/classnames/index.js":
 /*!*******************************************!*\
   !*** ../node_modules/classnames/index.js ***!
@@ -375,6 +552,8 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attributes_groupInnerLayout_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./attributes/groupInnerLayout.js */ "./src/attributes/groupInnerLayout.js");
+/* harmony import */ var _attributes_postBlockInnerLayout_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./attributes/postBlockInnerLayout.js */ "./src/attributes/postBlockInnerLayout.js");
+
 
 })();
 
