@@ -1,2 +1,3 @@
 import './attributes/groupInnerLayout.js';
-import './attributes/postBlockInnerLayout.js';
+import './attributes/queryFlexOption.js';
+import './attributes/columnFlexOption.js';

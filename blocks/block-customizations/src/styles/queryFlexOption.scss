@@ -1,0 +1,9 @@
+.wp-block-query {
+
+	&.cb-flex-layout {
+
+		.wp-block-post {
+			display: flex;
+		}
+	}
+}

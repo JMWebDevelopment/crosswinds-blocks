@@ -26,9 +26,9 @@ const setGroupInnerLayoutAttribute = ( settings, name ) => {
 
     return Object.assign( {}, settings, {
         attributes: Object.assign( {}, settings.attributes, {
-			cbUseFlex: { type: 'string', default: false },
+			cbUseFlex: { type: 'boolean' },
             cbInnerLayout: { type: 'string' },
-			cbFillHeight: { type: 'string', default: false },
+			cbFillHeight: { type: 'boolean' },
         } ),
     } );
 };
