@@ -62,6 +62,30 @@ if ( get_option( 'crosswinds-blocks-marquee-block' ) ) {
 	$marquee = '';
 }
 
+if ( get_option( 'crosswinds-blocks-portfolio-category-search-block' ) ) {
+	$portfolio_category_search = get_option( 'crosswinds-blocks-portfolio-category-search-block' );
+} else {
+	$portfolio_category_search = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-information-block' ) ) {
+	$portfolio_information = get_option( 'crosswinds-blocks-portfolio-information-block' );
+} else {
+	$portfolio_information = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-search-block' ) ) {
+	$portfolio_search = get_option( 'crosswinds-blocks-portfolio-search-block' );
+} else {
+	$portfolio_search = '';
+}
+
+if ( get_option( 'crosswinds-blocks-portfolio-tag-search-block' ) ) {
+	$portfolio_tag_search = get_option( 'crosswinds-blocks-portfolio-tag-search-block' );
+} else {
+	$portfolio_tag_search = '';
+}
+
 if ( get_option( 'crosswinds-blocks-post-navigation-block' ) ) {
 	$post_navigation = get_option( 'crosswinds-blocks-post-navigation-block' );
 } else {
@@ -183,6 +207,10 @@ if ( get_option( 'crosswinds-blocks-tabs-block' ) ) {
 	<input type="hidden" name="crosswinds-blocks-breadcrumbs-block" value="<?php echo esc_attr( $breadcrumbs ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-copyright-block" value="<?php echo esc_attr( $copyright ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-marquee-block" value="<?php echo esc_attr( $marquee ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-category-search-block" value="<?php echo esc_attr( $portfolio_category_search ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-information-block" value="<?php echo esc_attr( $portfolio_information ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-search-block" value="<?php echo esc_attr( $portfolio_search ); ?>" />
+	<input type="hidden" name="crosswinds-blocks-portfolio-tag-search-block" value="<?php echo esc_attr( $portfolio_tag_search ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-post-navigation-block" value="<?php echo esc_attr( $post_navigation ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-related-posts-block" value="<?php echo esc_attr( $related_posts ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-single-content-block" value="<?php echo esc_attr( $single_content ); ?>" />

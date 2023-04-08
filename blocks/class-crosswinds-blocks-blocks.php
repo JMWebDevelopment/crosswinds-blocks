@@ -93,6 +93,42 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
+		if ( get_option( 'crosswinds-blocks-portfolio-category-search-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-category-search_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/portfolio-category-search/',
+				array(
+					'render_callback' => array( $this, 'portfolio_category_search_block_render_callback' ),
+				)
+			);
+		}
+
+		if ( get_option( 'crosswinds-blocks-portfolio-information-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-information_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/portfolio-information/',
+				array(
+					'render_callback' => array( $this, 'portfolio_information_block_render_callback' ),
+				)
+			);
+		}
+
+		if ( get_option( 'crosswinds-blocks-portfolio-search-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-search_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/portfolio-search/',
+				array(
+					'render_callback' => array( $this, 'portfolio_search_block_render_callback' ),
+				)
+			);
+		}
+
+		if ( get_option( 'crosswinds-blocks-portfolio-tag-search-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-tag-search_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/portfolio-tag-search/',
+				array(
+					'render_callback' => array( $this, 'portfolio_tag_search_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-previous-post-block' ) || apply_filters( 'crosswinds_blocks_enable_previous-post_block', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/previous-post/',
@@ -214,6 +250,30 @@ class Crosswinds_Blocks_Blocks {
 	public function breadcrumbs_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/breadcrumbs/template.php';
+		return ob_get_clean();
+	}
+
+	public function portfolio_category_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/portfolio-category-search/template.php';
+		return ob_get_clean();
+	}
+
+	public function portfolio_information_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/portfolio-information/template.php';
+		return ob_get_clean();
+	}
+
+	public function portfolio_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/portfolio-search/template.php';
+		return ob_get_clean();
+	}
+
+	public function portfolio_tag_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/portfolio-tag-search/template.php';
 		return ob_get_clean();
 	}
 

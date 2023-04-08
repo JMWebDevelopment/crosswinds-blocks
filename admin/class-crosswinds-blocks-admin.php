@@ -260,6 +260,10 @@ class Crosswinds_Blocks_Admin {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-basic-grid-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-copyright-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-marquee-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-category-search-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-information-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-search-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-tag-search-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-post-navigation-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-related-posts-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-single-content-block', array( $this, 'sanitize_int' ) );
