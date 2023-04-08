@@ -18,6 +18,8 @@ export const rootPath = process.cwd();
 // Dev or production
 export const isProd = ( process.env.NODE_ENV === 'production' );
 
+export const hideSourceMaps = ( process.env.NODE_SOURCE_MAPS === 'hide' );
+
 // get the config
 const config = getThemeConfig();
 

@@ -12,7 +12,7 @@ import { pipeline } from 'mississippi';
 /**
  * Internal dependencies
  */
-import {paths, gulpPlugins, isProd} from './constants';
+import {paths, gulpPlugins, isProd, hideSourceMaps} from './constants';
 import {getThemeConfig, getStringReplacementTasks, logError} from './utils';
 
 export function publicScriptsBeforeReplacementStream() {
@@ -57,7 +57,7 @@ export function publicScriptsAfterReplacementStream() {
 export default function publicScripts(done) {
 
 	return pump([
-		src(paths.publicScripts.src, {sourcemaps: !isProd}),
+		src(paths.publicScripts.src, {sourcemaps: !hideSourceMaps}),
 		publicScriptsBeforeReplacementStream(),
 		// Only do string replacements when building for production
 		gulpPlugins.if(
@@ -65,6 +65,6 @@ export default function publicScripts(done) {
 			getStringReplacementTasks()
 		),
 		publicScriptsAfterReplacementStream(),
-		dest(paths.publicScripts.dest, {sourcemaps: !isProd}),
+		dest(paths.publicScripts.dest, {sourcemaps: !hideSourceMaps}),
 	], done);
 }

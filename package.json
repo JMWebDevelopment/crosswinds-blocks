@@ -95,7 +95,7 @@
     "extends": "stylelint-config-wordpress"
   },
   "scripts": {
-    "build": "gulp buildDev",
+    "build": "cross-env NODE_SOURCE_MAPS=hide gulp buildDev",
     "bundle": "cross-env NODE_ENV=production gulp bundleTheme",
     "dev": "gulp",
     "gulp": "gulp",

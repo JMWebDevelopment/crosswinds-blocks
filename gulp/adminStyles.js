@@ -18,7 +18,7 @@ import precss from 'precss';
 /**
  * Internal dependencies
  */
-import {rootPath, paths, gulpPlugins, isProd} from './constants';
+import {rootPath, paths, gulpPlugins, isProd, hideSourceMaps} from './constants';
 import {
 	getThemeConfig,
 	getStringReplacementTasks,
@@ -90,7 +90,7 @@ export function adminStylesAfterReplacementStream() {
 
 	// Skip minifying files if we aren't building for
 	// production and debug is enabled
-	if( config.dev.debug.styles && ! isProd ) {
+	if( config.dev.debug.styles && ! isProd && ! hideSourceMaps ) {
 		postcssPlugins.pop();
 	}
 
@@ -125,7 +125,7 @@ export function adminStylesAfterReplacementStream() {
 export default function adminStyles(done) {
 
 	return pump([
-		src( paths.adminStyles.src, {sourcemaps: !isProd} ),
+		src( paths.adminStyles.src, {sourcemaps: !hideSourceMaps} ),
 		adminStylesBeforeReplacementStream(),
 		// Only do string replacements when building for production
 		gulpPlugins.if(
@@ -133,6 +133,6 @@ export default function adminStyles(done) {
 			getStringReplacementTasks()
 		),
 		adminStylesAfterReplacementStream(),
-		dest(paths.adminStyles.dest, {sourcemaps: !isProd}),
+		dest(paths.adminStyles.dest, {sourcemaps: !hideSourceMaps}),
 	], done);
 }
