@@ -131,7 +131,7 @@ class Crosswinds_Blocks {
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'enqueue_block_editor_assets', $admin, 'block_enqueue_scripts' );
-		$this->loader->add_action( 'admin_menu', $admin, 'add_cb_admin_pages' );
+		$this->loader->add_action( 'admin_menu', $admin, 'add_cb_admin_pages', 99 );
 		$this->loader->add_action( 'admin_init', $admin, 'register_plugin_options' );
 	}
 

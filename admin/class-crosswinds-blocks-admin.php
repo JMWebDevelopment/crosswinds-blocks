@@ -131,7 +131,7 @@ class Crosswinds_Blocks_Admin {
 			);
 		}
 
-		add_submenu_page( 
+		add_submenu_page(
 			'crosswinds-framework-block-options',
 			esc_html__( 'Crosswinds Blocks Options', 'crosswinds-blocks' ),
 			esc_html__( 'Blocks', 'crosswinds-blocks' ),
