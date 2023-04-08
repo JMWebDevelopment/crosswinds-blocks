@@ -146,6 +146,17 @@ class Crosswinds_Blocks_Admin {
 	}
 
 	public function create_blocks_plugin_page() {
+		$current_theme_name = '';
+		$current_theme      = wp_get_theme();
+		if ( $current_theme->exists() && $current_theme->parent() ) {
+			$parent_theme = $current_theme->parent();
+
+			if ( $parent_theme->exists() ) {
+				$current_theme_name = $parent_theme->get( 'Name' );
+			}
+		} elseif ( $current_theme->exists() ) {
+			$current_theme_name = $current_theme->get( 'Name' );
+		}
 		?>
 		<div class="options-wrap">
 			<div class="tabs-section">
@@ -155,6 +166,18 @@ class Crosswinds_Blocks_Admin {
 				</div>
 
 				<div class="tabs">
+					<div class="tab">
+						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-framework-block-options' ) ); ?>"><?php esc_html_e( 'Crosswinds Framework', 'crosswinds-blocks' ); ?></a></p>
+					</div>
+					<?php
+					if ( 'Crosswinds Framework' !== $current_theme_name ) {
+						?>
+						<div class="tab">
+							<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-framework-theme' ) ); ?>"><?php esc_html_e( 'Theme Options', 'crosswinds-blocks' ); ?></a></p>
+						</div>
+						<?php
+					}
+					?>
 					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'blocks' ) ); ?>">
 						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=blocks' ) ); ?>"><?php esc_html_e( 'Blocks', 'crosswinds-blocks' ); ?></a></p>
 					</div>
