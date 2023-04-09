@@ -190,10 +190,6 @@ class Crosswinds_Blocks_Admin {
 						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-taxonomies' ) ); ?>"><?php esc_html_e( 'Custom Taxonomies', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
-					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'design' ) ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=design' ) ); ?>"><?php esc_html_e( 'Design', 'crosswinds-blocks' ); ?></a></p>
-					</div>
-
 					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'support' ) ); ?>">
 						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=support' ) ); ?>"><?php esc_html_e( 'Support', 'crosswinds-blocks' ); ?></a></p>
 					</div>
@@ -208,8 +204,6 @@ class Crosswinds_Blocks_Admin {
 					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/cpt-settings.php';
 				} elseif ( isset( $_GET['tab'] ) && 'custom-taxonomies' === $_GET['tab'] ) {
 					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/custom-taxonomies-settings.php';
-				} elseif ( isset( $_GET['tab'] ) && 'design' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/design-settings.php';
 				} elseif ( isset( $_GET['tab'] ) && 'support' === $_GET['tab'] ) {
 					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/support-settings.php';
 				} else {
@@ -273,8 +267,6 @@ class Crosswinds_Blocks_Admin {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-cpt', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-category-taxonomy', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-tag-taxonomy', array( $this, 'sanitize_int' ) );
-		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-mobile-breakpoint', array( $this, 'sanitize_int' ) );
-		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-tablet-breakpoint', array( $this, 'sanitize_int' ) );
 	}
 
 	public function sanitize_int( $input ) {

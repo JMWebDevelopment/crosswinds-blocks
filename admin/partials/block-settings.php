@@ -92,18 +92,6 @@ $blocks = array(
 	),
 );
 
-if ( get_option( 'crosswinds-blocks-mobile-breakpoint' ) ) {
-	$mobile_breakpoint = get_option( 'crosswinds-blocks-mobile-breakpoint' );
-} else {
-	$mobile_breakpoint = '650';
-}
-
-if ( get_option( 'crosswinds-blocks-tablet-breakpoint' ) ) {
-	$tablet_breakpoint = get_option( 'crosswinds-blocks-tablet-breakpoint' );
-} else {
-	$tablet_breakpoint = '1000';
-}
-
 if ( get_option( 'crosswinds-blocks-portfolio-cpt' ) ) {
 	$portfolio_cpt = get_option( 'crosswinds-blocks-portfolio-cpt' );
 } else {
@@ -199,8 +187,6 @@ if ( get_option( 'crosswinds-blocks-portfolio-tag-taxonomy' ) ) {
 	</div>
 
 	<input type="hidden" name="crosswinds-blocks-portfolio-cpt" value="<?php echo esc_attr( $portfolio_cpt ); ?>" />
-	<input type="hidden" name="crosswinds-blocks-tablet-breakpoint" value="<?php echo esc_attr( $mobile_breakpoint ); ?>" />
-	<input type="hidden" name="crosswinds-blocks-mobile-breakpoint" value="<?php echo esc_attr( $tablet_breakpoint ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-portfolio-category-taxonomy" value="<?php echo esc_attr( $portfolio_category_taxonomy ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-portfolio-tag-taxonomy" value="<?php echo esc_attr( $portfolio_tag_taxonomy ); ?>" />
 	<input type="hidden" name="action" value="update" />

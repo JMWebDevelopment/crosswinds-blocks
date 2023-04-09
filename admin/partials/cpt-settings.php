@@ -8,18 +8,6 @@ $cpts = array(
 	),
 );
 
-if ( get_option( 'crosswinds-blocks-mobile-breakpoint' ) ) {
-	$mobile_breakpoint = get_option( 'crosswinds-blocks-mobile-breakpoint' );
-} else {
-	$mobile_breakpoint = '650';
-}
-
-if ( get_option( 'crosswinds-blocks-tablet-breakpoint' ) ) {
-	$tablet_breakpoint = get_option( 'crosswinds-blocks-tablet-breakpoint' );
-} else {
-	$tablet_breakpoint = '1000';
-}
-
 if ( get_option( 'crosswinds-blocks-portfolio-category-taxonomy' ) ) {
 	$portfolio_category_taxonomy = get_option( 'crosswinds-blocks-portfolio-category-taxonomy' );
 } else {
@@ -200,8 +188,6 @@ if ( get_option( 'crosswinds-blocks-tabs-block' ) ) {
 
 	<input type="hidden" name="crosswinds-blocks-portfolio-category-taxonomy" value="<?php echo esc_attr( $portfolio_category_taxonomy ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-portfolio-tag-taxonomy" value="<?php echo esc_attr( $portfolio_tag_taxonomy ); ?>" />
-	<input type="hidden" name="crosswinds-blocks-tablet-breakpoint" value="<?php echo esc_attr( $mobile_breakpoint ); ?>" />
-	<input type="hidden" name="crosswinds-blocks-mobile-breakpoint" value="<?php echo esc_attr( $tablet_breakpoint ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-accordions-block" value="<?php echo esc_attr( $accordions ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-basic-grid-block" value="<?php echo esc_attr( $basic_grid ); ?>" />
 	<input type="hidden" name="crosswinds-blocks-breadcrumbs-block" value="<?php echo esc_attr( $breadcrumbs ); ?>" />
