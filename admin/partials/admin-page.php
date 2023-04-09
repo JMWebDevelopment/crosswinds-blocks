@@ -1,4 +1,16 @@
 <?php
+/**
+ * Creates the main plugin admin page.
+ *
+ * PHP version 7.3
+ *
+ * @link       https://jacobmartella.com
+ * @since      1.0.0
+ *
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/admin/partials
+ */
+
 $current_theme_name = '';
 $current_theme      = wp_get_theme();
 if ( $current_theme->exists() && $current_theme->parent() ) {

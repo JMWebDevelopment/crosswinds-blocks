@@ -1,4 +1,16 @@
 <?php
+/**
+ * Creates the block settings tab for the plugin options page.
+ *
+ * PHP version 7.3
+ *
+ * @link       https://jacobmartella.com
+ * @since      1.0.0
+ *
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/admin/partials
+ */
+
 $blocks = array(
 	'accordions' => array(
 		'slug'        => 'accordions',
