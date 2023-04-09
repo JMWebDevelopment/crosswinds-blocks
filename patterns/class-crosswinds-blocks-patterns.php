@@ -43,6 +43,11 @@ class Crosswinds_Blocks_Patterns {
 		$this->version = $version;
 	}
 
+	/**
+	 * Creates the Crosswinds Blocks pattern category.
+	 * 
+	 * @since 1.0
+	 */
 	public function register_block_pattern_categories() {
 		register_block_pattern_category(
 			'crosswinds-blocks',
@@ -52,6 +57,11 @@ class Crosswinds_Blocks_Patterns {
 		);
 	}
 
+	/**
+	 * Registers the block patterns.
+	 * 
+	 * @since 1.0
+	 */
 	public function register_block_patterns() {
 		$block_patterns = array(
 			'accordions/accordion-with-border-and-title-background',

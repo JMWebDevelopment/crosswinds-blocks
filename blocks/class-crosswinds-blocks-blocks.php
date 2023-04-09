@@ -211,89 +211,211 @@ class Crosswinds_Blocks_Blocks {
 		);
 	}
 
+	/**
+	 * Loads the template for the single content block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function single_content_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/single-content/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the next post block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function next_post_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/next-post/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the previous post block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function previous_post_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/previous-post/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the related posts block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function related_posts_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/related-posts/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the social share content block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function social_share_content_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/social-share-content/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the copyright block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function copyright_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/copyright/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the breadcrumbs block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function breadcrumbs_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/breadcrumbs/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the portfolio category search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function portfolio_category_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/portfolio-category-search/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the portfolio information block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function portfolio_information_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/portfolio-information/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the portfolio search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function portfolio_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/portfolio-search/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the portfolio tag search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function portfolio_tag_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/portfolio-tag-search/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the carousel block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function carousel_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/carousel/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the template for the carousel slide block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
 	public function carousel_slide_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/carousel-slide/template.php';
 		return ob_get_clean();
 	}
 
+	/**
+	 * Loads the block customizations for core blocks.
+	 *
+	 * @since 1.0
+	 */
 	public function custom_attributes_editor_scripts() {
 		wp_register_script(
 			'crosswinds-blocks-custom-attributes',
 			plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.js',
-			[ 'wp-blocks', 'wp-dom', 'wp-dom-ready', 'wp-edit-post' ],
+			array( 'wp-blocks', 'wp-dom', 'wp-dom-ready', 'wp-edit-post' ),
 			filemtime( plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.js' )
 		);
 		wp_enqueue_script( 'crosswinds-blocks-custom-attributes' );
@@ -301,6 +423,11 @@ class Crosswinds_Blocks_Blocks {
 		wp_enqueue_style( 'crosswinds-blocks-custom-attributes-styling', plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.css', array(), $this->version, 'all' );
 	}
 
+	/**
+	 * Loads styling for the core block customizations.
+	 *
+	 * @since 1.0
+	 */
 	public function custom_attributes_scripts() {
 		wp_enqueue_style( 'crosswinds-blocks-custom-attributes-styling', plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.css', array(), $this->version, 'all' );
 	}

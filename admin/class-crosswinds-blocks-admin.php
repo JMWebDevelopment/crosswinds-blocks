@@ -62,6 +62,13 @@ class Crosswinds_Blocks_Admin {
 	 */
 	public function enqueue_scripts() { }
 
+	/**
+	 * Returns a list of post types for the variations for the single content block.
+	 *
+	 * @since 1.0
+	 *
+	 * @return array      List of post types.
+	 */
 	public function get_post_types_list() {
 		$post_types_args  = array(
 			'public'             => true,
@@ -86,11 +93,16 @@ class Crosswinds_Blocks_Admin {
 		return $post_types_array;
 	}
 
+	/**
+	 * Loads in custom scripts for the block editor.
+	 *
+	 * @since 1.0
+	 */
 	public function block_enqueue_scripts() {
 
 		wp_enqueue_script(
 			'single-content-post-type-variations',
-			plugins_url( 'js/post-types-variations.min.js',  __FILE__ ),
+			plugins_url( 'js/post-types-variations.min.js', __FILE__ ),
 			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
 			'1.0.0',
 			true
@@ -106,16 +118,21 @@ class Crosswinds_Blocks_Admin {
 
 	}
 
+	/**
+	 * Adds the admin pages for the plugin.
+	 *
+	 * @since 1.0
+	 */
 	public function add_cb_admin_pages() {
 		$current_theme_name = '';
 		$current_theme      = wp_get_theme();
-		if( $current_theme->exists() && $current_theme->parent() ){
+		if ( $current_theme->exists() && $current_theme->parent() ) {
 			$parent_theme = $current_theme->parent();
-	
-			if( $parent_theme->exists() ){
+
+			if ( $parent_theme->exists() ) {
 				$current_theme_name = $parent_theme->get( 'Name' );
 			}
-		} elseif( $current_theme->exists() ) {
+		} elseif ( $current_theme->exists() ) {
 			$current_theme_name = $current_theme->get( 'Name' );
 		}
 
@@ -141,10 +158,20 @@ class Crosswinds_Blocks_Admin {
 		);
 	}
 
+	/**
+	 * Creates the main admin page for the plugin.
+	 *
+	 * @since 1.0
+	 */
 	public function create_main_admin_page() {
 		return;
 	}
 
+	/**
+	 * Creates the settings page for the plugin.
+	 *
+	 * @since 1.0
+	 */
 	public function create_blocks_plugin_page() {
 		$current_theme_name = '';
 		$current_theme      = wp_get_theme();
@@ -215,6 +242,14 @@ class Crosswinds_Blocks_Admin {
 		<?php
 	}
 
+	/**
+	 * Determines if the tab is the active tab.
+	 *
+	 * @since 1.0
+	 *
+	 * @param string $tab      The tab to see if it's the active one.
+	 * @return boolean         Whether the provided tab is the active tab.
+	 */
 	public function is_active_tab( $tab ) {
 		if ( $_GET['tab'] === $tab ) {
 			return 'active-tab';
@@ -225,6 +260,14 @@ class Crosswinds_Blocks_Admin {
 		}
 	}
 
+	/**
+	 * Determines if the current admin page is a Crosswinds Framework or Blocks page.
+	 *
+	 * @since 1.0
+	 *
+	 * @param string|null $page      The page to check. Leave null to see if it's any of the Crosswinds pages.
+	 * @return boolean               Whether the page is the specified page or a Crosswinds page.
+	 */
 	public function is_crosswinds_page( $page = null ) {
 		global $pagenow;
 
@@ -244,9 +287,9 @@ class Crosswinds_Blocks_Admin {
 	}
 
 	/**
-	 * Registers the Sports Bench options.
+	 * Registers the Crosswinds Blocks options.
 	 *
-	 * @since 2.0.0
+	 * @since 1.0.0
 	 */
 	public function register_plugin_options() {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-accordions-block', array( $this, 'sanitize_int' ) );
@@ -269,6 +312,14 @@ class Crosswinds_Blocks_Admin {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-portfolio-tag-taxonomy', array( $this, 'sanitize_int' ) );
 	}
 
+	/**
+	 * Sanitized the integer so that it only returns a number.
+	 *
+	 * @since 1.0
+	 *
+	 * @param int $input      The incoming value.
+	 * @return integer        The value as an integer.
+	 */
 	public function sanitize_int( $input ) {
 		return absint( $input );
 	}
