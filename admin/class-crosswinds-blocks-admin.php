@@ -50,7 +50,7 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0.0
 	 */
 	public function enqueue_styles() {
-		if ( $this->is_crosswinds_page( 'crosswinds-blocks' ) ) {
+		if ( $this->is_crosswinds_page( 'crosswinds-blocks' ) || $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) ) {
 			wp_enqueue_style( 'crosswinds-blocks-blocks-admin-page', plugin_dir_url( __FILE__ ) . 'css/blocks-admin-page.min.css', [], $this->version, 'all' );
 		}
 	}
@@ -164,7 +164,7 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0
 	 */
 	public function create_main_admin_page() {
-		return;
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/admin-page.php';
 	}
 
 	/**
