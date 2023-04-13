@@ -64,15 +64,19 @@
 		}
 	}
 
-	&.full-width-icons {
-		display: flex;
+	&.horizontal-icons {
 
-		& .social-icon {
-			text-align: center;
-			flex-grow: 1;
+		&.full-icons,
+		&.full-width-icons {
+			display: flex;
 
-			& a {
-				display: block;
+			& .social-icon {
+				text-align: center;
+				flex-grow: 1;
+
+				& a {
+					display: block;
+				}
 			}
 		}
 	}
@@ -83,6 +87,7 @@
 
 			& a {
 				padding: 5px 8px;
+				width: auto;
 			}
 		}
 	}
@@ -100,6 +105,17 @@
 
 			&:last-child {
 				margin-right: 0;
+			}
+		}
+
+		&.auto-width-icons {
+
+			.social-icon {
+				display: block;
+
+				& a {
+					width: auto;
+				}
 			}
 		}
 	}

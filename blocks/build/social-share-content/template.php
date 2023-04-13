@@ -119,7 +119,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			} elseif ( 'show-icon' === $attributes['iconStyle'] ) {
 				?>
 				<div class="social-icon">
-					<a class="<?php echo esc_attr( $icon['slug'] ); ?>" href="<?php echo esc_url( $icon['url'] ); ?>" target="_blank"><span class="<?php echo esc_attr( $icon['icon'] ); ?>"><span class="screen-reader-text"></span><?php echo esc_html( $icon['name'] ); ?></span></a>
+					<a class="<?php echo esc_attr( $icon['slug'] ); ?>" href="<?php echo esc_url( $icon['url'] ); ?>" target="_blank"><span class="<?php echo esc_attr( $icon['icon'] ); ?>"><span class="screen-reader-text"><?php echo esc_html( $icon['name'] ); ?></span></span></a>
 				</div>
 				<?php
 			} else {

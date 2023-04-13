@@ -56,15 +56,19 @@
 		}
 	}
 
-	&.full-width-icons {
-		display: flex;
+	&.horizontal-icons {
 
-		& .social-icon {
-			text-align: center;
-			flex-grow: 1;
+		&.full-icons,
+		&.full-width-icons {
+			display: flex;
 
-			& span {
-				display: block;
+			& .social-icon {
+				text-align: center;
+				flex-grow: 1;
+
+				& a {
+					display: block;
+				}
 			}
 		}
 	}
@@ -73,8 +77,9 @@
 
 		& .social-icon {
 
-			& span {
+			& a {
 				padding: 5px 8px;
+				width: auto;
 			}
 		}
 	}
@@ -86,12 +91,23 @@
 			margin-bottom: 5px;
 			margin-right: 0;
 
-			& span {
+			& a {
 				width: 100%;
 			}
 
 			&:last-child {
 				margin-right: 0;
+			}
+		}
+
+		&.auto-width-icons {
+
+			.social-icon {
+				display: block;
+
+				& a {
+					width: auto;
+				}
 			}
 		}
 	}

@@ -51,18 +51,19 @@
 .wp-block-crosswinds-blocks-social-share-content .social-icon a:hover, .wp-block-crosswinds-blocks-social-share-content .social-icon a:focus {
   filter: brightness(120%);
 }
-.wp-block-crosswinds-blocks-social-share-content.full-width-icons {
+.wp-block-crosswinds-blocks-social-share-content.horizontal-icons.full-icons, .wp-block-crosswinds-blocks-social-share-content.horizontal-icons.full-width-icons {
   display: flex;
 }
-.wp-block-crosswinds-blocks-social-share-content.full-width-icons .social-icon {
+.wp-block-crosswinds-blocks-social-share-content.horizontal-icons.full-icons .social-icon, .wp-block-crosswinds-blocks-social-share-content.horizontal-icons.full-width-icons .social-icon {
   text-align: center;
   flex-grow: 1;
 }
-.wp-block-crosswinds-blocks-social-share-content.full-width-icons .social-icon a {
+.wp-block-crosswinds-blocks-social-share-content.horizontal-icons.full-icons .social-icon a, .wp-block-crosswinds-blocks-social-share-content.horizontal-icons.full-width-icons .social-icon a {
   display: block;
 }
 .wp-block-crosswinds-blocks-social-share-content.auto-width-icons .social-icon a {
   padding: 5px 8px;
+  width: auto;
 }
 .wp-block-crosswinds-blocks-social-share-content.vertical-icons .social-icon {
   display: block;
@@ -74,6 +75,12 @@
 }
 .wp-block-crosswinds-blocks-social-share-content.vertical-icons .social-icon:last-child {
   margin-right: 0;
+}
+.wp-block-crosswinds-blocks-social-share-content.vertical-icons.auto-width-icons .social-icon {
+  display: block;
+}
+.wp-block-crosswinds-blocks-social-share-content.vertical-icons.auto-width-icons .social-icon a {
+  width: auto;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

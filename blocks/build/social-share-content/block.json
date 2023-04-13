@@ -21,7 +21,7 @@
     },
     "iconsStretch": {
       "type": "string",
-      "default": "full"
+      "default": "full-width"
     },
     "iconsBorderRadius": {
       "type": "number",
