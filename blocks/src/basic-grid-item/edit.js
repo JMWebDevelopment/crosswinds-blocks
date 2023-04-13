@@ -76,8 +76,10 @@ export function Edit( props ) {
 	const innerBlocksProps = useInnerBlocksProps( blockProps,
 		{
 			template: [
-				[ 'core/heading', { level: 2, placeholder: __( 'Insert your heading here...', 'crosswinds-blocks' ) } ],
-				[ 'core/paragraph', { placeholder: __( 'Write some description text here...', 'crosswinds-blocks' ) } ],
+				[ 'core/group', { cbUseFlex: true, cbFillHeight: true, cbInnerLayout: 'normal' }, [
+					[ 'core/heading', { level: 2, placeholder: __( 'Insert your heading here...', 'crosswinds-blocks' ) } ],
+					[ 'core/paragraph', { placeholder: __( 'Write some description text here...', 'crosswinds-blocks' ) } ],
+				] ],
 			],
 		},
 	);

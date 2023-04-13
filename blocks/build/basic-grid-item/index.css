@@ -12,19 +12,6 @@
   -webkit-margin-after: 0;
           margin-block-end: 0;
   display: flex;
-  flex-direction: column;
-}
-.wp-block-crosswinds-blocks-basic-grid-item.equal-layout {
-  justify-content: space-between;
-}
-.wp-block-crosswinds-blocks-basic-grid-item.center-layout {
-  justify-content: center;
-}
-.wp-block-crosswinds-blocks-basic-grid-item.bottom-layout {
-  justify-content: flex-end;
-}
-.wp-block-crosswinds-blocks-basic-grid-item.last-bottom-layout *:last-child {
-  margin-top: auto;
 }
 
 /*# sourceMappingURL=index.css.map*/
