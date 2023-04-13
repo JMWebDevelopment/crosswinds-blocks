@@ -1,6 +1,7 @@
 @import "_custom-properties";
 
-.crosswinds_page_crosswinds-blocks {
+.crosswinds_page_crosswinds-blocks,
+.toplevel_page_crosswinds-framework-block-options {
 	background-color: var(--color-cb-white);
 
 	& #wpcontent {
@@ -17,6 +18,12 @@
 
 	& p {
 		font-family: Figtree, sans-serif;
+	}
+
+	& h1 {
+		font-family: Figtree, sans-serif;
+		font-size: 50px;
+		line-height: 1.2;
 	}
 
 	& h2 {
@@ -46,12 +53,12 @@
 	& .button,
 	&.wp-core-ui .button-primary {
 		border: 1px solid var(--color-cb-primary);
-		border-radius: 0;
+		margin-right: 10px;
 		background-color: var(--color-cb-primary);
 		color: #efefef;
 		cursor: pointer;
 		font-size: 18px;
-		font-weight: 600;
+		font-weight: 500;
 		padding: 10px 25px;
 		text-decoration: none;
 		white-space: normal;
@@ -67,6 +74,10 @@
 			border: 1px solid var(--color-cb-primary);
 			color: var(--color-cb-primary);
 			text-decoration: none;
+		}
+
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 
@@ -304,11 +315,28 @@
 	& .settings-section {
 		margin-bottom: 3rem;
 	}
+
+	& .settings-area {
+		padding: 1rem;
+		border-radius: 12px;
+		background-color: #efefef;
+		border: 1px solid var(--color-cb-primary);
+		margin-bottom: 2rem;
+
+		&:nth-child(even) {
+			border-color: var(--color-cb-secondary);
+		}
+
+		& h2 {
+			margin: 0 0 1rem;
+		}
+	}
 }
 
 @media (--medium-up) {
 
-	.crosswinds_page_crosswinds-blocks {
+	.crosswinds_page_crosswinds-blocks,
+	.toplevel_page_crosswinds-framework-block-options {
 
 		& .options-wrap {
 	
@@ -333,7 +361,8 @@
 
 @media (--large-up) {
 
-	.crosswinds_page_crosswinds-blocks {
+	.crosswinds_page_crosswinds-blocks,
+	.toplevel_page_crosswinds-framework-block-options {
 
 		& .options-wrap {
 	

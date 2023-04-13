@@ -141,10 +141,10 @@ $home_url = get_bloginfo( 'url' );
 			echo wp_kses_post( $delimiter );
 			global $author;
 			$userdata = get_userdata( $author) ;
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html_( 'Articles posted by ', 'crosswinds-blocks' ) . $userdata->display_name . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html__( 'Articles posted by ', 'crosswinds-blocks' ) . $userdata->display_name . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_404() ) {
 			echo wp_kses_post( $delimiter );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html_( 'Error 404', 'crosswinds-blocks' ) . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html__( 'Error 404', 'crosswinds-blocks' ) . wp_kses_post( $after ) . '</li>';
 		}
 		if ( get_query_var( 'paged' ) ) {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
