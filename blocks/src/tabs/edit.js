@@ -61,6 +61,8 @@ export function Edit( props ) {
 		tabTextHoverColorValue,
 		tabBackgroundColorValue,
 		tabBackgroundHoverColorValue,
+		tabsPaddingTopBottom,
+		tabsPaddingLeftRight,
 	} = attributes;
 
 	const blockProps = useBlockProps(
@@ -139,6 +141,7 @@ export function Edit( props ) {
 		borderWidth: tabsBorderWidth,
 		borderColor: tabsBorderColorValue,
 		borderStyle: 'solid',
+		padding: tabsPaddingTopBottom + 'px ' + tabsPaddingLeftRight + 'px',
 	};
 
 	let tabsFields,
@@ -230,6 +233,32 @@ export function Edit( props ) {
 						initialPosition={ 1 }
 						allowReset={ true }
 						resetFallbackValue={ 1 }
+					/>
+
+					<RangeControl
+						label={ __( 'Tabs Padding Top/Bottom', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { tabsPaddingTopBottom: value } )
+						}
+						value={ tabsPaddingTopBottom || '' }
+						min={ 0 }
+						max={ 100 }
+						initialPosition={ 10 }
+						allowReset={ true }
+						resetFallbackValue={ 10 }
+					/>
+
+					<RangeControl
+						label={ __( 'Tabs Padding Left/Right', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { tabsPaddingLeftRight: value } )
+						}
+						value={ tabsPaddingLeftRight || '' }
+						min={ 0 }
+						max={ 100 }
+						initialPosition={ 15 }
+						allowReset={ true }
+						resetFallbackValue={ 10 }
 					/>
 
 					<PanelColorGradientSettings

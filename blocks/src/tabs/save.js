@@ -27,6 +27,8 @@ export default function save( props ) {
 		tabTextHoverColorValue,
 		tabBackgroundColorValue,
 		tabBackgroundHoverColorValue,
+		tabsPaddingTopBottom,
+		tabsPaddingLeftRight,
 	} = attributes;
 
 	const tabClasses = classnames(
@@ -76,6 +78,7 @@ export default function save( props ) {
 					`#${ anchor }.wp-block-crosswinds-blocks-tabs ul a {
 						color: ${ tabTextColorValue };
 						background-color: ${ tabBackgroundColorValue };
+						padding: ${ tabsPaddingTopBottom }px ${ tabsPaddingLeftRight }px;
 					}
 					#${ anchor }.wp-block-crosswinds-blocks-tabs ul a:hover,
 					#${ anchor }.wp-block-crosswinds-blocks-tabs ul a:focus,

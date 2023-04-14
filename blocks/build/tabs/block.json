@@ -42,6 +42,14 @@
       "type": "number",
       "default": 0
     },
+    "tabsPaddingTopBottom": {
+      "type": "number",
+      "default": 10
+    },
+    "tabsPaddingLeftRight": {
+      "type": "number",
+      "default": 15
+    },
     "tabTextColor": {
       "type": "string"
     },
