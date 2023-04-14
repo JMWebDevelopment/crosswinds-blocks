@@ -1,21 +1,48 @@
 /*!
- * Tabby v11.2.0: Simple, mobile-first toggle tabs.
- * (c) 2016 Chris Ferdinandi
+ * tabbyjs v12.0.3
+ * Lightweight, accessible vanilla JS toggle tabs.
+ * (c) 2019 Chris Ferdinandi
  * MIT License
  * http://github.com/cferdinandi/tabby
  */
 
+/**
+ * Element.matches() polyfill (simple version)
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
+ */
+if (!Element.prototype.matches) {
+	Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+}
+/**
+ * Element.closest() polyfill
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#Polyfill
+ */
+if (!Element.prototype.closest) {
+	if (!Element.prototype.matches) {
+		Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+	}
+	Element.prototype.closest = function (s) {
+		var el = this;
+		var ancestor = this;
+		if (!document.documentElement.contains(el)) return null;
+		do {
+			if (ancestor.matches(s)) return ancestor;
+			ancestor = ancestor.parentElement;
+		} while (ancestor !== null);
+		return null;
+	};
+}
 (function (root, factory) {
-	console.log(root);
-	console.log(factory);
 	if ( typeof define === 'function' && define.amd ) {
-		define([], factory(root));
+		define([], (function () {
+			return factory(root);
+		}));
 	} else if ( typeof exports === 'object' ) {
 		module.exports = factory(root);
 	} else {
-		root.tabby = factory(root);
+		root.Tabby = factory(root);
 	}
-})(typeof global !== 'undefined' ? global : this.window || this.global, (function (root) {
+})(typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this, (function (window) {
 
 	'use strict';
 
@@ -23,21 +50,9 @@
 	// Variables
 	//
 
-	var tabby = {}; // Object for public APIs
-	var supports = 'querySelector' in document && 'addEventListener' in root && 'classList' in document.createElement('_') && 'onhashchange' in root; // Feature test
-	var settings, tab;
-
-	// Default settings
 	var defaults = {
-		selectorToggle: '[data-tab]',
-		selectorToggleGroup: '[data-tabs]',
-		selectorContent: '[data-tabs-pane]',
-		selectorContentGroup: '[data-tabs-content]',
-		toggleActiveClass: 'active',
-		contentActiveClass: 'active',
-		initClass: 'js-tabby',
-		stopVideo: true,
-		callback: function () {}
+		idPrefix: 'tabby-toggle_',
+		default: '[data-tabby-default]'
 	};
 
 
@@ -46,475 +61,401 @@
 	//
 
 	/**
-	 * A simple forEach() implementation for Arrays, Objects and NodeLists
-	 * @private
-	 * @param {Array|Object|NodeList} collection Collection of items to iterate
-	 * @param {Function} callback Callback function for each iteration
-	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
-	 */
-	var forEach = function (collection, callback, scope) {
-		if (Object.prototype.toString.call(collection) === '[object Object]') {
-			for (var prop in collection) {
-				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
-					callback.call(scope, collection[prop], prop, collection);
-				}
-			}
-		} else {
-			for (var i = 0, len = collection.length; i < len; i++) {
-				callback.call(scope, collection[i], i, collection);
-			}
-		}
-	};
-
-	/**
-	 * Merge defaults with user options
-	 * @private
-	 * @param {Object} defaults Default settings
-	 * @param {Object} options User options
-	 * @returns {Object} Merged values of defaults and options
+	 * Merge two or more objects together.
+	 * @param   {Object}   objects  The objects to merge together
+	 * @returns {Object}            Merged values of defaults and options
 	 */
 	var extend = function () {
+		var merged = {};
+		Array.prototype.forEach.call(arguments, (function (obj) {
+			for (var key in obj) {
+				if (!obj.hasOwnProperty(key)) return;
+				merged[key] = obj[key];
+			}
+		}));
+		return merged;
+	};
+
+	/**
+	 * Emit a custom event
+	 * @param  {String} type    The event type
+	 * @param  {Node}   tab     The tab to attach the event to
+	 * @param  {Node}   details Details about the event
+	 */
+	var emitEvent = function (tab, details) {
+
+		// Create a new event
+		var event;
+		if (typeof window.CustomEvent === 'function') {
+			event = new CustomEvent('tabby', {
+				bubbles: true,
+				cancelable: true,
+				detail: details
+			});
+		} else {
+			event = document.createEvent('CustomEvent');
+			event.initCustomEvent('tabby', true, true, details);
+		}
+
+		// Dispatch the event
+		tab.dispatchEvent(event);
+
+	};
+
+	/**
+	 * Remove roles and attributes from a tab and its content
+	 * @param  {Node}   tab      The tab
+	 * @param  {Node}   content  The tab content
+	 * @param  {Object} settings User settings and options
+	 */
+	var destroyTab = function (tab, content, settings) {
+
+		// Remove the generated ID
+		if (tab.id.slice(0, settings.idPrefix.length) === settings.idPrefix) {
+			tab.id = '';
+		}
+
+		// Remove roles
+		tab.removeAttribute('role');
+		tab.removeAttribute('aria-controls');
+		tab.removeAttribute('aria-selected');
+		tab.removeAttribute('tabindex');
+		tab.closest('li').removeAttribute('role');
+		content.removeAttribute('role');
+		content.removeAttribute('aria-labelledby');
+		content.removeAttribute('hidden');
+
+	};
+
+	/**
+	 * Add the required roles and attributes to a tab and its content
+	 * @param  {Node}   tab      The tab
+	 * @param  {Node}   content  The tab content
+	 * @param  {Object} settings User settings and options
+	 */
+	var setupTab = function (tab, content, settings) {
+
+		// Give tab an ID if it doesn't already have one
+		if (!tab.id) {
+			tab.id = settings.idPrefix + content.id;
+		}
+
+		// Add roles
+		tab.setAttribute('role', 'tab');
+		tab.setAttribute('aria-controls', content.id);
+		tab.closest('li').setAttribute('role', 'presentation');
+		content.setAttribute('role', 'tabpanel');
+		content.setAttribute('aria-labelledby', tab.id);
+
+		// Add selected state
+		if (tab.matches(settings.default)) {
+			tab.setAttribute('aria-selected', 'true');
+		} else {
+			tab.setAttribute('aria-selected', 'false');
+			tab.setAttribute('tabindex', '-1');
+			content.setAttribute('hidden', 'hidden');
+		}
+
+	};
+
+	/**
+	 * Hide a tab and its content
+	 * @param  {Node} newTab The new tab that's replacing it
+	 */
+	var hide = function (newTab) {
 
 		// Variables
-		var extended = {};
-		var deep = false;
-		var i = 0;
-		var length = arguments.length;
+		var tabGroup = newTab.closest('[role="tablist"]');
+		if (!tabGroup) return {};
+		var tab = tabGroup.querySelector('[role="tab"][aria-selected="true"]');
+		if (!tab) return {};
+		var content = document.querySelector(tab.hash);
 
-		// Check if a deep merge
-		if ( Object.prototype.toString.call( arguments[0] ) === '[object Boolean]' ) {
-			deep = arguments[0];
-			i++;
-		}
+		// Hide the tab
+		tab.setAttribute('aria-selected', 'false');
+		tab.setAttribute('tabindex', '-1');
 
-		// Merge the object into the extended object
-		var merge = function (obj) {
-			for ( var prop in obj ) {
-				if ( Object.prototype.hasOwnProperty.call( obj, prop ) ) {
-					// If deep merge and property is an object, merge properties
-					if ( deep && Object.prototype.toString.call(obj[prop]) === '[object Object]' ) {
-						extended[prop] = extend( true, extended[prop], obj[prop] );
-					} else {
-						extended[prop] = obj[prop];
-					}
-				}
-			}
+		// Hide the content
+		if (!content) return {previousTab: tab};
+		content.setAttribute('hidden', 'hidden');
+
+		// Return the hidden tab and content
+		return {
+			previousTab: tab,
+			previousContent: content
 		};
-
-		// Loop through each object and conduct a merge
-		for ( ; i < length; i++ ) {
-			var obj = arguments[i];
-			merge(obj);
-		}
-
-		return extended;
 
 	};
 
 	/**
-	 * Get the closest matching element up the DOM tree.
-	 * @private
-	 * @param  {Element} elem     Starting element
-	 * @param  {String}  selector Selector to match against
-	 * @return {Boolean|Element}  Returns null if not match found
+	 * Show a tab and its content
+	 * @param  {Node} tab      The tab
+	 * @param  {Node} content  The tab content
 	 */
-	var getClosest = function ( elem, selector ) {
-
-		// Element.matches() polyfill
-		if (!Element.prototype.matches) {
-			Element.prototype.matches =
-				Element.prototype.matchesSelector ||
-				Element.prototype.mozMatchesSelector ||
-				Element.prototype.msMatchesSelector ||
-				Element.prototype.oMatchesSelector ||
-				Element.prototype.webkitMatchesSelector ||
-				function(s) {
-					var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-						i = matches.length;
-					while (--i >= 0 && matches.item(i) !== this) {}
-					return i > -1;
-				};
-		}
-
-		// Get closest match
-		for ( ; elem && elem !== document; elem = elem.parentNode ) {
-			if ( elem.matches( selector ) ) return elem;
-		}
-
-		return null;
-
-	};
-
-	/**
-	 * Escape special characters for use with querySelector
-	 * @public
-	 * @param {String} id The anchor ID to escape
-	 * @author Mathias Bynens
-	 * @link https://github.com/mathiasbynens/CSS.escape
-	 */
-	var escapeCharacters = function ( id ) {
-
-			// Remove leading hash
-			if ( id.charAt(0) === '#' ) {
-				id = id.substr(1);
-			}
-
-			var string = String(id);
-			var length = string.length;
-			var index = -1;
-			var codeUnit;
-			var result = '';
-			var firstCodeUnit = string.charCodeAt(0);
-			while (++index < length) {
-				codeUnit = string.charCodeAt(index);
-				// Note: there’s no need to special-case astral symbols, surrogate
-				// pairs, or lone surrogates.
-
-				// If the character is NULL (U+0000), then throw an
-				// `InvalidCharacterError` exception and terminate these steps.
-				if (codeUnit === 0x0000) {
-					throw new InvalidCharacterError(
-						'Invalid character: the input contains U+0000.'
-					);
-				}
-
-				if (
-					// If the character is in the range [\1-\1F] (U+0001 to U+001F) or is
-					// U+007F, […]
-					(codeUnit >= 0x0001 && codeUnit <= 0x001F) || codeUnit == 0x007F ||
-					// If the character is the first character and is in the range [0-9]
-					// (U+0030 to U+0039), […]
-					(index === 0 && codeUnit >= 0x0030 && codeUnit <= 0x0039) ||
-					// If the character is the second character and is in the range [0-9]
-					// (U+0030 to U+0039) and the first character is a `-` (U+002D), […]
-					(
-						index === 1 &&
-						codeUnit >= 0x0030 && codeUnit <= 0x0039 &&
-						firstCodeUnit === 0x002D
-					)
-				) {
-					// http://dev.w3.org/csswg/cssom/#escape-a-character-as-code-point
-					result += '\\' + codeUnit.toString(16) + ' ';
-					continue;
-				}
-
-				// If the character is not handled by one of the above rules and is
-				// greater than or equal to U+0080, is `-` (U+002D) or `_` (U+005F), or
-				// is in one of the ranges [0-9] (U+0030 to U+0039), [A-Z] (U+0041 to
-				// U+005A), or [a-z] (U+0061 to U+007A), […]
-				if (
-					codeUnit >= 0x0080 ||
-					codeUnit === 0x002D ||
-					codeUnit === 0x005F ||
-					codeUnit >= 0x0030 && codeUnit <= 0x0039 ||
-					codeUnit >= 0x0041 && codeUnit <= 0x005A ||
-					codeUnit >= 0x0061 && codeUnit <= 0x007A
-				) {
-					// the character itself
-					result += string.charAt(index);
-					continue;
-				}
-
-				// Otherwise, the escaped character.
-				// http://dev.w3.org/csswg/cssom/#escape-a-character
-				result += '\\' + string.charAt(index);
-
-			}
-
-			return '#' + result;
-
-		};
-
-	/**
-	 * Stop YouTube, Vimeo, and HTML5 videos from playing when leaving the slide
-	 * @private
-	 * @param  {Element} content The content container the video is in
-	 * @param  {String} activeClass The class asigned to expanded content areas
-	 */
-	var stopVideos = function ( content, settings ) {
-
-		// Check if stop video enabled
-		if ( !settings.stopVideo ) return;
-
-		// Only run if content container is closed
-		if ( content.classList.contains( settings.contentActiveClass ) ) return;
-
-		// Check if the video is an iframe or HTML5 video
-		var iframe = content.querySelector( 'iframe');
-		var video = content.querySelector( 'video' );
-
-		// Stop the video
-		if ( iframe ) {
-			var iframeSrc = iframe.src;
-			iframe.src = iframeSrc;
-		}
-		if ( video ) {
-			video.pause();
-		}
-
-	};
-
-	/**
-	 * Add focus to tab
-	 * @private
-	 * @param  {node}   tab      The content to bring into focus
-	 * @param  {object} settings Options
-	 */
-	var adjustFocus = function ( tab, settings ) {
-
-		if ( tab.hasAttribute( 'data-tab-no-focus' ) ) return;
-
-		// If tab is closed, remove tabindex
-		if ( !tab.classList.contains( settings.contentActiveClass ) ) {
-			if ( tab.hasAttribute( 'data-tab-focused' ) ) {
-				tab.removeAttribute( 'tabindex' );
-			}
-			return;
-		}
-
-		// Get current position on the page
-		var position = {
-			x: root.pageXOffset,
-			y: root.pageYOffset
-		};
-
-		// Set focus and reset position to account for page jump on focus
+	var show = function (tab, content) {
+		tab.setAttribute('aria-selected', 'true');
+		tab.setAttribute('tabindex', '0');
+		content.removeAttribute('hidden');
 		tab.focus();
-		if ( document.activeElement.id !== tab.id ) {
-			tab.setAttribute( 'tabindex', '-1' );
-			tab.setAttribute( 'data-tab-focused', true );
-			tab.focus();
-		}
-		root.scrollTo( position.x, position.y );
-
 	};
 
 	/**
-	 * Toggle tab toggle active state
-	 * @private
-	 * @param  {Node}   toggle   The toggle element
-	 * @param  {Object} settings
+	 * Toggle a new tab
+	 * @param  {Node} tab The tab to show
 	 */
-	var toggleToggles = function ( toggle, settings ) {
+	var toggle = function (tab) {
+
+		// Make sure there's a tab to toggle and it's not already active
+		if (!tab || tab.getAttribute('aria-selected') == 'true') return;
 
 		// Variables
-		var toggleGroup = getClosest( toggle, settings.selectorToggleGroup ); // The parent for the toggle group
-		if ( !toggleGroup ) return;
-		var toggles = toggleGroup.querySelectorAll( settings.selectorToggle ); // The toggles in the group
-		var toggleList;
+		var content = document.querySelector(tab.hash);
+		if (!content) return;
 
-		// Show or hide each toggle
-		// @todo Start here
-		forEach(toggles, (function (item) {
+		// Hide active tab and content
+		var details = hide(tab);
 
-			// If this is the selected toggle, activate it
-			if ( item.hash === toggle.hash ) {
+		// Show new tab and content
+		show(tab, content);
 
-				// Add active class
-				item.classList.add( settings.toggleActiveClass );
+		// Add event details
+		details.tab = tab;
+		details.content = content;
 
-				// If toggle is a list item, activate <li> element, too
-				toggleList = getClosest( item, 'li' );
-				if ( toggleList ) {
-					toggleList.classList.add( settings.toggleActiveClass );
-				}
-
-				return;
-
-			}
-
-			// Otherwise, deactivate it
-			item.classList.remove( settings.toggleActiveClass );
-			toggleList = getClosest( item, 'li' );
-			if ( toggleList ) {
-				toggleList.classList.remove( settings.toggleActiveClass );
-			}
-
-		}));
+		// Emit a custom event
+		emitEvent(tab, details);
 
 	};
 
 	/**
-	 * Toggle tab active state
-	 * @private
-	 * @param  {String} tabID    The ID of the tab to activate
-	 * @param  {Object} settings
+	 * Get all of the tabs in a tablist
+	 * @param  {Node}   tab  A tab from the list
+	 * @return {Object}      The tabs and the index of the currently active one
 	 */
-	var toggleTabs = function ( tabID, settings ) {
+	var getTabsMap = function (tab) {
+		var tabGroup = tab.closest('[role="tablist"]');
+		var tabs = tabGroup ? tabGroup.querySelectorAll('[role="tab"]') : null;
+		if (!tabs) return;
+		return {
+			tabs: tabs,
+			index: Array.prototype.indexOf.call(tabs, tab)
+		};
+	};
 
+	/**
+	 * Switch the active tab based on keyboard activity
+	 * @param  {Node} tab The currently active tab
+	 * @param  {Key}  key The key that was pressed
+	 */
+	var switchTabs = function (tab, key) {
+
+		// Get a map of tabs
+		var map = getTabsMap(tab);
+		if (!map) return;
+		var length = map.tabs.length - 1;
+		var index;
+
+		// Go to previous tab
+		if (['ArrowUp', 'ArrowLeft', 'Up', 'Left'].indexOf(key) > -1) {
+			index = map.index < 1 ? length : map.index - 1;
+		}
+
+		// Go to next tab
+		else if (['ArrowDown', 'ArrowRight', 'Down', 'Right'].indexOf(key) > -1) {
+			index = map.index === length ? 0 : map.index + 1;
+		}
+
+		// Go to home
+		else if (key === 'Home') {
+			index = 0;
+
+		}
+
+		// Go to end
+		else if (key === 'End') {
+			index = length;
+		}
+
+		// Toggle the tab
+		toggle(map.tabs[index]);
+
+	};
+
+	/**
+	 * Activate a tab based on the URL
+	 * @param  {String} selector The selector for this instantiation
+	 */
+	var loadFromURL = function (selector) {
+		if (window.location.hash.length < 1) return;
+		var tab = document.querySelector(selector + ' [role="tab"][href*="' + window.location.hash + '"]');
+		toggle(tab);
+	};
+
+	/**
+	 * Create the Constructor object
+	 */
+	var Constructor = function (selector, options) {
+
+		//
 		// Variables
-		var tab = document.querySelector( escapeCharacters( tabID ) ); // The selected tab
-		if ( !tab ) return;
-		var tabGroup = getClosest( tab, settings.selectorContentGroup ); // The parent for the tab group
-		if ( !tabGroup ) return;
-		var tabs = tabGroup.querySelectorAll( settings.selectorContent ); // The tabs in the group
+		//
 
-		// Show or hide each tab
-		forEach(tabs, (function (tab) {
+		var publicAPIs = {};
+		var settings, tabWrapper;
 
-			// If this is the selected tab, show it
-			if ( tab.id === tabID.substring(1) ) {
-				tab.classList.add( settings.contentActiveClass );
-				adjustFocus( tab, settings );
-				return;
+
+		//
+		// Methods
+		//
+
+		publicAPIs.destroy = function () {
+
+			// Get all tabs
+			var tabs = tabWrapper.querySelectorAll('a');
+
+			// Add roles to tabs
+			Array.prototype.forEach.call(tabs, (function (tab) {
+
+				// Get the tab content
+				var content = document.querySelector(tab.hash);
+				if (!content) return;
+
+				// Setup the tab
+				destroyTab(tab, content, settings);
+
+			}));
+
+			// Remove role from wrapper
+			tabWrapper.removeAttribute('role');
+
+			// Remove event listeners
+			document.documentElement.removeEventListener('click', clickHandler, true);
+			tabWrapper.removeEventListener('keydown', keyHandler, true);
+
+			// Reset variables
+			settings = null;
+			tabWrapper = null;
+
+		};
+
+		/**
+		 * Setup the DOM with the proper attributes
+		 */
+		publicAPIs.setup = function () {
+
+			// Variables
+			tabWrapper = document.querySelector(selector);
+			if (!tabWrapper) return;
+			var tabs = tabWrapper.querySelectorAll('a');
+
+			// Add role to wrapper
+			tabWrapper.setAttribute('role', 'tablist');
+
+			// Add roles to tabs
+			Array.prototype.forEach.call(tabs, (function (tab) {
+
+				// Get the tab content
+				var content = document.querySelector(tab.hash);
+				if (!content) return;
+
+				// Setup the tab
+				setupTab(tab, content, settings);
+
+			}));
+
+		};
+
+		/**
+		 * Toggle a tab based on an ID
+		 * @param  {String|Node} id The tab to toggle
+		 */
+		publicAPIs.toggle = function (id) {
+
+			// Get the tab
+			var tab = id;
+			if (typeof id === 'string') {
+				tab = document.querySelector(selector + ' [role="tab"][href*="' + id + '"]');
 			}
 
-			// Otherwise, hide it
-			tab.classList.remove( settings.contentActiveClass );
-			stopVideos( tab, settings );
-			adjustFocus( tab, settings );
+			// Toggle the tab
+			toggle(tab);
 
-		}));
+		};
 
-	};
+		/**
+		 * Handle click events
+		 */
+		var clickHandler = function (event) {
 
-	/**
-	 * Show a tab and hide all others
-	 * @public
-	 * @param  {Element} toggle The element that toggled the show tab event
-	 * @param  {String}  tabID The ID of the tab to show
-	 * @param  {Object}  options
-	 */
-	tabby.toggleTab = function ( tabID, toggle, options ) {
+			// Only run on toggles
+			var tab = event.target.closest(selector + ' [role="tab"]');
+			if (!tab) return;
 
-		// Selectors and variables
-		var localSettings = extend( settings || defaults, options || {} );  // Merge user options with defaults
-		var tabs = document.querySelectorAll( escapeCharacters( tabID ) ); // Get tab content
-
-		// Toggle visibility of the toggles and tabs
-		toggleTabs( tabID, localSettings );
-		if ( toggle ) {
-			toggleToggles(toggle, localSettings);
-		}
-
-		// Run callbacks after toggling tab
-		localSettings.callback( tabs, toggle );
-
-	};
-
-	/**
-	 * Handle has change event
-	 * @private
-	 */
-	var hashChangeHandler = function (event) {
-
-		// Get hash from URL
-		var hash = root.location.hash;
-
-		// If clicked tab is cached, reset it's ID
-		if ( tab ) {
-			tab.id = tab.getAttribute( 'data-tab-id' );
-			tab = null;
-		}
-
-		// If there's a URL hash, activate tab with matching ID
-		if ( !hash ) return;
-		var toggle = document.querySelector( settings.selectorToggle + '[href*="' + hash + '"]' );
-		tabby.toggleTab( hash, toggle );
-
-	};
-
-	/**
-	 * Handle toggle click events
-	 * @private
-	 */
-	var clickHandler = function (event) {
-
-		// Don't run if right-click or command/control + click
-		if ( event.button !== 0 || event.metaKey || event.ctrlKey ) return;
-
-		// Check if event target is a tab toggle
-		var toggle = getClosest( event.target, settings.selectorToggle );
-		if ( !toggle || !toggle.hash ) return;
-
-		// Don't run if toggle points to currently open tab
-		if ( toggle.hash === root.location.hash ) {
+			// Prevent link behavior
 			event.preventDefault();
-			return;
-		}
 
-		// Get the tab content
-		tab = document.querySelector( toggle.hash );
+			// Toggle the tab
+			toggle(tab);
 
-		// If tab content exists, save the ID as a data attribute and remove it (prevents scroll jump)
-		if ( !tab ) return;
-		tab.setAttribute( 'data-tab-id', tab.id );
-		tab.id = '';
+		};
 
-	};
+		/**
+		 * Handle keydown events
+		 */
+		var keyHandler = function (event) {
 
-	/**
-	 * Handle content focus events
-	 * @private
-	 */
-	var focusHandler = function (event) {
+			// Only run if a tab is in focus
+			var tab = document.activeElement;
+			if (!tab.matches(selector + ' [role="tab"]')) return;
 
-		// Only run if the focused content is in a tab
-		tab = getClosest( event.target, settings.selectorContent );
-		if ( !tab ) return;
+			// Only run for specific keys
+			if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Up', 'Down', 'Left', 'Right', 'Home', 'End'].indexOf(event.key) < 0) return;
 
-		// Don't run if the content area is already open
-		if ( tab.classList.contains( settings.contentActiveClass ) ) return;
+			// Switch tabs
+			switchTabs(tab, event.key);
 
-		// Store tab ID to variable and remove it from the tab
-		var hash = tab.id;
-		tab.setAttribute( 'data-tab-id', hash );
-		tab.setAttribute( 'data-tab-no-focus', true );
-		tab.id = '';
+		};
 
-		// Change the hash
-		location.hash = hash;
+		/**
+		 * Initialize the instance
+		 */
+		var init = function () {
 
-	};
+			// Merge user options with defaults
+			settings = extend(defaults, options || {});
 
-	/**
-	 * Destroy the current initialization.
-	 * @public
-	 */
-	tabby.destroy = function () {
-		if ( !settings ) return;
-		document.documentElement.classList.remove( settings.initClass );
-		document.removeEventListener('click', clickHandler, false);
-		document.removeEventListener('focus', focusHandler, true);
-		root.removeEventListener('hashchange', hashChangeHandler, false);
-		settings = null;
-		tab = null;
-	};
+			// Setup the DOM
+			publicAPIs.setup();
 
-	/**
-	 * Initialize Tabby
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	tabby.init = function ( options ) {
+			// Load a tab from the URL
+			loadFromURL(selector);
 
-		// feature test
-		if ( !supports ) return;
+			// Add event listeners
+			document.documentElement.addEventListener('click', clickHandler, true);
+			tabWrapper.addEventListener('keydown', keyHandler, true);
 
-		// Destroy any existing initializations
-		tabby.destroy();
+		};
 
-		// Merge user options with defaults
-		settings = extend( defaults, options || {} );
 
-		// Add class to HTML element to activate conditional CSS
-		document.documentElement.classList.add( settings.initClass );
+		//
+		// Initialize and return the Public APIs
+		//
 
-		// Listen for all click events
-		document.addEventListener('click', clickHandler, false);
-		document.addEventListener('focus', focusHandler, true);
-		root.addEventListener('hashchange', hashChangeHandler, false);
-
-		// If URL has a hash, activate hashed tab by default
-		hashChangeHandler();
+		init();
+		return publicAPIs;
 
 	};
 
 
 	//
-	// Public APIs
+	// Return the Constructor
 	//
 
-	return tabby;
+	return Constructor;
 
 }));
+
+Array.from(document.querySelectorAll('.wp-block-crosswinds-blocks-tabs')).forEach(function(tab) {
+	console.log( tab.id );
+	var tabs = new Tabby( '#' + tab.id );
+});
