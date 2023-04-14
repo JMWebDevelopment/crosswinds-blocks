@@ -25,6 +25,7 @@
       "wide",
       "full"
     ],
+    "anchor": true,
     "html": false,
     "ariaLabel": true,
     "__experimentalLayout": true,

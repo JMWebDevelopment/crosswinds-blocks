@@ -117,9 +117,10 @@
 @media only screen and (min-width: 650px) {
 
 	.wp-block-crosswinds-blocks-tabs {
+
 		&.align-tabs-vertical {
 			display: flex;
-			flex-wrap: wrap;
+			flex-wrap: initial;
 
 			& .tabs-list {
 				flex-basis: 250px;
