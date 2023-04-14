@@ -35,12 +35,32 @@ export function Edit( props ) {
 	const {
 		attributes,
 		setAttributes,
+		separatorColor,
+		tabsBorderColor,
+		tabTextColor,
+		tabTextHoverColor,
+		tabBackgroundColor,
+		tabBackgroundHoverColor,
+		setSeparatorColor,
+		setTabsBorderColor,
+		setTabTextColor,
+		setTabTextHoverColor,
+		setTabBackgroundColor,
+		setTabBackgroundHoverColor,
 	} = props;
 
 	const {
 		tabs,
 		tabsAlign,
 		tabsSpacing,
+		tabsBorderWidth,
+		separatorWidth,
+		separatorColorValue,
+		tabsBorderColorValue,
+		tabTextColorValue,
+		tabTextHoverColorValue,
+		tabBackgroundColorValue,
+		tabBackgroundHoverColorValue,
 	} = attributes;
 
 	const blockProps = useBlockProps(
@@ -113,6 +133,14 @@ export function Edit( props ) {
 		setAttributes( { tabs: updatedTabs } );
 	};
 
+	const tabStyles = {
+		backgroundColor: tabBackgroundColorValue,
+		color: tabTextColorValue,
+		borderWidth: tabsBorderWidth,
+		borderColor: tabsBorderColorValue,
+		borderStyle: 'solid',
+	};
+
 	let tabsFields,
 		tabsDisplay;
 
@@ -143,7 +171,7 @@ export function Edit( props ) {
 		} );
 
 		tabsDisplay = tabs.map( ( tab, index ) => {
-			return <li key={ index }><a href={ '#' + tab.target }>{ tab.text }</a></li>;
+			return <li key={ index } style={ tabStyles }><a href={ '#' + tab.target }>{ tab.text }</a></li>;
 		} );
 	}
 
@@ -177,16 +205,144 @@ export function Edit( props ) {
 					/>
 				</PanelBody>
 
+				<PanelBody title={ __( 'Tabs Styling', 'crosswinds-blocks' ) }>
+					<RangeControl
+						label={ __( 'Separator width', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { separatorWidth: value } )
+						}
+						value={ separatorWidth || '' }
+						min={ 0 }
+						max={ 25 }
+						initialPosition={ 1 }
+						allowReset={ true }
+						resetFallbackValue={ 1 }
+					/>
+
+					<RangeControl
+						label={ __( 'Tabs Borders width', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { tabsBorderWidth: value } )
+						}
+						value={ tabsBorderWidth || '' }
+						min={ 0 }
+						max={ 25 }
+						initialPosition={ 1 }
+						allowReset={ true }
+						resetFallbackValue={ 1 }
+					/>
+
+					<PanelColorGradientSettings
+						className="outermost-crosswinds-blocks__color-settings"
+						title={ __( 'Border Colors', 'crosswinds-blocks' ) }
+						initialOpen={ true }
+						enableAlpha={ true }
+						settings={ [
+							{
+								colorValue: separatorColor.color || separatorColorValue,
+								onColorChange: ( colorValue ) => {
+									setSeparatorColor( colorValue );
+									setAttributes( {
+										separatorColorValue: colorValue,
+									} );
+								},
+								label: __( 'Separator color', 'crosswinds-blocks' ),
+							},
+							{
+								colorValue: tabsBorderColor.color || tabsBorderColorValue,
+								onColorChange: ( colorValue ) => {
+									setTabsBorderColor( colorValue );
+									setAttributes( {
+										tabsBorderColorValue: colorValue,
+									} );
+								},
+								label: __( 'Tab borders color', 'crosswinds-blocks' ),
+							},
+						] }
+						__experimentalHasMultipleOrigins={ true }
+					>
+					</PanelColorGradientSettings>
+
+					<PanelColorGradientSettings
+						className="outermost-crosswinds-blocks__color-settings"
+						title={ __( 'Tab Colors', 'crosswinds-blocks' ) }
+						initialOpen={ true }
+						enableAlpha={ true }
+						settings={ [
+							{
+								colorValue: tabTextColor.color || tabTextColorValue,
+								onColorChange: ( colorValue ) => {
+									setTabTextColor( colorValue );
+									setAttributes( {
+										tabTextColorValue: colorValue,
+									} );
+								},
+								label: __( 'Text color', 'crosswinds-blocks' ),
+							},
+							{
+								colorValue:
+								tabTextHoverColor.color ||
+								tabTextHoverColorValue,
+								onColorChange: ( colorValue ) => {
+									setTabTextHoverColor( colorValue );
+									setAttributes( {
+										tabTextHoverColorValue: colorValue,
+									} );
+								},
+								label: __( 'Text Hover color', 'crosswinds-blocks' ),
+							},
+							{
+								colorValue: tabBackgroundColor.color || tabBackgroundColorValue,
+								onColorChange: ( colorValue ) => {
+									setTabBackgroundColor( colorValue );
+									setAttributes( {
+										tabBackgroundColorValue: colorValue,
+									} );
+								},
+								label: __( 'Background color', 'crosswinds-blocks' ),
+							},
+							{
+								colorValue:
+								tabBackgroundHoverColor.color ||
+								tabBackgroundHoverColorValue,
+								onColorChange: ( colorValue ) => {
+									setTabBackgroundHoverColor( colorValue );
+									setAttributes( {
+										tabBackgroundHoverColorValue: colorValue,
+									} );
+								},
+								label: __( 'Background Hover color', 'crosswinds-blocks' ),
+							},
+						] }
+						__experimentalHasMultipleOrigins={ true }
+					>
+					</PanelColorGradientSettings>
+				</PanelBody>
+
 			</InspectorControls>
 		</>
 	);
+
+	let tabListStyles;
+
+	if ( 'horizontal' === tabsAlign ) {
+		tabListStyles = {
+			borderBottomColor: separatorColorValue,
+			borderBottomWidth: separatorWidth + 'px',
+		};
+	} else {
+		tabListStyles = {
+			borderRightColor: separatorColorValue,
+			borderRightWidth: separatorWidth + 'px',
+		};
+	}
 
 	return (
 		<>
 			{ inspectorControls }
 			<div { ...blockProps }>
 				<div className="tabs-list">
-					<ul>
+					<ul style={ tabListStyles }>
 						{ tabsDisplay }
 					</ul>
 				</div>
@@ -203,4 +359,13 @@ export function Edit( props ) {
 	);
 }
 
-export default Edit;
+const tabsColorAttributes = {
+	separatorColor: 'separator-color',
+	tabsBorderColor: 'tab-border-color',
+	tabTextColor: 'tab-text-color',
+	tabTextHoverColor: 'tab-text-hover-color',
+	tabBackgroundColor: 'tab-background-color',
+	tabBackgroundHoverColor: 'tab-background-hover-color',
+};
+
+export default withColors( tabsColorAttributes )( Edit );

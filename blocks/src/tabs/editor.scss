@@ -14,11 +14,12 @@
 			border-bottom: 1px solid var(--wp--preset--color--primary);
 
 			li {
-				display: inline-block;
-				padding: 5px 8px;
 
 				a {
+					color: inherit;
 					text-decoration: none;
+					display: inline-block;
+					padding: 5px 8px;
 				}
 			}
 		}
@@ -122,9 +123,16 @@
 			flex-wrap: initial;
 
 			& .tabs-list {
+				display: flex;
+				flex-grow: 1;
 				flex-basis: 250px;
 					ul {
+						display: flex;
+						flex-direction: column;
 						border-bottom: 0;
+						border-right: 1px solid var(--wp--preset--color--primary);
+						margin-right: 1rem;
+						flex-basis: 100%;
 					}
 			}
 

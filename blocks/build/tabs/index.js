@@ -44,12 +44,32 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(props) {
   const {
     attributes,
-    setAttributes
+    setAttributes,
+    separatorColor,
+    tabsBorderColor,
+    tabTextColor,
+    tabTextHoverColor,
+    tabBackgroundColor,
+    tabBackgroundHoverColor,
+    setSeparatorColor,
+    setTabsBorderColor,
+    setTabTextColor,
+    setTabTextHoverColor,
+    setTabBackgroundColor,
+    setTabBackgroundHoverColor
   } = props;
   const {
     tabs,
     tabsAlign,
-    tabsSpacing
+    tabsSpacing,
+    tabsBorderWidth,
+    separatorWidth,
+    separatorColorValue,
+    tabsBorderColorValue,
+    tabTextColorValue,
+    tabTextHoverColorValue,
+    tabBackgroundColorValue,
+    tabBackgroundHoverColorValue
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
     className: 'align-tabs-' + tabsAlign + ' space-tabs-' + tabsSpacing
@@ -110,6 +130,13 @@ function Edit(props) {
       tabs: updatedTabs
     });
   };
+  const tabStyles = {
+    backgroundColor: tabBackgroundColorValue,
+    color: tabTextColorValue,
+    borderWidth: tabsBorderWidth,
+    borderColor: tabsBorderColorValue,
+    borderStyle: 'solid'
+  };
   let tabsFields, tabsDisplay;
   if (tabs.length) {
     tabsFields = tabs.map((tab, index) => {
@@ -136,7 +163,8 @@ function Edit(props) {
     });
     tabsDisplay = tabs.map((tab, index) => {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
-        key: index
+        key: index,
+        style: tabStyles
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
         href: '#' + tab.target
       }, tab.text));
@@ -160,17 +188,131 @@ function Edit(props) {
     onChange: value => setAttributes({
       tabsSpacing: value
     })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tabs Styling', 'crosswinds-blocks')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Separator width', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      separatorWidth: value
+    }),
+    value: separatorWidth || '',
+    min: 0,
+    max: 25,
+    initialPosition: 1,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tabs Borders width', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      tabsBorderWidth: value
+    }),
+    value: tabsBorderWidth || '',
+    min: 0,
+    max: 25,
+    initialPosition: 1,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.__experimentalPanelColorGradientSettings, {
+    className: "outermost-crosswinds-blocks__color-settings",
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Border Colors', 'crosswinds-blocks'),
+    initialOpen: true,
+    enableAlpha: true,
+    settings: [{
+      colorValue: separatorColor.color || separatorColorValue,
+      onColorChange: colorValue => {
+        setSeparatorColor(colorValue);
+        setAttributes({
+          separatorColorValue: colorValue
+        });
+      },
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Separator color', 'crosswinds-blocks')
+    }, {
+      colorValue: tabsBorderColor.color || tabsBorderColorValue,
+      onColorChange: colorValue => {
+        setTabsBorderColor(colorValue);
+        setAttributes({
+          tabsBorderColorValue: colorValue
+        });
+      },
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tab borders color', 'crosswinds-blocks')
+    }],
+    __experimentalHasMultipleOrigins: true
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.__experimentalPanelColorGradientSettings, {
+    className: "outermost-crosswinds-blocks__color-settings",
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tab Colors', 'crosswinds-blocks'),
+    initialOpen: true,
+    enableAlpha: true,
+    settings: [{
+      colorValue: tabTextColor.color || tabTextColorValue,
+      onColorChange: colorValue => {
+        setTabTextColor(colorValue);
+        setAttributes({
+          tabTextColorValue: colorValue
+        });
+      },
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text color', 'crosswinds-blocks')
+    }, {
+      colorValue: tabTextHoverColor.color || tabTextHoverColorValue,
+      onColorChange: colorValue => {
+        setTabTextHoverColor(colorValue);
+        setAttributes({
+          tabTextHoverColorValue: colorValue
+        });
+      },
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Text Hover color', 'crosswinds-blocks')
+    }, {
+      colorValue: tabBackgroundColor.color || tabBackgroundColorValue,
+      onColorChange: colorValue => {
+        setTabBackgroundColor(colorValue);
+        setAttributes({
+          tabBackgroundColorValue: colorValue
+        });
+      },
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Background color', 'crosswinds-blocks')
+    }, {
+      colorValue: tabBackgroundHoverColor.color || tabBackgroundHoverColorValue,
+      onColorChange: colorValue => {
+        setTabBackgroundHoverColor(colorValue);
+        setAttributes({
+          tabBackgroundHoverColorValue: colorValue
+        });
+      },
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Background Hover color', 'crosswinds-blocks')
+    }],
+    __experimentalHasMultipleOrigins: true
   }))));
+  let tabListStyles;
+  if ('horizontal' === tabsAlign) {
+    tabListStyles = {
+      borderBottomColor: separatorColorValue,
+      borderBottomWidth: separatorWidth + 'px'
+    };
+  } else {
+    tabListStyles = {
+      borderRightColor: separatorColorValue,
+      borderRightWidth: separatorWidth + 'px'
+    };
+  }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "tabs-list"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, tabsDisplay)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    style: tabListStyles
+  }, tabsDisplay)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "tabs-container"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InnerBlocks, {
     allowedBlocks: ['crosswinds-blocks/tab-section'],
     template: [['crosswinds-blocks/tab-section', {}]]
   }))));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
+const tabsColorAttributes = {
+  separatorColor: 'separator-color',
+  tabsBorderColor: 'tab-border-color',
+  tabTextColor: 'tab-text-color',
+  tabTextHoverColor: 'tab-text-hover-color',
+  tabBackgroundColor: 'tab-background-color',
+  tabBackgroundHoverColor: 'tab-background-hover-color'
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.withColors)(tabsColorAttributes)(Edit));
 
 /***/ }),
 
@@ -276,23 +418,39 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 function save(props) {
+  console.log(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps);
   const {
     attributes
   } = props;
   const {
+    anchor,
     tabs,
     tabsAlign,
-    tabsSpacing
+    tabsSpacing,
+    separatorWidth,
+    tabsBorderWidth,
+    separatorColorValue,
+    tabsBorderColorValue,
+    tabTextColorValue,
+    tabTextHoverColorValue,
+    tabBackgroundColorValue,
+    tabBackgroundHoverColorValue
   } = attributes;
-  const gridClasses = classnames__WEBPACK_IMPORTED_MODULE_2___default()(`align-tabs-${tabsAlign}`, `space-tabs-${tabsSpacing}`);
+  const tabClasses = classnames__WEBPACK_IMPORTED_MODULE_2___default()(`align-tabs-${tabsAlign}`, `space-tabs-${tabsSpacing}`);
   let tabsDisplay;
   let tabCount = 1;
+  const tabStyles = {
+    borderWidth: tabsBorderWidth,
+    borderColor: tabsBorderColorValue,
+    borderStyle: 'solid'
+  };
   if (tabs.length) {
     tabsDisplay = tabs.map((tab, index) => {
       if (1 === tabCount) {
         tabCount++;
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", {
-          key: index
+          key: index,
+          style: tabStyles
         }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
           href: '#tabs-panel-' + tab.target,
           "data-tabby-default": true
@@ -300,22 +458,46 @@ function save(props) {
       } else {
         tabCount++;
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("li", {
-          key: index
+          key: index,
+          style: tabStyles
         }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
           href: '#tabs-panel-' + tab.target
         }, tab.text));
       }
     });
   }
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save({
-    className: gridClasses
+  let tabListStyles;
+  if ('horizontal' === tabsAlign) {
+    tabListStyles = {
+      borderBottomColor: separatorColorValue,
+      borderBottomWidth: separatorWidth + 'px'
+    };
+  } else {
+    tabListStyles = {
+      borderRightColor: separatorColorValue,
+      borderRightWidth: separatorWidth + 'px'
+    };
+  }
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("style", null, `#${anchor}.wp-block-crosswinds-blocks-tabs ul a {
+						color: ${tabTextColorValue};
+						background-color: ${tabBackgroundColorValue};
+					}
+					#${anchor}.wp-block-crosswinds-blocks-tabs ul a:hover,
+					#${anchor}.wp-block-crosswinds-blocks-tabs ul a:focus,
+					#${anchor}.wp-block-crosswinds-blocks-tabs ul a[aria-selected="true"] {
+						color: ${tabTextHoverColorValue};
+						background-color: ${tabBackgroundHoverColorValue};
+					}`), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps.save({
+    className: tabClasses
   }), {
     "data-tabs": true
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "tabs-list"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("ul", null, tabsDisplay)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("ul", {
+    style: tabListStyles
+  }, tabsDisplay)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "tabs-container"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null)));
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InnerBlocks.Content, null))));
 }
 
 /***/ }),
@@ -505,7 +687,7 @@ function _extends() {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/tabs","version":"1.0","title":"Tabs","category":"crosswinds-blocks","description":"Add a section with tabs.","attributes":{"tabs":{"type":"array","default":[]},"tabsAlign":{"type":"string","default":"horizontal"},"tabsSpacing":{"type":"string","default":"start"}},"supports":{"align":["wide","full"],"anchor":true,"html":false,"ariaLabel":true,"__experimentalLayout":true,"spacing":{"margin":["top","bottom"],"padding":true,"blockGap":true,"__experimentalDefaultControls":{"padding":true,"blockGap":true}},"shadow":true,"__experimentalBorder":{"color":true,"radius":true,"style":true,"width":true,"__experimentalDefaultControls":{"color":true,"radius":true,"style":true,"width":true}},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"crosswinds-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/tabs","version":"1.0","title":"Tabs","category":"crosswinds-blocks","description":"Add a section with tabs.","attributes":{"anchor":{"type":"string"},"tabs":{"type":"array","default":[]},"tabsAlign":{"type":"string","default":"horizontal"},"tabsSpacing":{"type":"string","default":"start"},"separatorColor":{"type":"string"},"separatorColorValue":{"type":"string"},"separatorWidth":{"type":"number","default":0},"tabsBorderColor":{"type":"string"},"tabsBorderColorValue":{"type":"string"},"tabsBorderWidth":{"type":"number","default":0},"tabTextColor":{"type":"string"},"tabTextColorValue":{"type":"string"},"tabTextHoverColor":{"type":"string"},"tabTextHoverColorValue":{"type":"string"},"tabBackgroundColor":{"type":"string"},"tabBackgroundColorValue":{"type":"string"},"tabBackgroundHoverColor":{"type":"string"},"tabBackgroundHoverColorValue":{"type":"string"}},"supports":{"align":["wide","full"],"anchor":true,"html":false,"ariaLabel":true,"__experimentalLayout":true,"spacing":{"margin":["top","bottom"],"padding":true,"blockGap":true,"__experimentalDefaultControls":{"padding":true,"blockGap":true}},"shadow":true,"__experimentalBorder":{"color":true,"radius":true,"style":true,"width":true,"__experimentalDefaultControls":{"color":true,"radius":true,"style":true,"width":true}},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"crosswinds-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

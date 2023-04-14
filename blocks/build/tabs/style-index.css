@@ -12,12 +12,10 @@
   padding: 0;
   border-bottom: 1px solid var(--wp--preset--color--primary);
 }
-.wp-block-crosswinds-blocks-tabs .tabs-list ul li {
-  display: inline-block;
-  padding: 5px 8px;
-}
 .wp-block-crosswinds-blocks-tabs .tabs-list ul li a {
   text-decoration: none;
+  display: inline-block;
+  padding: 5px 8px;
 }
 .wp-block-crosswinds-blocks-tabs.space-tabs-end .tabs-list ul {
   display: flex;

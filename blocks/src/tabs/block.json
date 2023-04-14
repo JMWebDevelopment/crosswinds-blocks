@@ -7,6 +7,9 @@
 	"category": "crosswinds-blocks",
 	"description": "Add a section with tabs.",
 	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
 		"tabs": {
 			"type": "array",
 			"default": []
@@ -18,6 +21,50 @@
 		"tabsSpacing": {
 			"type": "string",
 			"default": "start"
+		},
+		"separatorColor": {
+			"type": "string"
+		},
+		"separatorColorValue": {
+			"type": "string"
+		},
+		"separatorWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"tabsBorderColor": {
+			"type": "string"
+		},
+		"tabsBorderColorValue": {
+			"type": "string"
+		},
+		"tabsBorderWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"tabTextColor": {
+			"type": "string"
+		},
+		"tabTextColorValue": {
+			"type": "string"
+		},
+		"tabTextHoverColor": {
+			"type": "string"
+		},
+		"tabTextHoverColorValue": {
+			"type": "string"
+		},
+		"tabBackgroundColor": {
+			"type": "string"
+		},
+		"tabBackgroundColorValue": {
+			"type": "string"
+		},
+		"tabBackgroundHoverColor": {
+			"type": "string"
+		},
+		"tabBackgroundHoverColorValue": {
+			"type": "string"
 		}
 	},
 	"supports": {

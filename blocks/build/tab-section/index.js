@@ -342,7 +342,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/tab-section","version":"1.0","title":"Tab Section","category":"crosswinds-blocks","description":"Add a section with tabs.","attributes":{"tabId":{"type":"string","default":""}},"parent":["crosswinds-blocks/tabs"],"textdomain":"crosswinds-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/tab-section","version":"1.0","title":"Tab Section","category":"crosswinds-blocks","description":"Add a section with tabs.","attributes":{"tabId":{"type":"string","default":""}},"parent":["crosswinds-blocks/tabs"],"supports":{"spacing":{"margin":["top","bottom"],"padding":true,"blockGap":true,"__experimentalDefaultControls":{"padding":true,"blockGap":true}},"shadow":true,"__experimentalBorder":{"color":true,"radius":true,"style":true,"width":true,"__experimentalDefaultControls":{"color":true,"radius":true,"style":true,"width":true}}},"textdomain":"crosswinds-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
