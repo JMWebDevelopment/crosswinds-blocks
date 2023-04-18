@@ -168,6 +168,15 @@ class Crosswinds_Blocks_Admin {
 	}
 
 	/**
+	 * Adds in the plugin settings to the settings page.
+	 *
+	 * @since 1.0
+	 */
+	public function add_plugin_settings() {
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/plugin-settings.php';
+	}
+
+	/**
 	 * Creates the settings page for the plugin.
 	 *
 	 * @since 1.0

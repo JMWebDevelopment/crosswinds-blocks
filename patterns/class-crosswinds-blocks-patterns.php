@@ -76,6 +76,8 @@ class Crosswinds_Blocks_Patterns {
 			'skills-sliders/skill-slider',
 			'skills-sliders/skills-slider-group',
 			'skills-sliders/skills-slider-section',
+			'social-sharing/share-content-horizontal',
+			'social-sharing/share-content-vertical',
 		);
 
 		foreach ( $block_patterns as $block_pattern ) {
