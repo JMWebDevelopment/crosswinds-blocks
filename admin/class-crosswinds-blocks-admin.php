@@ -50,7 +50,7 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0.0
 	 */
 	public function enqueue_styles() {
-		if ( $this->is_crosswinds_page( 'crosswinds-blocks' ) || $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) ) {
+		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) && ! $this->if_crosswinds_framework_theme_active() ) {
 			wp_enqueue_style( 'crosswinds-blocks-blocks-admin-page', plugin_dir_url( __FILE__ ) . 'css/blocks-admin-page.min.css', [], $this->version, 'all' );
 		}
 	}
@@ -60,7 +60,11 @@ class Crosswinds_Blocks_Admin {
 	 *
 	 * @since 1.0.0
 	 */
-	public function enqueue_scripts() { }
+	public function enqueue_scripts() {
+		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) && ! $this->if_crosswinds_framework_theme_active() ) {
+			wp_enqueue_script( 'crosswinds-blocks-admin', plugin_dir_url( __FILE__ ) . 'js/admin-page.min.js', [], $this->version );
+		}
+	}
 
 	/**
 	 * Returns a list of post types for the variations for the single content block.
@@ -124,19 +128,7 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0
 	 */
 	public function add_cb_admin_pages() {
-		$current_theme_name = '';
-		$current_theme      = wp_get_theme();
-		if ( $current_theme->exists() && $current_theme->parent() ) {
-			$parent_theme = $current_theme->parent();
-
-			if ( $parent_theme->exists() ) {
-				$current_theme_name = $parent_theme->get( 'Name' );
-			}
-		} elseif ( $current_theme->exists() ) {
-			$current_theme_name = $current_theme->get( 'Name' );
-		}
-
-		if ( 'Crosswinds Framework' !== $current_theme_name ) {
+		if ( ! $this->if_crosswinds_framework_theme_active() ) {
 			add_menu_page(
 				esc_html__( 'Crosswinds Framework & Block Settings', 'crosswinds-blocks' ),
 				esc_html__( 'Crosswinds', 'crosswinds-blocks' ),
@@ -147,15 +139,6 @@ class Crosswinds_Blocks_Admin {
 				60
 			);
 		}
-
-		add_submenu_page(
-			'crosswinds-framework-block-options',
-			esc_html__( 'Crosswinds Blocks Options', 'crosswinds-blocks' ),
-			esc_html__( 'Blocks', 'crosswinds-blocks' ),
-			'manage_options',
-			'crosswinds-blocks',
-			array( $this, 'create_blocks_plugin_page' )
-		);
 	}
 
 	/**
@@ -167,88 +150,8 @@ class Crosswinds_Blocks_Admin {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/admin-page.php';
 	}
 
-	/**
-	 * Adds in the plugin settings to the settings page.
-	 *
-	 * @since 1.0
-	 */
 	public function add_plugin_settings() {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/plugin-settings.php';
-	}
-
-	/**
-	 * Creates the settings page for the plugin.
-	 *
-	 * @since 1.0
-	 */
-	public function create_blocks_plugin_page() {
-		$current_theme_name = '';
-		$current_theme      = wp_get_theme();
-		if ( $current_theme->exists() && $current_theme->parent() ) {
-			$parent_theme = $current_theme->parent();
-
-			if ( $parent_theme->exists() ) {
-				$current_theme_name = $parent_theme->get( 'Name' );
-			}
-		} elseif ( $current_theme->exists() ) {
-			$current_theme_name = $current_theme->get( 'Name' );
-		}
-		?>
-		<div class="options-wrap">
-			<div class="tabs-section">
-				<div class="title-area">
-					<img src="<?php echo esc_url( plugin_dir_url( __FILE__ ) . 'images/portafoglio-logo-no-background.png' ); ?>" alt="Crosswinds Blocks Logo" />
-					<h2><?php esc_html_e( 'Crosswinds Blocks Options', 'crosswinds-blocks' ); ?></h2>
-				</div>
-
-				<div class="tabs">
-					<div class="tab">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-framework-block-options' ) ); ?>"><?php esc_html_e( 'Crosswinds Framework', 'crosswinds-blocks' ); ?></a></p>
-					</div>
-					<?php
-					if ( 'Crosswinds Framework' !== $current_theme_name ) {
-						?>
-						<div class="tab">
-							<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-framework-theme' ) ); ?>"><?php esc_html_e( 'Theme Options', 'crosswinds-blocks' ); ?></a></p>
-						</div>
-						<?php
-					}
-					?>
-					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'blocks' ) ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=blocks' ) ); ?>"><?php esc_html_e( 'Blocks', 'crosswinds-blocks' ); ?></a></p>
-					</div>
-
-					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'custom-post-types' ) ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-post-types' ) ); ?>"><?php esc_html_e( 'Custom Post Types', 'crosswinds-blocks' ); ?></a></p>
-					</div>
-
-					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'custom-taxonomies' ) ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=custom-taxonomies' ) ); ?>"><?php esc_html_e( 'Custom Taxonomies', 'crosswinds-blocks' ); ?></a></p>
-					</div>
-
-					<div class="tab <?php echo esc_attr( $this->is_active_tab( 'support' ) ); ?>">
-						<p class="tab-title"><a href="<?php echo esc_url( get_admin_url( null, '/admin.php?page=crosswinds-blocks&tab=support' ) ); ?>"><?php esc_html_e( 'Support', 'crosswinds-blocks' ); ?></a></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="main-area">
-				<?php
-				if ( isset( $_GET['tab'] ) && 'blocks' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/block-settings.php';
-				} elseif ( isset( $_GET['tab'] ) && 'custom-post-types' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/cpt-settings.php';
-				} elseif ( isset( $_GET['tab'] ) && 'custom-taxonomies' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/custom-taxonomies-settings.php';
-				} elseif ( isset( $_GET['tab'] ) && 'support' === $_GET['tab'] ) {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/support-settings.php';
-				} else {
-					require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/block-settings.php';
-				}
-				?>
-			</div>
-		</div>
-		<?php
 	}
 
 	/**
@@ -293,6 +196,26 @@ class Crosswinds_Blocks_Admin {
 		}
 
 		return false;
+	}
+
+	public function if_crosswinds_framework_theme_active() {
+		$current_theme_name = '';
+		$current_theme      = wp_get_theme();
+		if ( $current_theme->exists() && $current_theme->parent() ) {
+			$parent_theme = $current_theme->parent();
+
+			if ( $parent_theme->exists() ) {
+				$current_theme_name = $parent_theme->get( 'Name' );
+			}
+		} elseif ( $current_theme->exists() ) {
+			$current_theme_name = $current_theme->get( 'Name' );
+		}
+
+		if ( 'Crosswinds Framework' === $current_theme_name ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
