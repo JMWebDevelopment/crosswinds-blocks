@@ -9,7 +9,8 @@ import classnames from 'classnames';
 import { __ } from '@wordpress/i18n';
 import {
 	RangeControl,
-	PanelBody
+	PanelBody,
+	ToggleControl,
 } from '@wordpress/components';
 import {
 	useBlockProps,
@@ -37,18 +38,74 @@ export function Edit( props ) {
 		numTabletColumns,
 		numMobileColumns,
 		gridGap,
+		gridSameGap,
+		gridColumnGap,
+		gridRowGap,
 	} = attributes;
+
+	let gridSpacingControls,
+		gridStyle;
+
+	if ( false === gridSameGap ) {
+		gridSpacingControls = (
+			<>
+				<RangeControl
+					label={ __( 'Grid Column Gap', 'crosswinds-blocks' ) }
+					onChange={ ( value ) =>
+						setAttributes( { gridColumnGap: value } )
+					}
+					value={ gridColumnGap || '' }
+					min={ 0 }
+					max={ 100 }
+					initialPosition={ 30 }
+					allowReset={ true }
+					resetFallbackValue={ 30 }
+				/>
+
+				<RangeControl
+					label={ __( 'Grid Row Gap', 'crosswinds-blocks' ) }
+					onChange={ ( value ) =>
+						setAttributes( { gridRowGap: value } )
+					}
+					value={ gridRowGap || '' }
+					min={ 0 }
+					max={ 100 }
+					initialPosition={ 30 }
+					allowReset={ true }
+					resetFallbackValue={ 30 }
+				/>
+			</>
+		);
+		gridStyle = {
+			gridColumnGap: gridColumnGap + 'px',
+			gridRowGap: gridRowGap + 'px',
+		};
+	} else {
+		gridSpacingControls = (
+			<RangeControl
+				label={ __( 'Grid Gap', 'crosswinds-blocks' ) }
+				onChange={ ( value ) =>
+					setAttributes( { gridGap: value } )
+				}
+				value={ gridGap || '' }
+				min={ 0 }
+				max={ 100 }
+				initialPosition={ 30 }
+				allowReset={ true }
+				resetFallbackValue={ 30 }
+			/>
+		);
+		gridStyle = {
+			gridColumnGap: gridGap + 'px',
+			gridRowGap: gridGap + 'px',
+		};
+	}
 
 	const gridClasses = classnames(
 		`basic-grid-has-${ numDesktopColumns }-desktop-columns`,
 		`basic-grid-has-${ numTabletColumns }-tablet-columns`,
 		`basic-grid-has-${ numMobileColumns }-mobile-columns`,
 	);
-
-	const gridStyle = {
-		gridColumnGap: gridGap + 'px',
-		gridRowGap: gridGap + 'px',
-	};
 
 	const blockProps = useBlockProps(
 		{
@@ -64,65 +121,54 @@ export function Edit( props ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Basic Grid Settings', 'crosswinds-blocks' ) }>
-					<div className="basic-grid-settings__width">
-						<RangeControl
-							label={ __( 'Desktop Columns', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { numDesktopColumns: value } )
-							}
-							value={ numDesktopColumns || '' }
-							min={ 1 }
-							max={ 4 }
-							initialPosition={ 4 }
-							allowReset={ true }
-							resetFallbackValue={ 4 }
-						/>
-					</div>
+					<RangeControl
+						label={ __( 'Desktop Columns', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { numDesktopColumns: value } )
+						}
+						value={ numDesktopColumns || '' }
+						min={ 1 }
+						max={ 12 }
+						initialPosition={ 3 }
+						allowReset={ true }
+						resetFallbackValue={ 3 }
+					/>
 
-					<div className="basic-grid-settings__height">
-						<RangeControl
-							label={ __( 'Tablet Columns', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { numTabletColumns: value } )
-							}
-							value={ numTabletColumns || '' }
-							min={ 1 }
-							max={ 3 }
-							initialPosition={ 2 }
-							allowReset={ true }
-							resetFallbackValue={ 2 }
-						/>
-					</div>
+					<RangeControl
+						label={ __( 'Tablet Columns', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { numTabletColumns: value } )
+						}
+						value={ numTabletColumns || '' }
+						min={ 1 }
+						max={ 12 }
+						initialPosition={ 2 }
+						allowReset={ true }
+						resetFallbackValue={ 2 }
+					/>
 
-					<div className="basic-grid-settings__width">
-						<RangeControl
-							label={ __( 'Mobile Columns', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { numMobileColumns: value } )
-							}
-							value={ numMobileColumns || '' }
-							min={ 1 }
-							max={ 2 }
-							initialPosition={ 1 }
-							allowReset={ true }
-							resetFallbackValue={ 1 }
-						/>
-					</div>
+					<RangeControl
+						label={ __( 'Mobile Columns', 'crosswinds-blocks' ) }
+						onChange={ ( value ) =>
+							setAttributes( { numMobileColumns: value } )
+						}
+						value={ numMobileColumns || '' }
+						min={ 1 }
+						max={ 12 }
+						initialPosition={ 1 }
+						allowReset={ true }
+						resetFallbackValue={ 1 }
+					/>
+				</PanelBody>
 
-					<div className="basic-grid-settings__height">
-						<RangeControl
-							label={ __( 'Grid Gap', 'crosswinds-blocks' ) }
-							onChange={ ( value ) =>
-								setAttributes( { gridGap: value } )
-							}
-							value={ gridGap || '' }
-							min={ 0 }
-							max={ 100 }
-							initialPosition={ 30 }
-							allowReset={ true }
-							resetFallbackValue={ 30 }
-						/>
-					</div>
+				<PanelBody title={ __( 'Grid Spacing Settings', 'crosswinds-blocks' ) }>
+					<ToggleControl
+						label={ __( 'Use Same Spacing for Columns and Rows?', 'crosswinds-blocks' ) }
+						onChange={ () => setAttributes( { gridSameGap: ! gridSameGap } ) }
+						checked={ gridSameGap }
+					/>
+
+					{ gridSpacingControls }
 				</PanelBody>
 
 			</InspectorControls>

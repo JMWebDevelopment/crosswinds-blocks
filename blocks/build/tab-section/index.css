@@ -6,40 +6,5 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-crosswinds-blocks-basic-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-.wp-block-crosswinds-blocks-basic-grid.basic-grid-has-2-mobile-columns {
-  grid-template-columns: 1fr 1fr;
-}
-
-@media only screen and (max-width: 650px) {
-  .wp-block-crosswinds-blocks-basic-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .wp-block-crosswinds-blocks-basic-grid.basic-grid-has-2-tablet-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-  .wp-block-crosswinds-blocks-basic-grid.basic-grid-has-3-tablet-columns {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  .wp-block-crosswinds-blocks-basic-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-  .wp-block-crosswinds-blocks-basic-grid.basic-grid-has-2-desktop-columns {
-    grid-template-columns: 1fr 1fr;
-  }
-  .wp-block-crosswinds-blocks-basic-grid.basic-grid-has-3-desktop-columns {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .wp-block-crosswinds-blocks-basic-grid.basic-grid-has-4-desktop-columns {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
 
 /*# sourceMappingURL=index.css.map*/

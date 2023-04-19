@@ -50,13 +50,59 @@ function Edit(props) {
     numDesktopColumns,
     numTabletColumns,
     numMobileColumns,
-    gridGap
+    gridGap,
+    gridSameGap,
+    gridColumnGap,
+    gridRowGap
   } = attributes;
+  let gridSpacingControls, gridStyle;
+  if (false === gridSameGap) {
+    gridSpacingControls = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Column Gap', 'crosswinds-blocks'),
+      onChange: value => setAttributes({
+        gridColumnGap: value
+      }),
+      value: gridColumnGap || '',
+      min: 0,
+      max: 100,
+      initialPosition: 30,
+      allowReset: true,
+      resetFallbackValue: 30
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Row Gap', 'crosswinds-blocks'),
+      onChange: value => setAttributes({
+        gridRowGap: value
+      }),
+      value: gridRowGap || '',
+      min: 0,
+      max: 100,
+      initialPosition: 30,
+      allowReset: true,
+      resetFallbackValue: 30
+    }));
+    gridStyle = {
+      gridColumnGap: gridColumnGap + 'px',
+      gridRowGap: gridRowGap + 'px'
+    };
+  } else {
+    gridSpacingControls = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Gap', 'crosswinds-blocks'),
+      onChange: value => setAttributes({
+        gridGap: value
+      }),
+      value: gridGap || '',
+      min: 0,
+      max: 100,
+      initialPosition: 30,
+      allowReset: true,
+      resetFallbackValue: 30
+    });
+    gridStyle = {
+      gridColumnGap: gridGap + 'px',
+      gridRowGap: gridGap + 'px'
+    };
+  }
   const gridClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()(`basic-grid-has-${numDesktopColumns}-desktop-columns`, `basic-grid-has-${numTabletColumns}-tablet-columns`, `basic-grid-has-${numMobileColumns}-mobile-columns`);
-  const gridStyle = {
-    gridColumnGap: gridGap + 'px',
-    gridRowGap: gridGap + 'px'
-  };
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
     className: gridClasses,
     style: gridStyle
@@ -66,8 +112,6 @@ function Edit(props) {
   });
   const inspectorControls = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Basic Grid Settings', 'crosswinds-blocks')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "basic-grid-settings__width"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Desktop Columns', 'crosswinds-blocks'),
     onChange: value => setAttributes({
@@ -75,50 +119,41 @@ function Edit(props) {
     }),
     value: numDesktopColumns || '',
     min: 1,
-    max: 4,
-    initialPosition: 4,
+    max: 12,
+    initialPosition: 3,
     allowReset: true,
-    resetFallbackValue: 4
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "basic-grid-settings__height"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    resetFallbackValue: 3
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tablet Columns', 'crosswinds-blocks'),
     onChange: value => setAttributes({
       numTabletColumns: value
     }),
     value: numTabletColumns || '',
     min: 1,
-    max: 3,
+    max: 12,
     initialPosition: 2,
     allowReset: true,
     resetFallbackValue: 2
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "basic-grid-settings__width"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Mobile Columns', 'crosswinds-blocks'),
     onChange: value => setAttributes({
       numMobileColumns: value
     }),
     value: numMobileColumns || '',
     min: 1,
-    max: 2,
+    max: 12,
     initialPosition: 1,
     allowReset: true,
     resetFallbackValue: 1
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "basic-grid-settings__height"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Gap', 'crosswinds-blocks'),
-    onChange: value => setAttributes({
-      gridGap: value
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Grid Spacing Settings', 'crosswinds-blocks')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Use Same Spacing for Columns and Rows?', 'crosswinds-blocks'),
+    onChange: () => setAttributes({
+      gridSameGap: !gridSameGap
     }),
-    value: gridGap || '',
-    min: 0,
-    max: 100,
-    initialPosition: 30,
-    allowReset: true,
-    resetFallbackValue: 30
-  })))));
+    checked: gridSameGap
+  }), gridSpacingControls)));
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", innerBlocksProps));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
@@ -232,13 +267,24 @@ function save(props) {
     numDesktopColumns,
     numTabletColumns,
     numMobileColumns,
-    gridGap
+    gridGap,
+    gridSameGap,
+    gridColumnGap,
+    gridRowGap
   } = attributes;
+  let gridStyle;
+  if (false === gridSameGap) {
+    gridStyle = {
+      gridColumnGap: gridColumnGap + 'px',
+      gridRowGap: gridRowGap + 'px'
+    };
+  } else {
+    gridStyle = {
+      gridColumnGap: gridGap + 'px',
+      gridRowGap: gridGap + 'px'
+    };
+  }
   const gridClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()(`basic-grid-has-${numDesktopColumns}-desktop-columns`, `basic-grid-has-${numTabletColumns}-tablet-columns`, `basic-grid-has-${numMobileColumns}-mobile-columns`);
-  const gridStyle = {
-    gridColumnGap: gridGap + 'px',
-    gridRowGap: gridGap + 'px'
-  };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
     className: gridClasses,
     style: gridStyle
@@ -404,7 +450,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/basic-grid","version":"1.0","title":"Basic Grid","category":"crosswinds-blocks","description":"Add a simple grid with a custom number of columns.","attributes":{"numDesktopColumns":{"type":"number","default":4},"numTabletColumns":{"type":"number","default":2},"numMobileColumns":{"type":"number","default":1},"gridGap":{"type":"number","default":30}},"supports":{"html":false,"align":["wide","full"],"__experimentalLayout":true},"textdomain":"portafoglio-skills-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/basic-grid","version":"1.0","title":"Basic Grid","category":"crosswinds-blocks","description":"Add a simple grid with a custom number of columns.","attributes":{"numDesktopColumns":{"type":"number","default":4},"numTabletColumns":{"type":"number","default":2},"numMobileColumns":{"type":"number","default":1},"gridSameGap":{"type":"boolean","default":true},"gridGap":{"type":"number","default":30},"gridColumnGap":{"type":"number","default":30},"gridRowGap":{"type":"number","default":30}},"providesContext":{"numDesktopColumns":"numDesktopColumns","numTabletColumns":"numTabletColumns","numMobileColumns":"numMobileColumns"},"supports":{"html":false,"align":["wide","full"],"__experimentalLayout":true},"textdomain":"portafoglio-skills-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

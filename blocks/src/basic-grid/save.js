@@ -18,18 +18,29 @@ export default function save( props ) {
 		numTabletColumns,
 		numMobileColumns,
 		gridGap,
+		gridSameGap,
+		gridColumnGap,
+		gridRowGap,
 	} = attributes;
+
+	let gridStyle;
+	if ( false === gridSameGap ) {
+		gridStyle = {
+			gridColumnGap: gridColumnGap + 'px',
+			gridRowGap: gridRowGap + 'px',
+		};
+	} else {
+		gridStyle = {
+			gridColumnGap: gridGap + 'px',
+			gridRowGap: gridGap + 'px',
+		};
+	}
 
 	const gridClasses = classnames(
 		`basic-grid-has-${ numDesktopColumns }-desktop-columns`,
 		`basic-grid-has-${ numTabletColumns }-tablet-columns`,
 		`basic-grid-has-${ numMobileColumns }-mobile-columns`,
 	);
-
-	const gridStyle = {
-		gridColumnGap: gridGap + 'px',
-		gridRowGap: gridGap + 'px',
-	};
 
 	return (
 		<div { ...useBlockProps.save(
