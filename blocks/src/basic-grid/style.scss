@@ -7,25 +7,105 @@
 
  .wp-block-crosswinds-blocks-basic-grid {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(1, 1fr);
 
 	&.basic-grid-has-2-mobile-columns {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&.basic-grid-has-3-mobile-columns {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&.basic-grid-has-4-mobile-columns {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	&.basic-grid-has-5-mobile-columns {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	&.basic-grid-has-6-mobile-columns {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	&.basic-grid-has-7-mobile-columns {
+		grid-template-columns: repeat(7, 1fr);
+	}
+
+	&.basic-grid-has-8-mobile-columns {
+		grid-template-columns: repeat(8, 1fr);
+	}
+
+	&.basic-grid-has-9-mobile-columns {
+		grid-template-columns: repeat(9, 1fr);
+	}
+
+	&.basic-grid-has-10-mobile-columns {
+		grid-template-columns: repeat(10, 1fr);
+	}
+
+	&.basic-grid-has-11-mobile-columns {
+		grid-template-columns: repeat(11, 1fr);
+	}
+
+	&.basic-grid-has-12-mobile-columns {
+		grid-template-columns: repeat(12, 1fr);
 	}
 }
+
 
 @media only screen and (min-width: 650px) {
 
 	.wp-block-crosswinds-blocks-basic-grid {
 		display: grid;
-		grid-template-columns: 1fr;
+
+		&.basic-grid-has-1-tablet-columns {
+			grid-template-columns: repeat(1, 1fr);
+		}
 
 		&.basic-grid-has-2-tablet-columns {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(2, 1fr);
 		}
 
 		&.basic-grid-has-3-tablet-columns {
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		&.basic-grid-has-4-tablet-columns {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		&.basic-grid-has-5-tablet-columns {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		&.basic-grid-has-6-tablet-columns {
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		&.basic-grid-has-7-tablet-columns {
+			grid-template-columns: repeat(7, 1fr);
+		}
+
+		&.basic-grid-has-8-tablet-columns {
+			grid-template-columns: repeat(8, 1fr);
+		}
+
+		&.basic-grid-has-9-tablet-columns {
+			grid-template-columns: repeat(9, 1fr);
+		}
+
+		&.basic-grid-has-10-tablet-columns {
+			grid-template-columns: repeat(10, 1fr);
+		}
+
+		&.basic-grid-has-11-tablet-columns {
+			grid-template-columns: repeat(11, 1fr);
+		}
+
+		&.basic-grid-has-12-tablet-columns {
+			grid-template-columns: repeat(12, 1fr);
 		}
 	}
 }
@@ -34,18 +114,53 @@
 
 	.wp-block-crosswinds-blocks-basic-grid {
 		display: grid;
-		grid-template-columns: 1fr;
+
+		&.basic-grid-has-1-desktop-columns {
+			grid-template-columns: repeat(1, 1fr);
+		}
 
 		&.basic-grid-has-2-desktop-columns {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: repeat(2, 1fr);
 		}
 
 		&.basic-grid-has-3-desktop-columns {
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: repeat(3, 1fr);
 		}
 
 		&.basic-grid-has-4-desktop-columns {
-			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		&.basic-grid-has-5-desktop-columns {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		&.basic-grid-has-6-desktop-columns {
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		&.basic-grid-has-7-desktop-columns {
+			grid-template-columns: repeat(7, 1fr);
+		}
+
+		&.basic-grid-has-8-desktop-columns {
+			grid-template-columns: repeat(8, 1fr);
+		}
+
+		&.basic-grid-has-9-desktop-columns {
+			grid-template-columns: repeat(9, 1fr);
+		}
+
+		&.basic-grid-has-10-desktop-columns {
+			grid-template-columns: repeat(10, 1fr);
+		}
+
+		&.basic-grid-has-11-desktop-columns {
+			grid-template-columns: repeat(11, 1fr);
+		}
+
+		&.basic-grid-has-12-desktop-columns {
+			grid-template-columns: repeat(12, 1fr);
 		}
 	}
 }

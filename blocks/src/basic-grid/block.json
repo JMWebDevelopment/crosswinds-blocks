@@ -19,10 +19,27 @@
 			"type": "number",
 			"default": 1
 		},
+		"gridSameGap": {
+			"type": "boolean",
+			"default": true
+		},
 		"gridGap": {
 			"type": "number",
 			"default": 30
+		},
+		"gridColumnGap": {
+			"type": "number",
+			"default": 30
+		},
+		"gridRowGap": {
+			"type": "number",
+			"default": 30
 		}
+	},
+	"providesContext": {
+		"numDesktopColumns": "numDesktopColumns",
+		"numTabletColumns": "numTabletColumns",
+		"numMobileColumns": "numMobileColumns"
 	},
 	"supports": {
 		"html": false,

@@ -9,10 +9,39 @@
 	"parent": [
 		"crosswinds-blocks/basic-grid"
 	],
+	"usesContext": [
+		"numDesktopColumns",
+		"numTabletColumns",
+		"numMobileColumns"
+	],
 	"attributes": {
 		"innerLayout": {
 			"type": "string",
 			"default": "normal"
+		},
+		"gridColumnSpanDesktop": {
+			"type": "number",
+			"default": 1
+		},
+		"gridRowSpanDesktop": {
+			"type": "number",
+			"default": 1
+		},
+		"gridColumnSpanTablet": {
+			"type": "number",
+			"default": 1
+		},
+		"gridRowSpanTablet": {
+			"type": "number",
+			"default": 1
+		},
+		"gridColumnSpanMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gridRowSpanMobile": {
+			"type": "number",
+			"default": 1
 		}
 	},
 	"supports": {

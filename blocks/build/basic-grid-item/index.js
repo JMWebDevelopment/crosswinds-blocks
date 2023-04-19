@@ -44,11 +44,23 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(props) {
   const {
     attributes,
-    setAttributes
+    setAttributes,
+    context
   } = props;
   const {
-    innerLayout
+    innerLayout,
+    gridColumnSpanDesktop,
+    gridRowSpanDesktop,
+    gridColumnSpanTablet,
+    gridRowSpanTablet,
+    gridColumnSpanMobile,
+    gridRowSpanMobile
   } = attributes;
+  const {
+    numDesktopColumns,
+    numTabletColumns,
+    numMobileColumns
+  } = context;
   const innerLayoutOptions = [{
     value: 'normal',
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Normal Spacing', 'crosswinds-blocks')
@@ -74,9 +86,85 @@ function Edit(props) {
     onChange: style => setAttributes({
       innerLayout: style
     })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Advanced Grid Item Settings', 'crosswinds-blocks'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Desktop Column Span', 'crosswinds-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('How many columns shout this grid item span at desktop screensizes.', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      gridColumnSpanDesktop: value
+    }),
+    value: gridColumnSpanDesktop || '',
+    min: 1,
+    max: numDesktopColumns,
+    initialPosition: numDesktopColumns,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Desktop Row Span', 'crosswinds-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('How many rows shout this grid item span at desktop screensizes.', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      gridRowSpanDesktop: value
+    }),
+    value: gridRowSpanDesktop || '',
+    min: 1,
+    max: 100,
+    initialPosition: gridRowSpanDesktop,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tablet Column Span', 'crosswinds-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('How many columns shout this grid item span at tablet screensizes.', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      gridColumnSpanTablet: value
+    }),
+    value: gridColumnSpanTablet || '',
+    min: 1,
+    max: numTabletColumns,
+    initialPosition: gridColumnSpanTablet,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tablet Row Span', 'crosswinds-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('How many rows shout this grid item span at tablet screensizes.', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      gridRowSpanTablet: value
+    }),
+    value: gridRowSpanTablet || '',
+    min: 1,
+    max: 100,
+    initialPosition: gridRowSpanTablet,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Mobile Column Span', 'crosswinds-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('How many columns shout this grid item span at mobile screensizes.', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      gridColumnSpanMobile: value
+    }),
+    value: gridColumnSpanMobile || '',
+    min: 1,
+    max: numMobileColumns,
+    initialPosition: gridColumnSpanMobile,
+    allowReset: true,
+    resetFallbackValue: 1
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Mobile Row Span', 'crosswinds-blocks'),
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('How many rows shout this grid item span at mobile screensizes.', 'crosswinds-blocks'),
+    onChange: value => setAttributes({
+      gridRowSpanMobile: value
+    }),
+    value: gridRowSpanMobile || '',
+    min: 1,
+    max: 100,
+    initialPosition: gridRowSpanMobile,
+    allowReset: true,
+    resetFallbackValue: 1
   }))));
+  const gridItemClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()(`item-span-${gridColumnSpanDesktop}-desktop-columns`, `item-span-${gridRowSpanDesktop}-desktop-row`, `item-span-${gridColumnSpanTablet}-tablet-columns`, `item-span-${gridRowSpanTablet}-tablet-row`, `item-span-${gridColumnSpanMobile}-mobile-columns`, `item-span-${gridRowSpanMobile}-mobile-row`, `${innerLayout}-layout`);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)({
-    className: innerLayout + '-layout'
+    className: gridItemClasses
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useInnerBlocksProps)(blockProps, {
     template: [['core/group', {
@@ -197,10 +285,17 @@ __webpack_require__.r(__webpack_exports__);
 
 function save(props) {
   const {
-    innerLayout
+    innerLayout,
+    gridColumnSpanDesktop,
+    gridRowSpanDesktop,
+    gridColumnSpanTablet,
+    gridRowSpanTablet,
+    gridColumnSpanMobile,
+    gridRowSpanMobile
   } = props.attributes;
+  const gridItemClasses = classnames__WEBPACK_IMPORTED_MODULE_1___default()(`item-span-${gridColumnSpanDesktop}-desktop-columns`, `item-span-${gridRowSpanDesktop}-desktop-row`, `item-span-${gridColumnSpanTablet}-tablet-columns`, `item-span-${gridRowSpanTablet}-tablet-row`, `item-span-${gridColumnSpanMobile}-mobile-columns`, `item-span-${gridRowSpanMobile}-mobile-row`, `${innerLayout}-layout`);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
-    className: innerLayout + '-layout'
+    className: gridItemClasses
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null));
 }
 
@@ -363,7 +458,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/basic-grid-item","version":"1.0","title":"Basic Grid Item","category":"crosswinds-blocks","description":"Add a simple grid with a custom number of columns.","parent":["crosswinds-blocks/basic-grid"],"attributes":{"innerLayout":{"type":"string","default":"normal"}},"supports":{"html":false,"ariaLabel":true,"__experimentalLayout":true,"spacing":{"margin":["top","bottom"],"padding":true,"blockGap":true,"__experimentalDefaultControls":{"padding":true,"blockGap":true}},"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true}},"shadow":true,"__experimentalBorder":{"color":true,"radius":true,"style":true,"width":true,"__experimentalDefaultControls":{"color":true,"radius":true,"style":true,"width":true}},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"portafoglio-skills-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"crosswinds-blocks/basic-grid-item","version":"1.0","title":"Basic Grid Item","category":"crosswinds-blocks","description":"Add a simple grid with a custom number of columns.","parent":["crosswinds-blocks/basic-grid"],"usesContext":["numDesktopColumns","numTabletColumns","numMobileColumns"],"attributes":{"innerLayout":{"type":"string","default":"normal"},"gridColumnSpanDesktop":{"type":"number","default":1},"gridRowSpanDesktop":{"type":"number","default":1},"gridColumnSpanTablet":{"type":"number","default":1},"gridRowSpanTablet":{"type":"number","default":1},"gridColumnSpanMobile":{"type":"number","default":1},"gridRowSpanMobile":{"type":"number","default":1}},"supports":{"html":false,"ariaLabel":true,"__experimentalLayout":true,"spacing":{"margin":["top","bottom"],"padding":true,"blockGap":true,"__experimentalDefaultControls":{"padding":true,"blockGap":true}},"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true}},"shadow":true,"__experimentalBorder":{"color":true,"radius":true,"style":true,"width":true,"__experimentalDefaultControls":{"color":true,"radius":true,"style":true,"width":true}},"typography":{"fontSize":true,"lineHeight":true,"__experimentalFontFamily":true,"__experimentalFontWeight":true,"__experimentalFontStyle":true,"__experimentalTextTransform":true,"__experimentalTextDecoration":true,"__experimentalLetterSpacing":true,"__experimentalDefaultControls":{"fontSize":true}}},"textdomain":"portafoglio-skills-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
