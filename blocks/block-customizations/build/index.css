@@ -1,3 +1,86 @@
-.wp-block-group.cb-fill-height-parent{flex-grow:1}.wp-block-group.equal-layout{display:flex;flex-direction:column;justify-content:space-between}.wp-block-group.equal-layout>*{width:100%}.wp-block-group.center-layout{display:flex;flex-direction:column;justify-content:center}.wp-block-group.center-layout>*{width:100%}.wp-block-group.bottom-layout{display:flex;flex-direction:column;justify-content:flex-end}.wp-block-group.bottom-layout>*{width:100%}.wp-block-group.last-bottom-layout{display:flex;flex-direction:column}.wp-block-group.last-bottom-layout>*{width:100%}.wp-block-group.last-bottom-layout>:last-child{-webkit-margin-before:auto!important;margin-block-start:auto!important;margin-top:auto}.wp-block-group.last-bottom-layout>:nth-last-child(2){-webkit-margin-after:var(--wp--style--block-gap)!important;margin-block-end:var(--wp--style--block-gap)!important;margin-bottom:var(--wp--style--block-gap)}
-.wp-block-query.cb-flex-layout .wp-block-post{display:flex}
-.wp-block-column.cb-flex-layout{display:flex}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/groupInnerLayout.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-group.cb-fill-height-parent {
+  flex-grow: 1;
+}
+.wp-block-group.equal-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wp-block-group.equal-layout > * {
+  width: 100%;
+}
+.wp-block-group.center-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wp-block-group.center-layout > * {
+  width: 100%;
+}
+.wp-block-group.bottom-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.wp-block-group.bottom-layout > * {
+  width: 100%;
+}
+.wp-block-group.last-bottom-layout {
+  display: flex;
+  flex-direction: column;
+}
+.wp-block-group.last-bottom-layout > * {
+  width: 100%;
+}
+.wp-block-group.last-bottom-layout > *:last-child {
+  -webkit-margin-before: auto !important;
+          margin-block-start: auto !important;
+  margin-top: auto;
+}
+.wp-block-group.last-bottom-layout > *:nth-last-child(2) {
+  -webkit-margin-after: var(--wp--style--block-gap) !important;
+          margin-block-end: var(--wp--style--block-gap) !important;
+  margin-bottom: var(--wp--style--block-gap);
+}
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/queryFlexOption.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-query.cb-flex-layout .wp-block-post {
+  display: flex;
+}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/columnFlexOption.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-column.cb-flex-layout {
+  display: flex;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/queryResponsiveOptions.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+@media only screen and (max-width: 999px) {
+  .wp-block-query.query-loop-has-1-tablet-columns .wp-block-post-template.is-flex-container > li {
+    width: calc(100% - 0.83333em);
+  }
+  .wp-block-query.query-loop-has-2-tablet-columns .wp-block-post-template.is-flex-container > li {
+    width: calc(50% - 0.83333em);
+  }
+  .wp-block-query.query-loop-has-3-tablet-columns .wp-block-post-template.is-flex-container > li {
+    width: calc(33.3333% - 0.83333em);
+  }
+  .wp-block-query.query-loop-has-4-tablet-columns .wp-block-post-template.is-flex-container > li {
+    width: calc(25% - 0.83333em);
+  }
+}
+@media only screen and (max-width: 649px) {
+  .wp-block-query.query-loop-has-1-mobile-columns .wp-block-post-template.is-flex-container > li {
+    width: calc(100% - 0.83333em);
+  }
+  .wp-block-query.query-loop-has-2-mobile-columns .wp-block-post-template.is-flex-container > li {
+    width: calc(50% - 0.83333em);
+  }
+}
+
+/*# sourceMappingURL=index.css.map*/
