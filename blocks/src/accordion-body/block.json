@@ -32,6 +32,14 @@
 				"blockGap": true
 			}
 		},
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
 		"shadow": true,
 		"__experimentalBorder": {
 			"color": true,
