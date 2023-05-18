@@ -20,11 +20,11 @@ $blocks = array(
 		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1b1930" class="fa-primary" d="M416 128H32C14.33 128 0 113.7 0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/><path fill="#3e7ea8" class="fa-secondary" d="M0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256z"/></svg>',
 	),
 	'basic-grid' => array(
-		'slug'        => 'basic-grid',
-		'name'        => esc_html__( 'Basic Grid', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Add a simple grid with a custom number of columns.', 'crosswinds-blocks' ),
+		'slug'               => 'basic-grid',
+		'name'               => esc_html__( 'Basic Grid', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a simple grid with a custom number of columns.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
-		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1b1930" class="fa-primary" d="M0 72C0 49.91 17.91 32 40 32H88C110.1 32 128 49.91 128 72V120C128 142.1 110.1 160 88 160H40C17.91 160 0 142.1 0 120V72zM0 392C0 369.9 17.91 352 40 352H88C110.1 352 128 369.9 128 392V440C128 462.1 110.1 480 88 480H40C17.91 480 0 462.1 0 440V392zM288 280C288 302.1 270.1 320 248 320H200C177.9 320 160 302.1 160 280V232C160 209.9 177.9 192 200 192H248C270.1 192 288 209.9 288 232V280zM320 72C320 49.91 337.9 32 360 32H408C430.1 32 448 49.91 448 72V120C448 142.1 430.1 160 408 160H360C337.9 160 320 142.1 320 120V72zM448 440C448 462.1 430.1 480 408 480H360C337.9 480 320 462.1 320 440V392C320 369.9 337.9 352 360 352H408C430.1 352 448 369.9 448 392V440z"/><path fill="#3e7ea8" class="fa-secondary" d="M248 32C270.1 32 288 49.91 288 72V120C288 142.1 270.1 160 248 160H200C177.9 160 160 142.1 160 120V72C160 49.91 177.9 32 200 32H248zM88 192C110.1 192 128 209.9 128 232V280C128 302.1 110.1 320 88 320H40C17.91 320 0 302.1 0 280V232C0 209.9 17.91 192 40 192H88zM160 392C160 369.9 177.9 352 200 352H248C270.1 352 288 369.9 288 392V440C288 462.1 270.1 480 248 480H200C177.9 480 160 462.1 160 440V392zM408 192C430.1 192 448 209.9 448 232V280C448 302.1 430.1 320 408 320H360C337.9 320 320 302.1 320 280V232C320 209.9 337.9 192 360 192H408z" /></svg>',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#1b1930" class="fa-primary" d="M0 72C0 49.91 17.91 32 40 32H88C110.1 32 128 49.91 128 72V120C128 142.1 110.1 160 88 160H40C17.91 160 0 142.1 0 120V72zM0 392C0 369.9 17.91 352 40 352H88C110.1 352 128 369.9 128 392V440C128 462.1 110.1 480 88 480H40C17.91 480 0 462.1 0 440V392zM288 280C288 302.1 270.1 320 248 320H200C177.9 320 160 302.1 160 280V232C160 209.9 177.9 192 200 192H248C270.1 192 288 209.9 288 232V280zM320 72C320 49.91 337.9 32 360 32H408C430.1 32 448 49.91 448 72V120C448 142.1 430.1 160 408 160H360C337.9 160 320 142.1 320 120V72zM448 440C448 462.1 430.1 480 408 480H360C337.9 480 320 462.1 320 440V392C320 369.9 337.9 352 360 352H408C430.1 352 448 369.9 448 392V440z"/><path fill="#3e7ea8" class="fa-secondary" d="M248 32C270.1 32 288 49.91 288 72V120C288 142.1 270.1 160 248 160H200C177.9 160 160 142.1 160 120V72C160 49.91 177.9 32 200 32H248zM88 192C110.1 192 128 209.9 128 232V280C128 302.1 110.1 320 88 320H40C17.91 320 0 302.1 0 280V232C0 209.9 17.91 192 40 192H88zM160 392C160 369.9 177.9 352 200 352H248C270.1 352 288 369.9 288 392V440C288 462.1 270.1 480 248 480H200C177.9 480 160 462.1 160 440V392zM408 192C430.1 192 448 209.9 448 232V280C448 302.1 430.1 320 408 320H360C337.9 320 320 302.1 320 280V232C320 209.9 337.9 192 360 192H408z" /></svg>',
 	),
 	'breadcrumbs' => array(
 		'slug'        => 'breadcrumbs',
@@ -125,6 +125,7 @@ $blocks = array(
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M512 192v240c0 26.5-21.5 48-48 48h-416C21.5 480 0 458.5 0 432V192H512z"/><path fill="#3e7ea8" class="fa-secondary" d="M512 144V192H0V80C0 53.5 21.5 32 48 32h160l64 64h192C490.5 96 512 117.5 512 144z"/></svg>',
 	),
 );
+$blocks = apply_filters( 'crosswinds_blocks_blocks_list', $blocks );
 
 $cpts = array(
 	'portfolio' => array(
@@ -135,6 +136,7 @@ $cpts = array(
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
 );
+$cpts = apply_filters( 'crosswinds_blocks_post_types_list', $cpts );
 
 $custom_taxonomies = array(
 	'portfolio_category' => array(
@@ -152,6 +154,7 @@ $custom_taxonomies = array(
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
 );
+$custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom_taxonomies );
 ?>
 
 <form id="form" method="POST" action="options.php">
@@ -160,10 +163,10 @@ $custom_taxonomies = array(
 	settings_fields( 'crosswinds_blocks_options_settings' );
 	?>
 	<div class="cb-options-section">
-		<h3><?php esc_html_e( 'Blocks', 'crosswinds-framework' ); ?></h3>
+		<h3><?php esc_html_e( 'Blocks', 'crosswinds-blocks' ); ?></h3>
 		<div class="bulk-actions">
-			<button class="enable-all cb-primary"><?php esc_html_e( 'Enable All', 'crosswinds-framework' ); ?></button>
-			<button class="disable-all cb-secondary"><?php esc_html_e( 'Disable All', 'crosswinds-framework' ); ?></button>
+			<button class="enable-all cb-primary"><?php esc_html_e( 'Enable All', 'crosswinds-blocks' ); ?></button>
+			<button class="disable-all cb-secondary"><?php esc_html_e( 'Disable All', 'crosswinds-blocks' ); ?></button>
 		</div>
 
 		<div class="settings-grid">
@@ -187,7 +190,7 @@ $custom_taxonomies = array(
 					</div>
 
 					<div class="title">
-						<p><strong><?php echo wp_kses_post( $block['name'] ); ?></strong><br /><a href="<?php echo $block['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-framework' ); ?></a></p>
+						<p><strong><?php echo wp_kses_post( $block['name'] ); ?></strong><br /><a href="<?php echo $block['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
 					<div class="field">
@@ -239,10 +242,10 @@ $custom_taxonomies = array(
 	</div>
 
 	<div class="cb-options-section">
-		<h3><?php esc_html_e( 'Post Types', 'crosswinds-framework' ); ?></h3>
+		<h3><?php esc_html_e( 'Post Types', 'crosswinds-blocks' ); ?></h3>
 		<div class="bulk-actions">
-			<button class="enable-all cb-primary"><?php esc_html_e( 'Enable All', 'crosswinds-framework' ); ?></button>
-			<button class="disable-all cb-secondary"><?php esc_html_e( 'Disable All', 'crosswinds-framework' ); ?></button>
+			<button class="enable-all cb-primary"><?php esc_html_e( 'Enable All', 'crosswinds-blocks' ); ?></button>
+			<button class="disable-all cb-secondary"><?php esc_html_e( 'Disable All', 'crosswinds-blocks' ); ?></button>
 		</div>
 
 		<div class="settings-grid">
@@ -266,7 +269,7 @@ $custom_taxonomies = array(
 					</div>
 
 					<div class="title">
-						<p><strong><?php echo wp_kses_post( $cpt['name'] ); ?></strong><br /><a href="<?php echo $cpt['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-framework' ); ?></a></p>
+						<p><strong><?php echo wp_kses_post( $cpt['name'] ); ?></strong><br /><a href="<?php echo $cpt['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
 					<div class="field">
@@ -318,10 +321,10 @@ $custom_taxonomies = array(
 	</div>
 
 	<div class="cb-options-section">
-		<h3><?php esc_html_e( 'Taxonomies', 'crosswinds-framework' ); ?></h3>
+		<h3><?php esc_html_e( 'Taxonomies', 'crosswinds-blocks' ); ?></h3>
 		<div class="bulk-actions">
-			<button class="enable-all cb-primary"><?php esc_html_e( 'Enable All', 'crosswinds-framework' ); ?></button>
-			<button class="disable-all cb-secondary"><?php esc_html_e( 'Disable All', 'crosswinds-framework' ); ?></button>
+			<button class="enable-all cb-primary"><?php esc_html_e( 'Enable All', 'crosswinds-blocks' ); ?></button>
+			<button class="disable-all cb-secondary"><?php esc_html_e( 'Disable All', 'crosswinds-blocks' ); ?></button>
 		</div>
 
 		<div class="settings-grid">
@@ -345,7 +348,7 @@ $custom_taxonomies = array(
 					</div>
 
 					<div class="title">
-						<p><strong><?php echo wp_kses_post( $custom_taxonomy['name'] ); ?></strong><br /><a href="<?php echo $custom_taxonomy['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-framework' ); ?></a></p>
+						<p><strong><?php echo wp_kses_post( $custom_taxonomy['name'] ); ?></strong><br /><a href="<?php echo $custom_taxonomy['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
 					<div class="field">
@@ -397,7 +400,7 @@ $custom_taxonomies = array(
 	</div>
 
 	<div class="cb-options-section">
-		<h3><?php esc_html_e( 'Other Settings', 'crosswinds-framework' ); ?></h3>
+		<h3><?php esc_html_e( 'Other Settings', 'crosswinds-blocks' ); ?></h3>
 
 		<div class="options-area">
 			<?php
