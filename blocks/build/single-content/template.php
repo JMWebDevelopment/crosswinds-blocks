@@ -13,6 +13,7 @@ $block_query_args = array(
 	'posts_per_page'      => 1,
 	'ignore_sticky_posts' => 1,
 	'post__in'            => array( $block->attributes['postId'] ),
+	'post_type'           => array( $block->attributes['postType'] ),
 );
 $block_query      = new WP_Query( $block_query_args );
 
