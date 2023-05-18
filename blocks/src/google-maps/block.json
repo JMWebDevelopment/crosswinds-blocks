@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/google-maps",
+	"version": "1.0.0",
+	"title": "Google Maps",
+	"description": "Add in a Google Maps embed to show a location.",
+	"category": "crosswinds-blocks",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"__experimentalLayout": true
+	},
+	"attributes": {
+		"addressLineOne": {
+			"type": "string",
+			"default": ""
+		},
+		"addressLineTwo": {
+			"type": "string",
+			"default": ""
+		},
+		"city": {
+			"type": "number",
+			"default": ""
+		},
+		"stateProvince": {
+			"type": "string",
+			"default": ""
+		},
+		"country": {
+			"type": "string",
+			"default": ""
+		},
+		"zipCode": {
+			"type": "string",
+			"default": ""
+		},
+		"mapHeight": {
+			"type": "number",
+			"default": 450
+		},
+		"mapContainerSize": {
+			"type": "string",
+			"default": "set-height"
+		}
+	},
+	"textdomain": "featured-content-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

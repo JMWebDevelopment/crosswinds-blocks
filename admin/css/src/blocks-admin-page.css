@@ -225,6 +225,10 @@
 							}
 						}
 
+						& .options-area {
+							width: 100%;
+						}
+
 						& .settings-grid {
 							width: 100%;
 							display: grid;

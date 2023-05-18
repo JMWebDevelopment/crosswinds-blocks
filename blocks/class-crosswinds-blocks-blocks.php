@@ -80,6 +80,15 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
+		if ( get_option( 'crosswinds-blocks-google-maps-block' ) || apply_filters( 'crosswinds_blocks_enable_google-maps_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/google-maps/',
+				array(
+					'render_callback' => array( $this, 'google_maps_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-marquee-block' ) || apply_filters( 'crosswinds_blocks_enable_marquee_block', false ) ) {
 			register_block_type( __DIR__ . '/build/marquee/' );
 		}
@@ -403,6 +412,21 @@ class Crosswinds_Blocks_Blocks {
 	public function carousel_slide_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/carousel-slide/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the Google Maps block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function google_maps_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/google-maps/template.php';
 		return ob_get_clean();
 	}
 
