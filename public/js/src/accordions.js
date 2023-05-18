@@ -15,7 +15,9 @@ class Accordion {
 		console.log( this.buttonEl );
 
 		const controlsId = this.buttonEl.getAttribute( 'aria-controls' );
+		console.log( controlsId );
 		this.contentEl = document.getElementById( controlsId );
+		console.log( this.contentEl );
 
 		this.open = this.buttonEl.getAttribute( 'aria-expanded' ) === 'true';
 
