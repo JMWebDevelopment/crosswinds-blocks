@@ -1,0 +1,34 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-crosswinds-blocks-google-maps {
+
+	&.map-block-set-height {
+		position: relative;
+
+		& img {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+			height: 100%;
+		}
+	}
+
+	&.map-block-fill-parent-container {
+		position: relative;
+		display: flex;
+		flex: 1;
+
+		& img {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
+			height: 100%;
+		}
+	}
+}

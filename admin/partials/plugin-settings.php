@@ -40,6 +40,13 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M199.2 312.6c14.94 15.06 34.8 23.38 55.89 23.38c.0313 0 0 0 0 0c21.06 0 40.92-8.312 55.83-23.38c9.375-9.375 24.53-9.469 33.97-.1562c9.406 9.344 9.469 24.53 .1562 33.97c-24 24.22-55.95 37.56-89.95 37.56c0 0 .0313 0 0 0c-33.97 0-65.95-13.34-89.95-37.56c-49.44-49.88-49.44-131 0-180.9c24-24.22 55.98-37.56 89.95-37.56c.0313 0 0 0 0 0c34 0 65.95 13.34 89.95 37.56c9.312 9.438 9.25 24.62-.1562 33.97c-9.438 9.344-24.59 9.188-33.97-.1562c-14.91-15.06-34.77-23.38-55.83-23.38c0 0 .0313 0 0 0c-21.09 0-40.95 8.312-55.89 23.38C168.3 230.6 168.3 281.4 199.2 312.6z"/><path fill="#3e7ea8" class="fa-secondary" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM199.2 312.6c14.94 15.06 34.8 23.38 55.89 23.38c.0313 0 0 0 0 0c21.06 0 40.92-8.312 55.83-23.38c9.375-9.375 24.53-9.469 33.97-.1562c9.406 9.344 9.469 24.53 .1562 33.97c-24 24.22-55.95 37.56-89.95 37.56c0 0 .0313 0 0 0c-33.97 0-65.95-13.34-89.95-37.56c-49.44-49.88-49.44-131 0-180.9c24-24.22 55.98-37.56 89.95-37.56c.0313 0 0 0 0 0c34 0 65.95 13.34 89.95 37.56c9.312 9.438 9.25 24.62-.1562 33.97c-9.438 9.344-24.59 9.188-33.97-.1562c-14.91-15.06-34.77-23.38-55.83-23.38c0 0 .0313 0 0 0c-21.09 0-40.95 8.312-55.89 23.38C168.3 230.6 168.3 281.4 199.2 312.6z"/></svg>',
 	),
+	'google-maps' => array(
+		'slug'        => 'google-maps',
+		'name'        => esc_html__( 'Google Maps', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Add in a Google Maps embed to show a location.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#1b1930" class="fa-primary" d="M192 144a48 48 0 1 0 0 96 48 48 0 1 0 0-96z"/><path fill="#3e7ea8" class="fa-secondary" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 112a80 80 0 1 1 0 160 80 80 0 1 1 0-160z"/></svg>',
+	),
 	'marquee' => array(
 		'slug'        => 'marquee',
 		'name'        => esc_html__( 'Marquee', 'crosswinds-blocks' ),
@@ -388,6 +395,26 @@ $custom_taxonomies = array(
 			?>
 		</div>
 	</div>
+
+	<div class="cb-options-section">
+		<h3><?php esc_html_e( 'Other Settings', 'crosswinds-framework' ); ?></h3>
+
+		<div class="options-area">
+			<?php
+			if ( get_option( 'crosswinds-blocks-google-maps-api-key' ) ) {
+				$google_maps_api_key = get_option( 'crosswinds-blocks-google-maps-api-key' );
+			} else {
+				$google_maps_api_key = '';
+			}
+			?>
+			<p>
+				<label for="crosswinds-blocks-google-maps-api-key"><?php esc_html_e( 'Google Maps API Key', 'crosswinds-blocks' ); ?></label><br />
+				<input id="crosswinds-blocks-google-maps-api-key" name="crosswinds-blocks-google-maps-api-key" value="<?php echo esc_attr( $google_maps_api_key ); ?>" />
+			</p>
+		</div>
+	</div>
+
+	<?php do_action( 'crosswinds_blocks_other_settings_sections' ); ?>
 
 	<input type="hidden" name="action" value="update" />
 	<input type="submit" value="<?php esc_html_e( 'Save Plugin Settings', 'crosswinds-blocks' ); ?>" id="submit" class="cb-primary" name="submit">
