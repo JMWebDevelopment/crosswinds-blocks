@@ -171,12 +171,7 @@ function Edit(props) {
       cbUseFlex: true,
       cbFillHeight: true,
       cbInnerLayout: 'normal'
-    }, [['core/heading', {
-      level: 2,
-      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Insert your heading here...', 'crosswinds-blocks')
-    }], ['core/paragraph', {
-      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Write some description text here...', 'crosswinds-blocks')
-    }]]]]
+    }]]
   });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, inspectorControls, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", innerBlocksProps));
 }
