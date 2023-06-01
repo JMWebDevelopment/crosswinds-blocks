@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classnames from 'classnames';
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -11,6 +16,7 @@ import {
 	SelectControl,
 	PanelBody,
 	ComboboxControl,
+	ToggleControl,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import {
@@ -32,12 +38,15 @@ import './editor.scss';
 export default function Edit( props ) {
 	const {
 		attributes,
+		setAttributes,
 	} = props;
 
 	const {
 		postId,
 		postType,
 		postTypeTitle,
+		cbUseFlex,
+		cbFillHeight,
 	} = attributes;
 
 	function getPosts() {
@@ -58,31 +67,62 @@ export default function Edit( props ) {
 		<>
 			<InspectorControls>
 				<PanelBody title={ __( 'Featured Content Settings', 'crosswinds-blocks' ) }>
-					<ComboboxControl
-						label={ __( 'Select', 'crosswinds-blocks' ) + ' ' + postTypeTitle }
-						value={ postId }
-						onChange={ ( id ) => props.setAttributes( { postId: parseInt( id ) } ) }
-						options={ getPosts() }
-						onFilterValueChange={ ( inputValue ) =>
-							setFilteredOptions(
-								getPosts().filter( ( option ) =>
-									option.label
-										.toLowerCase()
-										.startsWith( inputValue.toLowerCase() )
+					<>
+						<ComboboxControl
+							label={ __( 'Select', 'crosswinds-blocks' ) + ' ' + postTypeTitle }
+							value={ postId }
+							onChange={ ( id ) => props.setAttributes( { postId: parseInt( id ) } ) }
+							options={ getPosts() }
+							onFilterValueChange={ ( inputValue ) =>
+								setFilteredOptions(
+									getPosts().filter( ( option ) =>
+										option.label
+											.toLowerCase()
+											.startsWith( inputValue.toLowerCase() )
+									)
 								)
-							)
-						}
-					/>
+							}
+						/>
+
+						<ToggleControl
+							label={ __( 'Use Flexbox on Group?', 'crosswinds-blocks' ) }
+							checked={ cbUseFlex }
+							onChange={ ( value ) => setAttributes( {
+								cbUseFlex: value,
+							} ) }
+						/>
+
+						<ToggleControl
+							label={ __( 'Have Group Fill Height of Parent Block?', 'crosswinds-blocks' ) }
+							checked={ cbFillHeight }
+							onChange={ ( value ) => setAttributes( {
+								cbFillHeight: value,
+							} ) }
+						/>
+					</>
 				</PanelBody>
 			</InspectorControls>
 		</>
 	);
 
+	let flexClass;
+	if ( cbUseFlex && cbFillHeight ) {
+		flexClass = classnames( 'column-flex cb-fill-height-parent' );
+	} else if ( cbUseFlex ) {
+		flexClass = classnames( 'column-flex' );
+	} else {
+		flexClass = '';
+	}
+
+	const blockProps = useBlockProps( {
+		className: flexClass,
+	} );
+
 	if ( 0 === postId ) {
 		return (
 			<>
 				{ inspectorControls }
-				<p { ...useBlockProps() }>
+				<p { ...blockProps }>
 					{ __(
 						'Please select a post or other custom post type item from the right side',
 						'crosswinds-blocks'
@@ -96,7 +136,7 @@ export default function Edit( props ) {
 	return (
 		<>
 			{ inspectorControls }
-			<div { ...useBlockProps() }>
+			<div { ...blockProps }>
 				<InnerBlocks />
 			</div>
 		</>

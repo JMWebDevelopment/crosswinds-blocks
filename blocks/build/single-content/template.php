@@ -17,8 +17,16 @@ $block_query_args = array(
 );
 $block_query      = new WP_Query( $block_query_args );
 
+if ( $attributes['cbUseFlex'] && $attributes['cbFillHeight'] ) {
+	$flex_classes = 'column-flex cb-fill-height-parent';
+} elseif ( $attributes['cbUseFlex'] ) {
+	$flex_classes = 'column-flex';
+} else {
+	$flex_classes = '';
+}
+
 if ( $block_query->have_posts() ) {
-	$classnames         = get_post_class();
+	$classnames         = get_post_class( array( $flex_classes ) );
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classnames ) ) );
 	?>
 	<div <?php echo wp_kses_post( $wrapper_attributes ); ?>>

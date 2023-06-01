@@ -5,8 +5,13 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-featured-post-block-featured-post-block {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+.wp-block-crosswinds-blocks-single-content {
+
+	&.column-flex {
+		display: flex;
+
+		&.cb-fill-height-parent {
+			flex-grow: 1;
+		}
+	}
 }

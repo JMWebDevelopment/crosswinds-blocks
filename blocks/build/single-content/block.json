@@ -37,6 +37,14 @@
     },
     "namespace": {
       "type": "string"
+    },
+    "cbUseFlex": {
+      "type": "boolean",
+      "default": false
+    },
+    "cbFillHeight": {
+      "type": "boolean",
+      "default": false
     }
   },
   "providesContext": {
