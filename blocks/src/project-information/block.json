@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/project-information",
+	"version": "0.1.0",
+	"title": "Project Information",
+	"category": "crosswinds-blocks",
+	"description": "Allows you to show the category, client and date for a project project.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"portafoglioClient": {
+			"type": "string",
+			"source": "meta",
+			"meta": "project_client"
+		},
+		"portafoglioDate": {
+			"type": "string",
+			"source": "meta",
+			"meta": "project_date"
+		}
+	},
+	"usesContext": [ "postId", "postType" ],
+	"textdomain": "portafoglio-project-information",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

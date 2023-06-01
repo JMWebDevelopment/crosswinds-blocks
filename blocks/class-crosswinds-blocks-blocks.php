@@ -102,38 +102,38 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-portfolio-category-search-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-category-search_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-category-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-category-search_block', false ) ) {
 			register_block_type(
-				__DIR__ . '/build/portfolio-category-search/',
+				__DIR__ . '/build/project-category-search/',
 				array(
-					'render_callback' => array( $this, 'portfolio_category_search_block_render_callback' ),
+					'render_callback' => array( $this, 'project_category_search_block_render_callback' ),
 				)
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-portfolio-information-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-information_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-information-block' ) || apply_filters( 'crosswinds_blocks_enable_project-information_block', false ) ) {
 			register_block_type(
-				__DIR__ . '/build/portfolio-information/',
+				__DIR__ . '/build/project-information/',
 				array(
-					'render_callback' => array( $this, 'portfolio_information_block_render_callback' ),
+					'render_callback' => array( $this, 'project_information_block_render_callback' ),
 				)
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-portfolio-search-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-search_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search_block', false ) ) {
 			register_block_type(
-				__DIR__ . '/build/portfolio-search/',
+				__DIR__ . '/build/project-search/',
 				array(
-					'render_callback' => array( $this, 'portfolio_search_block_render_callback' ),
+					'render_callback' => array( $this, 'project_search_block_render_callback' ),
 				)
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-portfolio-tag-search-block' ) || apply_filters( 'crosswinds_blocks_enable_portfolio-tag-search_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-tag-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-tag-search_block', false ) ) {
 			register_block_type(
-				__DIR__ . '/build/portfolio-tag-search/',
+				__DIR__ . '/build/project-tag-search/',
 				array(
-					'render_callback' => array( $this, 'portfolio_tag_search_block_render_callback' ),
+					'render_callback' => array( $this, 'project_tag_search_block_render_callback' ),
 				)
 			);
 		}
@@ -196,6 +196,13 @@ class Crosswinds_Blocks_Blocks {
 				'render_callback' => array( $this, 'carousel_slide_block_render_callback' ),
 			)
 		);*/
+
+		register_block_type(
+			__DIR__ . '/build/project-search-filters-buttons/',
+			array(
+				'render_callback' => array( $this, 'project_search_filters_buttons_block_render_callback' ),
+			)
+		);
 	}
 
 	/**
@@ -326,7 +333,7 @@ class Crosswinds_Blocks_Blocks {
 	}
 
 	/**
-	 * Loads the template for the portfolio category search block.
+	 * Loads the template for the project category search block.
 	 *
 	 * @since 1.0
 	 *
@@ -334,14 +341,14 @@ class Crosswinds_Blocks_Blocks {
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
 	 */
-	public function portfolio_category_search_block_render_callback( $attributes, $content, $block ) {
+	public function project_category_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
-		require plugin_dir_path( __FILE__ ) . 'build/portfolio-category-search/template.php';
+		require plugin_dir_path( __FILE__ ) . 'build/project-category-search/template.php';
 		return ob_get_clean();
 	}
 
 	/**
-	 * Loads the template for the portfolio information block.
+	 * Loads the template for the project information block.
 	 *
 	 * @since 1.0
 	 *
@@ -349,14 +356,14 @@ class Crosswinds_Blocks_Blocks {
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
 	 */
-	public function portfolio_information_block_render_callback( $attributes, $content, $block ) {
+	public function project_information_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
-		require plugin_dir_path( __FILE__ ) . 'build/portfolio-information/template.php';
+		require plugin_dir_path( __FILE__ ) . 'build/project-information/template.php';
 		return ob_get_clean();
 	}
 
 	/**
-	 * Loads the template for the portfolio search block.
+	 * Loads the template for the project information block.
 	 *
 	 * @since 1.0
 	 *
@@ -364,14 +371,14 @@ class Crosswinds_Blocks_Blocks {
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
 	 */
-	public function portfolio_search_block_render_callback( $attributes, $content, $block ) {
+	public function project_search_filters_buttons_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
-		require plugin_dir_path( __FILE__ ) . 'build/portfolio-search/template.php';
+		require plugin_dir_path( __FILE__ ) . 'build/project-search-filters-buttons/template.php';
 		return ob_get_clean();
 	}
 
 	/**
-	 * Loads the template for the portfolio tag search block.
+	 * Loads the template for the project search block.
 	 *
 	 * @since 1.0
 	 *
@@ -379,9 +386,24 @@ class Crosswinds_Blocks_Blocks {
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
 	 */
-	public function portfolio_tag_search_block_render_callback( $attributes, $content, $block ) {
+	public function project_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
-		require plugin_dir_path( __FILE__ ) . 'build/portfolio-tag-search/template.php';
+		require plugin_dir_path( __FILE__ ) . 'build/project-search/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the project tag search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function project_tag_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/project-tag-search/template.php';
 		return ob_get_clean();
 	}
 

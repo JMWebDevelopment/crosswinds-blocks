@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/project-search-filters-buttons",
+	"version": "0.1.0",
+	"title": "Project Search Filters Buttons",
+	"category": "crosswinds-blocks",
+	"description": "Creates project filters clear and submit buttons.",
+	"supports": {
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		}
+	},
+	"attributes": {
+		"clearBackgroundColor": {
+			"type": "string"
+		},
+		"clearHoverBackgroundColor": {
+			"type": "string"
+		},
+		"submitHoverBackgroundColor": {
+			"type": "string"
+		},
+		"submitBackgroundColor": {
+			"type": "string"
+		},
+		"clearBackgroundColorValue": {
+			"type": "string"
+		},
+		"clearHoverBackgroundColorValue": {
+			"type": "string"
+		},
+		"submitBackgroundColorValue": {
+			"type": "string"
+		},
+		"submitHoverBackgroundColorValue": {
+			"type": "string"
+		}
+	},
+	"textdomain": "portafoglio-project-tag-search",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
