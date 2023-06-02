@@ -145,6 +145,7 @@ class Crosswinds_Blocks {
 		$public = new Crosswinds_Blocks_Public( $this->get_version() );
 		$this->loader->add_action( 'wp_enqueue_scripts', $public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $public, 'enqueue_scripts' );
+		$this->loader->add_action( 'pre_get_posts', $public, 'project_search_query' );
 	}
 
 	/**

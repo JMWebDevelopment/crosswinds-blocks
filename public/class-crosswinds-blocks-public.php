@@ -52,4 +52,20 @@ class Crosswinds_Blocks_Public {
 		wp_enqueue_script( 'crosswinds-blocks-tabs', plugin_dir_url( __FILE__ ) . 'js/tabs.min.js', array(), $this->version, true );
 	}
 
+	public function project_search_query( $query ) {
+		if ( $query->is_main_query() && is_search() && 'project' === $query->get( 'post_type' ) && isset( $_GET['project_client'] ) ) {
+			$client = sanitize_text_field( wp_unslash( $_GET['project_client'] ) );
+			$query->set(
+				'meta_query',
+				array(
+					array(
+						'key'     => 'project_client',
+						'compare' => 'LIKE',
+						'value'   => $client,
+					),
+				)
+			);
+		}
+	}
+
 }

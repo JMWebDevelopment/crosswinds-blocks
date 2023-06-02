@@ -210,6 +210,13 @@ class Crosswinds_Blocks_Blocks {
 				'render_callback' => array( $this, 'project_search_filters_block_render_callback' ),
 			)
 		);
+
+		register_block_type(
+			__DIR__ . '/build/project-client-search/',
+			array(
+				'render_callback' => array( $this, 'project_client_search_block_render_callback' ),
+			)
+		);
 	}
 
 	/**
@@ -411,6 +418,21 @@ class Crosswinds_Blocks_Blocks {
 	public function project_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/project-search/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the project search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function project_client_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/project-client-search/template.php';
 		return ob_get_clean();
 	}
 
