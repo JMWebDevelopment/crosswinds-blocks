@@ -102,7 +102,7 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-project-category-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-category-search_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-category-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-category-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-category-search/',
 				array(
@@ -111,7 +111,7 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-project-information-block' ) || apply_filters( 'crosswinds_blocks_enable_project-information_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-information-block' ) || apply_filters( 'crosswinds_blocks_enable_project-information_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-information/',
 				array(
@@ -120,7 +120,7 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-project-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-search/',
 				array(
@@ -129,7 +129,7 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-project-tag-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-tag-search_block', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-tag-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-tag-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-tag-search/',
 				array(
