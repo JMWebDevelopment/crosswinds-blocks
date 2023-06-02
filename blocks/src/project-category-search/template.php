@@ -9,7 +9,7 @@ $term = get_queried_object();
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<label for="portafoglio-category-search"><?php esc_html_e( 'Select a Category', 'crosswinds-blocks' ); ?></label>
-	<select id="portafoglio-category-search">
+	<select name="project_category" id="portafoglio-category-search">
 		<option value=""><?php esc_html_e( 'Select a Category', 'crosswinds-blocks' ); ?></option>
 		<?php
 		if ( $project_categories ) {
@@ -19,7 +19,7 @@ $term = get_queried_object();
 				} else {
 					$selected = '';
 				}
-				echo '<option value="' . esc_url( get_term_link( $project_cat, 'project_category' ) ) . '" ' . wp_kses_post( $selected ) . '>' . wp_kses_post( $project_cat->name ) . '</option>';
+				echo '<option value="' . esc_attr( $project_cat->slug ) . '" ' . wp_kses_post( $selected ) . '>' . wp_kses_post( $project_cat->name ) . '</option>';
 			}
 		}
 		?>

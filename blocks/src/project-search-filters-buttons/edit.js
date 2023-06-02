@@ -97,23 +97,20 @@ export function Edit( props ) {
 			</InspectorControls>
 		</>
 	);
-
 	const clearClasses = classnames(
-		`has-${ clearBackgroundColor }-background`,
-		`has-${ clearBackgroundColor }-color`
+		`has-${ clearBackgroundColor.slug }-background-color`,
 	);
 
 	const submitClasses = classnames(
-		`has-${ submitBackgroundColor }-background`,
-		`has-${ submitBackgroundColor }-color`
+		`has-${ submitBackgroundColor.slug }-background-color`,
 	);
 
 	return (
 		<>
 			{ inspectorControls }
 			<div { ...useBlockProps() }>
-				<input classNames={ clearClasses } type="submit" value={ __( 'Clear', 'crosswinds-blocks' ) } />
-				<input classNames={ submitClasses } type="submit" value={ __( 'Search', 'crosswinds-blocks' ) } />
+				<input className={ clearClasses } type="submit" value={ __( 'Clear', 'crosswinds-blocks' ) } />
+				<input className={ submitClasses } type="submit" value={ __( 'Search', 'crosswinds-blocks' ) } />
 			</div>
 		</>
 	);
