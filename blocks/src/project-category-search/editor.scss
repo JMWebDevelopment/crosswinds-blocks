@@ -6,4 +6,8 @@
 
 .wp-block-crosswinds-blocks-project-category-search {
 
+	& select {
+		display: block;
+		width: 100%;
+	}
 }

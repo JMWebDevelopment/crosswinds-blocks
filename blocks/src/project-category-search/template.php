@@ -8,8 +8,8 @@ $term = get_queried_object();
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
-	<label for="portafoglio-category-search"><?php esc_html_e( 'Select a Category', 'crosswinds-blocks' ); ?></label>
-	<select name="project_category" id="portafoglio-category-search">
+	<label for="project-category-search"><?php echo wp_kses_post( $attributes['label'] ); ?></label>
+	<select name="project_category" id="project-category-search">
 		<option value=""><?php esc_html_e( 'Select a Category', 'crosswinds-blocks' ); ?></option>
 		<?php
 		if ( $project_categories ) {

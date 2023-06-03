@@ -53,7 +53,7 @@ class Crosswinds_Blocks_Public {
 	}
 
 	public function project_search_query( $query ) {
-		if ( $query->is_main_query() && is_search() && 'project' === $query->get( 'post_type' ) && isset( $_GET['project_client'] ) ) {
+		if ( $query->is_main_query() && is_search() && 'project' === $query->get( 'post_type' ) && ( isset( $_GET['project_client'] ) && '' !== $_GET['project_client'] ) ) {
 			$client = sanitize_text_field( wp_unslash( $_GET['project_client'] ) );
 			$query->set(
 				'meta_query',

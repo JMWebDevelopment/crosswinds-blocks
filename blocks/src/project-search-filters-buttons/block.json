@@ -45,6 +45,14 @@
 		},
 		"submitHoverBackgroundColorValue": {
 			"type": "string"
+		},
+		"searchLabel": {
+			"type": "string",
+			"default": "Search"
+		},
+		"clearLabel": {
+			"type": "string",
+			"default": "Clear"
 		}
 	},
 	"textdomain": "portafoglio-project-tag-search",

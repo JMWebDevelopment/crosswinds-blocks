@@ -35,7 +35,14 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( props ) {
+	const {
+		setAttributes,
+		attributes,
+	} = props;
+	const {
+		label,
+	} = attributes;
 	const term = 'project_category';
 
 	let termsList = [];
@@ -55,12 +62,32 @@ export default function Edit() {
 		) );
 	}
 
+	const inspector = (
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Category Search Settings', 'crosswinds-blocks' ) }>
+					<TextControl
+						label={ __( 'Label', 'crosswinds-blocks' ) }
+						value={ label }
+						onChange={ ( value ) => setAttributes( {
+							label: value,
+						} ) }
+					/>
+				</PanelBody>
+
+			</InspectorControls>
+		</>
+	);
+
 	return (
-		<div { ...useBlockProps() }>
-			<label for="project-category-search">{ __( 'Select a Category', 'crosswinds-blocks' ) }</label>
-			<select>
-				{ options }
-			</select>
-		</div>
+		<>
+			{ inspector }
+			<div { ...useBlockProps() }>
+				<label for="project-category-search">{ label }</label>
+				<select>
+					{ options }
+				</select>
+			</div>
+		</>
 	);
 }

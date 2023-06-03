@@ -11,7 +11,20 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+} from '@wordpress/block-editor';
+import {
+	SelectControl,
+	PanelBody,
+	TextControl,
+	DatePicker,
+	ContrastChecker,
+	withColors,
+	__experimentalPanelColorGradientSettings as PanelColorGradientSettings, // eslint-disable-line
+	__experimentalUseGradient as useGradient, // eslint-disable-line
+} from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,11 +42,39 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( props ) {
+	const {
+		setAttributes,
+		attributes,
+	} = props;
+	const {
+		label,
+	} = attributes;
+
+	const inspector = (
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Search Settings', 'crosswinds-blocks' ) }>
+					<TextControl
+						label={ __( 'Label', 'crosswinds-blocks' ) }
+						value={ label }
+						onChange={ ( value ) => setAttributes( {
+							label: value,
+						} ) }
+					/>
+				</PanelBody>
+
+			</InspectorControls>
+		</>
+	);
+
 	return (
-		<div { ...useBlockProps() }>
-			<label htmlFor="project-search">{ __( 'Search for a Project', 'crosswinds-blocks' ) }</label>
-			<input type="text" id="project-search" />
-		</div>
+		<>
+			{ inspector }
+			<div { ...useBlockProps() }>
+				<label htmlFor="project-search">{ label }</label>
+				<input type="text" id="project-search" />
+			</div>
+		</>
 	);
 }

@@ -35,13 +35,41 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( props ) {
+	const {
+		setAttributes,
+		attributes,
+	} = props;
+	const {
+		label,
+	} = attributes;
+
+	const inspector = (
+		<>
+			<InspectorControls>
+				<PanelBody title={ __( 'Client Search Settings', 'crosswinds-blocks' ) }>
+					<TextControl
+						label={ __( 'Label', 'crosswinds-blocks' ) }
+						value={ label }
+						onChange={ ( value ) => setAttributes( {
+							label: value,
+						} ) }
+					/>
+				</PanelBody>
+
+			</InspectorControls>
+		</>
+	);
+
 	return (
-		<div { ...useBlockProps() }>
-			<label for="project-client-search">{ __( 'Select a Client', 'crosswinds-blocks' ) }</label>
-			<select>
-				<option>{ __( 'Clients will appear on the front end', 'crosswinds-blocks' ) }</option>
-			</select>
-		</div>
+		<>
+			{ inspector }
+			<div { ...useBlockProps() }>
+				<label for="project-client-search">{ label }</label>
+				<select>
+					<option>{ __( 'Clients will appear on the front end', 'crosswinds-blocks' ) }</option>
+				</select>
+			</div>
+		</>
 	);
 }

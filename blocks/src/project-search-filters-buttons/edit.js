@@ -11,6 +11,7 @@ import {
 	RangeControl,
 	PanelBody,
 	SelectControl,
+	TextControl,
 } from '@wordpress/components';
 import {
 	useBlockProps,
@@ -47,12 +48,30 @@ export function Edit( props ) {
 		clearHoverBackgroundColorValue,
 		submitHoverBackgroundColorValue,
 		submitBackgroundColorValue,
+		searchLabel,
+		clearLabel,
 	} = attributes;
 
 	const inspectorControls = (
 		<>
 			<InspectorControls>
 				<div>
+					<PanelBody title={ __( 'Label Settings', 'crosswinds-blocks' ) }>
+						<TextControl
+							label={ __( 'Search Button Label', 'crosswinds-blocks' ) }
+							value={ searchLabel }
+							onChange={ ( value ) => setAttributes( {
+								searchLabel: value,
+							} ) }
+						/>
+						<TextControl
+							label={ __( 'Reset Button Label', 'crosswinds-blocks' ) }
+							value={ clearLabel }
+							onChange={ ( value ) => setAttributes( {
+								clearLabel: value,
+							} ) }
+						/>
+					</PanelBody>
 					<PanelColorGradientSettings
 						className="outermost-crosswinds-blocks__color-settings"
 						title={ __( 'Clear Background Color', 'crosswinds-blocks' ) }
@@ -109,8 +128,8 @@ export function Edit( props ) {
 		<>
 			{ inspectorControls }
 			<div { ...useBlockProps() }>
-				<input className={ clearClasses } type="submit" value={ __( 'Clear', 'crosswinds-blocks' ) } />
-				<input className={ submitClasses } type="submit" value={ __( 'Search', 'crosswinds-blocks' ) } />
+				<input className={ submitClasses } type="submit" value={ searchLabel } />
+				<input className={ clearClasses } type="reset" value={ clearLabel } />
 			</div>
 		</>
 	);
