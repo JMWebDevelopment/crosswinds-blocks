@@ -102,11 +102,46 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-project-category-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-category-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-category-search/',
 				array(
 					'render_callback' => array( $this, 'project_category_search_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/project-search-filters-buttons/',
+				array(
+					'render_callback' => array( $this, 'project_search_filters_buttons_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/project-search-filters/',
+				array(
+					'render_callback' => array( $this, 'project_search_filters_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/project-client-search/',
+				array(
+					'render_callback' => array( $this, 'project_client_search_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/project-search/',
+				array(
+					'render_callback' => array( $this, 'project_search_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/project-tag-search/',
+				array(
+					'render_callback' => array( $this, 'project_tag_search_block_render_callback' ),
 				)
 			);
 		}
@@ -116,24 +151,6 @@ class Crosswinds_Blocks_Blocks {
 				__DIR__ . '/build/project-information/',
 				array(
 					'render_callback' => array( $this, 'project_information_block_render_callback' ),
-				)
-			);
-		}
-
-		if ( get_option( 'crosswinds-blocks-project-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
-			register_block_type(
-				__DIR__ . '/build/project-search/',
-				array(
-					'render_callback' => array( $this, 'project_search_block_render_callback' ),
-				)
-			);
-		}
-
-		if ( get_option( 'crosswinds-blocks-project-tag-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-tag-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
-			register_block_type(
-				__DIR__ . '/build/project-tag-search/',
-				array(
-					'render_callback' => array( $this, 'project_tag_search_block_render_callback' ),
 				)
 			);
 		}
@@ -196,27 +213,6 @@ class Crosswinds_Blocks_Blocks {
 				'render_callback' => array( $this, 'carousel_slide_block_render_callback' ),
 			)
 		);*/
-
-		register_block_type(
-			__DIR__ . '/build/project-search-filters-buttons/',
-			array(
-				'render_callback' => array( $this, 'project_search_filters_buttons_block_render_callback' ),
-			)
-		);
-
-		register_block_type(
-			__DIR__ . '/build/project-search-filters/',
-			array(
-				'render_callback' => array( $this, 'project_search_filters_block_render_callback' ),
-			)
-		);
-
-		register_block_type(
-			__DIR__ . '/build/project-client-search/',
-			array(
-				'render_callback' => array( $this, 'project_client_search_block_render_callback' ),
-			)
-		);
 	}
 
 	/**
@@ -377,7 +373,7 @@ class Crosswinds_Blocks_Blocks {
 	}
 
 	/**
-	 * Loads the template for the project information block.
+	 * Loads the template for the project search filters block.
 	 *
 	 * @since 1.0
 	 *
@@ -392,7 +388,7 @@ class Crosswinds_Blocks_Blocks {
 	}
 
 	/**
-	 * Loads the template for the project information block.
+	 * Loads the template for the project search filter buttons block.
 	 *
 	 * @since 1.0
 	 *
@@ -422,7 +418,7 @@ class Crosswinds_Blocks_Blocks {
 	}
 
 	/**
-	 * Loads the template for the project search block.
+	 * Loads the template for the project client search block.
 	 *
 	 * @since 1.0
 	 *
