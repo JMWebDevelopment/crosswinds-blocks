@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/project-client-search",
+	"version": "0.1.0",
+	"title": "Project Client Search",
+	"category": "crosswinds-blocks",
+	"description": "Creates a section to search by project cleint.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Select a Client"
+		}
+	},
+	"textdomain": "crosswinds-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-crosswinds-blocks-project-search {
+
+	input[type="search"],
+	input[type="text"] {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+
+	input[type="submit"] {
+		width: 100% !important;
+		background-color: var(--wp--preset--color--contrast);
+		border: 1px solid var(--wp--preset--color--contrast);
+		color: var(--wp--preset--color--base);
+
+		&:hover,
+		&:focus {
+			background-color: var(--wp--preset--color--base) !important;
+			color: var(--wp--preset--color--contrast) !important;
+		}
+	}
+}

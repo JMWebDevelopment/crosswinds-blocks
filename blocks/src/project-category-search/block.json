@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/project-category-search",
+	"version": "0.1.0",
+	"title": "Project Category Search",
+	"category": "crosswinds-blocks",
+	"description": "Creates a section to search by project category.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Select a Category"
+		}
+	},
+	"textdomain": "crosswinds-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

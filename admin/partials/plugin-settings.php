@@ -54,33 +54,19 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" d="M64 32C28.65 32 0 60.65 0 96v48C0 152.8 7.164 160 16 160H128V96C128 60.65 99.35 32 64 32zM560 352H288v48c0 44.18-35.82 80-80 80h256c61.88 0 112-50.13 112-112C576 359.1 568.9 352 560 352z" /><path fill="#3e7ea8" d="M480 128v224h-192v48c0 44.18-35.82 80-80 80C163.8 480 128 444.2 128 400V96c0-35.35-28.65-64-64-64h320C437 32 480 75 480 128z" /></svg>',
 	),
-	'portfolio-category-search' => array(
-		'slug'        => 'portfolio-category-search',
-		'name'        => esc_html__( 'Portfolio Category Search', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Creates a section to search by portfolio category.', 'crosswinds-blocks' ),
+	'project-search' => array(
+		'slug'        => 'project-search-filters',
+		'name'        => esc_html__( 'Project Search Filters', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Adds in a set of project blocks that allow you to create a project search filters section.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
-		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M500.3 443.7l-119.7-119.7c-15.03 22.3-34.26 41.54-56.57 56.57l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7z"/><path fill="#3e7ea8" class="fa-secondary" d="M207.1 0C93.12 0-.0002 93.13-.0002 208S93.12 416 207.1 416s208-93.13 208-208S322.9 0 207.1 0zM207.1 336c-70.58 0-128-57.42-128-128c0-70.58 57.42-128 128-128s128 57.42 128 128C335.1 278.6 278.6 336 207.1 336z"/></svg>',
+		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
-	'portfolio-information' => array(
-		'slug'        => 'portfolio-information',
-		'name'        => esc_html__( 'Portfolio Information', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Allows you to show the category, client and date for a portfolio project.', 'crosswinds-blocks' ),
+	'project-information' => array(
+		'slug'        => 'project-information',
+		'name'        => esc_html__( 'Project Information', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Allows you to show the category, client and date for a project.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M256 192c17.67 0 32-14.33 32-32c0-17.67-14.33-32-32-32S224 142.3 224 160C224 177.7 238.3 192 256 192zM296 336h-16V248C280 234.8 269.3 224 256 224H224C210.8 224 200 234.8 200 248S210.8 272 224 272h8v64h-16C202.8 336 192 346.8 192 360S202.8 384 216 384h80c13.25 0 24-10.75 24-24S309.3 336 296 336z"/><path fill="#3e7ea8" class="fa-secondary" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/></svg>',
-	),
-	'portfolio-search' => array(
-		'slug'        => 'portfolio-search',
-		'name'        => esc_html__( 'Portfolio Search', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Add in a block to allow a user to search portfolio items.', 'crosswinds-blocks' ),
-		'documentation_link' => '',
-		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M500.3 443.7l-119.7-119.7c-15.03 22.3-34.26 41.54-56.57 56.57l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7z"/><path fill="#3e7ea8" class="fa-secondary" d="M207.1 0C93.12 0-.0002 93.13-.0002 208S93.12 416 207.1 416s208-93.13 208-208S322.9 0 207.1 0zM207.1 336c-70.58 0-128-57.42-128-128c0-70.58 57.42-128 128-128s128 57.42 128 128C335.1 278.6 278.6 336 207.1 336z"/></svg>',
-	),
-	'portfolio-tag-search' => array(
-		'slug'        => 'portfolio-tag-search',
-		'name'        => esc_html__( 'Portfolio Tag Search', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Creates a section to search by portfolio tag.', 'crosswinds-blocks' ),
-		'documentation_link' => '',
-		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M500.3 443.7l-119.7-119.7c-15.03 22.3-34.26 41.54-56.57 56.57l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7z"/><path fill="#3e7ea8" class="fa-secondary" d="M207.1 0C93.12 0-.0002 93.13-.0002 208S93.12 416 207.1 416s208-93.13 208-208S322.9 0 207.1 0zM207.1 336c-70.58 0-128-57.42-128-128c0-70.58 57.42-128 128-128s128 57.42 128 128C335.1 278.6 278.6 336 207.1 336z"/></svg>',
 	),
 	'post-navigation' => array(
 		'slug'        => 'post-navigation',
@@ -128,10 +114,10 @@ $blocks = array(
 $blocks = apply_filters( 'crosswinds_blocks_blocks_list', $blocks );
 
 $cpts = array(
-	'portfolio' => array(
-		'slug'        => 'portfolio',
-		'name'        => esc_html__( 'Portfolio', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Add a portfolio custom post type for your website.', 'crosswinds-blocks' ),
+	'project' => array(
+		'slug'        => 'project',
+		'name'        => esc_html__( 'Projects', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Add a project custom post type for your website.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
@@ -139,17 +125,17 @@ $cpts = array(
 $cpts = apply_filters( 'crosswinds_blocks_post_types_list', $cpts );
 
 $custom_taxonomies = array(
-	'portfolio_category' => array(
-		'slug'        => 'portfolio-category',
-		'name'        => esc_html__( 'Portfolio Category', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Add a portfolio category taxonomy for the portfolio custom post type for your website.', 'crosswinds-blocks' ),
+	'project_category' => array(
+		'slug'        => 'project-category',
+		'name'        => esc_html__( 'Project Category', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Add a project category taxonomy for the project custom post type for your website.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
-	'portfolio_tag' => array(
-		'slug'        => 'portfolio-tag',
-		'name'        => esc_html__( 'Portfolio Tag', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Add a portfolio tag taxonomy for the portfolio custom post type for your website.', 'crosswinds-blocks' ),
+	'project_tag' => array(
+		'slug'        => 'project-tag',
+		'name'        => esc_html__( 'Project Tag', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Add a project tag taxonomy for the project custom post type for your website.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),

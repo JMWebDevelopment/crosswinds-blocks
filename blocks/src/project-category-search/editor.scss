@@ -1,0 +1,13 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-crosswinds-blocks-project-category-search {
+
+	& select {
+		display: block;
+		width: 100%;
+	}
+}

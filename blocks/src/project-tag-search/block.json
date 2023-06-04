@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/project-tag-search",
+	"version": "0.1.0",
+	"title": "Project Tag Search",
+	"category": "crosswinds-blocks",
+	"description": "Creates a section to search by project tag.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Select a Tag"
+		}
+	},
+	"textdomain": "portafoglio-project-tag-search",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

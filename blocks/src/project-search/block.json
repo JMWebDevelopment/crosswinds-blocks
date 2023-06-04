@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/project-search",
+	"version": "0.1.0",
+	"title": "Project Search",
+	"category": "crosswinds-blocks",
+	"description": "Add in a block to allow a user to search project items.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Search"
+		}
+	},
+	"textdomain": "crosswinds-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
