@@ -1,7 +1,11 @@
 const fecthMasonry = function( container, items, columns ) {
 	const containerElement = document.getElementsByClassName( container )[ 0 ] || '';
-	let containerClassList = containerElement.className.split( ' ' );
-	console.log(containerClassList);
+	const containerClassList = containerElement.className.split( ' ' );
+	const containerClassListString = containerClassList.join( ' ' );
+	console.log(containerClassListString);
+	columns = containerClassListString.toString().match( /masonry-grid-has-\d+-desktop-columns/ )[0];
+	columns = containerClassListString.toString().match( /\d+/ )[0];
+	console.log(columns);
 	if ( ! containerElement ) {
 		return;
 	}
