@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/masonry-grid-item",
+	"version": "1.0",
+	"title": "Masonry Grid Item",
+	"category": "crosswinds-blocks",
+	"description": "Add a simple grid with a custom number of columns.",
+	"parent": [
+		"crosswinds-blocks/masonry-grid"
+	],
+	"usesContext": [
+		"gridRowGap",
+		"gridSameGap",
+		"gridGap"
+	],
+	"attributes": {
+		"innerLayout": {
+			"type": "string",
+			"default": "normal"
+		},
+		"itemSameGap": {
+			"type": "boolean",
+			"default": true
+		},
+		"itemGap": {
+			"type": "number",
+			"default": 30
+		},
+		"itemRowGap": {
+			"type": "number",
+			"default": 30
+		}
+	},
+	"supports": {
+		"html": false,
+		"ariaLabel": true,
+		"__experimentalLayout": true,
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"shadow": true,
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		}
+	},
+	"textdomain": "portafoglio-skills-slider",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

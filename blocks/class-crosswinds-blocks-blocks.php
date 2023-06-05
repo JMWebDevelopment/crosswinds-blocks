@@ -200,6 +200,11 @@ class Crosswinds_Blocks_Blocks {
 			register_block_type( __DIR__ . '/build/tab-section/' );
 		}
 
+		//if ( get_option( 'crosswinds-blocks-masonry-grid-block' ) || apply_filters( 'crosswinds_blocks_enable_masonry-grid_block', false ) ) {
+			register_block_type( __DIR__ . '/build/masonry-grid/' );
+			register_block_type( __DIR__ . '/build/masonry-grid-item/' );
+		//}
+
 		/* register_block_type(
 			__DIR__ . '/build/carousel/',
 			array(
