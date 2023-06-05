@@ -6,6 +6,7 @@
  */
 
  .wp-block-crosswinds-blocks-masonry-grid {
+	box-sizing: border-box;
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 

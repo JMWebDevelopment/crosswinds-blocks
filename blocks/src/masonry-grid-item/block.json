@@ -1,13 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "crosswinds-blocks/basic-grid-item",
+	"name": "crosswinds-blocks/masonry-grid-item",
 	"version": "1.0",
 	"title": "Masonry Grid Item",
 	"category": "crosswinds-blocks",
 	"description": "Add a simple grid with a custom number of columns.",
 	"parent": [
-		"crosswinds-blocks/basic-grid"
+		"crosswinds-blocks/masonry-grid"
 	],
 	"usesContext": [
 		"numDesktopColumns",
