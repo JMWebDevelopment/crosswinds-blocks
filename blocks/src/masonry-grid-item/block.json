@@ -10,14 +10,26 @@
 		"crosswinds-blocks/masonry-grid"
 	],
 	"usesContext": [
-		"numDesktopColumns",
-		"numTabletColumns",
-		"numMobileColumns"
+		"gridRowGap",
+		"gridSameGap",
+		"gridGap"
 	],
 	"attributes": {
 		"innerLayout": {
 			"type": "string",
 			"default": "normal"
+		},
+		"itemSameGap": {
+			"type": "boolean",
+			"default": true
+		},
+		"itemGap": {
+			"type": "number",
+			"default": 30
+		},
+		"itemRowGap": {
+			"type": "number",
+			"default": 30
 		}
 	},
 	"supports": {

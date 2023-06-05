@@ -10,6 +10,10 @@
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 
+	& .masonry-column {
+		margin-block-start: 0;
+	}
+
 	&.masonry-grid-has-2-mobile-columns {
 		grid-template-columns: repeat(2, 1fr);
 	}

@@ -37,9 +37,9 @@
 		}
 	},
 	"providesContext": {
-		"numDesktopColumns": "numDesktopColumns",
-		"numTabletColumns": "numTabletColumns",
-		"numMobileColumns": "numMobileColumns"
+		"gridRowGap": "gridRowGap",
+		"gridSameGap": "gridSameGap",
+		"gridGap": "gridGap"
 	},
 	"supports": {
 		"html": false,

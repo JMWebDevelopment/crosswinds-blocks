@@ -26,11 +26,27 @@ export function Edit( props ) {
 	const {
 		attributes,
 		setAttributes,
+		context,
+		itemSameGap,
+		itemGap,
+		itemRowGap,
 	} = props;
 
 	const {
 		innerLayout,
 	} = attributes;
+
+	const {
+		gridRowGap,
+		gridSameGap,
+		gridGap,
+	} = context;
+
+	setAttributes( {
+		itemRowGap: gridRowGap,
+		itemSameGap: gridSameGap,
+		itemGap: gridGap,
+	} );
 
 	const innerLayoutOptions = [
 		{
@@ -72,17 +88,29 @@ export function Edit( props ) {
 		</>
 	);
 
+	let gridItemStyle;
+	if ( false === itemSameGap ) {
+		gridItemStyle = {
+			marginBottom: itemRowGap + 'px',
+		};
+	} else {
+		gridItemStyle = {
+			marginBottom: itemGap + 'px',
+		};
+	}
+
 	const gridItemClasses = classnames(
 		`${ innerLayout }-layout`
 	);
 
 	const blockProps = useBlockProps( {
 		className: gridItemClasses,
+		style: gridItemStyle,
 	} );
 	const innerBlocksProps = useInnerBlocksProps( blockProps,
 		{
 			template: [
-				[ 'core/group', { cbUseFlex: true, cbFillHeight: true, cbInnerLayout: 'normal' } ],
+				[ 'core/group', { cbUseFlex: false, cbFillHeight: false, cbInnerLayout: 'normal' } ],
 			],
 		},
 	);
