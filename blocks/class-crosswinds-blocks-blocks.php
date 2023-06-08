@@ -80,6 +80,36 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
+		if ( get_option( 'crosswinds-blocks-download-search-filters-block' ) || apply_filters( 'crosswinds_blocks_enable_download-search-filters_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/download-category-search/',
+				array(
+					'render_callback' => array( $this, 'download_category_search_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/download-search-filters-buttons/',
+				array(
+					'render_callback' => array( $this, 'download_search_filters_buttons_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/download-search-filters/',
+				array(
+					'render_callback' => array( $this, 'download_search_filters_block_render_callback' ),
+				)
+			);
+
+			register_block_type(
+				__DIR__ . '/build/download-search/',
+				array(
+					'render_callback' => array( $this, 'download_search_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-google-maps-block' ) || apply_filters( 'crosswinds_blocks_enable_google-maps_block', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/google-maps/',
@@ -102,7 +132,7 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
-		if ( get_option( 'crosswinds-blocks-project-search-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
+		if ( get_option( 'crosswinds-blocks-project-search-filters-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search-filters_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-category-search/',
 				array(
@@ -494,6 +524,66 @@ class Crosswinds_Blocks_Blocks {
 	public function google_maps_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/google-maps/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the download category search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function download_category_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/download-category-search/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the download search filters block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function download_search_filters_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/download-search-filters/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the download search filter buttons block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function download_search_filters_buttons_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/download-search-filters-buttons/template.php';
+		return ob_get_clean();
+	}
+
+	/**
+	 * Loads the template for the download search block.
+	 *
+	 * @since 1.0
+	 *
+	 * @param array  $attributes   The attributes for the block.
+	 * @param string $content      The content for the block.
+	 * @param array  $block        Information about the block.
+	 */
+	public function download_search_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/download-search/template.php';
 		return ob_get_clean();
 	}
 

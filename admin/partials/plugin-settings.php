@@ -40,6 +40,13 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M199.2 312.6c14.94 15.06 34.8 23.38 55.89 23.38c.0313 0 0 0 0 0c21.06 0 40.92-8.312 55.83-23.38c9.375-9.375 24.53-9.469 33.97-.1562c9.406 9.344 9.469 24.53 .1562 33.97c-24 24.22-55.95 37.56-89.95 37.56c0 0 .0313 0 0 0c-33.97 0-65.95-13.34-89.95-37.56c-49.44-49.88-49.44-131 0-180.9c24-24.22 55.98-37.56 89.95-37.56c.0313 0 0 0 0 0c34 0 65.95 13.34 89.95 37.56c9.312 9.438 9.25 24.62-.1562 33.97c-9.438 9.344-24.59 9.188-33.97-.1562c-14.91-15.06-34.77-23.38-55.83-23.38c0 0 .0313 0 0 0c-21.09 0-40.95 8.312-55.89 23.38C168.3 230.6 168.3 281.4 199.2 312.6z"/><path fill="#3e7ea8" class="fa-secondary" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM199.2 312.6c14.94 15.06 34.8 23.38 55.89 23.38c.0313 0 0 0 0 0c21.06 0 40.92-8.312 55.83-23.38c9.375-9.375 24.53-9.469 33.97-.1562c9.406 9.344 9.469 24.53 .1562 33.97c-24 24.22-55.95 37.56-89.95 37.56c0 0 .0313 0 0 0c-33.97 0-65.95-13.34-89.95-37.56c-49.44-49.88-49.44-131 0-180.9c24-24.22 55.98-37.56 89.95-37.56c.0313 0 0 0 0 0c34 0 65.95 13.34 89.95 37.56c9.312 9.438 9.25 24.62-.1562 33.97c-9.438 9.344-24.59 9.188-33.97-.1562c-14.91-15.06-34.77-23.38-55.83-23.38c0 0 .0313 0 0 0c-21.09 0-40.95 8.312-55.89 23.38C168.3 230.6 168.3 281.4 199.2 312.6z"/></svg>',
 	),
+	'download-searchh-filters' => array(
+		'slug'        => 'download-search-filters',
+		'name'        => esc_html__( 'Downloads Search Filters', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Adds in a set of download search blocks that allow you to create a download search filters section.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
+	),
 	'google-maps' => array(
 		'slug'        => 'google-maps',
 		'name'        => esc_html__( 'Google Maps', 'crosswinds-blocks' ),
@@ -54,10 +61,10 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" d="M64 32C28.65 32 0 60.65 0 96v48C0 152.8 7.164 160 16 160H128V96C128 60.65 99.35 32 64 32zM560 352H288v48c0 44.18-35.82 80-80 80h256c61.88 0 112-50.13 112-112C576 359.1 568.9 352 560 352z" /><path fill="#3e7ea8" d="M480 128v224h-192v48c0 44.18-35.82 80-80 80C163.8 480 128 444.2 128 400V96c0-35.35-28.65-64-64-64h320C437 32 480 75 480 128z" /></svg>',
 	),
-	'project-search' => array(
+	'project-searchh-filters' => array(
 		'slug'        => 'project-search-filters',
 		'name'        => esc_html__( 'Project Search Filters', 'crosswinds-blocks' ),
-		'description' => esc_html__( 'Adds in a set of project blocks that allow you to create a project search filters section.', 'crosswinds-blocks' ),
+		'description' => esc_html__( 'Adds in a set of project search blocks that allow you to create a project search filters section.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
 		'icon'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#1b1930" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#3e7ea8" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
