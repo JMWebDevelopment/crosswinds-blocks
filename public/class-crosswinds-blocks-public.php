@@ -50,6 +50,7 @@ class Crosswinds_Blocks_Public {
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'crosswinds-blocks-accordions', plugin_dir_url( __FILE__ ) . 'js/accordions.min.js', array(), $this->version, true );
 		wp_enqueue_script( 'crosswinds-blocks-tabs', plugin_dir_url( __FILE__ ) . 'js/tabs.min.js', array(), $this->version, true );
+		wp_enqueue_script( 'crosswinds-blocks-masonry', plugin_dir_url( __FILE__ ) . 'js/masonry.min.js', array(), $this->version, true );
 	}
 
 	public function project_search_query( $query ) {
