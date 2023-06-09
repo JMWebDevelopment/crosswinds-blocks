@@ -267,7 +267,7 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 
 					<div class="field">
 						<label class="Toggle" for="enable-<?php echo esc_attr( $block['slug'] ); ?>-cpt">
-							<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $block['slug'] ); ?>-cpt" id="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1" <?php echo wp_kses_post( $disabled ); ?> />
+							<input type="checkbox" name="crosswinds-blocks-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" id="enable-<?php echo esc_attr( $cpt['slug'] ); ?>-cpt" class="Toggle__input" <?php echo wp_kses_post( $checked ); ?> value="1" <?php echo wp_kses_post( $disabled ); ?> />
 
 							<span class="Toggle__display" hidden>
 								<svg
