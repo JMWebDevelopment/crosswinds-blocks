@@ -120,14 +120,6 @@ class Crosswinds_Blocks_Admin {
 			)
 		);
 
-		wp_enqueue_script(
-			'crosswinds-blocks-masonry',
-			plugins_url( 'js/masonry.min.js', __FILE__ ),
-			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-			'1.0.0',
-			true
-		);
-
 	}
 
 	/**
