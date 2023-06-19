@@ -597,7 +597,7 @@ class Crosswinds_Blocks_Blocks {
 			'crosswinds-blocks-custom-attributes',
 			plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.js',
 			array( 'wp-blocks', 'wp-dom', 'wp-dom-ready', 'wp-edit-post' ),
-			filemtime( plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.js' )
+			$this->version
 		);
 		wp_enqueue_script( 'crosswinds-blocks-custom-attributes' );
 
