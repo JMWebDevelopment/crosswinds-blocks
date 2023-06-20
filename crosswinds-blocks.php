@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Crosswinds Blocks
- * Plugin URI:        https://jacobmartella.com
+ * Plugin URI:        https://crosswindsframework.com/
  * Description:       DESCRIPTION GOES HERE
  * Version:           1.0-beta-1
  * Author:            Jacob Martella Web Development

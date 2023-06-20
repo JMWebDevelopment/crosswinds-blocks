@@ -1,12 +1,13 @@
 # Crosswinds Blocks
-Contributors:      ArenaPigskin
-Tags:              blocks
-Requires at least: 6.0
-Tested up to:      6.2
-Stable tag:        1.0-beta-1
-Requires PHP:      7.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Contributors:      ArenaPigskin  
+Tags:              blocks  
+Requires at least: 6.0  
+Tested up to:      6.2  
+Stable tag:        1.0-beta-1  
+Requires PHP:      7.0  
+License:           GPL-2.0-or-later  
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html  
+Website:           https://crosswindsframework.com/
 
 Crosswinds Blocks gives you the power to create the website you want to build. From powerful blocks (like a basic grid block, accordions, tabs, post navigation, related posts and more) to custom post types to custom taxonomies and more, you can create the website of your dreams with Crosswinds Blocks.
 
