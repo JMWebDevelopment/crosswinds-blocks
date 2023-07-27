@@ -10,16 +10,40 @@
 	grid-template-rows: auto;
 	column-gap: 30px;
 	row-gap: 30px;
+}
 
-	&.columns-2 {
-		grid-template-columns: 1fr 1fr;
+@media only screen and (min-width: 650px) {
+
+	.wp-block-crosswinds-blocks-related-posts {
+
+		&.columns-2 {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&.columns-3 {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&.columns-4 {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 	}
+}
 
-	&.columns-3 {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
+@media only screen and (min-width: 1000px) {
 
-	&.columns-4 {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+	.wp-block-crosswinds-blocks-related-posts {
+
+		&.columns-2 {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		&.columns-3 {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		&.columns-4 {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
 	}
 }
