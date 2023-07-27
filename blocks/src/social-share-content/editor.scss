@@ -18,6 +18,7 @@
 			font-size: 16px;
 			padding: 5px;
 			display: inline-block;
+			width: 100%;
 
 			&.facebook {
 				color: #fff;
@@ -53,6 +54,10 @@
 			&:focus {
 				filter: brightness(120%);
 			}
+
+			& svg {
+				height: 12px;
+			}
 		}
 	}
 
@@ -76,6 +81,10 @@
 	&.auto-width-icons {
 
 		& .social-icon {
+
+			& span {
+				width: auto;
+			}
 
 			& a {
 				padding: 5px 8px;
@@ -105,8 +114,22 @@
 			.social-icon {
 				display: block;
 
+				& span {
+					width: auto;
+				}
+
 				& a {
 					width: auto;
+				}
+			}
+		}
+
+		&.full-width-icons {
+
+			.social-icon {
+
+				& a {
+					width: 100%;
 				}
 			}
 		}

@@ -94,7 +94,7 @@
 
 	&.vertical-icons {
 
-		.social-icon {
+		& .social-icon {
 			display: block;
 			margin-bottom: 5px;
 			margin-right: 0;
@@ -115,6 +115,49 @@
 
 				& a {
 					width: auto;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 650px) {
+
+	.wp-block-crosswinds-blocks-social-share-content {
+
+		& .social-icon {
+			width: 100%;
+			margin-bottom: 10px;
+			margin-right: 0;
+		}
+
+		&.horizontal-icons {
+
+			&.full-icons,
+			&.full-width-icons {
+				display: block;
+			}
+		}
+
+		&.auto-width-icons {
+
+			& .social-icon {
+
+				& a {
+					width: 100%;
+				}
+			}
+		}
+
+		&.vertical-icons {
+
+			&.auto-width-icons {
+
+				.social-icon {
+
+					& a {
+						width: 100%;
+					}
 				}
 			}
 		}
