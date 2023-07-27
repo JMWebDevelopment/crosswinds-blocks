@@ -3,8 +3,10 @@ const { __ } = wp.i18n;
 
 // Enable custom attributes on Image block
 const enableSidebarSelectOnBlocks = [
-    'core/query',
+    'core/post-template',
 ];
+
+console.log(enableSidebarSelectOnBlocks);
 
 const { createHigherOrderComponent } = wp.compose;
 const { Fragment } = wp.element;

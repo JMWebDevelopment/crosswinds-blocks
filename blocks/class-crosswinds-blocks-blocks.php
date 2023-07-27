@@ -593,4 +593,41 @@ class Crosswinds_Blocks_Blocks {
 	public function custom_attributes_scripts() {
 		wp_enqueue_style( 'crosswinds-blocks-custom-attributes-styling', plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.css', array(), $this->version, 'all' );
 	}
+
+	public function add_post_template_responsive_classes( $block_content, $block ) {
+		if ( 'core/post-template' !== $block['blockName'] ) {
+			return $block_content;
+		}
+
+		if ( ! isset( $block['attrs']['numTabletColumns'] ) && ! isset( $block['attrs']['numMobileColumns'] ) && ! isset( $block['attrs']['cbUseFlex'] ) ) {
+			return $block_content;
+		}
+
+		$add_classes = '';
+
+		if ( isset( $block['attrs']['numTabletColumns'] ) ) {
+			$tablet_columns = $block['attrs']['numTabletColumns'];
+		} else {
+			$tablet_columns = '2';
+		}
+		$add_classes .= 'query-loop-has-' . esc_attr( $tablet_columns ) . '-tablet-columns ';
+
+		if ( isset( $block['attrs']['numMobileColumns'] ) ) {
+			$tablet_columns = $block['attrs']['numMobileColumns'];
+		} else {
+			$tablet_columns = '1';
+		}
+		$add_classes .= 'query-loop-has-' . esc_attr( $block['attrs']['numMobileColumns'] ) . '-mobile-columns ';
+
+		if ( isset( $block['attrs']['cbUseFlex'] ) ) {
+			$add_classes .= 'cb-flex-layout ';
+		}
+
+		return preg_replace(
+			'/' . preg_quote( 'class="', '/' ) . '/',
+			'class="' . esc_attr( $add_classes ) . ' ',
+			$block_content,
+			1
+		);
+	}
 }
