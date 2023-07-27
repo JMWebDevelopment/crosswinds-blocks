@@ -6,3 +6,4 @@
 /.vscode
 /build
 /build/**
+/blocks/block-customizations/build/**
