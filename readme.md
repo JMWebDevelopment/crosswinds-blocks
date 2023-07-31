@@ -9,9 +9,17 @@ License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html  
 Website:           https://crosswindsframework.com/
 
-Crosswinds Blocks gives you the power to create the website you want to build. From powerful blocks (like a basic grid block, accordions, tabs, post navigation, related posts and more) to custom post types to custom taxonomies and more, you can create the website of your dreams with Crosswinds Blocks.
+Take your website to the next level with the Crosswinds Blocks plugin!
 
-TO DO: build on the description for launch.
+The Crosswinds Blocks plugin adds in even more functionality to help you take your website to the next level.
+
+The core of the plugin is the block library that adds in simple but powerful blocks that you can use in your posts and pages. There are blocks that add in post navigation and related posts sections for your blog pages. You can also add in social sharing sections so people can share your content with their friends and followers.
+
+There are also accordion and tab sections that allow you to present a lot of information in a contained space. And there are very simple blocks that make tricky things, like breadcrumbs and the copyright date for your footer, super easy.
+
+And for those who want to scratch their design, it comes with a grid block to help you create complex designs as well as tools for using flex box on all group and column blocks. Oh, and it helps you a lot with the responsiveness for all of your designs, so your website will look great no matter what device it’s viewed on.
+
+As you’ll see, it’s a very simple plugin but it can add a whole lot to your website, even if you don’t use one of the Crosswinds Framework themes.
 
 ## Blocks
 Currently there are over 15 blocks you can add to your templates, template parts, posts and pages. These blocks range from a simple marquee to post navigation to more complex sections like accordions and tabs.

@@ -1,0 +1,1540 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Crosswinds Blocks\n"
+"POT-Creation-Date: 2023-07-31 16:42-0500\n"
+"PO-Revision-Date: 2023-07-31 16:52-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: crosswinds-blocks.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: admin/class-crosswinds-blocks-admin.php:133
+#, fuzzy
+msgid "Crosswinds Framework & Block Settings"
+msgstr "क्रॉसविंड्स फ्रेमवर्क और ब्लॉक सेटिंग्स"
+
+#: admin/class-crosswinds-blocks-admin.php:134
+#, fuzzy
+msgid "Crosswinds"
+msgstr "क्रॉसविंड्स"
+
+#. Plugin Name of the plugin/theme
+#: admin/partials/admin-page.php:33 admin/partials/admin-page.php:64
+#: blocks/class-crosswinds-blocks-blocks.php:249
+#: patterns/class-crosswinds-blocks-patterns.php:55
+#, fuzzy
+msgid "Crosswinds Blocks"
+msgstr "क्रॉसविंड्स ब्लॉक"
+
+#: admin/partials/admin-page.php:37
+#, fuzzy
+msgid "Blocks Version"
+msgstr "ब्लॉक संस्करण"
+
+#: admin/partials/admin-page.php:45
+#, fuzzy
+msgid "Welcome to Crosswinds Blocks!"
+msgstr "क्रॉसविंड्स ब्लॉक्स में आपका स्वागत है!"
+
+#: admin/partials/admin-page.php:46
+#, fuzzy
+msgid ""
+"Thank you for choosing to use the Crosswinds Blocks plugin to power your "
+"website! Below you'll find links to documentation to learn how to harness "
+"the power of the blocks you've now added to your website, as well as view "
+"all of the amazing Crosswinds Framework themes that can help you build the "
+"website you've always wanted to build."
+msgstr ""
+"अपनी वेबसाइट को सशक्त बनाने के लिए क्रॉसविंड ब्लॉक्स प्लगइन का उपयोग चुनने के लिए "
+"धन्यवाद! नीचे आपको अपनी वेबसाइट पर जोड़े गए ब्लॉकों की शक्ति का उपयोग करने के तरीके के "
+"बारे में जानने के लिए दस्तावेज़ के लिंक मिलेंगे, साथ ही सभी अद्भुत क्रॉसविंड फ्रेमवर्क थीम भी "
+"देखेंगे जो आपको वह वेबसाइट बनाने में मदद कर सकते हैं जो आप हमेशा से चाहते थे। निर्माण करने के "
+"लिए।"
+
+#: admin/partials/admin-page.php:48
+#, fuzzy
+msgid "Check out the Documentation"
+msgstr "दस्तावेज़ीकरण की जाँच करें"
+
+#: admin/partials/admin-page.php:70
+#, fuzzy
+msgid ""
+"Want to take your website to the next level now that you're using the "
+"Crosswinds Framework? Check out the Crosswinds Blocks plugin! This plugin "
+"will add in an accordion block, tabs block, post navigation block, related "
+"posts block, social sharing block and more to your website. It's the perfect "
+"way to customize your website in a full site editor world!"
+msgstr ""
+"अब जब आप क्रॉसविंड्स फ्रेमवर्क का उपयोग कर रहे हैं तो क्या आप अपनी वेबसाइट को अगले स्तर "
+"पर ले जाना चाहते हैं? क्रॉसविंड्स ब्लॉक प्लगइन देखें! यह प्लगइन आपकी वेबसाइट पर एक "
+"अकॉर्डियन ब्लॉक, टैब ब्लॉक, पोस्ट नेविगेशन ब्लॉक, संबंधित पोस्ट ब्लॉक, सोशल शेयरिंग ब्लॉक "
+"और बहुत कुछ जोड़ देगा। यह आपकी वेबसाइट को संपूर्ण साइट संपादक जगत में अनुकूलित करने का "
+"उत्तम तरीका है!"
+
+#: admin/partials/admin-page.php:79
+#, fuzzy
+msgid "Check Out Crosswinds Framework Templates"
+msgstr "क्रॉसविंड्स फ्रेमवर्क टेम्पलेट्स देखें"
+
+#: admin/partials/admin-page.php:80
+#, fuzzy
+msgid ""
+"Want to get the most out of Crosswinds Blocks? Checkout the Crosswinds "
+"Framework themes! From a portfolio to an online store to a newspaper website "
+"and even a blank canvas to create anything you want, the Crosswinds "
+"Framework will help you create a great website."
+msgstr ""
+"क्या आप क्रॉसविंड ब्लॉक्स से अधिकतम लाभ प्राप्त करना चाहते हैं? क्रॉसविंड्स फ्रेमवर्क थीम "
+"चेकआउट करें! एक पोर्टफ़ोलियो से लेकर एक ऑनलाइन स्टोर से लेकर एक अखबार की वेबसाइट और यहां "
+"तक कि जो कुछ भी आप चाहते हैं उसे बनाने के लिए एक खाली कैनवास तक, क्रॉसविंड्स फ्रेमवर्क "
+"आपको एक बेहतरीन वेबसाइट बनाने में मदद करेगा।"
+
+#: admin/partials/admin-page.php:81
+#, fuzzy
+msgid "Download Crosswinds Framework"
+msgstr "क्रॉसविंड्स फ्रेमवर्क डाउनलोड करें"
+
+#: admin/partials/admin-page.php:89 admin/partials/admin-page.php:91
+#, fuzzy
+msgid "Report an Issue"
+msgstr "मामले की रिपोर्ट करें"
+
+#: admin/partials/admin-page.php:90
+#, fuzzy
+msgid ""
+"If you come across an issue with Crosswinds Blocks, please report the issue "
+"in the GitHub repository using the link below."
+msgstr ""
+"यदि आपको क्रॉसविंड ब्लॉक्स के साथ कोई समस्या आती है, तो कृपया नीचे दिए गए लिंक का "
+"उपयोग करके GitHub रिपॉजिटरी में समस्या की रिपोर्ट करें।"
+
+#: admin/partials/admin-page.php:95 admin/partials/admin-page.php:97
+#, fuzzy
+msgid "Suggest a Feature"
+msgstr "एक विशेषता सुझाएँ"
+
+#: admin/partials/admin-page.php:96
+#, fuzzy
+msgid ""
+"Want to see a new feature included in a release of Crosswinds Blocks? Be "
+"sure to drop your feature idea off in the GitHub repository using the link "
+"below."
+msgstr ""
+"क्या आप क्रॉसविंड ब्लॉक्स की रिलीज़ में शामिल एक नई सुविधा देखना चाहते हैं? नीचे दिए गए "
+"लिंक का उपयोग करके अपने फीचर विचार को GitHub रिपॉजिटरी में डालना सुनिश्चित करें।"
+
+#: admin/partials/admin-page.php:101 admin/partials/admin-page.php:103
+msgid "View Documentation"
+msgstr "दस्तावेज़ीकरण देखें"
+
+#: admin/partials/admin-page.php:102
+#, fuzzy
+msgid ""
+"Learn how you can get started using the Crosswinds Framework for your "
+"website by visiting the documentation at the link below."
+msgstr ""
+"नीचे दिए गए लिंक पर दस्तावेज़ पर जाकर जानें कि आप अपनी वेबसाइट के लिए क्रॉसविंड फ्रेमवर्क "
+"का उपयोग कैसे शुरू कर सकते हैं।"
+
+#: admin/partials/plugin-settings.php:17
+#, fuzzy
+msgid "Accordions"
+msgstr "accordions"
+
+#: admin/partials/plugin-settings.php:18
+#, fuzzy
+msgid "Add an accordion section to your content."
+msgstr "अपनी सामग्री में एक अकॉर्डियन अनुभाग जोड़ें।"
+
+#: admin/partials/plugin-settings.php:24
+#, fuzzy
+msgid "Basic Grid"
+msgstr "बुनियादी ग्रिड"
+
+#: admin/partials/plugin-settings.php:25
+#, fuzzy
+msgid "Add a simple grid with a custom number of columns."
+msgstr "कॉलमों की कस्टम संख्या के साथ एक साधारण ग्रिड जोड़ें।"
+
+#: admin/partials/plugin-settings.php:31
+#, fuzzy
+msgid "Breadcrumbs"
+msgstr "ब्रेडक्रम्ब्स"
+
+#: admin/partials/plugin-settings.php:32
+#, fuzzy
+msgid ""
+"Display a breadcrumbs section to help a user know where they are on your "
+"site."
+msgstr ""
+"उपयोगकर्ता को यह जानने में मदद करने के लिए ब्रेडक्रंब अनुभाग प्रदर्शित करें कि वे आपकी साइट "
+"पर कहां हैं।"
+
+#: admin/partials/plugin-settings.php:38
+msgid "Copyright"
+msgstr "कॉपीराइट"
+
+#: admin/partials/plugin-settings.php:39
+#, fuzzy
+msgid "Display the copyright that will always be updated."
+msgstr "कॉपीराइट प्रदर्शित करें जो हमेशा अद्यतन किया जाएगा।"
+
+#: admin/partials/plugin-settings.php:45
+#, fuzzy
+msgid "Downloads Search Filters"
+msgstr "खोज फ़िल्टर डाउनलोड करता है"
+
+#: admin/partials/plugin-settings.php:46
+#, fuzzy
+msgid ""
+"Adds in a set of download search blocks that allow you to create a download "
+"search filters section."
+msgstr ""
+"डाउनलोड खोज ब्लॉकों का एक सेट जोड़ता है जो आपको एक डाउनलोड खोज फ़िल्टर अनुभाग बनाने "
+"की अनुमति देता है।"
+
+#: admin/partials/plugin-settings.php:52
+#, fuzzy
+msgid "Google Maps"
+msgstr "गूगल मानचित्र"
+
+#: admin/partials/plugin-settings.php:53
+#, fuzzy
+msgid "Add in a Google Maps embed to show a location."
+msgstr "स्थान दिखाने के लिए Google मानचित्र एम्बेड जोड़ें।"
+
+#: admin/partials/plugin-settings.php:59
+#, fuzzy
+msgid "Marquee"
+msgstr "मार्की"
+
+#: admin/partials/plugin-settings.php:60
+#, fuzzy
+msgid "Create a section of horizontally scrolling text."
+msgstr "क्षैतिज रूप से स्क्रॉल करने वाले टेक्स्ट का एक अनुभाग बनाएं."
+
+#: admin/partials/plugin-settings.php:66
+#, fuzzy
+msgid "Project Search Filters"
+msgstr "प्रोजेक्ट खोज फ़िल्टर"
+
+#: admin/partials/plugin-settings.php:67
+#, fuzzy
+msgid ""
+"Adds in a set of project search blocks that allow you to create a project "
+"search filters section."
+msgstr ""
+"प्रोजेक्ट खोज ब्लॉक का एक सेट जोड़ता है जो आपको प्रोजेक्ट खोज फ़िल्टर अनुभाग बनाने की "
+"अनुमति देता है।"
+
+#: admin/partials/plugin-settings.php:73
+#: blocks/src/project-information/edit.js:91
+#, fuzzy
+msgid "Project Information"
+msgstr "परियोजना की जानकारी"
+
+#: admin/partials/plugin-settings.php:74
+#, fuzzy
+msgid "Allows you to show the category, client and date for a project."
+msgstr "आपको किसी प्रोजेक्ट के लिए श्रेणी, ग्राहक और तारीख दिखाने की अनुमति देता है।"
+
+#: admin/partials/plugin-settings.php:80
+#, fuzzy
+msgid "Post Navigation"
+msgstr "पोस्ट नेविगेशन"
+
+#: admin/partials/plugin-settings.php:81
+#, fuzzy
+msgid "Add in customizable next and previous post blocks."
+msgstr "अनुकूलन योग्य अगले और पिछले पोस्ट ब्लॉक जोड़ें।"
+
+#: admin/partials/plugin-settings.php:87
+#: patterns/related-posts/related-posts-section.php:9
+#, fuzzy
+msgid "Related Posts"
+msgstr "संबंधित पोस्ट"
+
+#: admin/partials/plugin-settings.php:88
+#, fuzzy
+msgid "Create a section to show related posts for continued reading."
+msgstr "निरंतर पढ़ने के लिए संबंधित पोस्ट दिखाने के लिए एक अनुभाग बनाएं।"
+
+#: admin/partials/plugin-settings.php:94
+#, fuzzy
+msgid "Single Content"
+msgstr "एकल सामग्री"
+
+#: admin/partials/plugin-settings.php:95
+#, fuzzy
+msgid ""
+"Add in a section to highlight a single post, page or other custom post type."
+msgstr ""
+"किसी एकल पोस्ट, पृष्ठ या अन्य कस्टम पोस्ट प्रकार को हाइलाइट करने के लिए एक अनुभाग जोड़ें।"
+
+#: admin/partials/plugin-settings.php:101
+#, fuzzy
+msgid "Skills Slider"
+msgstr "कौशल स्लाइडर"
+
+#: admin/partials/plugin-settings.php:102
+#, fuzzy
+msgid "Add a skills slider to show how much you know about something."
+msgstr ""
+"यह दिखाने के लिए कि आप किसी चीज़ के बारे में कितना जानते हैं, एक कौशल स्लाइडर जोड़ें।"
+
+#: admin/partials/plugin-settings.php:108
+#, fuzzy
+msgid "Social Share Content"
+msgstr "सामाजिक सामग्री साझा करें"
+
+#: admin/partials/plugin-settings.php:109
+#, fuzzy
+msgid "Add a click to share section for your content."
+msgstr "अपनी सामग्री के लिए एक क्लिक टू शेयर अनुभाग जोड़ें।"
+
+#: admin/partials/plugin-settings.php:115
+#, fuzzy
+msgid "Tabs"
+msgstr "टैब"
+
+#: admin/partials/plugin-settings.php:116
+#, fuzzy
+msgid "Add a section with tabs."
+msgstr "टैब के साथ एक अनुभाग जोड़ें."
+
+#: admin/partials/plugin-settings.php:126
+#: includes/class-crosswinds-blocks-setup.php:36
+#, fuzzy
+msgid "Projects"
+msgstr "परियोजनाओं"
+
+#: admin/partials/plugin-settings.php:127
+#, fuzzy
+msgid "Add a project custom post type for your website."
+msgstr "अपनी वेबसाइट के लिए एक प्रोजेक्ट कस्टम पोस्ट प्रकार जोड़ें।"
+
+#: admin/partials/plugin-settings.php:137
+#: includes/class-crosswinds-blocks-setup.php:97
+#, fuzzy
+msgid "Project Category"
+msgstr "परियोजना श्रेणी"
+
+#: admin/partials/plugin-settings.php:138
+#, fuzzy
+msgid ""
+"Add a project category taxonomy for the project custom post type for your "
+"website."
+msgstr ""
+"अपनी वेबसाइट के लिए प्रोजेक्ट कस्टम पोस्ट प्रकार के लिए प्रोजेक्ट श्रेणी वर्गीकरण जोड़ें।"
+
+#: admin/partials/plugin-settings.php:144
+#: includes/class-crosswinds-blocks-setup.php:125
+#, fuzzy
+msgid "Project Tag"
+msgstr "प्रोजेक्ट टैग"
+
+#: admin/partials/plugin-settings.php:145
+#, fuzzy
+msgid ""
+"Add a project tag taxonomy for the project custom post type for your website."
+msgstr ""
+"अपनी वेबसाइट के लिए प्रोजेक्ट कस्टम पोस्ट प्रकार के लिए एक प्रोजेक्ट टैग टैक्सोनॉमी जोड़ें।"
+
+#: admin/partials/plugin-settings.php:159
+#, fuzzy
+msgid "Blocks"
+msgstr "ब्लाकों"
+
+#: admin/partials/plugin-settings.php:161
+#: admin/partials/plugin-settings.php:240
+#: admin/partials/plugin-settings.php:319
+#, fuzzy
+msgid "Enable All"
+msgstr "सभी को सक्षम करें"
+
+#: admin/partials/plugin-settings.php:162
+#: admin/partials/plugin-settings.php:241
+#: admin/partials/plugin-settings.php:320
+#, fuzzy
+msgid "Disable All"
+msgstr "सबको सक्षम कर दो"
+
+#: admin/partials/plugin-settings.php:186
+#: admin/partials/plugin-settings.php:265
+#: admin/partials/plugin-settings.php:344
+msgid "Documentation"
+msgstr "प्रलेखन"
+
+#: admin/partials/plugin-settings.php:227
+#: admin/partials/plugin-settings.php:306
+#: admin/partials/plugin-settings.php:385
+#, fuzzy
+msgid "Enable/Disable"
+msgstr "अक्षम सक्षम"
+
+#: admin/partials/plugin-settings.php:238
+#, fuzzy
+msgid "Post Types"
+msgstr "पोस्ट प्रकार"
+
+#: admin/partials/plugin-settings.php:317
+msgid "Taxonomies"
+msgstr "टैक्सोनॉमी"
+
+#: admin/partials/plugin-settings.php:396
+#, fuzzy
+msgid "Other Settings"
+msgstr "अन्य सेटिंग"
+
+#: admin/partials/plugin-settings.php:407
+#, fuzzy
+msgid "Google Maps API Key"
+msgstr "Google मानचित्र API कुंजी"
+
+#: admin/partials/plugin-settings.php:416
+#, fuzzy
+msgid "Save Plugin Settings"
+msgstr "प्लगइन सेटिंग्स सहेजें"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:62
+#, fuzzy
+msgid "Group Spacing"
+msgstr "समूह रिक्ति"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:65
+#: blocks/src/single-content/edit.js:88
+#, fuzzy
+msgid "Use Flexbox on Group?"
+msgstr "ग्रुप पर फ्लेक्सबॉक्स का उपयोग करें?"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:73
+#: blocks/src/single-content/edit.js:96
+#, fuzzy
+msgid "Have Group Fill Height of Parent Block?"
+msgstr "क्या पैरेंट ब्लॉक की ग्रुप फिल ऊंचाई है?"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:80
+#, fuzzy
+msgid "Inner Spacing"
+msgstr "आंतरिक रिक्ति"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:85
+#: blocks/src/basic-grid-item/edit.js:52
+#, fuzzy
+msgid "Normal Spacing"
+msgstr "सामान्य रिक्ति"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:89
+#: blocks/src/basic-grid-item/edit.js:56
+#, fuzzy
+msgid "Equal Spacing"
+msgstr "समान दूरी"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:93
+#: blocks/src/basic-grid-item/edit.js:60
+#, fuzzy
+msgid "Center Align"
+msgstr "केंद्र संरेखित करें"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:97
+#: blocks/src/basic-grid-item/edit.js:64
+#, fuzzy
+msgid "All Bottom"
+msgstr "सब नीचे"
+
+#: blocks/block-customizations/build/index.js:1
+#: blocks/block-customizations/src/attributes/groupInnerLayout.js:101
+#: blocks/src/basic-grid-item/edit.js:68
+#, fuzzy
+msgid "Last Item at Bottom"
+msgstr "सबसे नीचे अंतिम आइटम"
+
+#: blocks/block-customizations/src/attributes/columnFlexOption.js:62
+#, fuzzy
+msgid "Column Layout Settings"
+msgstr "कॉलम लेआउट सेटिंग्स"
+
+#: blocks/block-customizations/src/attributes/columnFlexOption.js:65
+#, fuzzy
+msgid "Use Flexbox on Column?"
+msgstr "कॉलम पर फ्लेक्सबॉक्स का उपयोग करें?"
+
+#: blocks/block-customizations/src/attributes/queryFlexOption.js:62
+#, fuzzy
+msgid "Query Post Block Layout Settings"
+msgstr "क्वेरी पोस्ट ब्लॉक लेआउट सेटिंग्स"
+
+#: blocks/block-customizations/src/attributes/queryFlexOption.js:65
+#, fuzzy
+msgid "Use Flexbox on Each Post Block?"
+msgstr "प्रत्येक पोस्ट ब्लॉक पर फ्लेक्सबॉक्स का उपयोग करें?"
+
+#: blocks/block-customizations/src/attributes/queryResponsiveOptions.js:71
+#, fuzzy
+msgid "Responsive Options"
+msgstr "उत्तरदायी विकल्प"
+
+#: blocks/block-customizations/src/attributes/queryResponsiveOptions.js:75
+#: blocks/src/basic-grid/edit.js:138
+#, fuzzy
+msgid "Tablet Columns"
+msgstr "टेबलेट कॉलम"
+
+#: blocks/block-customizations/src/attributes/queryResponsiveOptions.js:88
+#: blocks/src/basic-grid/edit.js:151
+#, fuzzy
+msgid "Mobile Columns"
+msgstr "मोबाइल कॉलम"
+
+#: blocks/build/breadcrumbs/template.php:15
+#: blocks/src/breadcrumbs/template.php:15
+msgid "Home"
+msgstr "घर"
+
+#: blocks/build/breadcrumbs/template.php:144
+#: blocks/src/breadcrumbs/template.php:144
+#, fuzzy
+msgid "Articles posted by "
+msgstr "द्वारा पोस्ट किए गए लेख"
+
+#: blocks/build/breadcrumbs/template.php:147
+#: blocks/src/breadcrumbs/template.php:147
+#, fuzzy
+msgid "Error 404"
+msgstr "त्रुटि 404"
+
+#: blocks/build/breadcrumbs/template.php:153
+#: blocks/src/breadcrumbs/template.php:153
+msgid "Page"
+msgstr "पृष्ठ"
+
+#: blocks/build/download-category-search/template.php:13
+#: blocks/build/project-category-search/template.php:13
+#: blocks/src/download-category-search/template.php:13
+#: blocks/src/project-category-search/template.php:13
+#, fuzzy
+msgid "Select a Category"
+msgstr "एक श्रेणी चुनें"
+
+#: blocks/build/download-search/template.php:3
+#: blocks/build/project-search/template.php:3
+#: blocks/src/download-search/template.php:3
+#: blocks/src/project-search/template.php:3
+#, fuzzy
+msgctxt "placeholder"
+msgid "Search …"
+msgstr "खोज …"
+
+#: blocks/build/download-search/template.php:3
+#: blocks/build/project-search/template.php:3
+#: blocks/src/download-search/template.php:3
+#: blocks/src/project-search/template.php:3
+msgctxt "label"
+msgid "Search for:"
+msgstr "के लिए खोजें:"
+
+#: blocks/build/project-client-search/template.php:26
+#: blocks/src/project-client-search/template.php:26
+#, fuzzy
+msgid "Select a Client"
+msgstr "एक ग्राहक का चयन करें"
+
+#: blocks/build/project-information/template.php:18
+#: blocks/src/project-information/template.php:18
+#, fuzzy
+msgid "Client:"
+msgstr "ग्राहक:"
+
+#: blocks/build/project-information/template.php:19
+#: blocks/src/project-information/template.php:19
+#, fuzzy
+msgid "Date:"
+msgstr "तारीख:"
+
+#: blocks/build/project-information/template.php:20
+#: blocks/src/project-information/template.php:20
+#, fuzzy
+msgid "Category:"
+msgstr "वर्ग:"
+
+#: blocks/build/project-tag-search/template.php:13
+#: blocks/src/project-tag-search/template.php:13
+#, fuzzy
+msgid "Select a Tag"
+msgstr "एक टैग चुनें"
+
+#: blocks/build/social-share-content/template.php:53
+#: blocks/src/social-share-content/edit.js:94
+#: blocks/src/social-share-content/edit.js:163
+#: blocks/src/social-share-content/template.php:53
+msgid "Email"
+msgstr "ईमेल"
+
+#: blocks/src/accordion-body/edit.js:39 blocks/src/accordion-title/edit.js:64
+#, fuzzy
+msgid "Add a heading here..."
+msgstr "यहां एक शीर्षक जोड़ें..."
+
+#: blocks/src/accordion/edit.js:36
+#, fuzzy
+msgid "Plus/Minus"
+msgstr "धन ऋण"
+
+#: blocks/src/accordion/edit.js:40
+#, fuzzy
+msgid "Arrows"
+msgstr "तीर"
+
+#: blocks/src/accordion/edit.js:65
+#, fuzzy
+msgid "Accordion Settings"
+msgstr "अकॉर्डियन सेटिंग्स"
+
+#: blocks/src/accordion/edit.js:67
+#, fuzzy
+msgid "Panel Id"
+msgstr "पैनल आईडी"
+
+#: blocks/src/accordion/edit.js:73
+#, fuzzy
+msgid "Icons"
+msgstr "माउस"
+
+#: blocks/src/basic-grid-item/edit.js:75
+#, fuzzy
+msgid "Grid Item Settings"
+msgstr "ग्रिड आइटम सेटिंग्स"
+
+#: blocks/src/basic-grid-item/edit.js:77
+#, fuzzy
+msgid "Inner Layout"
+msgstr "आंतरिक लेआउट"
+
+#: blocks/src/basic-grid-item/edit.js:86
+#, fuzzy
+msgid "Advanced Grid Item Settings"
+msgstr "उन्नत ग्रिड आइटम सेटिंग्स"
+
+#: blocks/src/basic-grid-item/edit.js:88
+#, fuzzy
+msgid "Desktop Column Span"
+msgstr "डेस्कटॉप कॉलम अवधि"
+
+#: blocks/src/basic-grid-item/edit.js:89
+#, fuzzy
+msgid "How many columns shout this grid item span at desktop screensizes."
+msgstr "डेस्कटॉप स्क्रीन आकार पर कितने कॉलम इस ग्रिड आइटम स्पैन को दर्शाते हैं।"
+
+#: blocks/src/basic-grid-item/edit.js:102
+#, fuzzy
+msgid "Desktop Row Span"
+msgstr "डेस्कटॉप पंक्ति विस्तार"
+
+#: blocks/src/basic-grid-item/edit.js:103
+#, fuzzy
+msgid "How many rows shout this grid item span at desktop screensizes."
+msgstr "डेस्कटॉप स्क्रीन आकार पर इस ग्रिड आइटम की कितनी पंक्तियाँ फैली हुई हैं।"
+
+#: blocks/src/basic-grid-item/edit.js:116
+#, fuzzy
+msgid "Tablet Column Span"
+msgstr "टेबलेट कॉलम अवधि"
+
+#: blocks/src/basic-grid-item/edit.js:117
+#, fuzzy
+msgid "How many columns shout this grid item span at tablet screensizes."
+msgstr "टेबलेट स्क्रीन आकार पर कितने कॉलम इस ग्रिड आइटम स्पैन को दर्शाते हैं।"
+
+#: blocks/src/basic-grid-item/edit.js:130
+#, fuzzy
+msgid "Tablet Row Span"
+msgstr "टेबलेट पंक्ति अवधि"
+
+#: blocks/src/basic-grid-item/edit.js:131
+#, fuzzy
+msgid "How many rows shout this grid item span at tablet screensizes."
+msgstr "टेबलेट स्क्रीन आकार पर कितनी पंक्तियाँ इस ग्रिड आइटम स्पैन को दर्शाती हैं।"
+
+#: blocks/src/basic-grid-item/edit.js:144
+#, fuzzy
+msgid "Mobile Column Span"
+msgstr "मोबाइल कॉलम अवधि"
+
+#: blocks/src/basic-grid-item/edit.js:145
+#, fuzzy
+msgid "How many columns shout this grid item span at mobile screensizes."
+msgstr "मोबाइल स्क्रीन आकार पर कितने कॉलम इस ग्रिड आइटम स्पैन को दर्शाते हैं।"
+
+#: blocks/src/basic-grid-item/edit.js:158
+#, fuzzy
+msgid "Mobile Row Span"
+msgstr "मोबाइल पंक्ति अवधि"
+
+#: blocks/src/basic-grid-item/edit.js:159
+#, fuzzy
+msgid "How many rows shout this grid item span at mobile screensizes."
+msgstr "मोबाइल स्क्रीन आकार पर इस ग्रिड आइटम की कितनी पंक्तियाँ फैली हुई हैं।"
+
+#: blocks/src/basic-grid/edit.js:53
+#, fuzzy
+msgid "Grid Column Gap"
+msgstr "ग्रिड कॉलम गैप"
+
+#: blocks/src/basic-grid/edit.js:66
+#, fuzzy
+msgid "Grid Row Gap"
+msgstr "ग्रिड पंक्ति गैप"
+
+#: blocks/src/basic-grid/edit.js:86
+#, fuzzy
+msgid "Grid Gap"
+msgstr "ग्रिड गैप"
+
+#: blocks/src/basic-grid/edit.js:123
+#, fuzzy
+msgid "Basic Grid Settings"
+msgstr "बुनियादी ग्रिड सेटिंग्स"
+
+#: blocks/src/basic-grid/edit.js:125
+#, fuzzy
+msgid "Desktop Columns"
+msgstr "डेस्कटॉप कॉलम"
+
+#: blocks/src/basic-grid/edit.js:164
+#, fuzzy
+msgid "Grid Spacing Settings"
+msgstr "ग्रिड रिक्ति सेटिंग्स"
+
+#: blocks/src/basic-grid/edit.js:166
+#, fuzzy
+msgid "Use Same Spacing for Columns and Rows?"
+msgstr "कॉलम और पंक्तियों के लिए समान रिक्ति का उपयोग करें?"
+
+#: blocks/src/breadcrumbs/edit.js:73
+#, fuzzy
+msgid "Arrow Right"
+msgstr "दाहिना तीर"
+
+#: blocks/src/breadcrumbs/edit.js:77 blocks/src/breadcrumbs/edit.js:81
+#, fuzzy
+msgid "Chevron Right"
+msgstr "शेवरॉन सही"
+
+#: blocks/src/breadcrumbs/edit.js:85
+#, fuzzy
+msgid "Long Arrow Right"
+msgstr "दाईं ओर लंबा तीर"
+
+#: blocks/src/breadcrumbs/edit.js:105
+#, fuzzy
+msgid "Breadcrumbs Settings"
+msgstr "ब्रेडक्रम्ब्स सेटिंग्स"
+
+#: blocks/src/breadcrumbs/edit.js:107
+#, fuzzy
+msgid "Separator Icon"
+msgstr "विभाजक चिह्न"
+
+#: blocks/src/breadcrumbs/edit.js:116
+#, fuzzy
+msgid "Add Schema to Breadcrumbs"
+msgstr "ब्रेडक्रम्ब्स में स्कीमा जोड़ें"
+
+#: blocks/src/breadcrumbs/edit.js:117
+#, fuzzy
+msgid "Turn off if your SEO plugin (like Yoast SEO) already adds this for you."
+msgstr ""
+"यदि आपका SEO प्लगइन (जैसे Yoast SEO) पहले से ही आपके लिए इसे जोड़ता है तो इसे बंद कर दें।"
+
+#: blocks/src/copyright/edit.js:57
+#, fuzzy
+msgid "Icon and Text"
+msgstr "चिह्न और पाठ"
+
+#: blocks/src/copyright/edit.js:61
+#, fuzzy
+msgid "Icon Only"
+msgstr "केवल चिह्न"
+
+#: blocks/src/copyright/edit.js:65
+#, fuzzy
+msgid "Text Only"
+msgstr "सिर्फ टेक्स्ट"
+
+#: blocks/src/copyright/edit.js:72
+#, fuzzy
+msgid "Copyright Settings"
+msgstr "कॉपीराइट सेटिंग्स"
+
+#: blocks/src/copyright/edit.js:74
+#, fuzzy
+msgid "Copyright Type"
+msgstr "कॉपीराइट प्रकार"
+
+#: blocks/src/copyright/edit.js:83 blocks/src/tab-section/edit.js:57
+#, fuzzy
+msgid "Tab Id"
+msgstr "टैब आईडी"
+
+#: blocks/src/download-category-search/edit.js:68
+#: blocks/src/project-category-search/edit.js:68
+#: blocks/src/project-tag-search/edit.js:68
+#, fuzzy
+msgid "Category Search Settings"
+msgstr "श्रेणी खोज सेटिंग्स"
+
+#: blocks/src/download-category-search/edit.js:70
+#: blocks/src/download-search/edit.js:59
+#: blocks/src/project-category-search/edit.js:70
+#: blocks/src/project-client-search/edit.js:52
+#: blocks/src/project-search/edit.js:59
+#: blocks/src/project-tag-search/edit.js:70
+#, fuzzy
+msgid "Label"
+msgstr "लेबल"
+
+#: blocks/src/download-search-filters-buttons/edit.js:59
+#: blocks/src/project-search-filters-buttons/edit.js:59
+#, fuzzy
+msgid "Label Settings"
+msgstr "लेबल सेटिंग्स"
+
+#: blocks/src/download-search-filters-buttons/edit.js:61
+#: blocks/src/project-search-filters-buttons/edit.js:61
+#, fuzzy
+msgid "Search Button Label"
+msgstr "खोज बटन लेबल"
+
+#: blocks/src/download-search-filters-buttons/edit.js:68
+#: blocks/src/project-search-filters-buttons/edit.js:68
+#, fuzzy
+msgid "Reset Button Label"
+msgstr "बटन लेबल रीसेट करें"
+
+#: blocks/src/download-search-filters-buttons/edit.js:77
+#: blocks/src/project-search-filters-buttons/edit.js:77
+#, fuzzy
+msgid "Clear Background Color"
+msgstr "पृष्ठभूमि का रंग साफ़ करें"
+
+#: blocks/src/download-search-filters-buttons/edit.js:89
+#: blocks/src/project-search-filters-buttons/edit.js:89
+#, fuzzy
+msgid "Clear Background color"
+msgstr "पृष्ठभूमि का रंग साफ़ करें"
+
+#: blocks/src/download-search-filters-buttons/edit.js:97
+#: blocks/src/project-search-filters-buttons/edit.js:97
+#, fuzzy
+msgid "Submit Background Color"
+msgstr "पृष्ठभूमि रंग सबमिट करें"
+
+#: blocks/src/download-search-filters-buttons/edit.js:109
+#: blocks/src/project-search-filters-buttons/edit.js:109
+#, fuzzy
+msgid "Submit Background color"
+msgstr "पृष्ठभूमि रंग सबमिट करें"
+
+#: blocks/src/download-search/edit.js:57 blocks/src/project-search/edit.js:57
+#, fuzzy
+msgid "Search Settings"
+msgstr "खोज सेंटिंग"
+
+#: blocks/src/google-maps/edit.js:58
+#, fuzzy
+msgid "Map Height"
+msgstr "मानचित्र की ऊंचाई"
+
+#: blocks/src/google-maps/edit.js:74
+#, fuzzy
+msgid "Google Maps Settings"
+msgstr "Google मानचित्र सेटिंग"
+
+#: blocks/src/google-maps/edit.js:77
+#, fuzzy
+msgid "Address Line One"
+msgstr "पता पंक्ति एक"
+
+#: blocks/src/google-maps/edit.js:83
+#, fuzzy
+msgid "Address Line Two"
+msgstr "पता पंक्ति दो"
+
+#: blocks/src/google-maps/edit.js:89
+msgid "City"
+msgstr "शहर"
+
+#: blocks/src/google-maps/edit.js:95
+msgid "State/Province"
+msgstr "राज्य/प्रांत"
+
+#: blocks/src/google-maps/edit.js:101
+msgid "Country"
+msgstr "देश"
+
+#: blocks/src/google-maps/edit.js:107
+#, fuzzy
+msgid "ZIP Code"
+msgstr "ज़िप कोड"
+
+#: blocks/src/google-maps/edit.js:137
+#, fuzzy
+msgid "Placeholder Google Map"
+msgstr "प्लेसहोल्डर गूगल मानचित्र"
+
+#: blocks/src/marquee/edit.js:44
+#, fuzzy
+msgid "Marquee Settings"
+msgstr "मार्की सेटिंग्स"
+
+#: blocks/src/marquee/edit.js:47
+#, fuzzy
+msgid "Marquee width"
+msgstr "मार्की चौड़ाई"
+
+#: blocks/src/marquee/edit.js:62
+#, fuzzy
+msgid "Marquee speed"
+msgstr "मार्की गति"
+
+#: blocks/src/marquee/edit.js:63
+#, fuzzy
+msgid ""
+"Speed is measured in seconds. The higher the number, the slower the marquee "
+"will go."
+msgstr "गति सेकंड में मापी जाती है. संख्या जितनी अधिक होगी, मार्की उतनी ही धीमी होगी।"
+
+#: blocks/src/marquee/edit.js:93
+#, fuzzy
+msgid "Marquee text here..."
+msgstr "यहां मार्की टेक्स्ट..."
+
+#: blocks/src/project-client-search/edit.js:50
+#, fuzzy
+msgid "Client Search Settings"
+msgstr "ग्राहक खोज सेटिंग्स"
+
+#: blocks/src/project-client-search/edit.js:70
+#, fuzzy
+msgid "Clients will appear on the front end"
+msgstr "ग्राहक सामने की ओर दिखाई देंगे"
+
+#: blocks/src/project-information/edit.js:78
+#, fuzzy
+msgid "Client: "
+msgstr "ग्राहक:"
+
+#: blocks/src/project-information/edit.js:85
+#, fuzzy
+msgid "Date: "
+msgstr "तारीख:"
+
+#: blocks/src/project-information/edit.js:93
+#, fuzzy
+msgid "Project Client"
+msgstr "प्रोजेक्ट क्लाइंट"
+
+#: blocks/src/project-information/edit.js:97
+#, fuzzy
+msgid "Project Date"
+msgstr "प्रोजेक्ट दिनांक"
+
+#: blocks/src/project-information/edit.js:116
+#, fuzzy
+msgid "Category: "
+msgstr "वर्ग:"
+
+#: blocks/src/single-content/edit.js:69
+#, fuzzy
+msgid "Featured Content Settings"
+msgstr "विशेष रुप से प्रदर्शित सामग्री सेटिंग्स"
+
+#: blocks/src/single-content/edit.js:72
+msgid "Select"
+msgstr "चुनें"
+
+#: blocks/src/single-content/edit.js:127
+#, fuzzy
+msgid "Please select a post or other custom post type item from the right side"
+msgstr "कृपया दाईं ओर से एक पोस्ट या अन्य कस्टम पोस्ट प्रकार का आइटम चुनें"
+
+#: blocks/src/skills-slider/edit.js:49
+#, fuzzy
+msgid "Skill Slider Settings"
+msgstr "कौशल स्लाइडर सेटिंग्स"
+
+#: blocks/src/skills-slider/edit.js:52
+msgid "Slider width"
+msgstr "स्लाइडर की चौड़ाई"
+
+#: blocks/src/skills-slider/edit.js:67
+#, fuzzy
+msgid "Slider height"
+msgstr "स्लाइडर की ऊंचाई"
+
+#: blocks/src/skills-slider/edit.js:83
+msgid "Color"
+msgstr "रंग"
+
+#: blocks/src/skills-slider/edit.js:97
+#, fuzzy
+msgid "Slider color"
+msgstr "स्लाइडर का रंग"
+
+#: blocks/src/skills-slider/edit.js:109 blocks/src/tabs/edit.js:331
+#, fuzzy
+msgid "Background color"
+msgstr "पृष्ठभूमि का रंग"
+
+#: blocks/src/social-share-content/edit.js:74
+#: blocks/src/social-share-content/edit.js:138
+msgid "Facebook"
+msgstr "Facebook"
+
+#: blocks/src/social-share-content/edit.js:78
+#: blocks/src/social-share-content/edit.js:143
+msgid "Twitter"
+msgstr "Twitter"
+
+#: blocks/src/social-share-content/edit.js:82
+#: blocks/src/social-share-content/edit.js:148
+#, fuzzy
+msgid "Mastodon"
+msgstr "मेस्टोडोन"
+
+#: blocks/src/social-share-content/edit.js:86
+#: blocks/src/social-share-content/edit.js:153
+#, fuzzy
+msgid "Reddit"
+msgstr "reddit"
+
+#: blocks/src/social-share-content/edit.js:90
+#: blocks/src/social-share-content/edit.js:158
+msgid "Pinterest"
+msgstr "पिनट्रेस्ट"
+
+#: blocks/src/social-share-content/edit.js:101
+#, fuzzy
+msgid "Show Icons and Labels"
+msgstr "चिह्न और लेबल दिखाएँ"
+
+#: blocks/src/social-share-content/edit.js:105
+#, fuzzy
+msgid "Show Icons Only"
+msgstr "केवल चिह्न दिखाएँ"
+
+#: blocks/src/social-share-content/edit.js:109
+#, fuzzy
+msgid "Show Labels Only"
+msgstr "केवल लेबल दिखाएँ"
+
+#: blocks/src/social-share-content/edit.js:116 blocks/src/tabs/edit.js:83
+#, fuzzy
+msgid "Horizontal"
+msgstr "क्षैतिज"
+
+#: blocks/src/social-share-content/edit.js:120 blocks/src/tabs/edit.js:87
+#, fuzzy
+msgid "Vertical"
+msgstr "खड़ा"
+
+#: blocks/src/social-share-content/edit.js:127
+#, fuzzy
+msgid "Full Width"
+msgstr "पूरी चौड़ाई"
+
+#: blocks/src/social-share-content/edit.js:131
+#, fuzzy
+msgid "Auto Width"
+msgstr "ऑटो चौड़ाई"
+
+#: blocks/src/social-share-content/edit.js:171
+#, fuzzy
+msgid "Social Share Content Settings"
+msgstr "सामाजिक साझा सामग्री सेटिंग्स"
+
+#: blocks/src/social-share-content/edit.js:173
+#, fuzzy
+msgid "Social Icons"
+msgstr "सामाजिक प्रतीक"
+
+#: blocks/src/social-share-content/edit.js:179
+#, fuzzy
+msgid "Icon Styles"
+msgstr "चिह्न शैलियाँ"
+
+#: blocks/src/social-share-content/edit.js:187
+#, fuzzy
+msgid "Icons Direction"
+msgstr "प्रतीक दिशा"
+
+#: blocks/src/social-share-content/edit.js:195
+#, fuzzy
+msgid "Icons Stretch"
+msgstr "प्रतीक खिंचाव"
+
+#: blocks/src/social-share-content/edit.js:203
+#, fuzzy
+msgid "Icon Border Radius"
+msgstr "चिह्न सीमा त्रिज्या"
+
+#: blocks/src/social-share-content/edit.js:218
+msgid "Icon Color"
+msgstr "आइकन रंग"
+
+#: blocks/src/social-share-content/edit.js:232
+#, fuzzy
+msgid "Icon color"
+msgstr "चिह्न का रंग"
+
+#: blocks/src/social-share-content/edit.js:244
+#, fuzzy
+msgid "Icon Hover color"
+msgstr "चिह्न होवर रंग"
+
+#: blocks/src/social-share-content/edit.js:252
+msgid "Icon Background Color"
+msgstr "आइकन पृष्ठभूमि रंग"
+
+#: blocks/src/social-share-content/edit.js:266
+#, fuzzy
+msgid "Icon Background color"
+msgstr "चिह्न पृष्ठभूमि रंग"
+
+#: blocks/src/social-share-content/edit.js:278
+#, fuzzy
+msgid "Icon Background Hover color"
+msgstr "चिह्न पृष्ठभूमि होवर रंग"
+
+#: blocks/src/tab-section/edit.js:55
+#, fuzzy
+msgid "Tab Settings"
+msgstr "टैब सेटिंग्स"
+
+#: blocks/src/tabs/edit.js:94
+#, fuzzy
+msgid "Start (Top/Left)"
+msgstr "प्रारंभ (ऊपर/बाएँ)"
+
+#: blocks/src/tabs/edit.js:98
+#, fuzzy
+msgid "End (Bottom/Right)"
+msgstr "अंत (नीचे/दाएं)"
+
+#: blocks/src/tabs/edit.js:102
+msgid "Center"
+msgstr "केंद्र"
+
+#: blocks/src/tabs/edit.js:106
+msgid "Equal"
+msgstr "बराबर"
+
+#: blocks/src/tabs/edit.js:184
+#, fuzzy
+msgid "Tabs Settings"
+msgstr "टैब सेटिंग्स"
+
+#: blocks/src/tabs/edit.js:189
+#, fuzzy
+msgid "Add Tab"
+msgstr "टैब जोड़ें"
+
+#: blocks/src/tabs/edit.js:193
+#, fuzzy
+msgid "Align Tabs"
+msgstr "टैब संरेखित करें"
+
+#: blocks/src/tabs/edit.js:202
+#, fuzzy
+msgid "Tabs Spacing"
+msgstr "टैब रिक्ति"
+
+#: blocks/src/tabs/edit.js:211
+#, fuzzy
+msgid "Tabs Styling"
+msgstr "टैब्स स्टाइलिंग"
+
+#: blocks/src/tabs/edit.js:213
+#, fuzzy
+msgid "Separator width"
+msgstr "विभाजक चौड़ाई"
+
+#: blocks/src/tabs/edit.js:226
+#, fuzzy
+msgid "Tabs Borders width"
+msgstr "टैब बॉर्डर की चौड़ाई"
+
+#: blocks/src/tabs/edit.js:239
+#, fuzzy
+msgid "Tabs Padding Top/Bottom"
+msgstr "टैब पैडिंग ऊपर/नीचे"
+
+#: blocks/src/tabs/edit.js:252
+#, fuzzy
+msgid "Tabs Padding Left/Right"
+msgstr "टैब पैडिंग बाएँ/दाएँ"
+
+#: blocks/src/tabs/edit.js:266
+#, fuzzy
+msgid "Border Colors"
+msgstr "सीमा रंग"
+
+#: blocks/src/tabs/edit.js:278
+#, fuzzy
+msgid "Separator color"
+msgstr "विभाजक रंग"
+
+#: blocks/src/tabs/edit.js:288
+#, fuzzy
+msgid "Tab borders color"
+msgstr "टैब बॉर्डर का रंग"
+
+#: blocks/src/tabs/edit.js:297
+#, fuzzy
+msgid "Tab Colors"
+msgstr "टैब रंग"
+
+#: blocks/src/tabs/edit.js:309
+#, fuzzy
+msgid "Text color"
+msgstr "पाठ का रंग"
+
+#: blocks/src/tabs/edit.js:321
+#, fuzzy
+msgid "Text Hover color"
+msgstr "टेक्स्ट होवर रंग"
+
+#: blocks/src/tabs/edit.js:343
+#, fuzzy
+msgid "Background Hover color"
+msgstr "पृष्ठभूमि होवर रंग"
+
+#: includes/class-crosswinds-blocks-setup.php:37
+#, fuzzy
+msgid "Project"
+msgstr "परियोजना"
+
+#: includes/class-crosswinds-blocks-setup.php:38
+msgctxt "Project"
+msgid "Add New"
+msgstr "नया जोड़ें"
+
+#: includes/class-crosswinds-blocks-setup.php:39
+#, fuzzy
+msgid "Add New Project"
+msgstr "नया प्रोजेक्ट जोड़ें"
+
+#: includes/class-crosswinds-blocks-setup.php:40
+msgid "Edit Item"
+msgstr "आइटम संपादित करें"
+
+#: includes/class-crosswinds-blocks-setup.php:41
+#, fuzzy
+msgid "New Item"
+msgstr "नए वस्तु"
+
+#: includes/class-crosswinds-blocks-setup.php:42
+msgid "View Item"
+msgstr "आइटम देखें"
+
+#: includes/class-crosswinds-blocks-setup.php:43
+#, fuzzy
+msgid "Search Project"
+msgstr "प्रोजेक्ट खोजें"
+
+#: includes/class-crosswinds-blocks-setup.php:44
+#, fuzzy
+msgid "No Projects found"
+msgstr "कोई प्रोजेक्ट नहीं मिला"
+
+#: includes/class-crosswinds-blocks-setup.php:45
+#, fuzzy
+msgid "No Projects found in Trash"
+msgstr "ट्रैश में कोई प्रोजेक्ट नहीं मिला"
+
+#: includes/class-crosswinds-blocks-setup.php:96
+#, fuzzy
+msgid "Project Categories"
+msgstr "परियोजना श्रेणियाँ"
+
+#: includes/class-crosswinds-blocks-setup.php:98
+msgid "Search Categories"
+msgstr "खोज श्रेणियाँ"
+
+#: includes/class-crosswinds-blocks-setup.php:99
+msgid "All Categories"
+msgstr "सब वर्ग"
+
+#: includes/class-crosswinds-blocks-setup.php:100
+msgid "Parent Category"
+msgstr "अभिभावक श्रेणी"
+
+#: includes/class-crosswinds-blocks-setup.php:101
+msgid "Parent Category:"
+msgstr "अभिभावक श्रेणी:"
+
+#: includes/class-crosswinds-blocks-setup.php:102
+msgid "Edit Category"
+msgstr "श्रेणी संपादित करें"
+
+#: includes/class-crosswinds-blocks-setup.php:103
+msgid "Update Category"
+msgstr "अद्यतन श्रेणी"
+
+#: includes/class-crosswinds-blocks-setup.php:104
+msgid "Add New Category"
+msgstr "नई श्रेणी जोड़ें"
+
+#: includes/class-crosswinds-blocks-setup.php:105
+msgid "New Category Name"
+msgstr "नया श्रेणी का नाम"
+
+#: includes/class-crosswinds-blocks-setup.php:106
+#, fuzzy
+msgid "Choose from the most used categories"
+msgstr "सर्वाधिक उपयोग की जाने वाली श्रेणियों में से चुनें"
+
+#: includes/class-crosswinds-blocks-setup.php:124
+#, fuzzy
+msgid "Project Tags"
+msgstr "परियोजना टैग"
+
+#: includes/class-crosswinds-blocks-setup.php:126
+#, fuzzy
+msgid "Search Tags"
+msgstr "टैग खोजें"
+
+#: includes/class-crosswinds-blocks-setup.php:127
+#, fuzzy
+msgid "All Tags"
+msgstr "सभी टैग"
+
+#: includes/class-crosswinds-blocks-setup.php:128
+#, fuzzy
+msgid "Parent Tag"
+msgstr "अभिभावक टैग"
+
+#: includes/class-crosswinds-blocks-setup.php:129
+#, fuzzy
+msgid "Parent Tag:"
+msgstr "अभिभावक टैग:"
+
+#: includes/class-crosswinds-blocks-setup.php:130
+#, fuzzy
+msgid "Edit Tag"
+msgstr "टैग संपादित करें"
+
+#: includes/class-crosswinds-blocks-setup.php:131
+#, fuzzy
+msgid "Update Tag"
+msgstr "टैग अपडेट करें"
+
+#: includes/class-crosswinds-blocks-setup.php:132
+#, fuzzy
+msgid "Add New Tag"
+msgstr "नया टैग जोड़ें"
+
+#: includes/class-crosswinds-blocks-setup.php:133
+#, fuzzy
+msgid "New Tag Name"
+msgstr "नया टैग नाम"
+
+#: includes/class-crosswinds-blocks-setup.php:134
+#, fuzzy
+msgid "Choose from the most used tags"
+msgstr "सबसे अधिक उपयोग किए जाने वाले टैग में से चुनें"
+
+#: patterns/accordions/accordion-with-border-and-title-background.php:4
+#: patterns/accordions/basic-accordion.php:4
+#, fuzzy
+msgid "Basic Accordion"
+msgstr "मूल अकॉर्डियन"
+
+#: patterns/accordions/accordion-with-border-and-title-background.php:11
+#: patterns/accordions/accordion-with-border-and-title-background.php:25
+#: patterns/accordions/accordion-with-border-and-title-background.php:39
+#: patterns/accordions/basic-accordion.php:11
+#: patterns/accordions/basic-accordion.php:25
+#: patterns/accordions/basic-accordion.php:39
+#, fuzzy
+msgid "This is a heading"
+msgstr "यह एक शीर्षक है"
+
+#: patterns/featured-content/featured-content-block-row-photo-left.php:13
+#, fuzzy
+msgid "Featured Content - Row with Left Photo"
+msgstr "विशेष सामग्री - बाईं फ़ोटो वाली पंक्ति"
+
+#: patterns/featured-content/featured-content-block-row-photo-left.php:26
+#: patterns/featured-content/featured-content-block-row-photo-right.php:22
+#: patterns/featured-content/featured-content-column-pattern.php:22
+#: patterns/post-navigation/post-navigation-section.php:15
+#: patterns/post-navigation/post-navigation-section.php:25
+#: patterns/single-posts/single-post-horizontal.php:25
+#: patterns/single-posts/single-post-vertical.php:14
+#, fuzzy
+msgid "Read This Post"
+msgstr "इस पोस्ट को पढ़ें"
+
+#: patterns/featured-content/featured-content-block-row-photo-right.php:13
+#, fuzzy
+msgid "Featured Content - Row with Right Photo"
+msgstr "चुनिंदा सामग्री - सही फोटो वाली पंक्ति"
+
+#: patterns/featured-content/featured-content-column-pattern.php:13
+#, fuzzy
+msgid "Featured Content - Column"
+msgstr "विशेष सामग्री - कॉलम"
+
+#: patterns/grid-layouts/grid-layout-1.php:4
+#, fuzzy
+msgid "Grid Layout 1"
+msgstr "ग्रिड लेआउट 1"
+
+#: patterns/grid-layouts/grid-layout-1.php:10
+#: patterns/grid-layouts/grid-layout-1.php:22
+#: patterns/grid-layouts/grid-layout-1.php:34
+#: patterns/grid-layouts/grid-layout-1.php:46
+#: patterns/grid-layouts/grid-layout-2.php:10
+#: patterns/grid-layouts/grid-layout-2.php:22
+#: patterns/grid-layouts/grid-layout-2.php:34
+#: patterns/grid-layouts/grid-layout-2.php:46
+#: patterns/grid-layouts/grid-layout-3.php:10
+#: patterns/grid-layouts/grid-layout-3.php:22
+#: patterns/grid-layouts/grid-layout-3.php:34
+#: patterns/grid-layouts/grid-layout-3.php:46
+#: patterns/grid-layouts/grid-layout-3.php:58
+#: patterns/grid-layouts/grid-layout-3.php:70
+#, fuzzy
+msgid "Insert your heading here..."
+msgstr "अपना शीर्षक यहां डालें..."
+
+#: patterns/grid-layouts/grid-layout-1.php:14
+#: patterns/grid-layouts/grid-layout-1.php:26
+#: patterns/grid-layouts/grid-layout-1.php:38
+#: patterns/grid-layouts/grid-layout-1.php:50
+#: patterns/grid-layouts/grid-layout-2.php:14
+#: patterns/grid-layouts/grid-layout-2.php:26
+#: patterns/grid-layouts/grid-layout-2.php:38
+#: patterns/grid-layouts/grid-layout-2.php:50
+#: patterns/grid-layouts/grid-layout-3.php:14
+#: patterns/grid-layouts/grid-layout-3.php:26
+#: patterns/grid-layouts/grid-layout-3.php:38
+#: patterns/grid-layouts/grid-layout-3.php:50
+#: patterns/grid-layouts/grid-layout-3.php:62
+#: patterns/grid-layouts/grid-layout-3.php:74
+#, fuzzy
+msgid "Write some description text here..."
+msgstr "यहां कुछ विवरण पाठ लिखें..."
+
+#: patterns/grid-layouts/grid-layout-2.php:4
+#, fuzzy
+msgid "Grid Layout 2"
+msgstr "ग्रिड लेआउट 2"
+
+#: patterns/grid-layouts/grid-layout-3.php:4
+#, fuzzy
+msgid "Grid Layout 3"
+msgstr "ग्रिड लेआउट 3"
+
+#: patterns/post-navigation/post-navigation-section.php:4
+#, fuzzy
+msgid "Post Navigation Section"
+msgstr "पोस्ट नेविगेशन अनुभाग"
+
+#: patterns/related-posts/related-posts-section.php:4
+#, fuzzy
+msgid "Related Posts Section"
+msgstr "संबंधित पोस्ट अनुभाग"
+
+#: patterns/single-posts/single-post-horizontal.php:4
+#, fuzzy
+msgid "Single Post - Horizontal"
+msgstr "एकल पोस्ट - क्षैतिज"
+
+#: patterns/single-posts/single-post-vertical.php:4
+#, fuzzy
+msgid "Single Post - Vertical"
+msgstr "सिंगल पोस्ट - वर्टिकल"
+
+#: patterns/skills-sliders/skill-slider.php:4
+#: patterns/skills-sliders/skills-slider-section.php:4
+#, fuzzy
+msgid "Skill Slider"
+msgstr "कौशल स्लाइडर"
+
+#: patterns/skills-sliders/skill-slider.php:9
+#: patterns/skills-sliders/skills-slider-group.php:10
+#: patterns/skills-sliders/skills-slider-group.php:20
+#: patterns/skills-sliders/skills-slider-group.php:30
+#: patterns/skills-sliders/skills-slider-group.php:40
+#: patterns/skills-sliders/skills-slider-section.php:23
+#: patterns/skills-sliders/skills-slider-section.php:33
+#: patterns/skills-sliders/skills-slider-section.php:43
+#: patterns/skills-sliders/skills-slider-section.php:53
+#, fuzzy
+msgid "Skill Title"
+msgstr "कौशल शीर्षक"
+
+#: patterns/skills-sliders/skills-slider-group.php:4
+#, fuzzy
+msgid "Skills Slider Group"
+msgstr "कौशल स्लाइडर समूह"
+
+#: patterns/social-sharing/share-content-horizontal.php:4
+#, fuzzy
+msgid "Social Sharing Section - Horizontal"
+msgstr "सामाजिक साझाकरण अनुभाग - क्षैतिज"
+
+#: patterns/social-sharing/share-content-horizontal.php:9
+#: patterns/social-sharing/share-content-vertical.php:9
+#, fuzzy
+msgid "Share This Post"
+msgstr "इस पोस्ट पर साझा करें"
+
+#: patterns/social-sharing/share-content-vertical.php:4
+#, fuzzy
+msgid "Social Sharing Section - Vertical"
+msgstr "सामाजिक साझाकरण अनुभाग - कार्यक्षेत्र"
+
+#. Plugin URI of the plugin/theme
+#, fuzzy
+msgid "https://crosswindsframework.com/"
+msgstr "https://crosswindsframework.com/"
+
+#. Description of the plugin/theme
+#, fuzzy
+msgid "Take your website to the next level with the Crosswinds Blocks plugin!"
+msgstr "क्रॉसविंड्स ब्लॉक्स प्लगइन के साथ अपनी वेबसाइट को अगले स्तर पर ले जाएं!"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "Jacob Martella Web Development"
+msgstr "जैकब मार्टेला वेब डेवलपमेंट"
+
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "https://jacobmartella.com"
+msgstr "https://jacobmartella.com"

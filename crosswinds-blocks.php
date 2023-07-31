@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       Crosswinds Blocks
  * Plugin URI:        https://crosswindsframework.com/
- * Description:       DESCRIPTION GOES HERE
- * Version:           1.0-beta-1
+ * Description:       Take your website to the next level with the Crosswinds Blocks plugin!
+ * Version:           1.0.0
  * Author:            Jacob Martella Web Development
  * Author URI:        https://jacobmartella.com
  * Text Domain:       crosswinds-blocks
