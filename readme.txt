@@ -1,4 +1,4 @@
-=== Featured Content Block ===
+=== Crosswinds Blocks ===
 Contributors: ArenaPigskin
 Tags:              blocks, design, grid, accordions, tabs, site editor, block editor, single posts, post navigation, related posts, custom post types
 Requires at least: 6.0
