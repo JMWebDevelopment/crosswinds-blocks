@@ -5,7 +5,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks
@@ -33,27 +33,27 @@ class Crosswinds_Blocks {
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @var    Crosswinds_Blocks_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @since  1.0.0
 	 */
 	protected $loader;
 
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @var    string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @since  1.0.0
 	 */
 	protected $plugin_name;
 
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since  1.0.0
 	 * @access protected
 	 * @var    string    $version    The current version of the plugin.
+	 * @since  1.0.0
 	 */
 	protected $version;
 
@@ -99,11 +99,11 @@ class Crosswinds_Blocks {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the JM_Client_Manager_i18n class in order to set the domain and to register the hook
+	 * Uses the Crosswinds_Blocks_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
-	 * @since    1.0.0
 	 * @access   private
+	 * @since    1.0.0
 	 */
 	private function set_locale() {
 		$plugin_i18n = new Crosswinds_Blocks_i18n();
@@ -185,8 +185,8 @@ class Crosswinds_Blocks {
 	/**
 	 * Gets the current version of the plugin.
 	 *
-	 * @since  1.0.0
 	 * @return string    The version of the plugin.
+	 * @since  1.0.0
 	 */
 	public function get_version() {
 		return $this->version;
@@ -196,8 +196,8 @@ class Crosswinds_Blocks {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
+	 * @since     1.0.0
 	 */
 	public function get_plugin_name() {
 		return $this->plugin_name;
@@ -206,8 +206,8 @@ class Crosswinds_Blocks {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @since     1.0.0
 	 * @return    Crosswinds_Blocks_Loader    Orchestrates the hooks of the plugin.
+	 * @since     1.0.0
 	 */
 	public function get_loader() {
 		return $this->loader;

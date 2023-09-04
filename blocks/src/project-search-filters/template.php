@@ -1,10 +1,21 @@
 <?php
+/**
+ * Creates the template for the project search filters block.
+ *
+ * PHP version 7.3
+ *
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
+ *
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/project-search-filters
+ */
+
 $project_tags = get_terms(
 	array(
-		'taxonomy' => 'project_tag'
+		'taxonomy' => 'project_tag',
 	)
 );
-$term = get_queried_object();
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>

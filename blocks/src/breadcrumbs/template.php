@@ -1,12 +1,14 @@
 <?php
 /**
- * The template for the server-side rendering of single post block.
+ * Creates the template for the breadcrumbs block.
  *
- * @since 1.0
+ * PHP version 7.3
  *
- * @version 1.0
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
  *
- * @package Portafoglio
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/breadcrumbs
  */
 
 $show_on_homepage = 0;

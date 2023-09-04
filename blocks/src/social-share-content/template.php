@@ -1,12 +1,14 @@
 <?php
 /**
- * The template for the server-side rendering of single post block.
+ * Creates the template for the social share content block.
  *
- * @since 1.0
+ * PHP version 7.3
  *
- * @version 1.0
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
  *
- * @package Featured Content Block
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/social-share-content
  */
 
 // Get post title.
@@ -20,37 +22,37 @@ $icons = array(
 		'icon' => 'fab fa-facebook-f',
 		'url'  => 'https://www.facebook.com/sharer.php?u=' . esc_url( $post_url ),
 		'slug' => 'facebook',
-		'name' => 'Facebook'
+		'name' => 'Facebook',
 	),
 	'twitter' => array(
 		'icon' => 'fab fa-twitter',
 		'url'  => 'https://twitter.com/share?url=' . esc_url( $post_url ) . '&text=' . esc_attr( $post_title ),
 		'slug' => 'twitter',
-		'name' => 'Twitter'
+		'name' => 'Twitter',
 	),
 	'mastodon' => array(
 		'icon' => 'fab fa-mastodon',
-		'url'  => 'https://mastodonshare.com/?text='  . esc_attr( $post_title ) . '&url=' . esc_url( $post_url ),
+		'url'  => 'https://mastodonshare.com/?text=' . esc_attr( $post_title ) . '&url=' . esc_url( $post_url ),
 		'slug' => 'mastodon',
-		'name' => 'Mastodon'
+		'name' => 'Mastodon',
 	),
 	'reddit' => array(
 		'icon' => 'fab fa-reddit',
 		'url'  => 'http://www.reddit.com/submit?url=' . esc_url( $post_url ),
 		'slug' => 'reddit',
-		'name' => 'Reddit'
+		'name' => 'Reddit',
 	),
 	'pinterest' => array(
 		'icon' => 'fab fa-pinterest',
 		'url'  => 'https://pinterest.com/pin/create/bookmarklet/?media=' . esc_url( $post_image ) . '&url=' . esc_url( $post_url ) . '&description='  . esc_attr( $post_title ),
 		'slug' => 'pinterest',
-		'name' => 'Pinterest'
+		'name' => 'Pinterest',
 	),
 	'email' => array(
 		'icon' => 'far fa-envelope',
-		'url'  => 'mailto:?subject='  . esc_attr( $post_title ) . '&amp;body=' . esc_url( $post_url ),
+		'url'  => 'mailto:?subject=' . esc_attr( $post_title ) . '&amp;body=' . esc_url( $post_url ),
 		'slug' => 'email',
-		'name' => esc_html__( 'Email', 'crosswinds-blocks' )
+		'name' => esc_html__( 'Email', 'crosswinds-blocks' ),
 	),
 );
 

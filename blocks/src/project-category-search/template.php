@@ -1,10 +1,22 @@
 <?php
+/**
+ * Creates the template for the project category search block.
+ *
+ * PHP version 7.3
+ *
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
+ *
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/project-category-search
+ */
+
 $project_categories = get_terms(
 	array(
-		'taxonomy' => 'project_category'
+		'taxonomy' => 'project_category',
 	)
 );
-$term = get_queried_object();
+$queried_term       = get_queried_object();
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
@@ -14,7 +26,7 @@ $term = get_queried_object();
 		<?php
 		if ( $project_categories ) {
 			foreach ( $project_categories as $project_cat ) {
-				if ( 'project_category' === $term->taxonomy && $term->term_id === $project_cat->term_id ) {
+				if ( 'project_category' === $queried_term->taxonomy && $queried_term->term_id === $project_cat->term_id ) {
 					$selected = 'selected="selected"';
 				} else {
 					$selected = '';

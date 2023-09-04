@@ -2,7 +2,7 @@
 /**
  * Creates the loading function for actions and hooks.
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks

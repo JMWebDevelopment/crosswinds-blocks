@@ -1,4 +1,16 @@
 <?php
+/**
+ * Creates the template for the project client search block.
+ *
+ * PHP version 7.3
+ *
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
+ *
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/project-client-search
+ */
+
 global $wpdb;
 
 $transient_key = 'get_project_type_client';

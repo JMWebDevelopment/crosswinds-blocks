@@ -4,7 +4,7 @@
  *
  * PHP version 7.3
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks
@@ -179,11 +179,11 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 				?>
 				<div class="settings-grid-item">
 					<div class="icon">
-						<?php echo $block['icon']; ?>
+						<?php echo wp_kses_post( $block['icon'] ); ?>
 					</div>
 
 					<div class="title">
-						<p><strong><?php echo wp_kses_post( $block['name'] ); ?></strong><br /><a href="<?php echo $block['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
+						<p><strong><?php echo wp_kses_post( $block['name'] ); ?></strong><br /><a href="<?php echo esc_url( $block['description'] ); ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
 					<div class="field">
@@ -258,11 +258,11 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 				?>
 				<div class="settings-grid-item">
 					<div class="icon">
-						<?php echo $cpt['icon']; ?>
+						<?php echo wp_kses_post( $cpt['icon'] ); ?>
 					</div>
 
 					<div class="title">
-						<p><strong><?php echo wp_kses_post( $cpt['name'] ); ?></strong><br /><a href="<?php echo $cpt['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
+						<p><strong><?php echo wp_kses_post( $cpt['name'] ); ?></strong><br /><a href="<?php echo esc_url( $cpt['description'] ); ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
 					<div class="field">
@@ -337,11 +337,11 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 				?>
 				<div class="settings-grid-item">
 					<div class="icon">
-						<?php echo $custom_taxonomy['icon']; ?>
+						<?php echo wp_kses_post( $custom_taxonomy['icon'] ); ?>
 					</div>
 
 					<div class="title">
-						<p><strong><?php echo wp_kses_post( $custom_taxonomy['name'] ); ?></strong><br /><a href="<?php echo $custom_taxonomy['description']; ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
+						<p><strong><?php echo wp_kses_post( $custom_taxonomy['name'] ); ?></strong><br /><a href="<?php echo esc_url( $custom_taxonomy['description'] ); ?>" target="_blank"><?php esc_html_e( 'Documentation', 'crosswinds-blocks' ); ?></a></p>
 					</div>
 
 					<div class="field">

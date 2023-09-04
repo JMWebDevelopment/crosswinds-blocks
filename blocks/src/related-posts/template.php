@@ -1,12 +1,14 @@
 <?php
 /**
- * The template for the server-side rendering of single post block.
+ * Creates the template for the related posts block.
  *
- * @since 1.0
+ * PHP version 7.3
  *
- * @version 1.0
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
  *
- * @package Featured Content Block
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/related-posts
  */
 
 $block_query_args = array(
