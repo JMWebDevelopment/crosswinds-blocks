@@ -1,13 +1,16 @@
 <?php
 /**
- * The template for the server-side rendering of single post block.
+ * Creates the template for the next post block.
  *
- * @since 1.0
+ * PHP version 7.3
  *
- * @version 1.0
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
  *
- * @package Portafoglio
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/next-post
  */
+
 $next_post = get_next_post( get_the_ID() );
 
 if ( $next_post ) {
@@ -28,7 +31,7 @@ if ( $next_post ) {
 			while ( $block_query->have_posts() ) {
 				$block_query->the_post();
 
-				$block_instance = $block->parsed_block;
+				$block_instance              = $block->parsed_block;
 				$block_instance['blockName'] = 'core/null';
 
 				echo (

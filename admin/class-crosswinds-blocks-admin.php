@@ -4,7 +4,7 @@
  *
  * PHP version 7.3
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks
@@ -27,8 +27,8 @@ class Crosswinds_Blocks_Admin {
 	/**
 	 * Version of the plugin.
 	 *
-	 * @since 1.0.0
 	 * @var string $version Description.
+	 * @since 1.0.0
 	 */
 	private $version;
 
@@ -36,9 +36,8 @@ class Crosswinds_Blocks_Admin {
 	/**
 	 * Builds the Crosswinds_Blocks_Admin object.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param string $version Version of the plugin.
+	 * @since 1.0.0
 	 */
 	public function __construct( $version ) {
 		$this->version = $version;
@@ -51,7 +50,13 @@ class Crosswinds_Blocks_Admin {
 	 */
 	public function enqueue_styles() {
 		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) && ! $this->if_crosswinds_framework_theme_active() ) {
-			wp_enqueue_style( 'crosswinds-blocks-blocks-admin-page', plugin_dir_url( __FILE__ ) . 'css/blocks-admin-page.min.css', [], $this->version, 'all' );
+			wp_enqueue_style(
+				'crosswinds-blocks-blocks-admin-page',
+				plugin_dir_url( __FILE__ ) . 'css/blocks-admin-page.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
 		}
 	}
 
@@ -62,16 +67,21 @@ class Crosswinds_Blocks_Admin {
 	 */
 	public function enqueue_scripts() {
 		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) && ! $this->if_crosswinds_framework_theme_active() ) {
-			wp_enqueue_script( 'crosswinds-blocks-admin', plugin_dir_url( __FILE__ ) . 'js/admin-page.min.js', [], $this->version );
+			wp_enqueue_script(
+				'crosswinds-blocks-admin',
+				plugin_dir_url( __FILE__ ) . 'js/admin-page.min.js',
+				array(),
+				$this->version,
+				true
+			);
 		}
 	}
 
 	/**
 	 * Returns a list of post types for the variations for the single content block.
 	 *
-	 * @since 1.0
-	 *
 	 * @return array      List of post types.
+	 * @since 1.0
 	 */
 	public function get_post_types_list() {
 		$post_types_args  = array(
@@ -150,6 +160,11 @@ class Crosswinds_Blocks_Admin {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/admin-page.php';
 	}
 
+	/**
+	 * Adds the plugin settings to the Crosswinds Framework settings page.
+	 *
+	 * @since 1.0
+	 */
 	public function add_plugin_settings() {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/plugin-settings.php';
 	}
@@ -157,13 +172,12 @@ class Crosswinds_Blocks_Admin {
 	/**
 	 * Determines if the tab is the active tab.
 	 *
-	 * @since 1.0
-	 *
 	 * @param string $tab      The tab to see if it's the active one.
 	 * @return boolean         Whether the provided tab is the active tab.
+	 * @since 1.0
 	 */
 	public function is_active_tab( $tab ) {
-		if ( $_GET['tab'] === $tab ) {
+		if ( isset( $_GET['tab'] ) && $_GET['tab'] === $tab ) {
 			return 'active-tab';
 		} elseif ( ! isset( $_GET['tab'] ) && 'blocks' === $tab ) {
 			return 'active-tab';
@@ -175,10 +189,9 @@ class Crosswinds_Blocks_Admin {
 	/**
 	 * Determines if the current admin page is a Crosswinds Framework or Blocks page.
 	 *
-	 * @since 1.0
-	 *
 	 * @param string|null $page      The page to check. Leave null to see if it's any of the Crosswinds pages.
 	 * @return boolean               Whether the page is the specified page or a Crosswinds page.
+	 * @since 1.0
 	 */
 	public function is_crosswinds_page( $page = null ) {
 		global $pagenow;
@@ -198,6 +211,12 @@ class Crosswinds_Blocks_Admin {
 		return false;
 	}
 
+	/**
+	 * Checks to see if the Crosswinds Framework main theme is the active theme or is a parent theme.
+	 *
+	 * @return boolean      Whether or not the Crosswinds Framework is the active theme or parent theme.
+	 * @since 1.0
+	 */
 	public function if_crosswinds_framework_theme_active() {
 		$current_theme_name = '';
 		$current_theme      = wp_get_theme();
@@ -248,15 +267,21 @@ class Crosswinds_Blocks_Admin {
 	/**
 	 * Sanitized the integer so that it only returns a number.
 	 *
-	 * @since 1.0
-	 *
 	 * @param int $input      The incoming value.
 	 * @return integer        The value as an integer.
+	 * @since 1.0
 	 */
 	public function sanitize_int( $input ) {
 		return absint( $input );
 	}
 
+	/**
+	 * Sanitized the integer so that it returns a string that doesn't have anything that shouldn't be there.
+	 *
+	 * @param string $input      The incoming value.
+	 * @return string            The value as a sanitized string.
+	 * @since 1.0
+	 */
 	public function sanitize_text_field( $input ) {
 		return sanitize_text_field( $input );
 	}

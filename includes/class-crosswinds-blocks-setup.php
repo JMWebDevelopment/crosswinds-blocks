@@ -2,7 +2,7 @@
 /**
  * Add in extra functionality like custom post types or taxonomies.
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks
@@ -114,13 +114,14 @@ class Crosswinds_Blocks_Setup {
 					'publicly_queryable' => true,
 				)
 			);
-		
+
+			// Register the project tag taxonomy.
 			register_taxonomy(
 				'project_tag',
 				'project',
 				array(
-					'hierarchical'      => false,
-					'labels'            => array(
+					'hierarchical'       => false,
+					'labels'             => array(
 						'name'                  => esc_html__( 'Project Tags', 'crosswinds-blocks' ),
 						'singular_name'         => esc_html__( 'Project Tag', 'crosswinds-blocks' ),
 						'search_items'          => esc_html__( 'Search Tags', 'crosswinds-blocks' ),
@@ -131,15 +132,15 @@ class Crosswinds_Blocks_Setup {
 						'update_item'           => esc_html__( 'Update Tag', 'crosswinds-blocks' ),
 						'add_new_item'          => esc_html__( 'Add New Tag', 'crosswinds-blocks' ),
 						'new_item_name'         => esc_html__( 'New Tag Name', 'crosswinds-blocks' ),
-						'choose_from_most_used' => esc_html__( 'Choose from the most used tags', 'crosswinds-blocks' )
+						'choose_from_most_used' => esc_html__( 'Choose from the most used tags', 'crosswinds-blocks' ),
 					),
-					'public'            => true,
-					'show_ui'           => true,
-					'show_admin_column' => true,
-					'query_var'         => true,
-					'rewrite'           => array( 'slug' => 'project-tag' ),
-					'show_in_rest'      => true,
-					'show_in_variation' => true,
+					'public'             => true,
+					'show_ui'            => true,
+					'show_admin_column'  => true,
+					'query_var'          => true,
+					'rewrite'            => array( 'slug' => 'project-tag' ),
+					'show_in_rest'       => true,
+					'show_in_variation'  => true,
 					'publicly_queryable' => true,
 				)
 			);

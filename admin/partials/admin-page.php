@@ -1,10 +1,11 @@
 <?php
 /**
  * Creates the main plugin admin page.
+ * This is used if the Crosswinds Framework is not an active theme or the parent theme.
  *
  * PHP version 7.3
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks

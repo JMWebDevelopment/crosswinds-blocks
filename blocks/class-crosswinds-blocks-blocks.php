@@ -4,11 +4,11 @@
  *
  * PHP version 7.3
  *
- * @link       https://jacobmartella.com
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
  * @since      1.0.0
  *
  * @package    Crosswinds_Blocks
- * @subpackage Crosswinds_Blocks/public
+ * @subpackage Crosswinds_Blocks/blocks
  */
 
 namespace Crosswinds_Blocks;
@@ -27,17 +27,16 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Version of the plugin.
 	 *
-	 * @since 1.0.0
 	 * @var string $version Description.
+	 * @since 1.0.0
 	 */
 	private $version;
 
 	/**
 	 * Builds the Crosswinds_Blocks_Blocks object.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param string $version Version of the plugin.
+	 * @since 1.0.0
 	 */
 	public function __construct( $version ) {
 		$this->version = $version;
@@ -234,11 +233,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Creates the custom block categories.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array                   $block_categories          Array of categories for block types.
 	 * @param WP_Block_Editor_Context $block_editor_context      The current block editor context.
 	 * @return array                                             Updated array of block categories with our custom categories.
+	 * @since 1.0.0
 	 */
 	public function blocks_categories( $block_categories, $block_editor_context ) {
 		return array_merge(
@@ -256,11 +254,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the single content block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function single_content_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -271,11 +268,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the next post block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function next_post_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -286,11 +282,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the previous post block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function previous_post_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -301,11 +296,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the related posts block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function related_posts_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -316,11 +310,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the social share content block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function social_share_content_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -331,11 +324,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the copyright block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function copyright_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -346,11 +338,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the breadcrumbs block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function breadcrumbs_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -359,13 +350,11 @@ class Crosswinds_Blocks_Blocks {
 	}
 
 	/**
-	 * Loads the template for the project category search block.
-	 *
-	 * @since 1.0
 	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_category_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -376,11 +365,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the project information block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_information_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -391,11 +379,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the project search filters block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_search_filters_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -406,11 +393,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the project search filter buttons block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_search_filters_buttons_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -421,11 +407,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the project search block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -436,11 +421,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the project client search block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_client_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -451,11 +435,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the project tag search block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function project_tag_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -464,43 +447,12 @@ class Crosswinds_Blocks_Blocks {
 	}
 
 	/**
-	 * Loads the template for the carousel block.
-	 *
-	 * @since 1.0
-	 *
-	 * @param array  $attributes   The attributes for the block.
-	 * @param string $content      The content for the block.
-	 * @param array  $block        Information about the block.
-	 */
-	public function carousel_block_render_callback( $attributes, $content, $block ) {
-		ob_start();
-		require plugin_dir_path( __FILE__ ) . 'build/carousel/template.php';
-		return ob_get_clean();
-	}
-
-	/**
-	 * Loads the template for the carousel slide block.
-	 *
-	 * @since 1.0
-	 *
-	 * @param array  $attributes   The attributes for the block.
-	 * @param string $content      The content for the block.
-	 * @param array  $block        Information about the block.
-	 */
-	public function carousel_slide_block_render_callback( $attributes, $content, $block ) {
-		ob_start();
-		require plugin_dir_path( __FILE__ ) . 'build/carousel-slide/template.php';
-		return ob_get_clean();
-	}
-
-	/**
 	 * Loads the template for the Google Maps block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function google_maps_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -511,11 +463,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the download category search block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function download_category_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -526,11 +477,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the download search filters block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function download_search_filters_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -541,11 +491,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the download search filter buttons block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function download_search_filters_buttons_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -556,11 +505,10 @@ class Crosswinds_Blocks_Blocks {
 	/**
 	 * Loads the template for the download search block.
 	 *
-	 * @since 1.0
-	 *
 	 * @param array  $attributes   The attributes for the block.
 	 * @param string $content      The content for the block.
 	 * @param array  $block        Information about the block.
+	 * @since 1.0
 	 */
 	public function download_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
@@ -594,6 +542,14 @@ class Crosswinds_Blocks_Blocks {
 		wp_enqueue_style( 'crosswinds-blocks-custom-attributes-styling', plugin_dir_url( __FILE__ ) . 'block-customizations/build/index.css', array(), $this->version, 'all' );
 	}
 
+	/**
+	 * Adds responsive classes to the post template block.
+	 *
+	 * @param string $block_content      The content of the block.
+	 * @param array  $block              An array of information about the block.
+	 * @return string                    The updated block.
+	 * @since 1.0
+	 */
 	public function add_post_template_responsive_classes( $block_content, $block ) {
 		if ( 'core/post-template' !== $block['blockName'] ) {
 			return $block_content;

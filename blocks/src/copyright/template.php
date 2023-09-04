@@ -1,20 +1,23 @@
 <?php
 /**
- * The template for the server-side rendering of single post block.
+ * Creates the template for the copyright block.
  *
- * @since 1.0
+ * PHP version 7.3
  *
- * @version 1.0
+ * @link       https://crosswindsframework.com/downloads/crosswinds-blocks
+ * @since      1.0.0
  *
- * @package Portafoglio
+ * @package    Crosswinds_Blocks
+ * @subpackage Crosswinds_Blocks/blocks/copyright
  */
-$year = date( 'Y' );
+
+$current_current_year = date( 'Y' );
 if ( 'icon-text' === $attributes['copyrightType'] ) {
-	$inner_html = '&copy; ' . $attributes['copyrightText'] . ' ' . $year;
+	$inner_html = '&copy; ' . $attributes['copyrightText'] . ' ' . $current_year;
 } elseif ( 'icon-only' === $attributes['copyrightType'] ) {
-	$inner_html = '&copy; ' . $year;
+	$inner_html = '&copy; ' . $current_year;
 } else {
-	$inner_html = $attributes['copyrightText'] . ' ' . $year;
+	$inner_html = $attributes['copyrightText'] . ' ' . $current_year;
 }
 ?>
 
