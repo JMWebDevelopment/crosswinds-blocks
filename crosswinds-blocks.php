@@ -23,6 +23,14 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
+ * Define the constants for updating the plugin.
+ */
+define( 'SPORTS_BENCH_PLUGIN_STORE_URL', 'https://crosswindsframework.com/' );
+define( 'SPORTS_BENCH_PLUGIN_ITEM_ID', 12509 );
+define( 'SPORTS_BENCH_PLUGIN_ITEM_NAME', 'Crosswinds Blocks' );
+define( 'SPORTS_BENCH_PLUGIN_FILE', __FILE__ );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-crosswinds-blocks-activator.php
  *

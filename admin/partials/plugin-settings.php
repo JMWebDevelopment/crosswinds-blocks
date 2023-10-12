@@ -393,6 +393,24 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 	</div>
 
 	<div class="cb-options-section">
+		<h3><?php esc_html_e( 'Plugin License', 'crosswinds-blocks' ); ?></h3>
+
+		<div class="options-area">
+			<?php
+			if ( get_option( 'crosswinds-blocks-google-maps-api-key' ) ) {
+				$google_maps_api_key = get_option( 'crosswinds-blocks-google-maps-api-key' );
+			} else {
+				$google_maps_api_key = '';
+			}
+			?>
+			<p>
+				<label for="crosswinds-blocks-google-maps-api-key"><?php esc_html_e( 'Google Maps API Key', 'crosswinds-blocks' ); ?></label><br />
+				<input id="crosswinds-blocks-google-maps-api-key" name="crosswinds-blocks-google-maps-api-key" value="<?php echo esc_attr( $google_maps_api_key ); ?>" />
+			</p>
+		</div>
+	</div>
+
+	<div class="cb-options-section">
 		<h3><?php esc_html_e( 'Other Settings', 'crosswinds-blocks' ); ?></h3>
 
 		<div class="options-area">
