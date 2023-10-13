@@ -12,7 +12,7 @@ return array(
 						
 						<!-- wp:post-title {"textAlign":"center","isLink":true} /-->
 						
-						<!-- wp:post-excerpt {"textAlign":"left","moreText":"' . __( 'Read This Post', 'crosswinds-blocks' ) . '"} /-->
+						<!-- wp:post-excerpt {"textAlign":"left","moreText":"' . esc_html__( 'Read This Post', 'crosswinds-blocks' ) . '"} /-->
 						<!-- /wp:crosswinds-blocks/previous-post --></div>
 						<!-- /wp:column -->
 						
@@ -22,7 +22,7 @@ return array(
 						
 						<!-- wp:post-title {"textAlign":"center","isLink":true} /-->
 						
-						<!-- wp:post-excerpt {"textAlign":"left","moreText":"' . __( 'Read This Post', 'crosswinds-blocks' ) . '"} /-->
+						<!-- wp:post-excerpt {"textAlign":"left","moreText":"' . esc_html__( 'Read This Post', 'crosswinds-blocks' ) . '"} /-->
 						<!-- /wp:crosswinds-blocks/next-post --></div>
 						<!-- /wp:column --></div>
 						<!-- /wp:columns --></div>

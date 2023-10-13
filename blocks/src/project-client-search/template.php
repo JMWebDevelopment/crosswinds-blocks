@@ -32,7 +32,7 @@ if ( isset( $_GET['project_client'] ) && '' !== $_GET['project_client'] ) {
 }
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<label for="project-client-search"><?php echo wp_kses_post( $attributes['label'] ); ?></label>
 	<select name="project_client" id="project-client-search">
 		<option value=""><?php esc_html_e( 'Select a Client', 'crosswinds-blocks' ); ?></option>

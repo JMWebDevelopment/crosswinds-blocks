@@ -31,14 +31,17 @@ global $post;
 $home_url = get_bloginfo( 'url' );
 ?>
 
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'has-text-align-' . $attributes['align'] ) ); ?>>
+<div <?php echo wp_kses_data( get_block_wrapper_attributes( array( 'class' => 'has-text-align-' . $attributes['align'] ) ) ); ?>>
 
 	<?php
 	/* Check for homepage first! */
 	if ( is_home() || is_front_page() ) {
 		$on_homepage = 1;
 	}
-	if ( 0 === $show_on_homepage && 1 === $on_homepage ) return;
+
+	if ( 0 === $show_on_homepage && 1 === $on_homepage ) {
+		return;
+	}
 
 	/* Proceed with showing the breadcrumbs */
 	?>
@@ -50,86 +53,87 @@ $home_url = get_bloginfo( 'url' );
 		/* Build breadcrumbs here */
 		if ( is_category() ) {
 			echo wp_kses_post( $delimiter );
-			$thisCat = get_category( get_query_var( 'cat' ), false );
-			if ( $thisCat->parent !== 0 ) {
+			$this_cat = get_category( get_query_var( 'cat' ), false );
+			if ( 0 !== $this_cat->parent ) {
 				echo '<li ' . wp_kses_post( $list_item_attributes ) . '>';
-				echo get_category_parents( $thisCat->parent, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>');
+				echo wp_kses_post( get_category_parents( $this_cat->parent, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' ) );
 				echo '</li>';
 			}
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . single_cat_title('', false) . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . single_cat_title( '', false ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_search() ) {
 			echo wp_kses_post( $delimiter );
 			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . 'Search results for "' . get_search_query() . '"' . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_day() ) {
 			echo wp_kses_post( $delimiter );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_time('d') . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . wp_kses_post( get_year_link( get_the_time( 'Y' ) ) ) . '">' . wp_kses_post( get_the_time( 'Y' ) ) . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . wp_kses_post( get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) ) . '">' . wp_kses_post( get_the_time( 'F' ) ) . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_time( 'd' ) ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_month() ) {
 			echo wp_kses_post( $delimiter );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_time('F') . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . wp_kses_post( get_year_link( get_the_time( 'Y' ) ) ) . '">' . wp_kses_post( get_the_time( 'Y' ) ) . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_time( 'F' ) ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_year() ) {
 			echo wp_kses_post( $delimiter );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_time('Y') . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_time( 'Y' ) ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_single() && ! is_attachment() ) {
 			echo wp_kses_post( $delimiter );
 			if ( get_post_type() !== 'post' ) {
-				$post_type = get_post_type_object( get_post_type() );
-				$slug = $post_type->rewrite;
-				echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
-				if ($show_current == 1) {
-					echo ' ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_title() . wp_kses_post( $after ) . '</li>';
+				$the_post_type = get_post_type_object( get_post_type() );
+				$slug          = $the_post_type->rewrite;
+				echo '<a href="' . esc_url( $home_link ) . '/' . esc_attr( $slug['slug'] ) . '/">' . wp_kses_post( $the_post_type->labels->singular_name ) . '</a>';
+				if ( 1 === $show_current ) {
+					echo ' ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_title() ) . wp_kses_post( $after ) . '</li>';
 				}
 			} else {
-				$cat = get_the_category();
-				$cat = $cat[0];
-				$cats = get_category_parents( $cat, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' );
-				if ( $show_current == 0 ) {
-					$cats = preg_replace("#^(.+)\s$delimiter\s$#", "$1", $cats);
+				$the_cat = get_the_category();
+				$the_cat = $cat[0];
+				$cats    = get_category_parents( $cat, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' );
+				if ( 0 === $show_current ) {
+					$cats = preg_replace( "#^(.+)\s$delimiter\s$#", '$1', $cats );
 				}
 				echo '<li ' . wp_kses_post( $list_item_attributes ) . '>';
-				echo $cats;
+				echo wp_kses_post( $cats );
 				echo '</li>';
-				if ( $show_current == 1 ) {
-					echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_title() . wp_kses_post( $after ) . '</li>';
+				if ( 1 === $show_current ) {
+					echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_title() ) . wp_kses_post( $after ) . '</li>';
 				}
 			}
 		} elseif ( ! is_single() && ! is_page() && get_post_type() !== 'post' && ! is_404() ) {
 			echo wp_kses_post( $delimiter );
-			$post_type = get_post_type_object( get_post_type() );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . $post_type->labels->singular_name . wp_kses_post( $after ) . '</li>';
+			$the_post_type = get_post_type_object( get_post_type() );
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( $the_post_type->labels->singular_name ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_attachment() ) {
 			echo wp_kses_post( $delimiter );
-			$parent = get_post( $post->post_parent );
-			$cat = get_the_category( $parent->ID );
-			$cat = $cat[0];
+			$parent  = get_post( $post->post_parent );
+			$the_cat = get_the_category( $parent->ID );
+			$the_cat = $cat[0];
 			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>';
-			echo get_category_parents( $cat, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' );
+			echo wp_kses_post( get_category_parents( $cat, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' ) );
 			echo '</li>';
-			echo $delimiter;
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a></li>';
-			if ( $show_current === 1 ) {
-				echo ' ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_title() . wp_kses_post( $after ) . '</li>';
-			}
-		} elseif ( is_page() && ! $post->post_parent) {
 			echo wp_kses_post( $delimiter );
-			if ( $show_current === 1 ) {
-				echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_title() . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . esc_url( get_permalink( $parent ) ) . '">' . wp_kses_post( $parent->post_title ) . '</a></li>';
+			if ( 1 === $show_current ) {
+				echo ' ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_title() ) . wp_kses_post( $after ) . '</li>';
+			}
+		} elseif ( is_page() && ! $post->post_parent ) {
+			echo wp_kses_post( $delimiter );
+			if ( 1 === $show_current ) {
+				echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_title() ) . wp_kses_post( $after ) . '</li>';
 			}
 		} elseif ( is_page() && $post->post_parent ) {
 			echo wp_kses_post( $delimiter );
-			$parent_id  = $post->post_parent;
+			$parent_id   = $post->post_parent;
 			$breadcrumbs = array();
 			while ( $parent_id ) {
-				$page = get_page( $parent_id );
-				$breadcrumbs[] = '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a></li>';
-				$parent_id  = $page->post_parent;
+				$the_page      = get_page( $parent_id );
+				$breadcrumbs[] = '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_permalink( $the_page->ID ) . '">' . get_the_title( $the_page->ID ) . '</a></li>';
+				$parent_id     = $the_page->post_parent;
 			}
-			$breadcrumbs = array_reverse( $breadcrumbs );
-			for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
-				echo $breadcrumbs[ $i ];
-				if ($i !== count( $breadcrumbs )-1) {
+			$breadcrumbs     = array_reverse( $breadcrumbs );
+			$num_breadcrumbs = count( $breadcrumbs );
+			for ( $i = 0; $i < $num_breadcrumbs; $i++ ) {
+				echo wp_kses_post( $breadcrumbs[ $i ] );
+				if ( $i !== $num_breadcrumbs -1 )  {
 					echo ' ' . wp_kses_post( $delimiter ) . ' ';
 				}
 			}

@@ -22,7 +22,7 @@ return array(
 						<!-- wp:post-terms {"term":"category"} /--></div>
 						<!-- /wp:group -->
 						
-						<!-- wp:post-excerpt {"moreText":"' . __( 'Read This Post', 'crosswinds-blocks' ) . '"} /--></div>
+						<!-- wp:post-excerpt {"moreText":"' . esc_html__( 'Read This Post', 'crosswinds-blocks' ) . '"} /--></div>
 						<!-- /wp:column --></div>
 						<!-- /wp:columns -->',
 );

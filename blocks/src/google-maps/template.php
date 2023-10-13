@@ -20,10 +20,12 @@ if ( get_option( 'crosswinds-blocks-google-maps-api-key' ) ) {
 	?>
 	<div
 		<?php
-		echo get_block_wrapper_attributes(
-			array(
-				'class' => 'map-block-' . $attributes['mapContainerSize'],
-				'style' => $block_style,
+		echo wp_kses_data(
+			get_block_wrapper_attributes(
+				array(
+					'class' => 'map-block-' . $attributes['mapContainerSize'],
+					'style' => $block_style,
+				)
 			)
 		);
 		?>

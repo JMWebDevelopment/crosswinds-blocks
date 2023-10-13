@@ -6,7 +6,7 @@ return array(
 	'viewportWidth' => 500,
 	'content'       => '<!-- wp:group {"style":{"spacing":{"blockGap":"10px"}},"className":"skill-slider","layout":{"type":"constrained"}} -->
 						<div class="wp-block-group skill-slider"><!-- wp:paragraph {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"medium"} -->
-						<p class="has-medium-font-size" style="font-style:normal;font-weight:600">' . __( 'Skill Title', 'crosswinds-blocks' ) . '</p>
+						<p class="has-medium-font-size" style="font-style:normal;font-weight:600">' . esc_html__( 'Skill Title', 'crosswinds-blocks' ) . '</p>
 						<!-- /wp:paragraph -->
 						
 						<!-- wp:crosswinds-blocks/skills-slider {"sliderWidth":85,"sliderBackgroundColor":"white","sliderBackgroundColorValue":"#ffffff","sliderColor":"primary","sliderColorValue":"#222831"} -->

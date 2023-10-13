@@ -29,7 +29,7 @@ if ( $block_query->have_posts() ) {
 		while ( $block_query->have_posts() ) {
 			$block_query->the_post();
 
-			$block_instance = $block->parsed_block;
+			$block_instance              = $block->parsed_block;
 			$block_instance['blockName'] = 'core/null';
 			?>
 			<div id="related-post-<?php the_ID(); ?>" <?php post_class( 'crosswinds-blocks-related-post' ); ?>>

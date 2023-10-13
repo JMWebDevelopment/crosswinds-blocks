@@ -94,7 +94,7 @@ $plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-b
 
 			<div class="options-section">
 				<h2><?php esc_html_e( 'Suggest a Feature', 'crosswinds-blocks' ); ?></h2>
-				<p><?php esc_html_e( 'Want to see a new feature included in a release of Crosswinds Blocks? Be sure to drop your feature idea off in the GitHub repository using the link below.', 'crosswinds-framework' ); ?></p>
+				<p><?php esc_html_e( 'Want to see a new feature included in a release of Crosswinds Blocks? Be sure to drop your feature idea off in the GitHub repository using the link below.', 'crosswinds-blocks' ); ?></p>
 				<a class="button cf-button-primary" href="https://github.com/JMWebDevelopment/crosswinds-blocks/issues/new"><?php esc_html_e( 'Suggest a Feature', 'crosswinds-blocks' ); ?></a>
 			</div>
 

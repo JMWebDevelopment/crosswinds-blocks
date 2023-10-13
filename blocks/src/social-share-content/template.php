@@ -44,7 +44,7 @@ $icons = array(
 	),
 	'pinterest' => array(
 		'icon' => 'fab fa-pinterest',
-		'url'  => 'https://pinterest.com/pin/create/bookmarklet/?media=' . esc_url( $post_image ) . '&url=' . esc_url( $post_url ) . '&description='  . esc_attr( $post_title ),
+		'url'  => 'https://pinterest.com/pin/create/bookmarklet/?media=' . esc_url( $post_image ) . '&url=' . esc_url( $post_url ) . '&description=' . esc_attr( $post_title ),
 		'slug' => 'pinterest',
 		'name' => 'Pinterest',
 	),
@@ -89,9 +89,9 @@ if ( $attributes['iconsBorderRadius'] ) {
 
 // Add in the classes for the block.
 $wrapper_attributes = get_block_wrapper_attributes(
-	[
+	array(
 		'class' => $attributes['iconsDirection'] . '-icons ' . $attributes['iconsStretch'] . '-icons',
-	]
+	)
 );
 
 ?>

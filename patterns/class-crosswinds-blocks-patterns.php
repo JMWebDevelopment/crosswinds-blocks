@@ -45,21 +45,21 @@ class Crosswinds_Blocks_Patterns {
 
 	/**
 	 * Creates the Crosswinds Blocks pattern category.
-	 * 
+	 *
 	 * @since 1.0
 	 */
 	public function register_block_pattern_categories() {
 		register_block_pattern_category(
 			'crosswinds-blocks',
 			array(
-				'label' => __( 'Crosswinds Blocks', 'crosswinds-blocks' ),
+				'label' => esc_html__( 'Crosswinds Blocks', 'crosswinds-blocks' ),
 			)
 		);
 	}
 
 	/**
 	 * Registers the block patterns.
-	 * 
+	 *
 	 * @since 1.0
 	 */
 	public function register_block_patterns() {

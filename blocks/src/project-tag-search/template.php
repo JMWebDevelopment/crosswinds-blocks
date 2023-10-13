@@ -19,7 +19,7 @@ $project_tags = get_terms(
 $queried_term = get_queried_object();
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<label for="project-tag-search"><?php echo wp_kses_post( $attributes['label'] ); ?></label>
 	<select id="project-tag-search">
 		<option value=""><?php esc_html_e( 'Select a Tag', 'crosswinds-blocks' ); ?></option>

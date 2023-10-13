@@ -11,6 +11,6 @@ return array(
 						
 						<!-- wp:post-date /-->
 						
-						<!-- wp:post-excerpt {"moreText":"' . __( 'Read This Post', 'crosswinds-blocks' ) . '"} /--></div>
+						<!-- wp:post-excerpt {"moreText":"' . esc_html__( 'Read This Post', 'crosswinds-blocks' ) . '"} /--></div>
 						<!-- /wp:group -->',
 );

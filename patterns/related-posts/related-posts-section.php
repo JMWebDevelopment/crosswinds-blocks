@@ -6,7 +6,7 @@ return array(
 	'viewportWidth' => 1200,
 	'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}},"className":"related-posts-section","layout":{"type":"constrained"}} -->
 						<div class="wp-block-group related-posts-section" style="padding-top:2rem;padding-bottom:2rem"><!-- wp:heading {"textAlign":"center"} -->
-						<h2 class="wp-block-heading has-text-align-center">' . __( 'Related Posts', 'crosswinds-blocks' ) . '</h2>
+						<h2 class="wp-block-heading has-text-align-center">' . esc_html__( 'Related Posts', 'crosswinds-blocks' ) . '</h2>
 						<!-- /wp:heading -->
 						
 						<!-- wp:crosswinds-blocks/related-posts {"numColumns":3} -->

@@ -8,7 +8,7 @@ return array(
 						<div class="wp-block-crosswinds-blocks-accordions basic-accordion"><!-- wp:crosswinds-blocks/accordion -->
 						<div class="wp-block-crosswinds-blocks-accordion"><!-- wp:crosswinds-blocks/accordion-title {"accordionPanelIcon":"plus-minus"} -->
 						<div class="accordion-title-container"><div id="-control" class="wp-block-crosswinds-blocks-accordion-title" role="button" aria-controls="" aria-expanded="false"><!-- wp:heading {"level":3,"placeholder":"Add a heading here..."} -->
-						<h3 class="wp-block-heading">' . __( 'This is a heading', 'crosswinds-blocks' ) . '</h3>
+						<h3 class="wp-block-heading">' . esc_html__( 'This is a heading', 'crosswinds-blocks' ) . '</h3>
 						<!-- /wp:heading --><span class="accordion-icon plus-minus"></span></div></div>
 						<!-- /wp:crosswinds-blocks/accordion-title -->
 						
@@ -22,7 +22,7 @@ return array(
 						<!-- wp:crosswinds-blocks/accordion -->
 						<div class="wp-block-crosswinds-blocks-accordion"><!-- wp:crosswinds-blocks/accordion-title {"accordionPanelIcon":"plus-minus"} -->
 						<div class="accordion-title-container"><div id="-control" class="wp-block-crosswinds-blocks-accordion-title" role="button" aria-controls="" aria-expanded="false"><!-- wp:heading {"level":3,"placeholder":"Add a heading here..."} -->
-						<h3 class="wp-block-heading">' . __( 'This is a heading', 'crosswinds-blocks' ) . '</h3>
+						<h3 class="wp-block-heading">' . esc_html__( 'This is a heading', 'crosswinds-blocks' ) . '</h3>
 						<!-- /wp:heading --><span class="accordion-icon plus-minus"></span></div></div>
 						<!-- /wp:crosswinds-blocks/accordion-title -->
 						
@@ -36,7 +36,7 @@ return array(
 						<!-- wp:crosswinds-blocks/accordion -->
 						<div class="wp-block-crosswinds-blocks-accordion"><!-- wp:crosswinds-blocks/accordion-title {"accordionPanelIcon":"plus-minus"} -->
 						<div class="accordion-title-container"><div id="-control" class="wp-block-crosswinds-blocks-accordion-title" role="button" aria-controls="" aria-expanded="false"><!-- wp:heading {"level":3,"placeholder":"Add a heading here..."} -->
-						<h3 class="wp-block-heading">' . __( 'This is a heading', 'crosswinds-blocks' ) . '</h3>
+						<h3 class="wp-block-heading">' . esc_html__( 'This is a heading', 'crosswinds-blocks' ) . '</h3>
 						<!-- /wp:heading --><span class="accordion-icon plus-minus"></span></div></div>
 						<!-- /wp:crosswinds-blocks/accordion-title -->
 						

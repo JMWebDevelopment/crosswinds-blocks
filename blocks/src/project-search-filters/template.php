@@ -18,7 +18,7 @@ $project_tags = get_terms(
 );
 ?>
 
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<form id="searchform" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 		<input type="hidden" name="post_type" value="project" />
 		<?php echo do_blocks( $content ); ?>

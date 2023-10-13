@@ -26,7 +26,7 @@ if ( $project_cats ) {
 	}
 }
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
+<p <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<strong><?php esc_html_e( 'Client:', 'crosswinds-blocks' ); ?></strong> <?php echo wp_kses_post( get_post_meta( get_the_ID(), 'project_client', true ) ); ?><br />
 	<strong><?php esc_html_e( 'Date:', 'crosswinds-blocks' ); ?></strong> <?php echo wp_kses_post( date_format( new DateTime( iso8601_to_datetime( get_post_meta( get_the_ID(), 'project_date', true ) ) ), get_option( 'date_format' ) ) ); ?><br />
 	<strong><?php esc_html_e( 'Category:', 'crosswinds-blocks' ); ?></strong> <?php echo wp_kses_post( $category_string ); ?>
