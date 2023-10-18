@@ -148,6 +148,19 @@ $custom_taxonomies = array(
 	),
 );
 $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom_taxonomies );
+
+$allowed_tags = array(
+	'svg' => array(
+		'xmlns'   => array(),
+		'width'   => array(),
+		'height'  => array(),
+		'viewbox' => array(),
+	),
+	'path' => array(
+		'd' => array(),
+		'fill' => array(),
+	),
+);
 ?>
 
 <form id="form" method="POST" action="options.php">
@@ -179,7 +192,7 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 				?>
 				<div class="settings-grid-item">
 					<div class="icon">
-						<?php echo wp_kses_post( $block['icon'] ); ?>
+						<?php echo wp_kses( $block['icon'], $allowed_tags ); ?>
 					</div>
 
 					<div class="title">
@@ -258,7 +271,7 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 				?>
 				<div class="settings-grid-item">
 					<div class="icon">
-						<?php echo wp_kses_post( $cpt['icon'] ); ?>
+						<?php echo wp_kses( $cpt['icon'], $allowed_tags ); ?>
 					</div>
 
 					<div class="title">
@@ -337,7 +350,7 @@ $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom
 				?>
 				<div class="settings-grid-item">
 					<div class="icon">
-						<?php echo wp_kses_post( $custom_taxonomy['icon'] ); ?>
+						<?php echo wp_kses( $custom_taxonomy['icon'], $allowed_tags ); ?>
 					</div>
 
 					<div class="title">

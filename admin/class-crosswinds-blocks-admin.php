@@ -49,7 +49,7 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0.0
 	 */
 	public function enqueue_styles() {
-		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) && ! $this->if_crosswinds_framework_theme_active() ) {
+		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) ) {
 			wp_enqueue_style(
 				'crosswinds-blocks-blocks-admin-page',
 				plugin_dir_url( __FILE__ ) . 'css/blocks-admin-page.min.css',
@@ -66,7 +66,7 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0.0
 	 */
 	public function enqueue_scripts() {
-		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) && ! $this->if_crosswinds_framework_theme_active() ) {
+		if ( $this->is_crosswinds_page( 'crosswinds-framework-block-options' ) ) {
 			wp_enqueue_script(
 				'crosswinds-blocks-admin',
 				plugin_dir_url( __FILE__ ) . 'js/admin-page.min.js',
@@ -138,17 +138,15 @@ class Crosswinds_Blocks_Admin {
 	 * @since 1.0
 	 */
 	public function add_cb_admin_pages() {
-		if ( ! $this->if_crosswinds_framework_theme_active() ) {
-			add_menu_page(
-				esc_html__( 'Crosswinds Framework & Block Settings', 'crosswinds-blocks' ),
-				esc_html__( 'Crosswinds', 'crosswinds-blocks' ),
-				'manage_options',
-				'crosswinds-framework-block-options',
-				array( $this, 'create_main_admin_page' ),
-				'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PGcgaWQ9IkxheWVyXzEtMiI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJtNDgsMHY5Nmg4MHYtNDhsNDgsMTAsMzM2LDcwdjE2MGwtMzM2LDcwLTQ4LDEwdi00OEg0OHYxOTJIMFYwaDQ4Wm0wLDE0NHYxMjhoODB2LTEyOEg0OFptMTI4LTM3djIwMmw2NC0xMy4zVjEyMC40bC02NC0xMy40Wm0xMTIsMjMuM3YxNTUuM2w4MC0xNi42di0xMjJsLTgwLTE2LjdabTEyOCwyNi43djEwMmw0OC0xMHYtODJsLTQ4LTEwWiIvPjwvZz48L3N2Zz4=',
-				60
-			);
-		}
+		add_menu_page(
+			esc_html__( 'Crosswinds Framework & Block Settings', 'crosswinds-blocks' ),
+			esc_html__( 'Crosswinds', 'crosswinds-blocks' ),
+			'manage_options',
+			'crosswinds-framework-block-options',
+			array( $this, 'create_main_admin_page' ),
+			'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PGcgaWQ9IkxheWVyXzEtMiI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJtNDgsMHY5Nmg4MHYtNDhsNDgsMTAsMzM2LDcwdjE2MGwtMzM2LDcwLTQ4LDEwdi00OEg0OHYxOTJIMFYwaDQ4Wm0wLDE0NHYxMjhoODB2LTEyOEg0OFptMTI4LTM3djIwMmw2NC0xMy4zVjEyMC40bC02NC0xMy40Wm0xMTIsMjMuM3YxNTUuM2w4MC0xNi42di0xMjJsLTgwLTE2LjdabTEyOCwyNi43djEwMmw0OC0xMHYtODJsLTQ4LTEwWiIvPjwvZz48L3N2Zz4=',
+			60
+		);
 	}
 
 	/**

@@ -12,18 +12,29 @@
  * @subpackage Crosswinds_Blocks/admin/partials
  */
 
-$current_theme_name = '';
-$current_theme      = wp_get_theme();
-if ( $current_theme->exists() && $current_theme->parent() ) {
-	$parent_theme = $current_theme->parent();
+namespace Crosswinds_Blocks;
 
-	if ( $parent_theme->exists() ) {
-		$current_theme_name = $parent_theme->get( 'Name' );
+require_once plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . 'includes/class-crosswinds-blocks-screen.php';
+
+$settings = new Crosswinds_Blocks_Screen();
+
+$current_theme = wp_get_theme();
+if ( $settings->is_crosswinds_framework_active() ) {
+	if ( $settings->is_crosswinds_framework_child_theme_active() ) {
+		$theme_name              = $current_theme->get( 'Name' );
+		$theme_version           = $current_theme->get( 'Version' );
+		$parent_theme            = $current_theme->parent();
+		$framework_theme_version = $parent_theme->get( 'Version' );
+	} else {
+		$framework_theme_version = $current_theme->get( 'Version' );
 	}
-} elseif ( $current_theme->exists() ) {
-	$current_theme_name = $current_theme->get( 'Name' );
+
+	$required_plugins  = crosswinds_framework_get_required_plugins();
+	$suggested_plugins = crosswinds_framework_get_suggested_plugins();
 }
-$plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-blocks.php' );
+
+$added_plugins = array();
+$plugin_info   = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-blocks.php' );
 ?>
 
 <div class="options-wrap">
@@ -31,8 +42,26 @@ $plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-b
 	<div class="options-header">
 		<img src="<?php echo esc_url( plugin_dir_url( dirname( __FILE__ ) ) . 'images/cf-wordmark.png' ); ?>" alt="Crosswinds Blocks Logo" />
 		<div class="header-section">
-			<h1 class="screen-reader-text"><?php esc_html_e( 'Crosswinds Blocks', 'crosswinds-blocks' ); ?></h1>
+			<h1 class="screen-reader-text"><?php esc_html_e( 'Crosswinds Framework', 'crosswinds-blocks' ); ?></h1>
 		</div>
+
+		<?php
+		if ( $settings->is_crosswinds_framework_active() ) {
+			if ( $settings->is_crosswinds_framework_child_theme_active() ) {
+				?>
+				<div class="header-section">
+					<p><?php echo esc_html( $theme_name ); ?> <?php esc_html_e( 'Version', 'crosswinds-blocks' ); ?>: <?php echo esc_html( $theme_version ); ?></p>
+				</div>
+				<?php
+			}
+			?>
+
+			<div class="header-section">
+				<p><?php esc_html_e( 'Framework Version', 'crosswinds-blocks' ); ?>: <?php echo esc_html( $framework_theme_version ); ?></p>
+			</div>
+			<?php
+		}
+		?>
 
 		<div class="header-section">
 			<p><?php esc_html_e( 'Blocks Version', 'crosswinds-blocks' ); ?>: <?php echo esc_html( $plugin_info['Version'] ); ?></p>
@@ -43,10 +72,22 @@ $plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-b
 	<div id="options-top" class="options-section">
 
 		<div class="options-top-left">
-			<h2><?php esc_html_e( 'Welcome to Crosswinds Blocks!', 'crosswinds-blocks' ); ?></h2>
-			<p><?php esc_html_e( 'Thank you for choosing to use the Crosswinds Blocks plugin to power your website! Below you\'ll find links to documentation to learn how to harness the power of the blocks you\'ve now added to your website, as well as view all of the amazing Crosswinds Framework themes that can help you build the website you\'ve always wanted to build.', 'crosswinds-blocks' ); ?></p>
+			<h2><?php esc_html_e( 'Welcome to Crosswinds Framework!', 'crosswinds-blocks' ); ?></h2>
+			<?php
+			if ( $settings->is_crosswinds_framework_active() ) {
+				?>
+				<p><?php do_action( 'crosswinds_framework_admin_intro' ); ?></p>
+				<?php
+			} else {
+				?>
+				<p><?php esc_html_e( 'Thank you for choosing to use the Crosswinds Blocks plugin to power your website! Below you\'ll find links to documentation to learn how to harness the power of the blocks you\'ve now added to your website, as well as view all of the amazing Crosswinds Framework themes that can help you build the website you\'ve always wanted to build.', 'crosswinds-blocks' ); ?></p>
+				<?php
+			}
+			?>
+
 			<div class="buttons">
-				<a class="button cf-button-secondary" href="https://github.com/JMWebDevelopment/crosswinds-blocks/wiki"><?php esc_html_e( 'Check out the Documentation', 'crosswinds-blocks' ); ?></a>
+				<a class="button cf-button-primary" href="<?php echo esc_url( get_admin_url() ); ?>/site-editor.php"><?php esc_html_e( 'Start Editing', 'crosswinds-blocks' ); ?></a>
+				<a class="button cf-button-secondary" href="https://crosswindsframework.com/docs/"><?php esc_html_e( 'Check out the Documentation', 'crosswinds-blocks' ); ?></a>
 			</div>
 		</div>
 
@@ -64,45 +105,203 @@ $plugin_info = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-b
 			<div class="options-section">
 				<h2><?php esc_html_e( 'Crosswinds Blocks', 'crosswinds-blocks' ); ?></h2>
 				<?php
-				if ( is_plugin_active( 'crosswinds-blocks/crosswinds-blocks.php' ) ) {
-					do_action( 'crosswinds_framework_blocks_settings' );
-				} else {
-					?>
-					<?php esc_html_e( 'Want to take your website to the next level now that you\'re using the Crosswinds Framework? Check out the Crosswinds Blocks plugin! This plugin will add in an accordion block, tabs block, post navigation block, related posts block, social sharing block and more to your website. It\'s the perfect way to customize your website in a full site editor world!', 'crosswinds-blocks' ); ?>
-					<?php
-				}
+				do_action( 'crosswinds_framework_blocks_settings' );
 				?>
 			</div>
 
-			<?php do_action( 'crosswinds_framework_theme_settings' ); ?>
-
-			<div class="options-section">
-				<h2><?php esc_html_e( 'Check Out Crosswinds Framework Templates', 'crosswinds-blocks' ); ?></h2>
-				<p><?php esc_html_e( 'Want to get the most out of Crosswinds Blocks? Checkout the Crosswinds Framework themes! From a portfolio to an online store to a newspaper website and even a blank canvas to create anything you want, the Crosswinds Framework will help you create a great website.', 'crosswinds-blocks' ); ?></p>
-				<a class="button cf-button-primary" href="https://crosswindsframework.com"><?php esc_html_e( 'Download Crosswinds Framework', 'crosswinds-blocks' ); ?></a>
-			</div>
+			<?php
+			if ( $settings->is_crosswinds_framework_active() ) {
+				do_action( 'crosswinds_framework_theme_settings' );
+			} else {
+				?>
+				<div class="options-section">
+					<h2><?php esc_html_e( 'Check Out Crosswinds Framework Templates', 'crosswinds-blocks' ); ?></h2>
+					<p><?php esc_html_e( 'Want to get the most out of Crosswinds Blocks? Checkout the Crosswinds Framework themes! From a portfolio to an online store to a newspaper website and even a blank canvas to create anything you want, the Crosswinds Framework will help you create a great website.', 'crosswinds-blocks' ); ?></p>
+					<a class="button cf-button-primary" href="https://crosswindsframework.com"><?php esc_html_e( 'Download Crosswinds Framework', 'crosswinds-blocks' ); ?></a>
+				</div>
+				<?php
+			}
+			?>
 
 		</div>
 
 		<div class="options-sidebar">
 
-			<div class="options-section">
-				<h2><?php esc_html_e( 'Report an Issue', 'crosswinds-blocks' ); ?></h2>
-				<p><?php esc_html_e( 'If you come across an issue with Crosswinds Blocks, please report the issue in the GitHub repository using the link below.', 'crosswinds-blocks' ); ?></p>
-				<a class="button cf-button-primary" href="https://github.com/JMWebDevelopment/crosswinds-blocks/issues/new"><?php esc_html_e( 'Report an Issue', 'crosswinds-blocks' ); ?></a>
+			<?php
+			if ( $settings->is_crosswinds_framework_active() ) {
+				?>
+				<div class="options-section">
+					<?php
+					if ( $required_plugins ) {
+						?>
+						<h2><?php esc_html_e( 'Required Plugins', 'crosswinds-blocks' ); ?></h2>
+						<div class="plugins-section">
+						<?php
+						foreach ( $required_plugins as $key => $value ) {
+							if ( ! in_array( $value['slug'], $added_plugins ) ) {
+								$added_plugins[] = $value['slug']; 
+								if ( ! file_exists( WP_PLUGIN_DIR . '/' . $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
+									if ( 'external' === $value['location'] ) {
+										$link_text = '<p><a href="' . esc_url( $value['link'] ) . '" target="_blank">' . esc_html__( 'Learn More', 'crosswinds-blocks' ) . '</a></p>';
+									} else {
+										$nonce_url = wp_nonce_url(
+											add_query_arg(
+												array(
+													'page'          => 'tgmpa-install-plugins',
+													'plugin'        => urlencode( $value['slug'] ),
+													'tgmpa-install' => 'install-plugin',
+												),
+												get_admin_url( null, '/themes.php' )
+											),
+											'tgmpa-install',
+											'tgmpa-nonce'
+										);
+										$link_text = '<p><a href="' . esc_url( $nonce_url ) . '">' . esc_html__( 'Install', 'crosswinds-blocks' ) . '</a></p>';
+									}
+								} elseif ( ! is_plugin_active( $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
+									$nonce_url = wp_nonce_url(
+										add_query_arg(
+											array(
+												'page'           => 'tgmpa-install-plugins',
+												'plugin'         => urlencode( $value['slug'] ),
+												'tgmpa-activate' => 'activate-plugin',
+											),
+											get_admin_url( null, '/themes.php' )
+										),
+										'tgmpa-activate',
+										'tgmpa-nonce'
+									);
+									$link_text = '<p><a href="' . esc_url( $nonce_url ) . '">' . esc_html__( 'Activate', 'crosswinds-blocks' ) . '</a></p>';
+								} else {
+									$link_text = '<p>' . esc_html__( 'Installed', 'crosswinds-blocks' ) . '</p>';
+								}
+								?>
+								<div class="plugin-section">
+									<div class="logo">
+										<img src="<?php echo esc_html( $value['logo'] ); ?>" alt="<?php echo esc_html( $value['name'] ); ?> logo" />
+									</div>
+
+									<div class="plugin-info">
+										<p class="plugin-title"><strong><?php echo esc_html( $value['name'] ); ?></strong><br /><a href="<?php echo esc_html( $value['link'] ); ?>" target="_blank"><?php esc_html_e( 'Learn More', 'crosswinds-blocks' ); ?></a></p>
+									</div>
+
+									<div class="plugin-link">
+										<?php echo wp_kses_post( $link_text ); ?>
+									</div>
+								</div>
+								<?php
+							}
+						}
+						?>
+						</div>
+						<?php
+					}
+					?>
+
+					<?php
+					if ( $suggested_plugins ) {
+						?>
+						<h2><?php esc_html_e( 'Suggested Plugins', 'crosswinds-blocks' ); ?></h2>
+						<div class="plugins-section">
+						<?php
+						foreach ( $suggested_plugins as $key => $value ) {
+							if ( ! in_array( $value['slug'], $added_plugins ) ) {
+								$added_plugins[] = $value['slug'];
+								if ( ! file_exists( WP_PLUGIN_DIR . '/' . $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
+									if ( 'external' === $value['location'] ) {
+										$link_text = '<p><a href="' . esc_url( $value['link'] ) . '" target="_blank">' . esc_html__( 'Learn More', 'crosswinds-blocks' ) . '</a></p>';
+									} else {
+										$nonce_url = wp_nonce_url(
+											add_query_arg(
+												array(
+													'page'          => 'tgmpa-install-plugins',
+													'plugin'        => urlencode( $value['slug'] ),
+													'tgmpa-install' => 'install-plugin',
+												),
+												get_admin_url( null, '/themes.php' )
+											),
+											'tgmpa-install',
+											'tgmpa-nonce'
+										);
+										$link_text = '<p><a href="' . esc_url( $nonce_url ) . '">' . esc_html__( 'Install', 'crosswinds-blocks' ) . '</a></p>';
+									}
+								} elseif ( ! is_plugin_active( $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
+									$nonce_url = wp_nonce_url(
+										add_query_arg(
+											array(
+												'page'           => 'tgmpa-install-plugins',
+												'plugin'         => urlencode( $value['slug'] ),
+												'tgmpa-activate' => 'activate-plugin',
+											),
+											get_admin_url( null, '/themes.php' )
+										),
+										'tgmpa-activate',
+										'tgmpa-nonce'
+									);
+									$link_text = '<p><a href="' . esc_url( $nonce_url ) . '">' . esc_html__( 'Activate', 'crosswinds-blocks' ) . '</a></p>';
+								} else {
+									$link_text = '<p>' . esc_html__( 'Installed', 'crosswinds-blocks' ) . '</p>';
+								}
+								?>
+								<div class="plugin-section">
+									<div class="logo">
+										<img src="<?php echo esc_html( $value['logo'] ); ?>" alt="<?php echo esc_html( $value['name'] ); ?> logo" />
+									</div>
+
+									<div class="plugin-info">
+										<p class="plugin-title"><strong><?php echo esc_html( $value['name'] ); ?></strong><br /><a href="<?php echo esc_html( $value['link'] ); ?>" target="_blank"><?php esc_html_e( 'Learn More', 'crosswinds-blocks' ); ?></a></p>
+									</div>
+
+									<div class="plugin-link">
+										<?php echo wp_kses_post( $link_text ); ?>
+									</div>
+								</div>
+								<?php
+							}
+						}
+						?>
+						</div>
+						<?php
+					}
+					?>
+				</div>
+				<?php
+			}
+			?>
+
+			<?php
+			if ( $settings->is_crosswinds_framework_active() ) {
+				do_action( 'crosswinds_framework_admin_report_issue_section' );
+
+				do_action( 'crosswinds_framework_admin_feature_request_section' );
+
+				do_action( 'crosswinds_framework_admin_review_section' );
+
+				do_action( 'crosswinds_framework_admin_documentation_section' );
+			} else {
+				?>
+
+				<div class="options-section">
+					<h2><?php esc_html_e( 'Report an Issue', 'crosswinds-blocks' ); ?></h2>
+					<p><?php esc_html_e( 'If you come across an issue with Crosswinds Blocks, please report the issue in the GitHub repository using the link below.', 'crosswinds-blocks' ); ?></p>
+					<a class="button cf-button-primary" href="https://crosswindsframework.com/report-an-issue/"><?php esc_html_e( 'Report an Issue', 'crosswinds-blocks' ); ?></a>
+				</div>
+
+				<div class="options-section">
+					<h2><?php esc_html_e( 'Suggest a Feature', 'crosswinds-blocks' ); ?></h2>
+					<p><?php esc_html_e( 'Want to see a new feature included in a release of Crosswinds Blocks? Be sure to drop your feature idea off in the GitHub repository using the link below.', 'crosswinds-blocks' ); ?></p>
+					<a class="button cf-button-primary" href="https://crosswindsframework.com/feature-request/"><?php esc_html_e( 'Suggest a Feature', 'crosswinds-blocks' ); ?></a>
+				</div>
+
+				<div class="options-section">
+					<h2><?php esc_html_e( 'View Documentation', 'crosswinds-blocks' ); ?></h2>
+					<p><?php esc_html_e( 'Learn how you can get started using the Crosswinds Framework for your website by visiting the documentation at the link below.', 'crosswinds-blocks' ); ?></p>
+					<a class="button cf-button-primary" href="https://crosswindsframework.com/docs/"><?php esc_html_e( 'View Documentation', 'crosswinds-blocks' ); ?></a>
 			</div>
 
-			<div class="options-section">
-				<h2><?php esc_html_e( 'Suggest a Feature', 'crosswinds-blocks' ); ?></h2>
-				<p><?php esc_html_e( 'Want to see a new feature included in a release of Crosswinds Blocks? Be sure to drop your feature idea off in the GitHub repository using the link below.', 'crosswinds-blocks' ); ?></p>
-				<a class="button cf-button-primary" href="https://github.com/JMWebDevelopment/crosswinds-blocks/issues/new"><?php esc_html_e( 'Suggest a Feature', 'crosswinds-blocks' ); ?></a>
-			</div>
-
-			<div class="options-section">
-				<h2><?php esc_html_e( 'View Documentation', 'crosswinds-blocks' ); ?></h2>
-				<p><?php esc_html_e( 'Learn how you can get started using the Crosswinds Framework for your website by visiting the documentation at the link below.', 'crosswinds-blocks' ); ?></p>
-				<a class="button cf-button-primary" href="https://github.com/JMWebDevelopment/crosswinds-blocks/wiki"><?php esc_html_e( 'View Documentation', 'crosswinds-blocks' ); ?></a>
-			</div>
+				<?php
+			}
+			?>
 
 		</div>
 
