@@ -22,6 +22,9 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+define( 'CROSSWINDS_BLOCKS_VERSION', '1.0.0' );
+define( 'CROSSWINDS_BLOCKS_PLUGIN_PATH', plugin_dir_path( __DIR__ ) );
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-crosswinds-blocks-activator.php

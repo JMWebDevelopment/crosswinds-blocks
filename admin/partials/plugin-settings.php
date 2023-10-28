@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/admin/partials
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $blocks = array(
 	'accordions' => array(
 		'slug'               => 'accordions',

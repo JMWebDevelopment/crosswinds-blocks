@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/next-post
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $next_post = get_next_post( get_the_ID() );
 
 if ( $next_post ) {
@@ -34,15 +39,17 @@ if ( $next_post ) {
 				$block_instance              = $block->parsed_block;
 				$block_instance['blockName'] = 'core/null';
 
-				echo (
-					new WP_Block(
-						$block_instance,
-						array(
-							'postId'   => get_the_ID(),
-							'postType' => get_post_type(),
+				echo wp_kses_post(
+					(
+						new WP_Block(
+							$block_instance,
+							array(
+								'postId'   => get_the_ID(),
+								'postType' => get_post_type(),
+							)
 						)
-					)
-				)->render( array( 'dynamic' => false ) );
+					)->render( array( 'dynamic' => false ) )
+				);
 			}
 			?>
 		</div>

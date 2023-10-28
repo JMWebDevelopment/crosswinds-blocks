@@ -1,4 +1,8 @@
 <?php
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 return array(
 	'title'         => esc_html__( 'Single Post - Horizontal', 'crosswinds-blocks' ),

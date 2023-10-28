@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/download-search
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 ?>
 <div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<label for="search-term-field"><?php echo wp_kses_post( $attributes['label'] ); ?></label><br />

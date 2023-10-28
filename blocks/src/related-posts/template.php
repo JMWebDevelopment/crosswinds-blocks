@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/related-posts
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $block_query_args = array(
 	'posts_per_page'      => $attributes['numPosts'],
 	'ignore_sticky_posts' => 1,
@@ -34,15 +39,17 @@ if ( $block_query->have_posts() ) {
 			?>
 			<div id="related-post-<?php the_ID(); ?>" <?php post_class( 'crosswinds-blocks-related-post' ); ?>>
 				<?php
-				echo (
-					new WP_Block(
-						$block_instance,
-						array(
-							'postType' => get_post_type(),
-							'postId'   => get_the_ID(),
+				echo wp_kses_post(
+					(
+						new WP_Block(
+							$block_instance,
+							array(
+								'postType' => get_post_type(),
+								'postId'   => get_the_ID(),
+							)
 						)
-					)
-				)->render( array( 'dynamic' => false ) );
+					)->render( array( 'dynamic' => false ) )
+				);
 				?>
 			</div>
 			<?php

@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/project-information
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $project_cats    = get_the_terms( get_the_ID(), 'project_category' );
 $category_string = '';
 if ( $project_cats ) {

@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/project-search-filters-buttons
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 ?>
 <div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<input type="submit" value="<?php echo wp_kses_post( $attributes['searchLabel'] ); ?>" class="has-<?php echo esc_attr( $attributes['submitBackgroundColor'] ); ?>-background-color has-background" />

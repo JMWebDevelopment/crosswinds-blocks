@@ -14,6 +14,11 @@
 
 namespace Crosswinds_Blocks;
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 require_once plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . 'includes/class-crosswinds-blocks-screen.php';
 
 $settings = new Crosswinds_Blocks_Screen();
@@ -34,7 +39,6 @@ if ( $settings->is_crosswinds_framework_active() ) {
 }
 
 $added_plugins = array();
-$plugin_info   = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds-blocks.php' );
 ?>
 
 <div class="options-wrap">
@@ -64,7 +68,7 @@ $plugin_info   = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds
 		?>
 
 		<div class="header-section">
-			<p><?php esc_html_e( 'Blocks Version', 'crosswinds-blocks' ); ?>: <?php echo esc_html( $plugin_info['Version'] ); ?></p>
+			<p><?php esc_html_e( 'Blocks Version', 'crosswinds-blocks' ); ?>: <?php echo esc_html( CROSSWINDS_BLOCKS_VERSION ); ?></p>
 		</div>
 
 	</div>
@@ -139,8 +143,8 @@ $plugin_info   = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds
 						<?php
 						foreach ( $required_plugins as $key => $value ) {
 							if ( ! in_array( $value['slug'], $added_plugins ) ) {
-								$added_plugins[] = $value['slug']; 
-								if ( ! file_exists( WP_PLUGIN_DIR . '/' . $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
+								$added_plugins[] = $value['slug'];
+								if ( ! file_exists( CROSSWINDS_BLOCKS_PLUGIN_PATH . '/' . $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
 									if ( 'external' === $value['location'] ) {
 										$link_text = '<p><a href="' . esc_url( $value['link'] ) . '" target="_blank">' . esc_html__( 'Learn More', 'crosswinds-blocks' ) . '</a></p>';
 									} else {
@@ -207,7 +211,7 @@ $plugin_info   = get_plugin_data( WP_PLUGIN_DIR . '/crosswinds-blocks/crosswinds
 						foreach ( $suggested_plugins as $key => $value ) {
 							if ( ! in_array( $value['slug'], $added_plugins ) ) {
 								$added_plugins[] = $value['slug'];
-								if ( ! file_exists( WP_PLUGIN_DIR . '/' . $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
+								if ( ! file_exists( CROSSWINDS_BLOCKS_PLUGIN_PATH . '/' . $value['slug'] . '/' . $value['slug'] . '.php' ) ) {
 									if ( 'external' === $value['location'] ) {
 										$link_text = '<p><a href="' . esc_url( $value['link'] ) . '" target="_blank">' . esc_html__( 'Learn More', 'crosswinds-blocks' ) . '</a></p>';
 									} else {
