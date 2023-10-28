@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/social-share-content
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 // Get post title.
 $post_title = get_the_title( get_the_ID() );
 $post_url   = get_the_permalink( get_the_ID() );

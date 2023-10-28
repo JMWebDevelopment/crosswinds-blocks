@@ -69,6 +69,9 @@ Creates categories for portfolio projects, similar to posts.
 ### Portfolio Tag
 Creates tags for portfolio projects, similar to posts.
 
+## Disclosures
+The Google Maps block uses the Google Maps API when it generates the map on page load. You can find out more about the Maps API service [here](https://developers.google.com/maps). You can view Google Maps' Terms of Service [here](https://cloud.google.com/maps-platform/terms).
+
 ## Use the Crosswinds Framework
 Want to get the most out of Crosswinds Blocks? Checkout the [Crosswinds Framework theme](https://github.com/JMWebDevelopment/crosswinds-framework)! From a portfolio to an online store to a newspaper website and even a blank canvas to create anything you want, the Crosswinds Framework will help you create a great website.
 

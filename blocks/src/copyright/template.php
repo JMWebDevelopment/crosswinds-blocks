@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/copyright
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $current_current_year = gmdate( 'Y' );
 if ( 'icon-text' === $attributes['copyrightType'] ) {
 	$inner_html = '&copy; ' . $attributes['copyrightText'] . ' ' . $current_year;

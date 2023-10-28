@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/google-maps
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 if ( get_option( 'crosswinds-blocks-google-maps-api-key' ) ) {
 	if ( 'set-height' === $attributes['mapContainerSize'] ) {
 		$block_style = 'height: ' . $attributes['mapHeight'] . 'px';

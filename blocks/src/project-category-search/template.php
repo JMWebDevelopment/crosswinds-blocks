@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/project-category-search
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $project_categories = get_terms(
 	array(
 		'taxonomy' => 'project_category',

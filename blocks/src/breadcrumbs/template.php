@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/breadcrumbs
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $show_on_homepage = 0;
 $show_current = 1;
 $delimiter = '<li><span class="far fa-' . $attributes['separatorIcon'] . '"></span></li>';
@@ -59,10 +64,10 @@ $home_url = get_bloginfo( 'url' );
 				echo wp_kses_post( get_category_parents( $this_cat->parent, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' ) );
 				echo '</li>';
 			}
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . single_cat_title( '', false ) . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( single_cat_title( '', false ) ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_search() ) {
 			echo wp_kses_post( $delimiter );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . 'Search results for "' . get_search_query() . '"' . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . 'Search results for "' . wp_kses_post( get_search_query() ) . '"' . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_day() ) {
 			echo wp_kses_post( $delimiter );
 			echo '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . wp_kses_post( get_year_link( get_the_time( 'Y' ) ) ) . '">' . wp_kses_post( get_the_time( 'Y' ) ) . '</a></li> ' . wp_kses_post( $delimiter ) . ' ';
@@ -86,8 +91,8 @@ $home_url = get_bloginfo( 'url' );
 				}
 			} else {
 				$the_cat = get_the_category();
-				$the_cat = $cat[0];
-				$cats    = get_category_parents( $cat, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' );
+				$the_cat = $the_cat[0];
+				$cats    = get_category_parents( $the_cat, true, '</li> ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' );
 				if ( 0 === $show_current ) {
 					$cats = preg_replace( "#^(.+)\s$delimiter\s$#", '$1', $cats );
 				}
@@ -126,7 +131,7 @@ $home_url = get_bloginfo( 'url' );
 			$breadcrumbs = array();
 			while ( $parent_id ) {
 				$the_page      = get_page( $parent_id );
-				$breadcrumbs[] = '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . get_permalink( $the_page->ID ) . '">' . get_the_title( $the_page->ID ) . '</a></li>';
+				$breadcrumbs[] = '<li ' . wp_kses_post( $list_item_attributes ) . '><a href="' . esc_url( get_permalink( $the_page->ID ) ) . '">' . wp_kses_post( get_the_title( $the_page->ID ) ) . '</a></li>';
 				$parent_id     = $the_page->post_parent;
 			}
 			$breadcrumbs     = array_reverse( $breadcrumbs );
@@ -138,16 +143,16 @@ $home_url = get_bloginfo( 'url' );
 				}
 			}
 			if ( $show_current === 1 ) {
-				echo ' ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . get_the_title() . wp_kses_post( $after ) . '</li>';
+				echo ' ' . wp_kses_post( $delimiter ) . ' <li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( get_the_title() ) . wp_kses_post( $after ) . '</li>';
 			}
 		} elseif ( is_tag() ) {
 			echo wp_kses_post( $delimiter );
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . single_tag_title('', false) . '"' . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . wp_kses_post( single_tag_title( '', false ) ) . '"' . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_author() ) {
 			echo wp_kses_post( $delimiter );
 			global $author;
 			$userdata = get_userdata( $author) ;
-			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html__( 'Articles posted by ', 'crosswinds-blocks' ) . $userdata->display_name . wp_kses_post( $after ) . '</li>';
+			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html__( 'Articles posted by ', 'crosswinds-blocks' ) . wp_kses_post( $userdata->display_name ) . wp_kses_post( $after ) . '</li>';
 		} elseif ( is_404() ) {
 			echo wp_kses_post( $delimiter );
 			echo '<li ' . wp_kses_post( $list_item_attributes ) . '>' . wp_kses_post( $before ) . esc_html__( 'Error 404', 'crosswinds-blocks' ) . wp_kses_post( $after ) . '</li>';
@@ -156,7 +161,7 @@ $home_url = get_bloginfo( 'url' );
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
 				echo ' (';
 			}
-			echo esc_html__( 'Page', 'crosswinds-blocks' ) . ' ' . get_query_var('paged');
+			echo esc_html__( 'Page', 'crosswinds-blocks' ) . ' ' . wp_kses_post( get_query_var('paged') );
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
 				echo ')';
 			}

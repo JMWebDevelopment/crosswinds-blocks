@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/project-client-search
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 global $wpdb;
 
 $transient_key = 'get_project_type_client';

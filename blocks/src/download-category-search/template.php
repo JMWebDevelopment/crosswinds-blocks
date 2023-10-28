@@ -11,6 +11,11 @@
  * @subpackage Crosswinds_Blocks/blocks/download-category-search
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 $download_categories = get_terms(
 	array(
 		'taxonomy' => 'download_category',

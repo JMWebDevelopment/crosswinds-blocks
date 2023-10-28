@@ -25,6 +25,11 @@ if ( $attributes['cbUseFlex'] && $attributes['cbFillHeight'] ) {
 	$flex_classes = '';
 }
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 if ( $block_query->have_posts() ) {
 	$classnames         = get_post_class( array( $flex_classes ) );
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => implode( ' ', $classnames ) ) );
@@ -37,15 +42,17 @@ if ( $block_query->have_posts() ) {
 			$block_instance              = $block->parsed_block;
 			$block_instance['blockName'] = 'core/null';
 
-			echo (
-				new WP_Block(
-					$block_instance,
-					array(
-						'postType' => get_post_type(),
-						'postId'   => get_the_ID(),
+			echo wp_kses_post(
+				(
+					new WP_Block(
+						$block_instance,
+						array(
+							'postType' => get_post_type(),
+							'postId'   => get_the_ID(),
+						)
 					)
-				)
-			)->render( array( 'dynamic' => false ) );
+				)->render( array( 'dynamic' => false ) )
+			);
 		}
 		?>
 	</div>

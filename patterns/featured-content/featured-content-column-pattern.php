@@ -9,6 +9,11 @@
  * @package Featured Content Block
  */
 
+// If this file is called directly, then about execution.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 return array(
 	'title'         => esc_html__( 'Featured Content - Column', 'crosswinds-blocks' ),
 	'viewportWidth' => 370,
