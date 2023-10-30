@@ -12,7 +12,7 @@ Take your website to the next level with the Crosswinds Blocks plugin!
 
 == Description ==
 
-The Crosswinds Blocks plugin adds in even more functionality to help you take your website to the next level.
+The [Crosswinds Blocks plugin](https://crosswindsframework.com/downloads/crosswinds-blocks/) adds in even more functionality to help you take your website to the next level.
 
 The core of the plugin is the block library that adds in simple but powerful blocks that you can use in your posts and pages. There are blocks that add in post navigation and related posts sections for your blog pages. You can also add in social sharing sections so people can share your content with their friends and followers.
 
@@ -103,6 +103,11 @@ Creates categories for portfolio projects, similar to posts.
 
 **Portfolio Tag**
 Creates tags for portfolio projects, similar to posts.
+
+= Check Out the Crosswinds Framework Themes =
+Want to get the most out of Crosswinds Blocks? Checkout the Crosswinds Framework themes! From a portfolio to an online store to a newspaper website and even a blank canvas to create anything you want, the Crosswinds Framework will help you create a great website.
+
+[Learn More About the Crosswinds Framework](https://crosswindsframework.com/themes/)
 
 = Disclosures =
 The Google Maps block uses the Google Maps API when it generates the map on page load. You can [find out more about the Maps API service here](https://developers.google.com/maps). You can [view Google Maps' Terms of Service here](https://cloud.google.com/maps-platform/terms).
