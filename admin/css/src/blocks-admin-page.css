@@ -23,39 +23,39 @@
 	}
 
 	& p {
-		font-family: Figtree, sans-serif;
-		font-size: 14px;
+		font-family: Inter, sans-serif;
+		font-size: 0.875rem;
 	}
 
 	& h1 {
-		font-family: Figtree, sans-serif;
-		font-size: 50px;
+		font-family: "Clash Grotesk", sans-serif;
+		font-size: 3.125rem;
 		line-height: 1.2;
 	}
 
 	& h2 {
-		font-family: Figtree, sans-serif;
-		font-size: 24px;
+		font-family: "Clash Grotesk", sans-serif;
+		font-size: 1.5rem;
 		line-height: 1.2;
 		margin: 0 0 20px;
 	}
 
 	& h3 {
 		margin-top: 0;
-		font-family: Figtree, sans-serif;
-		font-size: 20px;
+		font-family: "Clash Grotesk", sans-serif;
+		font-size: 1.25rem;
 	}
 
 	& h4 {
 		margin-top: 0;
-		font-family: Figtree, sans-serif;
-		font-size: 20px;
+		font-family: "Clash Grotesk", sans-serif;
+		font-size: 1.25rem;
 	}
 
 	& p,
 	& label {
-		font-family: Figtree, sans-serif;
-		font-size: 14px;
+		font-family: Inter, sans-serif;
+		font-size: 0.875rem;
 	}
 
 	& .button,
@@ -67,14 +67,14 @@
 		background-color: var(--color-cb-primary);
 		color: #efefef;
 		cursor: pointer;
-		font-size: 14px;
+		font-size: 0.875rem;
 		font-weight: 500;
 		padding: 10px 25px;
 		text-decoration: none;
 		white-space: normal;
 		width: auto;
 		line-height: 1;
-		font-family: Figtree, sans-serif;
+		font-family: "Clash Grotesk", sans-serif;
 		transition: all linear 300ms;
 		border-radius: 5px;
 
@@ -108,7 +108,7 @@
 		& .options-header {
 			width: 100%;
 			background-color: var(--color-cb-white);
-			border-bottom: 1px solid var(--color-cb-secondary);
+			border-bottom: 1px solid var(--color-cb-tertiary);
 			height: 65px;
 			padding: 10px;
 			display: flex;
@@ -123,7 +123,7 @@
 
 			& h1 {
 				margin: 0;
-				font-size: 20px;
+				font-size: 1.25rem;
 				font-weight: 600;
 			}
 
@@ -134,7 +134,7 @@
 
 				& p {
 					margin: 0;
-					font-size: 14px;
+					font-size: 0.875rem;
 					font-weight: 400;
 				}
 			}
@@ -154,7 +154,7 @@
 				justify-content: center;
 
 				& h2 {
-					font-size: 30px;
+					font-size: 1.875rem;
 				}
 			}
 
@@ -220,7 +220,7 @@
 							align-self: flex-end;
 
 							& .button {
-								font-size: 14px;
+								font-size: 0.875rem;
 								font-weight: 400;
 								padding: 5px 8px;
 							}
@@ -263,7 +263,8 @@
 
 									& p {
 										margin: 0;
-										font-size: 14px;
+										font-size: 0.875rem;
+										font-family: "Clash Grotesk", sans-serif;
 									}
 								}
 
@@ -436,7 +437,8 @@
 
 								& p {
 									margin: 0;
-									font-size: 14px;
+									font-size: 0.875rem;
+									font-family: "Clash Grotesk", sans-serif;
 								}
 							}
 
@@ -474,7 +476,7 @@
 				& .theme-title {
 					color: var(--color-cb-primary);
 					font-weight: 500;
-					font-size: 20px;
+					font-size: 1.25rem;
 					margin: 0 0 0.5rem;
 				}
 

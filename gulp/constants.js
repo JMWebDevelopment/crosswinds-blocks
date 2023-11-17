@@ -113,8 +113,8 @@ let paths = {
 		dest: `${rootPath}/admin/js`
 	},
 	images: {
-		src: `${assetsDir}/images/src/**/*.{jpg,JPG,png,svg,gif,GIF}`,
-		dest: `${assetsDir}/images/`
+		src: `${rootPath}/admin/images/src/**/*.{jpg,JPG,png,svg,gif,GIF}`,
+		dest: `${rootPath}/admin/images/`
 	},
 	webfonts: {
 		src: `${assetsDir}/webfonts/*.{eot,svg,ttf,woff,woff2}`,
