@@ -80,7 +80,7 @@ export default function Edit( props ) {
 					/>
 
 					<TextControl
-						label={ __( 'Tab Id', 'crosswinds-blocks' ) }
+						label={ __( 'Copyright Text', 'crosswinds-blocks' ) }
 						value={ copyrightText }
 						onChange={ ( value ) => setAttributes( {
 							copyrightText: value,
