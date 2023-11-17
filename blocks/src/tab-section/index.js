@@ -31,7 +31,7 @@ registerBlockType( metadata.name, {
 	 * @see ./edit.js
 	 */
 	icon: {
-		src: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1b1930" class="fa-primary" d="M512 192v240c0 26.5-21.5 48-48 48h-416C21.5 480 0 458.5 0 432V192H512z"/><path fill="#3e7ea8" class="fa-secondary" d="M512 144V192H0V80C0 53.5 21.5 32 48 32h160l64 64h192C490.5 96 512 117.5 512 144z"/></svg>,
+		src: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#171247" class="fa-primary" d="M512 192v240c0 26.5-21.5 48-48 48h-416C21.5 480 0 458.5 0 432V192H512z"/><path fill="#8200ff" class="fa-secondary" d="M512 144V192H0V80C0 53.5 21.5 32 48 32h160l64 64h192C490.5 96 512 117.5 512 144z"/></svg>,
 	},
 	edit: Edit,
 
