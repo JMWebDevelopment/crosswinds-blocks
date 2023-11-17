@@ -44,7 +44,7 @@ $added_plugins = array();
 <div class="options-wrap">
 
 	<div class="options-header">
-		<img src="<?php echo esc_url( plugin_dir_url( dirname( __FILE__ ) ) . 'images/cf-wordmark.png' ); ?>" alt="Crosswinds Blocks Logo" />
+		<img src="<?php echo esc_url( plugin_dir_url( dirname( __FILE__ ) ) . 'images/crosswinds-framework-wordmark-dark.png' ); ?>" alt="Crosswinds Framework Logo" />
 		<div class="header-section">
 			<h1 class="screen-reader-text"><?php esc_html_e( 'Crosswinds Framework', 'crosswinds-blocks' ); ?></h1>
 		</div>
