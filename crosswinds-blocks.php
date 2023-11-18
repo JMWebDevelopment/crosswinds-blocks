@@ -3,7 +3,7 @@
  * Plugin Name:       Crosswinds Blocks
  * Plugin URI:        https://crosswindsframework.com/
  * Description:       Take your website to the next level with the Crosswinds Blocks plugin!
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Jacob Martella Web Development
  * Author URI:        https://jacobmartella.com
  * Text Domain:       crosswinds-blocks
@@ -22,7 +22,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'CROSSWINDS_BLOCKS_VERSION', '1.0.0' );
+define( 'CROSSWINDS_BLOCKS_VERSION', '1.0.1' );
 define( 'CROSSWINDS_BLOCKS_PLUGIN_PATH', plugin_dir_path( __DIR__ ) );
 
 /**
