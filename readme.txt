@@ -3,7 +3,7 @@ Contributors: ArenaPigskin
 Tags:              blocks, design, grid, accordions, tabs, site editor, block editor, single posts, post navigation, related posts, custom post types
 Requires at least: 6.0
 Tested up to:      6.4
-Stable tag:        1.0.1
+Stable tag:        1.0.2
 Requires PHP:      7.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -134,6 +134,9 @@ The plugin is now active on your website and you can start adding cool blocks to
 9. Block and Design tools from Crosswinds Blocks.
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed issue with some files not being in the SVN repository.
 
 = 1.0.1 =
 * Fixed issues with the copyright block.
