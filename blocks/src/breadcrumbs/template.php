@@ -42,6 +42,8 @@ $home_url = get_bloginfo( 'url' );
 	/* Check for homepage first! */
 	if ( is_home() || is_front_page() ) {
 		$on_homepage = 1;
+	} else {
+		$on_homepage = 0;
 	}
 
 	if ( 0 === $show_on_homepage && 1 === $on_homepage ) {
