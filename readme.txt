@@ -135,6 +135,9 @@ The plugin is now active on your website and you can start adding cool blocks to
 
 == Changelog ==
 
+= 1.0.4 =
+* Fixed the breadcrumbs showing an error.
+
 = 1.0.2 =
 * Fixed issue with some files not being in the SVN repository.
 

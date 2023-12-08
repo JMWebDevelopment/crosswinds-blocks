@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - December 8, 2023
+### Fixed
+- Fixed the breadcrumbs showing an error.
+
 ## 1.0.2 - November 20, 2023
 ### Fixed
 - Fixed issue with some files not being in the SVN repository.

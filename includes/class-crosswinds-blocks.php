@@ -65,7 +65,7 @@ class Crosswinds_Blocks {
 	public function __construct() {
 
 		$this->plugin_name = 'crosswinds-blocks';
-		$this->version     = '1.0';
+		$this->version     = '1.0.4';
 
 		$this->load_dependencies();
 		$this->set_locale();
