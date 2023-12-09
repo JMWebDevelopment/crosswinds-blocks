@@ -133,6 +133,27 @@ $cpts = array(
 		'documentation_link' => '',
 		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#171247" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#8200ff" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
 	),
+	'video' => array(
+		'slug'               => 'video',
+		'name'               => esc_html__( 'Videos', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a video custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><path class="fa-secondary" fill="#8200ff" d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/><path class="fa-primary" fill="#171247" d="M576 128c0-11.8-6.5-22.6-16.9-28.2s-23-5-32.9 1.6L384 196.2V315.8l142.2 94.8c9.8 6.5 22.4 7.2 32.9 1.6s16.9-16.4 16.9-28.2V128z"/></svg>',
+	),
+	'resource' => array(
+		'slug'               => 'resource',
+		'name'               => esc_html__( 'Resources', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a resource custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><path class="fa-secondary" fill="#8200ff" d="M113.6 64c-.2 .8-.3 1.6-.4 2.3C93.9 72.6 80 90.7 80 112v24c0 13.3 10.7 24 24 24h88 88c13.3 0 24-10.7 24-24V112c0-21.3-13.9-39.4-33.2-45.7c-.1-.8-.3-1.6-.4-2.3H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h49.6z"/><path class="fa-primary" fill="#171247" d="M192 0c-39.5 0-72.4 28.7-78.8 66.3C93.9 72.6 80 90.7 80 112v24c0 13.3 10.7 24 24 24h88 88c13.3 0 24-10.7 24-24V112c0-21.3-13.9-39.4-33.2-45.7C264.4 28.7 231.5 0 192 0zm0 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>',
+	),
+	'guide' => array(
+		'slug'               => 'guide',
+		'name'               => esc_html__( 'Guides', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a guide custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path class="fa-secondary" fill="#8200ff" d="M256 0c-17.7 0-32 14.3-32 32V64h64V32c0-17.7-14.3-32-32-32zm32 480V256H224V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/><path class="fa-primary" fill="#171247" d="M441.6 75.5l61.9 74.2c4.9 5.9 4.9 14.6 0 20.5l-61.9 74.2c-6.1 7.3-15.1 11.5-24.6 11.5H64c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32H417c9.5 0 18.5 4.2 24.6 11.5z"/></svg>',
+	),
 );
 $cpts = apply_filters( 'crosswinds_blocks_post_types_list', $cpts );
 
@@ -150,6 +171,48 @@ $custom_taxonomies = array(
 		'description'        => esc_html__( 'Add a project tag taxonomy for the project custom post type for your website.', 'crosswinds-blocks' ),
 		'documentation_link' => '',
 		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#171247" class="fa-primary" d="M572.6 270.3l-96 192C471.2 473.2 460.1 480 447.1 480H0l119.2-238.3C124.6 230.8 135.7 224 147.8 224h396.2C567.7 224 583.2 249 572.6 270.3z"/><path fill="#8200ff" class="fa-secondary" d="M480 144V224H147.8C135.7 224 124.6 230.8 119.2 241.7L0 480V80C0 53.49 21.49 32 48 32h160l64 64h160C458.5 96 480 117.5 480 144z"/></svg>',
+	),
+	'video_playlist' => array(
+		'slug'               => 'video-playlist',
+		'name'               => esc_html__( 'Video Playlist', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a video playlist taxonomy for the video custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><path class="fa-secondary" fill="#8200ff" d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/><path class="fa-primary" fill="#171247" d="M576 128c0-11.8-6.5-22.6-16.9-28.2s-23-5-32.9 1.6L384 196.2V315.8l142.2 94.8c9.8 6.5 22.4 7.2 32.9 1.6s16.9-16.4 16.9-28.2V128z"/></svg>',
+	),
+	'video_topic' => array(
+		'slug'               => 'video-topic',
+		'name'               => esc_html__( 'Video Topic', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a video topic taxonomy for the video custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><path class="fa-secondary" fill="#8200ff" d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/><path class="fa-primary" fill="#171247" d="M576 128c0-11.8-6.5-22.6-16.9-28.2s-23-5-32.9 1.6L384 196.2V315.8l142.2 94.8c9.8 6.5 22.4 7.2 32.9 1.6s16.9-16.4 16.9-28.2V128z"/></svg>',
+	),
+	'resource_category' => array(
+		'slug'               => 'resource-category',
+		'name'               => esc_html__( 'Resource Category', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a resource category taxonomy for the resource custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><path class="fa-secondary" fill="#8200ff" d="M113.6 64c-.2 .8-.3 1.6-.4 2.3C93.9 72.6 80 90.7 80 112v24c0 13.3 10.7 24 24 24h88 88c13.3 0 24-10.7 24-24V112c0-21.3-13.9-39.4-33.2-45.7c-.1-.8-.3-1.6-.4-2.3H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h49.6z"/><path class="fa-primary" fill="#171247" d="M192 0c-39.5 0-72.4 28.7-78.8 66.3C93.9 72.6 80 90.7 80 112v24c0 13.3 10.7 24 24 24h88 88c13.3 0 24-10.7 24-24V112c0-21.3-13.9-39.4-33.2-45.7C264.4 28.7 231.5 0 192 0zm0 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>',
+	),
+	'resource_tag' => array(
+		'slug'               => 'resource-tag',
+		'name'               => esc_html__( 'Resource Tag', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a resource tag taxonomy for the resource custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><path class="fa-secondary" fill="#8200ff" d="M113.6 64c-.2 .8-.3 1.6-.4 2.3C93.9 72.6 80 90.7 80 112v24c0 13.3 10.7 24 24 24h88 88c13.3 0 24-10.7 24-24V112c0-21.3-13.9-39.4-33.2-45.7c-.1-.8-.3-1.6-.4-2.3H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h49.6z"/><path class="fa-primary" fill="#171247" d="M192 0c-39.5 0-72.4 28.7-78.8 66.3C93.9 72.6 80 90.7 80 112v24c0 13.3 10.7 24 24 24h88 88c13.3 0 24-10.7 24-24V112c0-21.3-13.9-39.4-33.2-45.7C264.4 28.7 231.5 0 192 0zm0 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>',
+	),
+	'guide_category' => array(
+		'slug'               => 'guide-category',
+		'name'               => esc_html__( 'Guide Category', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a guide category taxonomy for the project custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path class="fa-secondary" fill="#8200ff" d="M256 0c-17.7 0-32 14.3-32 32V64h64V32c0-17.7-14.3-32-32-32zm32 480V256H224V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/><path class="fa-primary" fill="#171247" d="M441.6 75.5l61.9 74.2c4.9 5.9 4.9 14.6 0 20.5l-61.9 74.2c-6.1 7.3-15.1 11.5-24.6 11.5H64c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32H417c9.5 0 18.5 4.2 24.6 11.5z"/></svg>',
+	),
+	'guide_tag' => array(
+		'slug'               => 'guide-tag',
+		'name'               => esc_html__( 'Guide Tag', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Add a guide tag taxonomy for the guide custom post type for your website.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path class="fa-secondary" fill="#8200ff" d="M256 0c-17.7 0-32 14.3-32 32V64h64V32c0-17.7-14.3-32-32-32zm32 480V256H224V480c0 17.7 14.3 32 32 32s32-14.3 32-32z"/><path class="fa-primary" fill="#171247" d="M441.6 75.5l61.9 74.2c4.9 5.9 4.9 14.6 0 20.5l-61.9 74.2c-6.1 7.3-15.1 11.5-24.6 11.5H64c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32H417c9.5 0 18.5 4.2 24.6 11.5z"/></svg>',
 	),
 );
 $custom_taxonomies = apply_filters( 'crosswinds_blocks_taxonomies_list', $custom_taxonomies );
