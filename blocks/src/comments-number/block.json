@@ -1,0 +1,73 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/comments-number",
+	"version": "0.1.0",
+	"title": "Comments Number",
+	"category": "crosswinds-blocks",
+	"description": "Display the number of comments for a post.",
+	"supports": {
+		"align": [ "wide", "full" ],
+		"html": false,
+		"ariaLabel": true,
+		"__experimentalLayout": true,
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": true,
+			"blockGap": true,
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		"color": {
+			"gradients": true,
+			"link": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"shadow": true,
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontWeight": true,
+			"__experimentalFontStyle": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		}
+	},
+	"attributes": {
+		"singularCommentText": {
+			"type": "string",
+			"default": ""
+		},
+		"pluralCommentText": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"usesContext": [ "postId" ],
+	"textdomain": "crosswinds-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

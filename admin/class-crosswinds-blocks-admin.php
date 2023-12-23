@@ -256,6 +256,7 @@ class Crosswinds_Blocks_Admin {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-skills-slider-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-social-share-content-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-tabs-block', array( $this, 'sanitize_int' ) );
+		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-comments-number-block', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-project-cpt', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-project-category-taxonomy', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-project-tag-taxonomy', array( $this, 'sanitize_int' ) );

@@ -228,6 +228,15 @@ class Crosswinds_Blocks_Blocks {
 			register_block_type( __DIR__ . '/build/tabs/' );
 			register_block_type( __DIR__ . '/build/tab-section/' );
 		}
+
+		if ( get_option( 'crosswinds-blocks-comments-number-block' ) || apply_filters( 'crosswinds_blocks_enable_comments-number_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/comments-number/',
+				array(
+					'render_callback' => array( $this, 'comments_number_block_render_callback' ),
+				)
+			);
+		}
 	}
 
 	/**
@@ -514,6 +523,12 @@ class Crosswinds_Blocks_Blocks {
 	public function download_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/download-search/template.php';
+		return ob_get_clean();
+	}
+
+	public function comments_number_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/comments-number/template.php';
 		return ob_get_clean();
 	}
 

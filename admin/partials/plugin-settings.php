@@ -38,6 +38,13 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#171247" class="fa-primary" d="M441.4 64C445.6 64 449.7 65.69 452.7 68.69L500.7 116.7C506.9 122.9 506.9 133.1 500.7 139.3L452.7 187.3C449.7 190.3 445.6 192 441.4 192H63.1C46.33 192 31.1 177.7 31.1 160V96C31.1 78.33 46.33 64 63.1 64L441.4 64zM448 224C465.7 224 480 238.3 480 256V320C480 337.7 465.7 352 448 352H70.63C66.38 352 62.31 350.3 59.31 347.3L11.31 299.3C5.065 293.1 5.065 282.9 11.31 276.7L59.31 228.7C62.31 225.7 66.38 223.1 70.63 223.1L448 224z"/><path fill="#8200ff" class="fa-secondary" d="M224 32C224 14.33 238.3 0 256 0C273.7 0 288 14.33 288 32V64H224V32zM288 192V224H224V192H288zM256 512C238.3 512 224 497.7 224 480V352H288V480C288 497.7 273.7 512 256 512z"/></svg>',
 	),
+	'comments-number' => array(
+		'slug'               => 'comments-number',
+		'name'               => esc_html__( 'Comments Number', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Display the number of comments for a post.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512"><path class="fa-secondary" fill="#8200ff" d="M256 352v32c0 35.3 28.7 64 64 64H437.3l81.1 60.8c4.8 3.6 11.3 4.2 16.8 1.5s8.8-8.2 8.8-14.3V448h32c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H448V256c0 53-43 96-96 96H256z"/><path class="fa-primary" fill="#171247" d="M0 64C0 28.7 28.7 0 64 0H352c35.3 0 64 28.7 64 64V256c0 35.3-28.7 64-64 64H202.7l-81.1 60.8c-4.8 3.6-11.3 4.2-16.8 1.5s-8.8-8.2-8.8-14.3V320H64c-35.3 0-64-28.7-64-64V64z"/></svg>',
+	),
 	'copyright' => array(
 		'slug'               => 'copyright',
 		'name'               => esc_html__( 'Copyright', 'crosswinds-blocks' ),

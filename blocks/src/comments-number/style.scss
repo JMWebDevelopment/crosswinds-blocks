@@ -1,0 +1,99 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-portafoglio-portafoglio-next-post {
+
+	.navigation-post {
+
+		&.post-overlay {
+			position: relative;
+			overflow: hidden;
+
+			.blog-item-lower {
+				position: absolute;
+				height: 0;
+				width: 100%;
+				top: 100%;
+				left: 0;
+				//background-color: rgba(var(--wp--preset--color--primary), 0.85);
+				background: var(--wp--preset--color--black);
+				opacity: 0;
+				color: var(--wp--preset--color--white);
+				margin-block-start: 0;
+				transition: all 200ms linear;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 15px;
+
+				& a {
+					text-decoration: none;
+					color: var(--wp--preset--color--white);
+
+					&:hover,
+					&:focus {
+						color: var(--wp--preset--color--tertiary);
+					}
+				}
+			}
+
+			&:hover,
+			&:focus,
+			&:focus-within {
+
+				.blog-item-lower {
+					top: 0;
+					height: 100%;
+					opacity: 0.85;
+				}
+			}
+		}
+
+		&.post-column {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+
+			& .post-image {
+				position: relative;
+
+				& .wp-block-post-date {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: auto;
+					margin-block-start: 0;
+				}
+			}
+
+			& .blog-item-inner {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				width: 100%;
+
+				& .wp-block-post-terms {
+					margin-bottom: 10px;
+
+					& a {
+						text-decoration: none;
+					}
+				}
+
+				& .wp-block-read-more {
+					margin-top: auto;
+				}
+			}
+
+			&.is-style-small-borders {
+				position: relative;
+			}
+		}
+	}
+}
