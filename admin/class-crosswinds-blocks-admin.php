@@ -260,6 +260,16 @@ class Crosswinds_Blocks_Admin {
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-project-category-taxonomy', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-project-tag-taxonomy', array( $this, 'sanitize_int' ) );
 		register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-google-maps-api-key', array( $this, 'sanitize_text_field' ) );
+
+		$post_types = $this->get_post_types_list();
+
+		if ( $post_types ) {
+			register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-post-related-taxonomy', array( $this, 'sanitize_text_field' ) );
+
+			foreach (  $post_types as $post_type ) {
+				register_setting( 'crosswinds_blocks_options_settings', 'crosswinds-blocks-' . wp_kses_post( $post_type['slug'] ) . '-related-taxonomy', array( $this, 'sanitize_text_field' ) );
+			}
+		}
 	}
 
 	/**

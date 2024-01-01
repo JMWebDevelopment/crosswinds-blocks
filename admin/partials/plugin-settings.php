@@ -410,7 +410,67 @@ $allowed_tags = array(
 		</div>
 	</div>
 
-	<div class="cb-options-section">
+	<div class="cb-options-section no-flex">
+		<?php
+		if ( get_option( 'crosswinds-blocks-related-posts-block' ) || apply_filters( 'crosswinds_blocks_enable_related-posts_block', false ) ) {
+			?>
+			<h3><?php esc_html_e( 'Related Posts Block Settings', 'crosswinds-blocks' ); ?></h3>
+			<?php
+			$post_types_args = array(
+				'public'             => true,
+				'show_in_rest'       => true,
+			);
+			$post_types      = get_post_types( $post_types_args, 'objects' );
+
+			if ( $post_types ) {
+				?>
+				<p><?php esc_html_e( 'Select the taxonomy to be used to get related posts for each post type.', 'crosswinds-blocks' ); ?></p>
+				<table class="form-table">
+					<thead>
+						<tr>
+							<th><span class="screen-reader-text"><?php esc_html_e( 'Post Type', 'crosswinds-blocks' ); ?></span></th>
+							<th><span class="screen-reader-text"><?php esc_html_e( 'Selected Taxonomy', 'crosswinds-blocks' ); ?></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						foreach ( $post_types as $the_post_type ) {
+							$taxonomies = get_object_taxonomies( $the_post_type->name, 'objects' );
+
+							if ( empty( $taxonomies ) ) {
+								continue;
+							}
+							?>
+							<tr valign="top">
+								<td><label for="crosswinds-blocks-<?php echo esc_attr( $the_post_type->name ); ?>-related-taxonomy"><?php echo wp_kses_post( $the_post_type->label ); ?></label></td>
+								<td>
+									<select id="crosswinds-blocks-<?php echo esc_attr( $the_post_type->name ); ?>-related-taxonomy" name="crosswinds-blocks-<?php echo esc_attr( $the_post_type->name ); ?>-related-taxonomy">
+										<option value=""><?php esc_html_e( 'Select a Taxonomy', 'crosswinds-blocks' ); ?></option>
+										<?php
+										foreach ( $taxonomies as $the_taxonomy ) {
+											if ( get_option( 'crosswinds-blocks-' . $the_post_type->name . '-related-taxonomy' ) === $the_taxonomy->name ) {
+												$selected = 'selected="selected"';
+											} else {
+												$selected = '';
+											}
+											?>
+											<option value="<?php echo esc_attr( $the_taxonomy->name ); ?>" <?php echo wp_kses_post( $selected ); ?>><?php echo wp_kses_post( $the_taxonomy->label ); ?></option>
+											<?php
+										}
+										?>
+									</select>
+								</td>
+							</tr>
+							<?php
+						}
+						?>
+					</tbody>
+				</table>
+				<?php
+			}
+		}
+		?>
+
 		<h3><?php esc_html_e( 'Other Settings', 'crosswinds-blocks' ); ?></h3>
 
 		<div class="options-area">

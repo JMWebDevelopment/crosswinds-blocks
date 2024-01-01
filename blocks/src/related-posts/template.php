@@ -16,11 +16,28 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+if ( get_option( 'crosswinds-blocks-' . get_post_type( get_the_ID() ) . '-related-taxonomy' ) ) {
+	$search_tax = get_option( 'crosswinds-blocks-' . get_post_type( get_the_ID() ) . '-related-taxonomy' );
+} else {
+	$search_tax = 'category';
+}
+
+$search_terms = get_the_terms( get_the_ID(), $search_tax, 'string' );
+$term_ids     = wp_list_pluck( $search_terms, 'term_id' );
+
 $block_query_args = array(
+	'post_type'           => get_post_type( get_the_ID() ),
 	'posts_per_page'      => $attributes['numPosts'],
 	'ignore_sticky_posts' => 1,
 	'post__not_in'        => array( get_the_ID() ),
-	'category__in'        => wp_get_post_categories( get_the_ID() ),
+	'tax_query'           => array(
+		array(
+			'taxonomy' => $search_tax,
+			'field'    => 'id',
+			'terms'    => $term_ids,
+			'operator'  => 'IN',
+		),
+	),
 	'orderby'             => 'rand',
 );
 $block_query      = new WP_Query( $block_query_args );

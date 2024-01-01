@@ -210,6 +210,10 @@
 							margin-bottom: 0;
 						}
 
+						&.no-flex {
+							display: block;
+						}
+
 						& h3 {
 							margin-bottom: 0;
 							flex: 1;
