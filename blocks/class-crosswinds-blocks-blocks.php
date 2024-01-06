@@ -131,6 +131,17 @@ class Crosswinds_Blocks_Blocks {
 			);
 		}
 
+		if ( get_option( 'crosswinds-blocks-post-type-search-results-block' ) || apply_filters( 'crosswinds_blocks_enable_post-type-search-results_block', false ) ) {
+			register_block_type( __DIR__ . '/build/post-types-search-results/' );
+			register_block_type( __DIR__ . '/build/single-post-types-search-results/' );
+			register_block_type(
+				__DIR__ . '/build/single-post-type-search-results/',
+				array(
+					'render_callback' => array( $this, 'single_post_type_search_results_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-project-search-filters-block' ) || apply_filters( 'crosswinds_blocks_enable_project-search-filters_block', false ) || apply_filters( 'crosswinds_blocks_enable_project_cpt', false ) ) {
 			register_block_type(
 				__DIR__ . '/build/project-category-search/',

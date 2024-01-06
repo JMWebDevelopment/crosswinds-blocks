@@ -66,7 +66,14 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#171247" d="M64 32C28.65 32 0 60.65 0 96v48C0 152.8 7.164 160 16 160H128V96C128 60.65 99.35 32 64 32zM560 352H288v48c0 44.18-35.82 80-80 80h256c61.88 0 112-50.13 112-112C576 359.1 568.9 352 560 352z" /><path fill="#8200ff" d="M480 128v224h-192v48c0 44.18-35.82 80-80 80C163.8 480 128 444.2 128 400V96c0-35.35-28.65-64-64-64h320C437 32 480 75 480 128z" /></svg>',
 	),
-	'project-searchh-filters' => array(
+	'post-type-search-results' => array(
+		'slug'               => 'post-type-search-results',
+		'name'               => esc_html__( 'Post Type Search Results', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Display search results based on the post type searched for.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path class="fa-secondary" fill="#8200ff" d="M192 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H488c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32zm32 128H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/><path class="fa-primary" fill="#171247" d="M48 32C34.7 32 24 42.8 24 56s10.7 24 24 24h8v96H40c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24H104V56c0-13.3-10.7-24-24-24H48zM62.6 342.4c5.7-8.1 17.5-8.6 24-1.2c5.2 5.9 5 14.7-.3 20.5l-72 78c-6.5 7-8.2 17.2-4.3 25.9s12.5 14.4 22 14.4h88c13.3 0 24-10.7 24-24s-10.7-24-24-24H86.8l34.8-37.7c22-23.8 22.4-60.3 1.1-84.7c-26.9-30.7-75.4-28.4-99.2 4.9L12.5 330.1c-7.7 10.8-5.2 25.8 5.6 33.5s25.8 5.2 33.5-5.6l11.1-15.6z"/></svg>',
+	),
+	'project-search-filters' => array(
 		'slug'               => 'project-search-filters',
 		'name'               => esc_html__( 'Project Search Filters', 'crosswinds-blocks' ),
 		'description'        => esc_html__( 'Adds in a set of project search blocks that allow you to create a project search filters section.', 'crosswinds-blocks' ),
