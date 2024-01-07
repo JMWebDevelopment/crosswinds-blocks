@@ -587,4 +587,21 @@ class Crosswinds_Blocks_Blocks {
 			1
 		);
 	}
+
+	public function update_post_title_block( $block_content, $block ) {
+		if ( 'core/post-title' !== $block['blockName'] ) {
+			return $block_content;
+		}
+
+		if ( 0 === $block['attrs']['level'] ) {
+			return preg_replace(
+				'/' . preg_quote( 'h0', '/' ) . '/',
+				'p',
+				$block_content,
+				1
+			);
+		}
+
+		return $block_content;
+	}
 }

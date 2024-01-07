@@ -160,6 +160,7 @@ class Crosswinds_Blocks {
 		$this->loader->add_action( 'enqueue_block_editor_assets', $blocks, 'custom_attributes_editor_scripts' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $blocks, 'custom_attributes_scripts' );
 		$this->loader->add_action( 'render_block', $blocks, 'add_post_template_responsive_classes', 10, 2 );
+		$this->loader->add_action( 'render_block', $blocks, 'update_post_title_block', 10, 2 );
 	}
 
 	/**
