@@ -56,6 +56,15 @@ class Crosswinds_Blocks_Blocks {
 			register_block_type( __DIR__ . '/build/accordion-body/' );
 		}
 
+		if ( get_option( 'crosswinds-blocks-acf-field-block' ) || apply_filters( 'crosswinds_blocks_enable_acf-field_block', false ) ) {
+			register_block_type(
+				__DIR__ . '/build/acf-block/',
+				array(
+					'render_callback' => array( $this, 'acf_field_block_render_callback' ),
+				)
+			);
+		}
+
 		if ( get_option( 'crosswinds-blocks-basic-grid-block' ) || apply_filters( 'crosswinds_blocks_enable_basic-grid_block', false ) ) {
 			register_block_type( __DIR__ . '/build/basic-grid/' );
 			register_block_type( __DIR__ . '/build/basic-grid-item/' );
@@ -514,6 +523,12 @@ class Crosswinds_Blocks_Blocks {
 	public function download_search_block_render_callback( $attributes, $content, $block ) {
 		ob_start();
 		require plugin_dir_path( __FILE__ ) . 'build/download-search/template.php';
+		return ob_get_clean();
+	}
+
+	public function acf_field_block_render_callback( $attributes, $content, $block ) {
+		ob_start();
+		require plugin_dir_path( __FILE__ ) . 'build/acf-block/template.php';
 		return ob_get_clean();
 	}
 

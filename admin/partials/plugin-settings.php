@@ -24,6 +24,13 @@ $blocks = array(
 		'documentation_link' => '',
 		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#171247" class="fa-primary" d="M416 128H32C14.33 128 0 113.7 0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/><path fill="#8200ff" class="fa-secondary" d="M0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256z"/></svg>',
 	),
+	'acf-field' => array(
+		'slug'               => 'acf-field',
+		'name'               => esc_html__( 'ACF Field', 'crosswinds-blocks' ),
+		'description'        => esc_html__( 'Display a value from an Advanced Custom Fields field.', 'crosswinds-blocks' ),
+		'documentation_link' => '',
+		'icon'               => '<svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512"><path class="fa-secondary" fill="#8200ff" d="M576 128V384H64V128H576zM64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H576c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64z"/><path fill="#171247" class="fa-primary" d="M104 184c0-13.3 10.7-24 24-24s24 10.7 24 24V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184z"/></svg>',
+	),
 	'basic-grid' => array(
 		'slug'               => 'basic-grid',
 		'name'               => esc_html__( 'Basic Grid', 'crosswinds-blocks' ),

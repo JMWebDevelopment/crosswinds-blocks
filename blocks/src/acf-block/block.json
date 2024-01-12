@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "crosswinds-blocks/acf-block",
+	"version": "1.0.0",
+	"title": "Advanced Custom Fields Field",
+	"description": "Display a value from an Advanced Custom Fields field.",
+	"category": "crosswinds-blocks",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"__experimentalLayout": true
+	},
+	"attributes": {
+		"fieldType": {
+			"type": "string",
+			"default": "text"
+		},
+		"fieldName": {
+			"type": "string",
+			"default": "text"
+		},
+		"dateTimeFormat": {
+			"type": "string",
+			"default": "F j, Y"
+		}
+	},
+	"textdomain": "crosswinds-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
